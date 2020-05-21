@@ -67,7 +67,7 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment
                 Per.Parent = parent_id;
                 Per.Url_Path = url;
                 Per.Permission_Icon = icon;
-                Per.System_Id = int.Parse(txtSystem.SelectedValue.ToString());
+                Per.System_Id = 1;
                 db.Permissions.Add(Per);
                 db.SaveChanges();
 

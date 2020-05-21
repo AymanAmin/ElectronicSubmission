@@ -7,28 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ElectronicSubmission.Pages.Setting.UserManagment {
+namespace ElectronicSubmission.Pages.RegistrationProcess {
     
     
-    public partial class MyNotifications {
-        
-        /// <summary>
-        /// Reload control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Reload;
-        
-        /// <summary>
-        /// Notifications control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal Notifications;
+    public partial class View {
         
         /// <summary>
         /// Refresh control.

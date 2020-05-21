@@ -53,53 +53,17 @@
                             <li><i class="fa fa-window-maximize full-card"></i></li>
                             <li><i class="fa fa-minus minimize-card"></i></li>
                             <li>
-                                <asp:LinkButton ID="Refresh" runat="server" OnClick="Refresh_Click" ><i class="fa fa-refresh reload-card"></i></asp:LinkButton></li>
+                                <asp:LinkButton ID="Refresh" runat="server" OnClick="Refresh_Click"><i class="fa fa-refresh reload-card"></i></asp:LinkButton></li>
                             <!--<li><i class="fa fa-trash close-card"></i></li>-->
                         </ul>
                     </div>
                 </div>
-                <!-- <div class="card-block">
-                <div class="latest-update-box">
-                    <asp:Literal ID="Activities" runat="server"></asp:Literal>
 
-                    </div>
-                <div class="text-center">
-                    <a href="#!" class="b-b-primary text-primary">More</a>
+                <div class="card-block user-activity-card feed-card">
+                    <asp:Literal ID="Activity" runat="server"></asp:Literal>
                 </div>
-            </div> -->
-                    <div class="card-block user-activity-card feed-card">
-                         <asp:Literal ID="Activity" runat="server"></asp:Literal>
-                        
-                       <!-- <div class="row m-b-30">
-                            <div class="col-auto p-r-0">
-                                <i class="feather icon-shopping-cart bg-simple-c-pink feed-icon"></i>
-                            </div>
-                            <div class="col">
-                                <h6 class="m-b-5">New order received <span class="text-muted f-right f-13">Just Now</span></h6>
-                            </div>
-                        </div>
-                        <div class="row m-b-30">
-                            <div class="col-auto p-r-0">
-                                <i class="feather icon-file-text bg-simple-c-green feed-icon"></i>
-                            </div>
-                            <div class="col">
-                                <h6 class="m-b-5">You have 3 pending tasks. <span class="text-muted f-right f-13">Just Now</span></h6>
-                            </div>
-                        </div>
-                        <div class="row m-b-20">
-                            <div class="col-auto p-r-0">
-                                <i class="feather icon-shopping-cart bg-simple-c-pink feed-icon"></i>
-                            </div>
-                            <div class="col">
-                                <h6 class="m-b-5">New order received <span class="text-muted f-right f-13">Just Now</span></h6>
-                            </div>
-                        </div>
-                        <div class="text-center">
-                            <a href="#!" class="b-b-primary text-primary">View all Feeds</a>
-                        </div> -->
-                    </div>
-                </div>
+            </div>
         </div>
     </div>
-    
+
 </asp:Content>

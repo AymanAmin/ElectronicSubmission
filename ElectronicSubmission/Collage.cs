@@ -14,10 +14,15 @@ namespace ElectronicSubmission
     
     public partial class Collage
     {
+        public Collage()
+        {
+            this.Specializations = new HashSet<Specialization>();
+        }
+    
         public int Collage_ID { get; set; }
         public string Collage_Name_Ar { get; set; }
         public string Collage_Name_En { get; set; }
     
-        public virtual Specialization Specialization { get; set; }
+        public virtual ICollection<Specialization> Specializations { get; set; }
     }
 }

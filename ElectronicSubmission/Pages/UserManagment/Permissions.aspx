@@ -27,7 +27,7 @@
                             <div class="login-card card-block login-card-modal">
 
                                 <div class="text-center">
-                                    <img src="..\..\..\..\Theme\files\assets\images\auth\logo.png" alt="logo.png">
+                                    <img src="..\..\..\..\Theme\files\assets\images\auth\logo.png" alt="logo.png" />
                                 </div>
                                 <div class="card m-t-15">
                                     <div class="auth-box card-block">
@@ -68,14 +68,6 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-group col-sm-6 j-unit">
-                                                <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("Permissions-System", "System") %></label>
-                                                <div class="input-group">
-                                                    <span class="input-group-addon" id="basic-addon6"><i class="icofont icofont-tree"></i></span>
-                                                    <asp:DropDownList ID="txtSystem" runat="server" class="form-control form-control-primary" DataSourceID="SystemDataSource" DataTextField="System_Name_En" DataValueField="ID">
-                                                    </asp:DropDownList>
-                                                </div>
-                                            </div>
 
                                             <div class="form-group col-sm-6 j-unit" style="margin-top: -1%">
                                                 <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("Permissions-ClassIcon", "Class Icon") %> (<a href="https://icofont.com/icons" target="_blank"><% = ElectronicSubmission.FieldNames.getFieldName("Permissions-ClickHere", "Click Here") %></a>)</label>
@@ -146,13 +138,6 @@
                                     <CellStyle HorizontalAlign="Center">
                                     </CellStyle>
                                 </dx:TreeListComboBoxColumn>
-                                <dx:TreeListComboBoxColumn AutoFilterCondition="Default" Caption="System" FieldName="System_Id" ShowInFilterControl="Default" VisibleIndex="3">
-                                    <PropertiesComboBox DataSourceID="SystemDataSource" TextField="System_Name_En" ValueField="ID">
-                                    </PropertiesComboBox>
-                                    <HeaderStyle HorizontalAlign="Center" />
-                                    <CellStyle HorizontalAlign="Center">
-                                    </CellStyle>
-                                </dx:TreeListComboBoxColumn>
                                 <dx:TreeListCommandColumn VisibleIndex="6" Caption="Action">
                                     <EditButton Visible="True" Text=" ">
                                         <Styles>
@@ -180,6 +165,11 @@
                                         </Styles>
                                     </CancelButton>
                                 </dx:TreeListCommandColumn>
+                                <dx:TreeListTextColumn AutoFilterCondition="Default" Caption="System" FieldName="System_Id" ShowInFilterControl="Default" VisibleIndex="3">
+                                    <HeaderStyle HorizontalAlign="Center" />
+                                    <CellStyle HorizontalAlign="Center">
+                                    </CellStyle>
+                                </dx:TreeListTextColumn>
                             </Columns>
                             <SettingsBehavior AllowAutoFilter="True" AutoExpandAllNodes="True"></SettingsBehavior>
 
@@ -196,8 +186,6 @@
                             </SettingsPopup>
                         </dx:ASPxTreeList>
                         <asp:EntityDataSource ID="PermissionDataSource" runat="server" ConnectionString="name=REU_RegistrationEntities" DefaultContainerName="REU_RegistrationEntities" EnableDelete="True" EnableFlattening="False" EnableInsert="True" EnableUpdate="True" EntitySetName="Permissions">
-                        </asp:EntityDataSource>
-                        <asp:EntityDataSource ID="SystemDataSource" runat="server" ConnectionString="name=REU_RegistrationEntities" DefaultContainerName="REU_RegistrationEntities" EnableDelete="True" EnableFlattening="False" EnableInsert="True" EnableUpdate="True" EntitySetName="OurSystems" EntityTypeFilter="OurSystem">
                         </asp:EntityDataSource>
                     </div>
                 </div>

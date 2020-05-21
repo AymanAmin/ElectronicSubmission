@@ -14,6 +14,11 @@ namespace ElectronicSubmission
     
     public partial class Specialization
     {
+        public Specialization()
+        {
+            this.Students = new HashSet<Student>();
+        }
+    
         public int Specialization_Id { get; set; }
         public string Specialization_Name_Ar { get; set; }
         public string Specialization_Name_En { get; set; }
@@ -25,6 +30,6 @@ namespace ElectronicSubmission
         public string Weighted_Ratio_Percent { get; set; }
     
         public virtual Collage Collage { get; set; }
-        public virtual Student Student { get; set; }
+        public virtual ICollection<Student> Students { get; set; }
     }
 }
