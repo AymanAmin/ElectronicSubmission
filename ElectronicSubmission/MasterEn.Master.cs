@@ -25,11 +25,11 @@ namespace ElectronicSubmission
             if (SessionWrapper.LoggedUser != null)
             {
                 if (SessionWrapper.IsLocked)
-                    Response.Redirect("~/Pages/Setting/admin/LockScreen.aspx");
+                    Response.Redirect("~/Pages/admin/LockScreen.aspx");
             }
             else
             {
-                Response.Redirect("~/Pages/Setting/Auth/Login.aspx");
+                Response.Redirect("~/Pages/Auth/Login.aspx");
             }
             //Change Layout to RTL
             if (SessionWrapper.LoggedUser.Language_id != null)
@@ -212,7 +212,7 @@ namespace ElectronicSubmission
                 }
                 str += "<ul class='pcoded-item pcoded-left-item'>";
                 str += "<li class='SubMenuRTL'>";
-                str += "<a href = '../../../../Pages/Setting/Auth/Logout.ashx' > ";
+                str += "<a href = '../../../../Pages/Auth/Logout.ashx' > ";
                 str += "<span class='pcoded-micon active' style='color:#452a74'><i class='icofont icofont-logout'></i></span>";
                 if (SessionWrapper.LoggedUser.Language_id == 1)
                     str += "<span class='pcoded-mtext'>تسجيل خروج</span>";
@@ -287,7 +287,7 @@ namespace ElectronicSubmission
                         if (counter == 5)
                         {
                             yourHTMLstring = "<li style='padding-top: 2%;padding-bottom: 1%; text-align:center;'>" +
-                                "<a href='../../../../Pages/Setting/UserManagment/MyNotifications.aspx' class='hover-notification'>"+ Classes.FieldNames.getFieldName("Master-SeeAllNotifications", "See All Notifications") + "</a>" +
+                                "<a href='../../../../Pages/UserManagment/MyNotifications.aspx' class='hover-notification'>"+ Classes.FieldNames.getFieldName("Master-SeeAllNotifications", "See All Notifications") + "</a>" +
                                 "</li>";
                             panelNotification.Controls.Add(new LiteralControl(yourHTMLstring));
 

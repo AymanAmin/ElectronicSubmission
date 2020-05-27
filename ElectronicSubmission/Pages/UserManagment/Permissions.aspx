@@ -81,7 +81,7 @@
                                                 <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("Permissions-URLPath", "URL Path") %></label>
                                                 <div class="input-group">
                                                     <span class="input-group-addon" id="basic-addon4"><i class="icofont icofont-link-alt"></i></span>
-                                                    <asp:TextBox ID="txtUrl_Path" runat="server" class="form-control" placeholder="Enter URL Path Ex(Pages/Setting/...)"></asp:TextBox>
+                                                    <asp:TextBox ID="txtUrl_Path" runat="server" class="form-control" placeholder="Enter URL Path Ex(Pages/...)"></asp:TextBox>
                                                 </div>
                                             </div>
 

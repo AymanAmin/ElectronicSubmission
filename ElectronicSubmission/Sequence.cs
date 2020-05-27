@@ -12,20 +12,16 @@ namespace ElectronicSubmission
     using System;
     using System.Collections.Generic;
     
-    public partial class Status
+    public partial class Sequence
     {
-        public Status()
-        {
-            this.Sequences = new HashSet<Sequence>();
-            this.Students = new HashSet<Student>();
-        }
+        public int Sequence_Id { get; set; }
+        public Nullable<int> Emp_Id { get; set; }
+        public Nullable<int> Status_Id { get; set; }
+        public Nullable<int> Student_Id { get; set; }
+        public Nullable<System.DateTime> DateCreation { get; set; }
     
-        public int Status_Id { get; set; }
-        public string Status_Name_Ar { get; set; }
-        public string Status_Name_En { get; set; }
-    
-        public virtual Group_Status Group_Status { get; set; }
-        public virtual ICollection<Sequence> Sequences { get; set; }
-        public virtual ICollection<Student> Students { get; set; }
+        public virtual Employee Employee { get; set; }
+        public virtual Status Status { get; set; }
+        public virtual Student Student { get; set; }
     }
 }

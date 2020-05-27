@@ -29,7 +29,7 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment
             }
             else
             {
-                Response.Redirect("~/Pages/Setting/Auth/Login.aspx");
+                Response.Redirect("~/Pages/Auth/Login.aspx");
             }
 
             if (!IsPostBack)

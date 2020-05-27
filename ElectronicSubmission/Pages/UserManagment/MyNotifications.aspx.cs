@@ -22,7 +22,7 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment
         protected void Page_Load(object sender, EventArgs e)
         {
             if (SessionWrapper.LoggedUser == null)
-                Response.Redirect("~/Pages/Setting/Auth/Login.aspx");
+                Response.Redirect("~/Pages/Auth/Login.aspx");
 
             if (!IsPostBack)
             {

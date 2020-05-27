@@ -18,7 +18,7 @@ namespace ElectronicSubmission.Pages.Setting.Auth
         protected void Page_Load(object sender, EventArgs e)
         {
             if (SessionWrapper.LoggedUser == null)
-                Response.Redirect("~/Pages/Setting/Auth/Login.aspx");
+                Response.Redirect("~/Pages/Auth/Login.aspx");
 
             SessionWrapper.IsLocked = true;
             if (SessionWrapper.LoggedUser.Language_id == 1)

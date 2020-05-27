@@ -21,25 +21,33 @@
         <EntityTypeShape EntityType="REU_RegistrationModel.Permission_Group" Width="1.5" PointX="3" PointY="8.75" />
         <EntityTypeShape EntityType="REU_RegistrationModel.Specialization" Width="1.5" PointX="9" PointY="0.75" />
         <EntityTypeShape EntityType="REU_RegistrationModel.Status" Width="1.5" PointX="0.75" PointY="5.875" />
-        <EntityTypeShape EntityType="REU_RegistrationModel.Student" Width="1.5" PointX="11.25" PointY="7.5" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Specialization_Collage" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Employee_Group" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Employee_LanguageMaster" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Log_File_Employee" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Notification_Employee_Employee" />
-        <AssociationConnector Association="REU_RegistrationModel.FK_Student_Employee" />
-        <AssociationConnector Association="REU_RegistrationModel.FK_Files_Student" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Group_Status_Group" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Permission_Group_Group" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Group_Status_Status" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Lanuage_Detials_LanguageMaster" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Log_File_Permission" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Nationality_Nationality" />
-        <AssociationConnector Association="REU_RegistrationModel.FK_Student_Nationality" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Notification_Employee_Notification_Show" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Notification_Master_Notification_Show" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Permission_Group_Permission" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.Resource" Width="1.5" PointX="0.75" PointY="0.875" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.Student" Width="1.5" PointX="11.25" PointY="5.125" />
+        <AssociationConnector Association="REU_RegistrationModel.FK_Student_Employee" />
+        <AssociationConnector Association="REU_RegistrationModel.FK_Files_Student" />
+        <AssociationConnector Association="REU_RegistrationModel.FK_Student_Nationality" />
+        <AssociationConnector Association="REU_RegistrationModel.FK_Student_Resource" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Student_Specialization" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.Sequence" Width="1.5" PointX="13.5" PointY="5.25" />
+        <AssociationConnector Association="REU_RegistrationModel.FK_Sequence_Employee" />
+        <AssociationConnector Association="REU_RegistrationModel.FK_Sequence_Status" />
+        <AssociationConnector Association="REU_RegistrationModel.FK_Sequence_Student" />
+        <AssociationConnector Association="REU_RegistrationModel.FK_Student_Status" />
+        <AssociationConnector Association="REU_RegistrationModel.FK_Files_Student1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

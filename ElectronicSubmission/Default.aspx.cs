@@ -16,7 +16,7 @@ namespace ElectronicSubmission
         protected void Page_Load(object sender, EventArgs e)
         {
             if (SessionWrapper.LoggedUser == null)
-                Response.Redirect("~/Pages/Setting/Auth/Login.aspx");
+                Response.Redirect("~/Pages/Auth/Login.aspx");
 
             //int EmpStructureID = SessionWrapper.EmpStructure;
             //int masterID = 0;

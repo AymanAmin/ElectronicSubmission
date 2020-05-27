@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterEn.Master" AutoEventWireup="true" CodeBehind="View.aspx.cs" Inherits="ElectronicSubmission.Pages.RegistrationProcess.View" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title><% = ElectronicSubmission.FieldNames.getFieldName("RegistrationManagement-Title", "Registration Management") %></title>
+    <title><% = ElectronicSubmission.FieldNames.getFieldName("View-Title", "View Student File") %></title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Body_Holder" runat="server">
     <!-- Invoice card start -->
@@ -16,20 +16,24 @@
                                     <tbody>
                                         <tr>
                                             <td>
-                                                <img src="..\..\..\..\Theme\files\assets\images\favicon.ico" style="width: 30%" class="m-b-10" alt="" /></td>
+                                                <asp:Image ID="txtProfileImage" runat="server" style="width: 30%" class="m-b-10" alt="Profile Image" ImageUrl="~/Theme/files/assets/images/user-profile/follower/f-1.jpg" />
+                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>Compney Name</td>
+                                            <td><strong>
+                                                <% = ElectronicSubmission.FieldNames.getFieldName("View-SSN", "SSN") %> : </strong><asp:Label ID="txtStudent_SSN" runat="server" Text="Student_SSN"></asp:Label></td>
                                         </tr>
                                         <tr>
-                                            <td>123 6th St. Melbourne, FL 32904 West Chicago, IL 60185</td>
+                                            <td><strong>
+                                                <% = ElectronicSubmission.FieldNames.getFieldName("View-StudentName", "Student Name") %> : </strong><asp:Label ID="txtStudent_Name" runat="server" Text="Student_Name"></asp:Label></td>
                                         </tr>
                                         <tr>
-                                            <td><a href="..\..\..\cdn-cgi\l\email-protection.htm#99fdfcf4f6d9fef4f8f0f5b7faf6f4" target="_top"><span class="__cf_email__" data-cfemail="690d0c0406290e04080005470a0604">[email&#160;protected]</span></a>
-                                            </td>
+                                            <td><strong>
+                                                <% = ElectronicSubmission.FieldNames.getFieldName("View-Nationality", "Nationality") %> : </strong><asp:Label ID="txtStudent_Nationality" runat="server" Text="Student_Nationality"></asp:Label></td>
                                         </tr>
                                         <tr>
-                                            <td>+91 919-91-91-919</td>
+                                            <td><strong>
+                                                <% = ElectronicSubmission.FieldNames.getFieldName("View-Resource", "Resource") %> : </strong><asp:Label ID="txtStudent_Resource" runat="server" Text="Student_Resource"></asp:Label></td>
                                         </tr>
                                         <!-- <tr>
                                                             <td><a href="#" target="_blank">www.demo.com</a>
@@ -46,40 +50,68 @@
                 <div class="card-block">
                     <div class="row invoive-info">
                         <div class="col-md-4 col-xs-12 invoice-client-info">
-                            <h6>Client Information :</h6>
-                            <h6 class="m-0">Josephin Villa</h6>
-                            <p class="m-0 m-t-10">123 6th St. Melbourne, FL 32904 West Chicago, IL 60185</p>
-                            <p class="m-0">(1234) - 567891</p>
-                            <p><a href="..\..\..\cdn-cgi\l\email-protection.htm" class="__cf_email__" data-cfemail="eb8f8e8684ab939291c5888486">[email&#160;protected]</a></p>
+                            <h6><% = ElectronicSubmission.FieldNames.getFieldName("View-ContactInfo", "Contact Info") %></h6>
+                            <h6 class="m-0">
+                                <asp:Label ID="txtStudent_Phone" runat="server" Text="+966 550 932 548"></asp:Label></h6>
+                            <p class="m-0">
+                                <asp:Label ID="txtStudent_Address" runat="server" Text="Saudi Arabia, Riyadh , Almalaz 60 street."></asp:Label></p>
+                            <p><a href="#" class="__cf_email__">
+                                <asp:Label ID="txtStudent_Email" runat="server" Text="Ayman@softwarecornerit.com"></asp:Label></a></p>
                         </div>
                         <div class="col-md-4 col-sm-6">
-                            <h6>Order Information :</h6>
+                            <h6><% = ElectronicSubmission.FieldNames.getFieldName("View-AdditionalInformation", "Additional Information") %></h6>
                             <table class="table table-responsive invoice-table invoice-order table-borderless">
                                 <tbody>
                                     <tr>
-                                        <th>Date :</th>
-                                        <td>November 14</td>
-                                    </tr>
-                                    <tr>
-                                        <th>Status :</th>
-                                        <td>
-                                            <span class="label label-warning">Pending</span>
+                                        <th><% = ElectronicSubmission.FieldNames.getFieldName("View-IdTrack", "Id Track") %> : </th>
+                                        <td>#<asp:Label ID="txtStudent_Id" runat="server" Text="Pedding"></asp:Label>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>Id :</th>
-                                        <td>#145698
-                                                                            </td>
+                                        <th><% = ElectronicSubmission.FieldNames.getFieldName("View-Date", "Date") %> : </th>
+                                        <td>
+                                            <asp:Label ID="txtStudent_CreationDate" runat="server" Text=""></asp:Label></td>
                                     </tr>
+                                    <tr>
+                                        <th><% = ElectronicSubmission.FieldNames.getFieldName("View-Status", "Status") %> : </th>
+                                        <td>
+                                            <span class="label label-warning">
+                                                <asp:Label ID="txtStatus" runat="server" Text="Pedding"></asp:Label></span>
+                                        </td>
+                                    </tr>
+                                    
                                 </tbody>
                             </table>
                         </div>
                         <div class="col-md-4 col-sm-6">
-                            <h6 class="m-b-20">Invoice Number <span>#12398521473</span></h6>
-                            <h6 class="text-uppercase text-primary">Total Due :
-                                                                   
-                        <span>$900.00</span>
-                            </h6>
+                            <h6><% = ElectronicSubmission.FieldNames.getFieldName("View-DegreesInformation", "Degrees Information") %></h6>
+                            <table class="table table-responsive invoice-table invoice-order table-borderless">
+                                <tbody>
+                                    <tr>
+                                        <th><% = ElectronicSubmission.FieldNames.getFieldName("View-HighSchool", "High School") %> : </th>
+                                        <td>
+                                            <asp:Label ID="txtStudent_High_School_Degree" runat="server" Text="30%"></asp:Label></td>
+                                    </tr>
+                                    <tr>
+                                        <th><% = ElectronicSubmission.FieldNames.getFieldName("View-Capabilities", "Capabilities") %> : </th>
+                                        <td>
+                                            <asp:Label ID="txtStudent_Capabilities_Degree" runat="server" Text="30%"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th><% = ElectronicSubmission.FieldNames.getFieldName("View-Achievement", "Achievement") %> : </th>
+                                        <td>
+                                            <asp:Label ID="txtStudent_My_Achievement_Degree" runat="server" Text="40%"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th><% = ElectronicSubmission.FieldNames.getFieldName("View-Total", "Total") %> : </th>
+                                        <td>
+                                            <asp:Label ID="txtStudent_Total" runat="server" Text="70%"></asp:Label>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <div class="row">
@@ -88,40 +120,14 @@
                                 <table class="table  invoice-detail-table">
                                     <thead>
                                         <tr class="thead-default">
-                                            <th>File Name/Type</th>
-                                            <th>Update</th>
-                                            <th>Delete</th>
-                                            <th>View</th>
+                                            <th><% = ElectronicSubmission.FieldNames.getFieldName("View-FileName/Type", "File Name/Type") %></th>
+                                            <th><% = ElectronicSubmission.FieldNames.getFieldName("View-Update", "Update") %></th>
+                                            <th><% = ElectronicSubmission.FieldNames.getFieldName("View-Delete", "Delete") %></th>
+                                            <th><% = ElectronicSubmission.FieldNames.getFieldName("View-View", "View") %></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <h6>File Type</h6>
-                                                <p>File number 1 </p>
-                                            </td>
-                                            <td><a href="#" style="font-size:x-large;color:green;"> <i class="icofont icofont-ui-edit"></i> </a></td>
-                                            <td><a href="#" style="font-size:x-large;color:red;"> <i class="icofont icofont-ui-delete"></i> </a></td>
-                                            <td><a href="#" style="font-size:x-large;color:blue;"> <i class="icofont icofont-eye-alt"></i> </a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6>File Type</h6>
-                                                <p>File number 2 </p>
-                                            </td>
-                                            <td><a href="#" style="font-size:x-large;color:green;"> <i class="icofont icofont-ui-edit"></i> </a></td>
-                                            <td><a href="#" style="font-size:x-large;color:red;"> <i class="icofont icofont-ui-delete"></i> </a></td>
-                                            <td><a href="#" style="font-size:x-large;color:blue;"> <i class="icofont icofont-eye-alt"></i> </a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h6>File Type</h6>
-                                                <p>File number 3 </p>
-                                            </td>
-                                            <td><a href="#" style="font-size:x-large;color:green;"> <i class="icofont icofont-ui-edit"></i> </a></td>
-                                            <td><a href="#" style="font-size:x-large;color:red;"> <i class="icofont icofont-ui-delete"></i> </a></td>
-                                            <td><a href="#" style="font-size:x-large;color:blue;"> <i class="icofont icofont-eye-alt"></i> </a></td>
-                                        </tr>
+                                        <asp:Literal ID="txtFiles" runat="server"></asp:Literal>
                                     </tbody>
                                 </table>
                             </div>
@@ -161,8 +167,8 @@
         <div class="card-block">
             <div class="row text-center">
                 <div class="col-sm-12 invoice-btn-group text-center">
-                    <button type="button" class="btn btn-success btn-print-invoice m-b-10 btn-sm waves-effect waves-light m-r-20">Approve</button>
-                    <button type="button" class="btn btn-danger waves-effect m-b-10 btn-sm waves-light">Reject</button>
+                    <asp:Button ID="btnApprove" class="btn btn-success btn-print-invoice m-b-10 btn-sm waves-effect waves-light m-r-20" runat="server" Text="Approve" OnClick="btnApprove_Click" />
+                    <asp:Button ID="btnReject" class="btn btn-danger waves-effect m-b-10 btn-sm waves-light" runat="server" Text="Reject" OnClick="btnReject_Click" />
                 </div>
             </div>
         </div>

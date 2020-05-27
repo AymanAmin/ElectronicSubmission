@@ -14,7 +14,7 @@ namespace ElectronicSubmission.Pages.Setting.Auth
         public void ProcessRequest(HttpContext context)
         {
             HttpContext.Current.Session.Abandon();
-            context.Response.Redirect("~/Pages/Setting/Auth/Login.aspx");
+            context.Response.Redirect("~/Pages/Auth/Login.aspx");
         }
 
         public bool IsReusable

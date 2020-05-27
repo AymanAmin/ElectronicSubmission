@@ -99,7 +99,7 @@
                                             <asp:Button ID="Unlock" runat="server" Text=" Unlock System" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20" OnClick="Unlock_Click" />
                                         </div>
                                     </div>
-                                    <p class="text-inverse text-right"><a href="../../../../Pages/Setting/Auth/Logout.ashx">Switch User</a></p>
+                                    <p class="text-inverse text-right"><a href="../../../../Pages/Auth/Logout.ashx">Switch User</a></p>
                                     <div class="row">
                                         <div class="col-md-8">
                                             <p class="text-inverse text-left m-b-0">Thank you.</p>

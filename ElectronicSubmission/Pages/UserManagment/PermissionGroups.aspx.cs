@@ -45,7 +45,7 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment
                 clearform();
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','  Your Item was Sucessfully saved in system ! ');", true);
                 FillGroupPermission();
-                //Response.Redirect("~/Pages/Setting/UserManagment/PermissionGroups.aspx");
+                //Response.Redirect("~/Pages/UserManagment/PermissionGroups.aspx");
             }
         }
 

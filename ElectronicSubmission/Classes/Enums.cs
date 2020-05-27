@@ -16,6 +16,15 @@ namespace ElectronicSubmission
             CreatePermission = 15
 
         }
+        public enum FileType
+        {
+            ProfileImage = 1,
+            Nationality = 2,
+            Capabilities = 3,
+            High_School = 4,
+            My_Achievement = 5
+
+        }
         public enum brnch
         {
             Olaya = 1,

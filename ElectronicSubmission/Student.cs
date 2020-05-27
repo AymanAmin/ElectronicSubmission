@@ -14,9 +14,17 @@ namespace ElectronicSubmission
     
     public partial class Student
     {
+        public Student()
+        {
+            this.Sequences = new HashSet<Sequence>();
+            this.Files = new HashSet<File>();
+        }
+    
         public int Student_Id { get; set; }
         public string Student_SSN { get; set; }
-        public string Student_Name { get; set; }
+        public string Student_Name_En { get; set; }
+        public string Student_Name_Ar { get; set; }
+        public string Student_Address { get; set; }
         public string Student_Phone { get; set; }
         public string Student_Email { get; set; }
         public string Student_High_School_Degree { get; set; }
@@ -28,10 +36,17 @@ namespace ElectronicSubmission
         public Nullable<int> Student_Image_Profile_Id { get; set; }
         public Nullable<int> Student_Specialization_Id { get; set; }
         public Nullable<int> Student_Nationality_Id { get; set; }
+        public Nullable<int> Student_Resource_Id { get; set; }
+        public Nullable<int> Student_Status_Id { get; set; }
+        public string Student_Total { get; set; }
     
         public virtual Employee Employee { get; set; }
         public virtual File File { get; set; }
         public virtual Nationality Nationality { get; set; }
+        public virtual Resource Resource { get; set; }
         public virtual Specialization Specialization { get; set; }
+        public virtual ICollection<Sequence> Sequences { get; set; }
+        public virtual Status Status { get; set; }
+        public virtual ICollection<File> Files { get; set; }
     }
 }

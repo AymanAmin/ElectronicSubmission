@@ -451,7 +451,7 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="../../../../Pages/Setting/UserManagment/Profile.aspx">
+                                                    <a href="../../../../Pages/UserManagment/Profile.aspx">
                                                         <i class="feather icon-user"></i><% = ElectronicSubmission.FieldNames.getFieldName("Master-Profile", "Profile") %>
                                                     </a>
                                                 </li>
@@ -461,12 +461,12 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="../../../../Pages/Setting/Auth/LockScreen.aspx">
+                                                    <a href="../../../../Pages/Auth/LockScreen.aspx">
                                                         <i class="feather icon-lock"></i><% = ElectronicSubmission.FieldNames.getFieldName("Master-LockScreen", "Lock Screen") %>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="../../../../Pages/Setting/Auth/Logout.ashx">
+                                                    <a href="../../../../Pages/Auth/Logout.ashx">
                                                         <i class="feather icon-log-out"></i><% = ElectronicSubmission.FieldNames.getFieldName("Master-Logout", "Logout") %>
                                                     </a>
                                                 </li>

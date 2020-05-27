@@ -41,6 +41,8 @@ namespace ElectronicSubmission
         public DbSet<Permission_Group> Permission_Group { get; set; }
         public DbSet<Specialization> Specializations { get; set; }
         public DbSet<Status> Status { get; set; }
+        public DbSet<Resource> Resources { get; set; }
         public DbSet<Student> Students { get; set; }
+        public DbSet<Sequence> Sequences { get; set; }
     }
 }
