@@ -182,6 +182,7 @@
             <PropertyRef Name="Status_Id" />
           </Key>
           <Property Name="Status_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status_Code" Type="int" />
           <Property Name="Status_Name_Ar" Type="nvarchar(max)" />
           <Property Name="Status_Name_En" Type="nvarchar(max)" />
         </EntityType>
@@ -916,6 +917,7 @@
           <NavigationProperty Name="Group_Status" Relationship="REU_RegistrationModel.FK_Group_Status_Status" FromRole="Status" ToRole="Group_Status" />
           <NavigationProperty Name="Sequences" Relationship="REU_RegistrationModel.FK_Sequence_Status" FromRole="Status" ToRole="Sequence" />
           <NavigationProperty Name="Students" Relationship="REU_RegistrationModel.FK_Student_Status" FromRole="Status" ToRole="Student" />
+          <Property Name="Status_Code" Type="Int32" />
         </EntityType>
         <Association Name="FK_Specialization_Collage">
           <End Type="REU_RegistrationModel.Collage" Role="Collage" Multiplicity="0..1" />
@@ -1437,6 +1439,7 @@
           <EntitySetMapping Name="Status">
             <EntityTypeMapping TypeName="REU_RegistrationModel.Status">
               <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="Status_Code" ColumnName="Status_Code" />
                 <ScalarProperty Name="Status_Name_En" ColumnName="Status_Name_En" />
                 <ScalarProperty Name="Status_Name_Ar" ColumnName="Status_Name_Ar" />
                 <ScalarProperty Name="Status_Id" ColumnName="Status_Id" />

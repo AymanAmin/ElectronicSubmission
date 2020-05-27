@@ -23,6 +23,7 @@ namespace ElectronicSubmission
         public int Status_Id { get; set; }
         public string Status_Name_Ar { get; set; }
         public string Status_Name_En { get; set; }
+        public Nullable<int> Status_Code { get; set; }
     
         public virtual Group_Status Group_Status { get; set; }
         public virtual ICollection<Sequence> Sequences { get; set; }

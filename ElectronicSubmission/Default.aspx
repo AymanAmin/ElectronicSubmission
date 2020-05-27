@@ -28,6 +28,46 @@
             chart.render();
         }
 
+        function lineChart(Data, Status) {
+            alert();
+            var options = {
+                series: [{
+                    name: "Desktops",
+                    data: Data
+                }],
+                chart: {
+                    height: 350,
+                    type: 'line',
+                    zoom: {
+                        enabled: false
+                    }
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    curve: 'straight'
+                },
+                title: {
+                    text: '<% = ElectronicSubmission.FieldNames.getFieldName("Default-DelayPerStatus", "Delay Per Status") %>',
+                    align: 'left'
+                },
+                grid: {
+                    row: {
+                        colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                        opacity: 0.5
+                    },
+                },
+                xaxis: {
+                    categories: Status,
+                }
+            };
+
+            var chart = new ApexCharts(document.querySelector("#Linechart"), options);
+            chart.render();
+
+        }
+
         function Pie_ChartColumn(Total, Recived, Sent, categories) {
             var options = {
                 series: [{
@@ -99,8 +139,8 @@
                         <div class="row align-items-end">
                             <div class="col-8">
                                 <h4 class="text-white">
-                                    <asp:Literal ID="txtAllTreatment" Text="0" runat="server"></asp:Literal></h4>
-                                <h6 class="text-white m-b-0"><% = ElectronicSubmission.FieldNames.getFieldName("Default-AllTreatment", "All Treatment") %></h6>
+                                    <asp:Literal ID="txtAllStudents" Text="0" runat="server"></asp:Literal></h4>
+                                <h6 class="text-white m-b-0"><% = ElectronicSubmission.FieldNames.getFieldName("Default-AllStudents", "All Student") %></h6>
                             </div>
                             <div class="col-4 text-right">
                                 <canvas id="update-chart-1" height="50"></canvas>
@@ -124,9 +164,9 @@
                         <div class="row align-items-end">
                             <div class="col-8">
                                 <h4 class="text-white">
-                                    <asp:Literal ID="txtNewInboxTreatment" Text="0" runat="server"></asp:Literal>
+                                    <asp:Literal ID="txtInProgress" Text="0" runat="server"></asp:Literal>
                                 </h4>
-                                <h6 class="text-white m-b-0"><% = ElectronicSubmission.FieldNames.getFieldName("Default-Inbox", "Inbox") %></h6>
+                                <h6 class="text-white m-b-0"><% = ElectronicSubmission.FieldNames.getFieldName("Default-InProgress", "In Progress") %></h6>
                             </div>
                             <div class="col-4 text-right">
                                 <canvas id="update-chart-2" height="50"></canvas>
@@ -145,14 +185,14 @@
 
         <div class="col-xl-3 col-md-6">
             <a href="../../../Pages/Treatment/Inbox.aspx#e-send">
-                <div class="card bg-c-pink update-card">
+                <div class="card bg-c-lite-green update-card">
                     <div class="card-block">
                         <div class="row align-items-end">
                             <div class="col-8">
                                 <h4 class="text-white">
-                                    <asp:Literal ID="txtOutboxTreatment" Text="0" runat="server"></asp:Literal>
+                                    <asp:Literal ID="txtSuccessfully" Text="0" runat="server"></asp:Literal>
                                 </h4>
-                                <h6 class="text-white m-b-0"><% = ElectronicSubmission.FieldNames.getFieldName("Default-Outbox", "Outbox") %> </h6>
+                                <h6 class="text-white m-b-0"><% = ElectronicSubmission.FieldNames.getFieldName("Default-Successfully", "Successfully") %> </h6>
                             </div>
                             <div class="col-4 text-right">
                                 <canvas id="update-chart-3" height="50"></canvas>
@@ -171,14 +211,14 @@
 
         <div class="col-xl-3 col-md-6">
             <a href="#">
-                <div class="card bg-c-lite-green update-card">
+                <div class="card bg-c-pink update-card">
                     <div class="card-block">
                         <div class="row align-items-end">
                             <div class="col-8">
                                 <h4 class="text-white">
-                                    <asp:Literal ID="txtComplateTreatment" Text="0" runat="server"></asp:Literal>
+                                    <asp:Literal ID="txtFailure" Text="0" runat="server"></asp:Literal>
                                 </h4>
-                                <h6 class="text-white m-b-0"><% = ElectronicSubmission.FieldNames.getFieldName("Default-FinishTreatment", "Finish Treatment") %></h6>
+                                <h6 class="text-white m-b-0"><% = ElectronicSubmission.FieldNames.getFieldName("Default-txtFailure", "Failure") %></h6>
                             </div>
                             <div class="col-4 text-right">
                                 <canvas id="update-chart-4" height="50"></canvas>
@@ -199,6 +239,22 @@
 
     <div class="row">
         <!-- Chart start -->
+         <div class="col-xl-12 col-md-12">
+            <div class="card">
+                <div class="card-header">
+                   
+                    <div class="card-header-right">
+                        <ul class="list-unstyled card-option">
+                            <li><i class="feather icon-maximize full-card"></i></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-block">
+                    <div id="Linechart" style="width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+
         <div class="col-xl-7 col-md-12">
             <div class="card">
                 <div class="card-header">
@@ -231,6 +287,8 @@
 
             </div>
         </div>
+
+       
     </div>
 
 </asp:Content>

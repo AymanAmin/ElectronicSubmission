@@ -13,13 +13,13 @@ namespace ElectronicSubmission {
     public partial class Default {
         
         /// <summary>
-        /// txtAllTreatment control.
+        /// txtAllStudents control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal txtAllTreatment;
+        protected global::System.Web.UI.WebControls.Literal txtAllStudents;
         
         /// <summary>
         /// txtLastUpdateOne control.
@@ -31,13 +31,13 @@ namespace ElectronicSubmission {
         protected global::System.Web.UI.WebControls.Literal txtLastUpdateOne;
         
         /// <summary>
-        /// txtNewInboxTreatment control.
+        /// txtInProgress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal txtNewInboxTreatment;
+        protected global::System.Web.UI.WebControls.Literal txtInProgress;
         
         /// <summary>
         /// txtLastUpdateTwo control.
@@ -49,13 +49,13 @@ namespace ElectronicSubmission {
         protected global::System.Web.UI.WebControls.Literal txtLastUpdateTwo;
         
         /// <summary>
-        /// txtOutboxTreatment control.
+        /// txtSuccessfully control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal txtOutboxTreatment;
+        protected global::System.Web.UI.WebControls.Literal txtSuccessfully;
         
         /// <summary>
         /// txtLastUpdateThree control.
@@ -67,13 +67,13 @@ namespace ElectronicSubmission {
         protected global::System.Web.UI.WebControls.Literal txtLastUpdateThree;
         
         /// <summary>
-        /// txtComplateTreatment control.
+        /// txtFailure control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal txtComplateTreatment;
+        protected global::System.Web.UI.WebControls.Literal txtFailure;
         
         /// <summary>
         /// txtLastUpdateFour control.

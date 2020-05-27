@@ -11,48 +11,34 @@ namespace ElectronicSubmission
     public partial class Default : System.Web.UI.Page
     {
         REU_RegistrationEntities db = new REU_RegistrationEntities();
-        /*List<Treatment_Master> treatmentList = new List<Treatment_Master>();
-        List<Treatment_Detial> treatmentDList = new List<Treatment_Detial>();*/
+        List<Student> StudentList = new List<Student>();
+        List<Sequence> SequenceList = new List<Sequence>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (SessionWrapper.LoggedUser == null)
                 Response.Redirect("~/Pages/Auth/Login.aspx");
 
-            //int EmpStructureID = SessionWrapper.EmpStructure;
-            //int masterID = 0;
-            //int UserID = SessionWrapper.LoggedUser.Employee_Id;
-            //List<Employee_Structure> List_Emp_Struct = db.Employee_Structure.Where(x=> x.Employee_Structure_Id == EmpStructureID || x.Employee_Delegation == EmpStructureID).ToList();
-            /*for(int i = 0; i < List_Emp_Struct.Count; i++)
-            {
-                if(List_Emp_Struct[i].Employee_Delegation == EmpStructureID)
-                {
+            lineChart();
 
-                }
-                if (List_Emp_Struct[i].Employee_Delegation == null || List_Emp_Struct[i].Employee_Delegation == 0)
-                {
-                    EmpStructureID = List_Emp_Struct[i].Employee_Structure_Id;
-                    break;
-                }
+            int UserID = SessionWrapper.LoggedUser.Employee_Id;
 
-            }*/
-
-            //treatmentList = db.Treatment_Master.Where(x => x.From_Employee_Structure_Id == EmpStructureID).ToList();
-            //treatmentDList = db.Treatment_Detial.Where(x => x.To_Employee_Structure_Id == EmpStructureID).ToList();
+            StudentList = db.Students.ToList();
+            SequenceList = db.Sequences.ToList();
             Treatment_Status();
             Charts();
         }
         private void Treatment_Status()
         {
-            /*txtAllTreatment.Text = (treatmentDList.Where(x => x.Assignment_Status_Id != 3).Count() + treatmentList.Where(x => x.Treatment_Status_Id == 1).Count() + treatmentDList.Where(x => x.Assignment_Status_Id == 3).Count()).ToString();
-            txtNewInboxTreatment.Text = treatmentDList.Where(x => x.Assignment_Status_Id != 3).Count().ToString();
-            txtOutboxTreatment.Text = treatmentList.Where(x => x.Treatment_Status_Id == 1).Count().ToString();
-            txtComplateTreatment.Text = (treatmentDList.Where(x => x.Assignment_Status_Id == 3).Count()).ToString();
+            txtAllStudents.Text = StudentList.Count().ToString();
+            txtInProgress.Text = StudentList.Where(x => x.Student_Status_Id < 14).Count().ToString();
+            txtSuccessfully.Text = StudentList.Where(x => x.Student_Status_Id == 14).Count().ToString();
+            txtFailure.Text = StudentList.Where(x => x.Student_Status_Id == 15).Count().ToString();
             string str = FieldNames.getFieldName("Default-Update", "Update") + " : ";
 
             txtLastUpdateOne.Text = str + DateTime.Now.ToShortTimeString();
             txtLastUpdateTwo.Text = str + DateTime.Now.ToShortTimeString();
             txtLastUpdateThree.Text = str + DateTime.Now.ToShortTimeString();
-            txtLastUpdateFour.Text = str + DateTime.Now.ToShortTimeString();*/
+            txtLastUpdateFour.Text = str + DateTime.Now.ToShortTimeString();
         }
         private void Charts()
         {
@@ -123,6 +109,29 @@ namespace ElectronicSubmission
 
             /* Call javascript funcations   */
             //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", Pie_Function + "  " + Treatment_Per_Mounth_Function, true);
+        }
+
+        private void lineChart()
+        {
+            string Status = "[";
+            string Data = "[";
+            List<Status> StatusList = db.Status.ToList();
+            for(int i = 0; i < StatusList.Count; i++)
+            {
+                List<Student> students = StatusList[i].Students.ToList();
+                Status += StatusList[i].Status_Name_En;
+                Data += students.Count.ToString();
+                if (i > 0 && i < StatusList.Count - 1)
+                {
+                    Status += ",";
+                    Data += ",";
+                }
+            }
+            Status += "]";
+            Data += "]";
+            string lineChartfun = "lineChart(" + Data + "," + Status + ")";
+
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", lineChartfun, true);
         }
 
         private string ArabicDate(string DateName)
