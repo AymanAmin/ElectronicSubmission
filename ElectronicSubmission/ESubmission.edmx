@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="REU_RegistrationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="REU_RegistrationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Collage">
           <Key>
             <PropertyRef Name="Collage_ID" />
@@ -176,6 +176,7 @@
           <Property Name="Capabilities_Percent" Type="nvarchar" MaxLength="50" />
           <Property Name="My_Achievement_Percent" Type="nvarchar" MaxLength="50" />
           <Property Name="Weighted_Ratio_Percent" Type="nvarchar" MaxLength="50" />
+          <Property Name="Specialization_Icon" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
@@ -906,6 +907,7 @@
           <Property Name="Weighted_Ratio_Percent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Collage" Relationship="REU_RegistrationModel.FK_Specialization_Collage" FromRole="Specialization" ToRole="Collage" />
           <NavigationProperty Name="Students" Relationship="REU_RegistrationModel.FK_Student_Specialization" FromRole="Specialization" ToRole="Student" />
+          <Property Name="Specialization_Icon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
@@ -1424,6 +1426,7 @@
           <EntitySetMapping Name="Specializations">
             <EntityTypeMapping TypeName="REU_RegistrationModel.Specialization">
               <MappingFragment StoreEntitySet="Specialization">
+                <ScalarProperty Name="Specialization_Icon" ColumnName="Specialization_Icon" />
                 <ScalarProperty Name="Weighted_Ratio_Percent" ColumnName="Weighted_Ratio_Percent" />
                 <ScalarProperty Name="My_Achievement_Percent" ColumnName="My_Achievement_Percent" />
                 <ScalarProperty Name="Capabilities_Percent" ColumnName="Capabilities_Percent" />

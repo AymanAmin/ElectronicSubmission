@@ -10,42 +10,42 @@
 namespace ElectronicSubmission {
     
     
-    public partial class homepage {
+    public partial class Bachelors {
         
         /// <summary>
-        /// BachelorName control.
+        /// headerBachelors control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText BachelorName;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl headerBachelors;
         
         /// <summary>
-        /// CollegesUniv control.
+        /// detailedBachelors control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList CollegesUniv;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl detailedBachelors;
         
         /// <summary>
-        /// SearchButton control.
+        /// headerBody control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SearchButton;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl headerBody;
         
         /// <summary>
-        /// Specialization control.
+        /// bachelorsReque control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Specialization;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl bachelorsReque;
     }
 }

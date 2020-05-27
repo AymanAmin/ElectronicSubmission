@@ -2,14 +2,12 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  
-<!-- index18:21  -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>REU - Registration</title>
+    <title>REU - Home</title>
 
     <!-- Css Files -->
     <link href="Template/css/bootstrap.css" rel="stylesheet">
@@ -85,7 +83,6 @@
                                   <ul class="nav navbar-nav">
                                     <li class="active"><a href="#home">Home</a></li>
 									<li><a href="#colleges">Colleges</a></li>
-									<li><a href="#programs">Programs</a></li>
 									<li><a href="#steps">Steps</a></li>
 									<li><a href="#contactas">Contact</a></li>
 									<li><a href="#aboutas">About</a></li>
@@ -94,7 +91,7 @@
                                 </div>
                             </nav>
                             <!--// Navigation \\-->
-                            <a href="#" class="wm-header-btn">get started</a>
+                            <a href="#" class="wm-header-btn">Submission</a>
                         </div>
                     </div>
                 </div>
@@ -148,53 +145,22 @@
 							<div class="wm-search-course">
                                 <h3 class="wm-short-title wm-color">Find Your Bachelors</h3>
                                 <p>Fill in the form below to find your Bachelors:</p>
-                                <form>
+                                <form runat="server">
                                     <ul>
-                                        <li> <input type="text" value="Bachelors Name" onblur="if(this.value == '') { this.value ='Course Name'; }" onfocus="if(this.value =='Course Name') { this.value = ''; }"> <i class="wmicon-search"></i> </li>
+                                        <li> <input type="text" id="BachelorName" runat="server" placeholder="Bachelors Name"/> <i class="wmicon-search"></i> </li>
                                         <li>
                                             <div class="wm-apply-select">
-                                                <select>
-                                                    <option>College</option>
-                                                    <option>Dentistry</option>
-                                                    <option>Pharmacy</option>
-                                                    <option>Nursing</option>
-                                                    <option>Medical</option>
-                                                </select>
+                                                <asp:DropDownList ID="CollegesUniv" runat="server"></asp:DropDownList>
                                             </div>
                                         </li>
-                                        <li> <input type="submit" value="Search Bachelors"> </li>
+                                        <li><asp:Button ID="SearchButton" runat="server" Text="Search Bachelors" /> </li>
                                     </ul>
                                 </form>
                             </div>
 						</div>
                         <div class="col-md-8">
-                            <div class="wm-service wm-box-service">
-                                <ul>
-                                    <li>
-                                        <div class="wm-box-service-wrap wm-bgcolor">
-                                            <i class="fa fa-hospital-o"></i>
-                                            <h6><a href="#">Dentistry </a></h6>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="wm-box-service-wrap wm-bgcolor">
-                                            <i class="wmicon-science"></i>
-                                            <h6><a href="#">Pharmacy</a></h6>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="wm-box-service-wrap wm-bgcolor">
-                                            <i class="fa fa-stethoscope"></i>
-                                            <h6><a href="#">Nursing</a></h6>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="wm-box-service-wrap wm-bgcolor">
-                                            <i class="fa fa-heartbeat"></i>
-                                            <h6><a href="#">Bachelor of Health Services and Hospitals Department</a></h6>
-                                        </div>
-                                    </li>
-                                </ul>
+                            <div class="wm-service wm-box-service" id="Specialization" runat="server">
+                                 <!--// Code bihand loadSpecialization() \\-->
                             </div>
                         </div>
 
@@ -242,95 +208,6 @@
             <!--// Main Section \\-->
 
             <!--// Main Section \\-->
-            <div class="wm-main-section wm-learn-listing-full" id="programs">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="wm-fancy-title"> <h2><span>Bachelors </span>Degrees</h2> </div>
-                            <div class="wm-learn-listing">
-                                <ul class="row">
-                                    <li class="col-md-4">
-                                        <figure><a href="#"><img src="Template/extra-images/dental-surgery.jpg" alt="" style="height: 286px;"></a>
-                                            <figcaption>
-                                                <h2>Bachelor of Dental Surgery</h2>
-                                                <a href="#" class="wm-banner-btn">Read More</a>
-                                            </figcaption>
-                                        </figure>
-                                    </li>
-                                    <li class="col-md-4">
-                                        <figure><a href="#"><img src="Template/extra-images/Pharmaceutical-Chemistry-1024x630.jpg" alt="" style="height: 286px;"></a>
-                                            <figcaption>
-                                                <h2>Bachelor of Pharmaceutical Science</h2>
-                                                <a href="#" class="wm-banner-btn">Read More</a>
-                                            </figcaption>
-                                        </figure>
-                                    </li>
-                                    <li class="col-md-4">
-                                        <figure><a href="#"><img src="Template/extra-images/Nursing-Stethoscope-1.jpg" alt="" style="height: 286px;"></a>
-                                            <figcaption>
-                                                <h2>Bachelor of Science in Nursing</h2>
-                                                <a href="#" class="wm-banner-btn">Read More</a>
-                                            </figcaption>
-                                        </figure>
-                                    </li>
-                                    <li class="col-md-4">
-                                        <figure><a href="#"><img src="Template/extra-images/dental-assistant.png" alt="" style="height: 286px;"></a>
-                                            <figcaption>
-                                                <h2>Bachelor of Dental Assisting</h2>
-                                                <a href="#" class="wm-banner-btn">Read More</a>
-                                            </figcaption>
-                                        </figure>
-                                    </li>
-									<li class="col-md-4">
-                                        <figure><a href="#"><img src="Template/extra-images/iStock.jpg" alt="" style="height: 286px;"></a>
-                                            <figcaption>
-                                                <h2>Bachelor of Dental Technology</h2>
-                                                <a href="#" class="wm-banner-btn">Read More</a>
-                                            </figcaption>
-                                        </figure>
-                                    </li>
-									<li class="col-md-4">
-                                        <figure><a href="#"><img src="Template/extra-images/dentalhygiene.jpg" alt="" style="height: 286px;"></a>
-                                            <figcaption>
-                                                <h2>Bachelor of Dental Hygiene</h2>
-                                                <a href="#" class="wm-banner-btn">Read More</a>
-                                            </figcaption>
-                                        </figure>
-                                    </li>
-									<li class="col-md-4">
-                                        <figure><a href="#"><img src="Template/extra-images/biotech.jpeg" alt="" style="height: 286px;"></a>
-                                            <figcaption>
-                                                <h2>Bachelor of Clinical Laboratory Sciences</h2>
-                                                <a href="#" class="wm-banner-btn">Read More</a>
-                                            </figcaption>
-                                        </figure>
-                                    </li>
-									<li class="col-md-4">
-                                        <figure><a href="#"><img src="Template/extra-images/blue-and-silver.jpg" alt="" style="height: 286px;"></a>
-                                            <figcaption>
-                                                <h2>Bachelor of Health Services and Hospitals Department</h2>
-                                                <a href="#" class="wm-banner-btn">Read More</a>
-                                            </figcaption>
-                                        </figure>
-                                    </li>
-									<li class="col-md-4">
-                                        <figure><a href="#"><img src="Template/extra-images/christopher-gower.jpg" alt="" style="height: 286px;"></a>
-                                            <figcaption>
-                                                <h2>Bachelor of Computers</h2>
-                                                <a href="#" class="wm-banner-btn">Read More</a>
-                                            </figcaption>
-                                        </figure>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <!--// Main Section \\-->
-
-            <!--// Main Section \\-->
             <div class="wm-main-section wm-ourhistory-full" id="steps">
                 <span class="wm-light-transparent"></span>
                 <div class="container">
@@ -342,27 +219,27 @@
                                 <ul>
                                     <li>
                                         <time datetime="2008-02-14 20:00">1</time>
-                                        <span>Released the Arctic Collection the Perennial Collection of handknotted luxury area rugs.</span>
+                                        <span>Electronic submission.</span>
                                     </li>
                                     <li>
                                         <time datetime="2008-02-14 20:00">2</time>
-                                        <span>Installed our first custom floorcovering for a museum at the Aga Khan Museum in Toronto</span>
+                                        <span>Pay the registration fees.</span>
                                     </li>
                                     <li>
                                         <time datetime="2008-02-14 20:00">3</time>
-                                        <span>Designed our first wallcovering for all these healthcare sector at the Toronto Centre.</span>
+                                        <span>English test personal interview.</span>
                                     </li>
                                     <li>
                                         <time datetime="2008-02-14 20:00">4</time>
-                                        <span>Celebrated 25 years in business with “The Art Day Project” – a partnership.</span>
+                                        <span>Congratulations acceptance.</span>
                                     </li>
                                     <li>
                                         <time datetime="2008-02-14 20:00">5</time>
-                                        <span>Released the Arctic Collection the Perennial Collection of handknotted luxury area rugs.</span>
+                                        <span>Pay the tuition fees.</span>
                                     </li>
                                     <li>
                                         <time datetime="2008-02-14 20:00">6</time>
-                                        <span>Installed our first custom floorcovering for a museum at the Aga Khan Museum in Toronto</span>
+                                        <span>Issuing the university number.</span>
                                     </li>
                                 </ul>
                             </div>

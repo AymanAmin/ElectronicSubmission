@@ -121,6 +121,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Bachelors.aspx" />
     <Content Include="Database\REU_Registration.sql" />
     <Content Include="Default.aspx" />
     <Content Include="ESubmission.Context.tt">
@@ -2552,6 +2553,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Bachelors.aspx.cs">
+      <DependentUpon>Bachelors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bachelors.aspx.designer.cs">
+      <DependentUpon>Bachelors.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Classes\ddlFiller.cs" />
     <Compile Include="Classes\EmployeDTO.cs" />
     <Compile Include="Classes\Emp_Structure.cs" />
