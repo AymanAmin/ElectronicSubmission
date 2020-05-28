@@ -35,7 +35,7 @@ namespace ElectronicSubmission.Pages.Setting
         protected void Page_Load(object sender, EventArgs e)
         {
             if (SessionWrapper.LoggedUser == null)
-                Response.Redirect("~/Pages/Setting/Auth/Login.aspx");
+                Response.Redirect("~/Pages/Auth/Login.aspx");
 
             if (!IsPostBack)
             {
@@ -49,8 +49,8 @@ namespace ElectronicSubmission.Pages.Setting
         {
             if (SessionWrapper.LoggedUser.Language_id == 1)
             {
-                Groups.DataTextField = "Group_Name_Ar";
-                Emp_Structure.DataTextField = "Structure_Name_Ar";
+                //Groups.DataTextField = "Group_Name_Ar";
+                //Emp_Structure.DataTextField = "Structure_Name_Ar";
             }
         }
 
@@ -61,7 +61,7 @@ namespace ElectronicSubmission.Pages.Setting
             int Lang = 0;
 
             int Emp_ID = 0;
-            int.TryParse(EmpID.Value, out Emp_ID);
+            /*int.TryParse(EmpID.Value, out Emp_ID);
             int.TryParse(Groups.SelectedValue, out Group_id);
             int.TryParse(Language.SelectedValue, out Lang);
             if (DateofBirth.Checked) calander_id = 1;
@@ -72,12 +72,11 @@ namespace ElectronicSubmission.Pages.Setting
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','  The  Employee was Sucessfully saved in system ! ');", true);
                 UserCard();
-
             }
             else
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','Error');", true);
-            }
+            }*/
         }
 
         public bool AU_Emplooyees(int EmployeeID, string ArabicName, string EnglishName, string Email, string Phone, bool Active, int GroupID, int lang, int calander)
@@ -115,45 +114,7 @@ namespace ElectronicSubmission.Pages.Setting
                 string ImagepathSignature = UploadFile(2);
                 if (ImagepathProfile != "") Emp.Employee_Profile = ImagepathProfile; else if (EmployeeID == 0) ImagepathProfile = "Profile.JPG";
                 //if (ImagepathSignature != "") Emp.Employee_Signature = ImagepathSignature; else if (EmployeeID == 0) ImagepathSignature = "Signature.JPG";
-                /////////////////////////////////////// Employee_Structure /////////////////////////////////////
-                Boolean DefaultStructure = false;
-                for (int i = 0; i < Emp_Structure.Items.Count; i++)
-                {
-                    int id = 0;
-                    Boolean IsFound = false;
-                    int.TryParse(Emp_Structure.Items[i].Value, out id);
-                    /*var Emp_Stru_found = db.Employee_Structure.Where(x => x.Employee_Id == EmployeeID && x.Structure_Id == id).ToList();
-                    if (Emp_Stru_found.Count > 0) IsFound = true;
-                    if (Emp_Structure.Items[i].Selected)
-                    {
-                        if (!IsFound)
-                        {
-                            Emp_Stu = new Employee_Structure();
-                            Emp_Stu.Structure_Id = int.Parse(Emp_Structure.Items[i].Value);
-                            Emp_Stu.Status_Structure = true;
-                            Emp_Stu.Type_Delegation = false;
-                            if (!DefaultStructure) { Emp_Stu.Default_Structure = true; DefaultStructure = true; } else { Emp_Stu.Default_Structure = false; }
-                            Emp.Employee_Structure.Add(Emp_Stu);
-                        }
-                        else
-                        {
-                            Emp_Stu = db.Employee_Structure.First(x => x.Employee_Id == EmployeeID && x.Structure_Id == id);
-                            Emp_Stu.Status_Structure = true;
-                            Emp_Stu.Type_Delegation = false;
-                            if (!DefaultStructure) { Emp_Stu.Default_Structure = true; DefaultStructure = true; } else { Emp_Stu.Default_Structure = false; }
-                            Emp.Employee_Structure.Add(Emp_Stu);
-                        }
-                    }
-                    else if (IsFound)
-                    {
-                        Emp_Stu = db.Employee_Structure.First(x => x.Employee_Id == EmployeeID && x.Structure_Id == id);
-                        Emp_Stu.Status_Structure = false;
-                        Emp_Stu.Type_Delegation = false;
-                        Emp_Stu.Default_Structure = false;
-                        Emp.Employee_Structure.Add(Emp_Stu);
-                    }*/
-                }
-                /////////////////////////////////////// Employee_Structure /////////////////////////////////////
+                
                 if (EmployeeID != 0)
                 {
                     db.Entry(Emp).State = System.Data.EntityState.Modified;
@@ -197,27 +158,9 @@ namespace ElectronicSubmission.Pages.Setting
                         Imagepath = UtilityClass.UploadFileWithExtention(ref EmpProfile, Server.MapPath(@"~\media\Profile\"));
                     }
                     break;
-                case 2:
-                    if (this.Page.IsValid)
-                    {
-                        if (!UtilityClass.UploadFileIsValid(ref EmpSignature, UtilityClass.ValidImagesExtentions))
-                        {
-                            Imagepath = "false";
-                        }
-                        Imagepath = string.Empty;
-
-                        Imagepath = UtilityClass.UploadFileWithExtention(ref EmpSignature, Server.MapPath(@"~\media\Signature\"));
-                    }
-                    break;
             }
-
-
-
             return Imagepath;
         }
-
-
-
 
         private void Fillter()
         {
@@ -389,12 +332,12 @@ namespace ElectronicSubmission.Pages.Setting
                 var Employeess = db.Employees.First(x => x.Employee_Id == EmployeeId);
                 // if (Employees.Employee_Profile != "" && Employees.Employee_Profile!=null) Emp_Profile.ImageUrl = "../../../../media/Profile/" + Employees.Employee_Profile;
                 // if (Employees.Employee_Signature != "" && Employees.Employee_Signature != null) Emp_Signature.ImageUrl = "../../../../media/Signature/" + Employees.Employee_Signature;
-                Employee_Name_Ar.Text = Employeess.Employee_Name_Ar;
+                /*Employee_Name_Ar.Text = Employeess.Employee_Name_Ar;
                 Employee_Name_En.Text = Employeess.Employee_Name_En;
                 Employee_Email.Text = Employeess.Employee_Email;
                 Employee_Phone.Text = Employeess.Employee_Phone;
                 Groups.SelectedValue = Employeess.Group_Id.ToString();
-                Active.Checked = bool.Parse(Employeess.Employee_Active.ToString());
+                Active.Checked = bool.Parse(Employeess.Employee_Active.ToString());*/
             }
 
             //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "showmodel();", true);
