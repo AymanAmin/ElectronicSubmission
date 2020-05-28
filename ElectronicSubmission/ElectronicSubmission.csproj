@@ -140,6 +140,7 @@
     <Content Include="Pages\Admin\Language.aspx" />
     <Content Include="Pages\Admin\LogFile.aspx" />
     <Content Include="Pages\RegistrationProcess\ListView.aspx" />
+    <Content Include="Pages\RegistrationProcess\RestoreStudent.aspx" />
     <Content Include="Pages\RegistrationProcess\StudentInfo.aspx" />
     <Content Include="Pages\RegistrationProcess\View.aspx" />
     <Content Include="Pages\Auth\LockScreen.aspx" />
@@ -2674,6 +2675,13 @@
     </Compile>
     <Compile Include="Pages\RegistrationProcess\ListView.aspx.designer.cs">
       <DependentUpon>ListView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RegistrationProcess\RestoreStudent.aspx.cs">
+      <DependentUpon>RestoreStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RegistrationProcess\RestoreStudent.aspx.designer.cs">
+      <DependentUpon>RestoreStudent.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\RegistrationProcess\StudentInfo.aspx.cs">
       <DependentUpon>StudentInfo.aspx</DependentUpon>

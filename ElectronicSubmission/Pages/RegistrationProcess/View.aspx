@@ -144,8 +144,8 @@
                                 <table class="table  invoice-detail-table">
                                     <thead>
                                         <tr class="thead-default">
-                                            <th><% = ElectronicSubmission.FieldNames.getFieldName("View-Type", "Type") %></th>
                                             <th><% = ElectronicSubmission.FieldNames.getFieldName("View-FileName", "File Name") %></th>
+                                            <th><% = ElectronicSubmission.FieldNames.getFieldName("View-Type", "Type") %></th>
                                             <th><% = ElectronicSubmission.FieldNames.getFieldName("View-Update", "Update") %></th>
                                             <th><% = ElectronicSubmission.FieldNames.getFieldName("View-View", "View") %></th>
                                         </tr>
