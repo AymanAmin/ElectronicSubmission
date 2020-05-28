@@ -135,7 +135,8 @@
                             <asp:DropDownList ID="ddlGroups" runat="server" AutoPostBack="true" class="form-control form-control-primary" OnSelectedIndexChanged="ddlGroups_SelectedIndexChanged"></asp:DropDownList>
                         </div>
                     </div>
-                    <div class="form-group col-sm-12">
+                    <div class="row">
+                    <div class="col-sm-6">
                         <div class="dt-responsive table-responsive">
                             <dx:ASPxGridView ID="PermissionGroupGridView" Style="width: 100%; text-align: center;" runat="server" AutoGenerateColumns="False" DataSourceID="PermissonsDataSource" EnableTheming="True" KeyFieldName="Permission_Id" Theme="Mulberry">
                                 <SettingsPager PageSize="50">
@@ -155,15 +156,51 @@
                                     </dx:GridViewDataTextColumn>
                                     <dx:GridViewDataTextColumn FieldName="Permission_Name_En" VisibleIndex="3" Caption="Permission English Name">
                                     </dx:GridViewDataTextColumn>
-                                    <dx:GridViewDataTextColumn FieldName="Url_Path" VisibleIndex="4" Caption="URL Path">
-                                    </dx:GridViewDataTextColumn>
                                 </Columns>
                             </dx:ASPxGridView>
                             <asp:EntityDataSource ID="PermissonsDataSource" runat="server" ConnectionString="name=REU_RegistrationEntities" DefaultContainerName="REU_RegistrationEntities" EnableFlattening="False" EntitySetName="Permissions" EntityTypeFilter="Permission">
                             </asp:EntityDataSource>
                         </div>
                     </div>
-                    <div class="form-group col-sm-12" style="text-align: right; margin-top: -2%">
+                    <div class="col-sm-6">
+                        <div class="dt-responsive table-responsive">
+                            <dx:ASPxGridView ID="StatusGridView" Style="width: 100%; text-align: center;" runat="server" AutoGenerateColumns="False" DataSourceID="StatusDataSource" EnableTheming="True" KeyFieldName="Status_Id" Theme="Mulberry">
+                                <SettingsPager PageSize="50">
+                                </SettingsPager>
+                                <Settings ShowGroupPanel="True" ShowFilterRow="True" />
+                                <SettingsSearchPanel Visible="True" />
+                                <Columns>
+                                    <dx:GridViewCommandColumn SelectAllCheckboxMode="Page" ShowClearFilterButton="True" ShowSelectCheckbox="True" VisibleIndex="0">
+                                    </dx:GridViewCommandColumn>
+                                    <dx:GridViewDataTextColumn FieldName="Status_Id" ReadOnly="True" VisibleIndex="1" Visible="False">
+                                    </dx:GridViewDataTextColumn>
+                                    <dx:GridViewDataTextColumn FieldName="Status_Name_Ar" VisibleIndex="3" Caption="Arabic Name">
+                                        <HeaderStyle HorizontalAlign="Center" />
+                                        <CellStyle HorizontalAlign="Center">
+                                        </CellStyle>
+                                    </dx:GridViewDataTextColumn>
+                                    <dx:GridViewDataTextColumn FieldName="Status_Name_En" VisibleIndex="4" Caption="English Name">
+                                        <HeaderStyle HorizontalAlign="Center" />
+                                        <CellStyle HorizontalAlign="Center">
+                                        </CellStyle>
+                                    </dx:GridViewDataTextColumn>
+                                    <dx:GridViewDataTextColumn Caption="Code ID" FieldName="Status_Code" VisibleIndex="2">
+                                        <FilterCellStyle HorizontalAlign="Center">
+                                        </FilterCellStyle>
+                                        <HeaderStyle HorizontalAlign="Center" />
+                                        <CellStyle HorizontalAlign="Center">
+                                        </CellStyle>
+                                    </dx:GridViewDataTextColumn>
+                                </Columns>
+                            </dx:ASPxGridView>
+                            <asp:EntityDataSource ID="StatusDataSource" runat="server" ConnectionString="name=REU_RegistrationEntities" DefaultContainerName="REU_RegistrationEntities" EnableFlattening="False" EntitySetName="Status">
+                            </asp:EntityDataSource>
+                            <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=REU_RegistrationEntities" DefaultContainerName="REU_RegistrationEntities" EnableFlattening="False" EntitySetName="Permissions" EntityTypeFilter="Permission">
+                            </asp:EntityDataSource>
+                        </div>
+                    </div>
+                        </div>
+                    <div class="form-group col-sm-12" style="text-align: right;margin-top:2%">
                         <asp:Button ID="SaveChanges" runat="server" Text="Save" class="btn btn-primary" OnClick="SaveChanges_Click" />
                     </div>
                 </div>

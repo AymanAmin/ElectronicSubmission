@@ -17,6 +17,7 @@ namespace ElectronicSubmission
         public Group()
         {
             this.Employees = new HashSet<Employee>();
+            this.Group_Status = new HashSet<Group_Status>();
             this.Permission_Group = new HashSet<Permission_Group>();
         }
     
@@ -25,7 +26,7 @@ namespace ElectronicSubmission
         public string Group_Name_En { get; set; }
     
         public virtual ICollection<Employee> Employees { get; set; }
-        public virtual Group_Status Group_Status { get; set; }
+        public virtual ICollection<Group_Status> Group_Status { get; set; }
         public virtual ICollection<Permission_Group> Permission_Group { get; set; }
     }
 }

@@ -16,8 +16,8 @@ namespace ElectronicSubmission
     {
         public Student()
         {
-            this.Sequences = new HashSet<Sequence>();
             this.Files = new HashSet<File>();
+            this.Sequences = new HashSet<Sequence>();
         }
     
         public int Student_Id { get; set; }
@@ -41,12 +41,11 @@ namespace ElectronicSubmission
         public string Student_Total { get; set; }
     
         public virtual Employee Employee { get; set; }
-        public virtual File File { get; set; }
+        public virtual ICollection<File> Files { get; set; }
         public virtual Nationality Nationality { get; set; }
         public virtual Resource Resource { get; set; }
-        public virtual Specialization Specialization { get; set; }
         public virtual ICollection<Sequence> Sequences { get; set; }
+        public virtual Specialization Specialization { get; set; }
         public virtual Status Status { get; set; }
-        public virtual ICollection<File> Files { get; set; }
     }
 }

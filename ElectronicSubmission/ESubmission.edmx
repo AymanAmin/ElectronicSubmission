@@ -247,26 +247,26 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Group_Status_Group">
-          <End Role="Group" Type="Self.Group" Multiplicity="1" />
-          <End Role="Group_Status" Type="Self.Group_Status" Multiplicity="0..1" />
+          <End Role="Group" Type="Self.Group" Multiplicity="0..1" />
+          <End Role="Group_Status" Type="Self.Group_Status" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Group">
               <PropertyRef Name="Group_Id" />
             </Principal>
             <Dependent Role="Group_Status">
-              <PropertyRef Name="Group_Status_Id" />
+              <PropertyRef Name="Group_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Group_Status_Status">
-          <End Role="Status" Type="Self.Status" Multiplicity="1" />
-          <End Role="Group_Status" Type="Self.Group_Status" Multiplicity="0..1" />
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Group_Status" Type="Self.Group_Status" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Status">
               <PropertyRef Name="Status_Id" />
             </Principal>
             <Dependent Role="Group_Status">
-              <PropertyRef Name="Group_Status_Id" />
+              <PropertyRef Name="Status_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -618,8 +618,11 @@
           <EntitySet Name="Notification_Show" EntityType="REU_RegistrationModel.Notification_Show" />
           <EntitySet Name="Permissions" EntityType="REU_RegistrationModel.Permission" />
           <EntitySet Name="Permission_Group" EntityType="REU_RegistrationModel.Permission_Group" />
+          <EntitySet Name="Resources" EntityType="REU_RegistrationModel.Resource" />
+          <EntitySet Name="Sequences" EntityType="REU_RegistrationModel.Sequence" />
           <EntitySet Name="Specializations" EntityType="REU_RegistrationModel.Specialization" />
           <EntitySet Name="Status" EntityType="REU_RegistrationModel.Status" />
+          <EntitySet Name="Students" EntityType="REU_RegistrationModel.Student" />
           <AssociationSet Name="FK_Specialization_Collage" Association="REU_RegistrationModel.FK_Specialization_Collage">
             <End Role="Collage" EntitySet="Collages" />
             <End Role="Specialization" EntitySet="Specializations" />
@@ -639,6 +642,18 @@
           <AssociationSet Name="FK_Notification_Employee_Employee" Association="REU_RegistrationModel.FK_Notification_Employee_Employee">
             <End Role="Employee" EntitySet="Employees" />
             <End Role="Notification_Employee" EntitySet="Notification_Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sequence_Employee" Association="REU_RegistrationModel.FK_Sequence_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Sequence" EntitySet="Sequences" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Employee" Association="REU_RegistrationModel.FK_Student_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Files_Student" Association="REU_RegistrationModel.FK_Files_Student">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="File" EntitySet="Files" />
           </AssociationSet>
           <AssociationSet Name="FK_Group_Status_Group" Association="REU_RegistrationModel.FK_Group_Status_Group">
             <End Role="Group" EntitySet="Groups" />
@@ -664,6 +679,10 @@
             <End Role="Nationality" EntitySet="Nationalities" />
             <End Role="Nationality1" EntitySet="Nationalities" />
           </AssociationSet>
+          <AssociationSet Name="FK_Student_Nationality" Association="REU_RegistrationModel.FK_Student_Nationality">
+            <End Role="Nationality" EntitySet="Nationalities" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
           <AssociationSet Name="FK_Notification_Employee_Notification_Show" Association="REU_RegistrationModel.FK_Notification_Employee_Notification_Show">
             <End Role="Notification_Show" EntitySet="Notification_Show" />
             <End Role="Notification_Employee" EntitySet="Notification_Employee" />
@@ -676,32 +695,9 @@
             <End Role="Permission" EntitySet="Permissions" />
             <End Role="Permission_Group" EntitySet="Permission_Group" />
           </AssociationSet>
-          <EntitySet Name="Resources" EntityType="REU_RegistrationModel.Resource" />
-          <EntitySet Name="Students" EntityType="REU_RegistrationModel.Student" />
-          <AssociationSet Name="FK_Student_Employee" Association="REU_RegistrationModel.FK_Student_Employee">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="Student" EntitySet="Students" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Files_Student" Association="REU_RegistrationModel.FK_Files_Student">
-            <End Role="Student" EntitySet="Students" />
-            <End Role="File" EntitySet="Files" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Student_Nationality" Association="REU_RegistrationModel.FK_Student_Nationality">
-            <End Role="Nationality" EntitySet="Nationalities" />
-            <End Role="Student" EntitySet="Students" />
-          </AssociationSet>
           <AssociationSet Name="FK_Student_Resource" Association="REU_RegistrationModel.FK_Student_Resource">
             <End Role="Resource" EntitySet="Resources" />
             <End Role="Student" EntitySet="Students" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Student_Specialization" Association="REU_RegistrationModel.FK_Student_Specialization">
-            <End Role="Specialization" EntitySet="Specializations" />
-            <End Role="Student" EntitySet="Students" />
-          </AssociationSet>
-          <EntitySet Name="Sequences" EntityType="REU_RegistrationModel.Sequence" />
-          <AssociationSet Name="FK_Sequence_Employee" Association="REU_RegistrationModel.FK_Sequence_Employee">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="Sequence" EntitySet="Sequences" />
           </AssociationSet>
           <AssociationSet Name="FK_Sequence_Status" Association="REU_RegistrationModel.FK_Sequence_Status">
             <End Role="Status" EntitySet="Status" />
@@ -711,13 +707,13 @@
             <End Role="Student" EntitySet="Students" />
             <End Role="Sequence" EntitySet="Sequences" />
           </AssociationSet>
+          <AssociationSet Name="FK_Student_Specialization" Association="REU_RegistrationModel.FK_Student_Specialization">
+            <End Role="Specialization" EntitySet="Specializations" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
           <AssociationSet Name="FK_Student_Status" Association="REU_RegistrationModel.FK_Student_Status">
             <End Role="Status" EntitySet="Status" />
             <End Role="Student" EntitySet="Students" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Files_Student1" Association="REU_RegistrationModel.FK_Files_Student1">
-            <End Role="Student" EntitySet="Students" />
-            <End Role="File" EntitySet="Files" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Collage">
@@ -747,8 +743,8 @@
           <NavigationProperty Name="LanguageMaster" Relationship="REU_RegistrationModel.FK_Employee_LanguageMaster" FromRole="Employee" ToRole="LanguageMaster" />
           <NavigationProperty Name="Log_File" Relationship="REU_RegistrationModel.FK_Log_File_Employee" FromRole="Employee" ToRole="Log_File" />
           <NavigationProperty Name="Notification_Employee" Relationship="REU_RegistrationModel.FK_Notification_Employee_Employee" FromRole="Employee" ToRole="Notification_Employee" />
-          <NavigationProperty Name="Students" Relationship="REU_RegistrationModel.FK_Student_Employee" FromRole="Employee" ToRole="Student" />
           <NavigationProperty Name="Sequences" Relationship="REU_RegistrationModel.FK_Sequence_Employee" FromRole="Employee" ToRole="Sequence" />
+          <NavigationProperty Name="Students" Relationship="REU_RegistrationModel.FK_Student_Employee" FromRole="Employee" ToRole="Student" />
         </EntityType>
         <EntityType Name="File">
           <Key>
@@ -761,7 +757,6 @@
           <Property Name="Student_Id" Type="Int32" />
           <Property Name="Type" Type="Int32" />
           <NavigationProperty Name="Student" Relationship="REU_RegistrationModel.FK_Files_Student" FromRole="File" ToRole="Student" />
-          <NavigationProperty Name="Student1" Relationship="REU_RegistrationModel.FK_Files_Student1" FromRole="File" ToRole="Student" />
         </EntityType>
         <EntityType Name="Group">
           <Key>
@@ -891,6 +886,28 @@
           <NavigationProperty Name="Group" Relationship="REU_RegistrationModel.FK_Permission_Group_Group" FromRole="Permission_Group" ToRole="Group" />
           <NavigationProperty Name="Permission" Relationship="REU_RegistrationModel.FK_Permission_Group_Permission" FromRole="Permission_Group" ToRole="Permission" />
         </EntityType>
+        <EntityType Name="Resource">
+          <Key>
+            <PropertyRef Name="ResourceID" />
+          </Key>
+          <Property Name="ResourceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Resource_Name_Ar" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Resource_Name_En" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Students" Relationship="REU_RegistrationModel.FK_Student_Resource" FromRole="Resource" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Sequence">
+          <Key>
+            <PropertyRef Name="Sequence_Id" />
+          </Key>
+          <Property Name="Sequence_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Emp_Id" Type="Int32" />
+          <Property Name="Status_Id" Type="Int32" />
+          <Property Name="Student_Id" Type="Int32" />
+          <Property Name="DateCreation" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Employee" Relationship="REU_RegistrationModel.FK_Sequence_Employee" FromRole="Sequence" ToRole="Employee" />
+          <NavigationProperty Name="Status" Relationship="REU_RegistrationModel.FK_Sequence_Status" FromRole="Sequence" ToRole="Status" />
+          <NavigationProperty Name="Student" Relationship="REU_RegistrationModel.FK_Sequence_Student" FromRole="Sequence" ToRole="Student" />
+        </EntityType>
         <EntityType Name="Specialization">
           <Key>
             <PropertyRef Name="Specialization_Id" />
@@ -912,12 +929,43 @@
             <PropertyRef Name="Status_Id" />
           </Key>
           <Property Name="Status_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status_Code" Type="Int32" />
           <Property Name="Status_Name_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Status_Name_En" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Group_Status" Relationship="REU_RegistrationModel.FK_Group_Status_Status" FromRole="Status" ToRole="Group_Status" />
           <NavigationProperty Name="Sequences" Relationship="REU_RegistrationModel.FK_Sequence_Status" FromRole="Status" ToRole="Sequence" />
           <NavigationProperty Name="Students" Relationship="REU_RegistrationModel.FK_Student_Status" FromRole="Status" ToRole="Student" />
-          <Property Name="Status_Code" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Student_Id" />
+          </Key>
+          <Property Name="Student_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Student_SSN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Student_Name_En" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Student_Name_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Student_Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Student_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Student_Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Student_High_School_Degree" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Student_Capabilities_Degree" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Student_My_Achievement_Degree" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Student_CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="Student_Employee_Id" Type="Int32" />
+          <Property Name="Student_Assign_Date" Type="DateTime" Precision="3" />
+          <Property Name="Student_Image_Profile_Id" Type="Int32" />
+          <Property Name="Student_Specialization_Id" Type="Int32" />
+          <Property Name="Student_Nationality_Id" Type="Int32" />
+          <Property Name="Student_Resource_Id" Type="Int32" />
+          <Property Name="Student_Status_Id" Type="Int32" />
+          <Property Name="Student_Total" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employee" Relationship="REU_RegistrationModel.FK_Student_Employee" FromRole="Student" ToRole="Employee" />
+          <NavigationProperty Name="Files" Relationship="REU_RegistrationModel.FK_Files_Student" FromRole="Student" ToRole="File" />
+          <NavigationProperty Name="Nationality" Relationship="REU_RegistrationModel.FK_Student_Nationality" FromRole="Student" ToRole="Nationality" />
+          <NavigationProperty Name="Resource" Relationship="REU_RegistrationModel.FK_Student_Resource" FromRole="Student" ToRole="Resource" />
+          <NavigationProperty Name="Sequences" Relationship="REU_RegistrationModel.FK_Sequence_Student" FromRole="Student" ToRole="Sequence" />
+          <NavigationProperty Name="Specialization" Relationship="REU_RegistrationModel.FK_Student_Specialization" FromRole="Student" ToRole="Specialization" />
+          <NavigationProperty Name="Status" Relationship="REU_RegistrationModel.FK_Student_Status" FromRole="Student" ToRole="Status" />
         </EntityType>
         <Association Name="FK_Specialization_Collage">
           <End Type="REU_RegistrationModel.Collage" Role="Collage" Multiplicity="0..1" />
@@ -979,15 +1027,51 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Sequence_Employee">
+          <End Type="REU_RegistrationModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="REU_RegistrationModel.Sequence" Role="Sequence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_Id" />
+            </Principal>
+            <Dependent Role="Sequence">
+              <PropertyRef Name="Emp_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Employee">
+          <End Type="REU_RegistrationModel.Employee" Role="Employee" Multiplicity="0..1" />
+          <End Type="REU_RegistrationModel.Student" Role="Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_Id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="Student_Employee_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Files_Student">
+          <End Type="REU_RegistrationModel.Student" Role="Student" Multiplicity="0..1" />
+          <End Type="REU_RegistrationModel.File" Role="File" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Student_Id" />
+            </Principal>
+            <Dependent Role="File">
+              <PropertyRef Name="Student_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Group_Status_Group">
-          <End Type="REU_RegistrationModel.Group" Role="Group" Multiplicity="1" />
-          <End Type="REU_RegistrationModel.Group_Status" Role="Group_Status" Multiplicity="0..1" />
+          <End Type="REU_RegistrationModel.Group" Role="Group" Multiplicity="0..1" />
+          <End Type="REU_RegistrationModel.Group_Status" Role="Group_Status" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Group">
               <PropertyRef Name="Group_Id" />
             </Principal>
             <Dependent Role="Group_Status">
-              <PropertyRef Name="Group_Status_Id" />
+              <PropertyRef Name="Group_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1004,14 +1088,14 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Group_Status_Status">
-          <End Type="REU_RegistrationModel.Status" Role="Status" Multiplicity="1" />
-          <End Type="REU_RegistrationModel.Group_Status" Role="Group_Status" Multiplicity="0..1" />
+          <End Type="REU_RegistrationModel.Status" Role="Status" Multiplicity="0..1" />
+          <End Type="REU_RegistrationModel.Group_Status" Role="Group_Status" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Status">
               <PropertyRef Name="Status_Id" />
             </Principal>
             <Dependent Role="Group_Status">
-              <PropertyRef Name="Group_Status_Id" />
+              <PropertyRef Name="Status_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1051,6 +1135,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Student_Nationality">
+          <End Type="REU_RegistrationModel.Nationality" Role="Nationality" Multiplicity="1" />
+          <End Type="REU_RegistrationModel.Student" Role="Student" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Nationality">
+              <PropertyRef Name="Nationality_Id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="Student_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Notification_Employee_Notification_Show">
           <End Type="REU_RegistrationModel.Notification_Show" Role="Notification_Show" Multiplicity="0..1" />
           <End Type="REU_RegistrationModel.Notification_Employee" Role="Notification_Employee" Multiplicity="*" />
@@ -1087,83 +1183,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Resource">
-          <Key>
-            <PropertyRef Name="ResourceID" />
-          </Key>
-          <Property Name="ResourceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Resource_Name_Ar" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Resource_Name_En" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Students" Relationship="REU_RegistrationModel.FK_Student_Resource" FromRole="Resource" ToRole="Student" />
-        </EntityType>
-        <EntityType Name="Student">
-          <Key>
-            <PropertyRef Name="Student_Id" />
-          </Key>
-          <Property Name="Student_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Student_SSN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Student_Name_En" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Student_Name_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Student_Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Student_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Student_Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Student_High_School_Degree" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Student_Capabilities_Degree" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Student_My_Achievement_Degree" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Student_CreationDate" Type="DateTime" Precision="3" />
-          <Property Name="Student_Employee_Id" Type="Int32" />
-          <Property Name="Student_Assign_Date" Type="DateTime" Precision="3" />
-          <Property Name="Student_Image_Profile_Id" Type="Int32" />
-          <Property Name="Student_Specialization_Id" Type="Int32" />
-          <Property Name="Student_Nationality_Id" Type="Int32" />
-          <Property Name="Student_Resource_Id" Type="Int32" />
-          <NavigationProperty Name="Employee" Relationship="REU_RegistrationModel.FK_Student_Employee" FromRole="Student" ToRole="Employee" />
-          <NavigationProperty Name="File" Relationship="REU_RegistrationModel.FK_Files_Student" FromRole="Student" ToRole="File" />
-          <NavigationProperty Name="Nationality" Relationship="REU_RegistrationModel.FK_Student_Nationality" FromRole="Student" ToRole="Nationality" />
-          <NavigationProperty Name="Resource" Relationship="REU_RegistrationModel.FK_Student_Resource" FromRole="Student" ToRole="Resource" />
-          <NavigationProperty Name="Specialization" Relationship="REU_RegistrationModel.FK_Student_Specialization" FromRole="Student" ToRole="Specialization" />
-          <Property Name="Student_Status_Id" Type="Int32" />
-          <NavigationProperty Name="Sequences" Relationship="REU_RegistrationModel.FK_Sequence_Student" FromRole="Student" ToRole="Sequence" />
-          <NavigationProperty Name="Status" Relationship="REU_RegistrationModel.FK_Student_Status" FromRole="Student" ToRole="Status" />
-          <Property Name="Student_Total" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Files" Relationship="REU_RegistrationModel.FK_Files_Student1" FromRole="Student" ToRole="File" />
-        </EntityType>
-        <Association Name="FK_Student_Employee">
-          <End Type="REU_RegistrationModel.Employee" Role="Employee" Multiplicity="0..1" />
-          <End Type="REU_RegistrationModel.Student" Role="Student" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="Employee_Id" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="Student_Employee_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Files_Student">
-          <End Type="REU_RegistrationModel.Student" Role="Student" Multiplicity="1" />
-          <End Type="REU_RegistrationModel.File" Role="File" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Student">
-              <PropertyRef Name="Student_Id" />
-            </Principal>
-            <Dependent Role="File">
-              <PropertyRef Name="File_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Student_Nationality">
-          <End Type="REU_RegistrationModel.Nationality" Role="Nationality" Multiplicity="1" />
-          <End Type="REU_RegistrationModel.Student" Role="Student" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Nationality">
-              <PropertyRef Name="Nationality_Id" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="Student_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Student_Resource">
           <End Type="REU_RegistrationModel.Resource" Role="Resource" Multiplicity="0..1" />
           <End Type="REU_RegistrationModel.Student" Role="Student" Multiplicity="*" />
@@ -1173,43 +1192,6 @@
             </Principal>
             <Dependent Role="Student">
               <PropertyRef Name="Student_Resource_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Student_Specialization">
-          <End Type="REU_RegistrationModel.Specialization" Role="Specialization" Multiplicity="0..1" />
-          <End Type="REU_RegistrationModel.Student" Role="Student" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Specialization">
-              <PropertyRef Name="Specialization_Id" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="Student_Specialization_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Sequence">
-          <Key>
-            <PropertyRef Name="Sequence_Id" />
-          </Key>
-          <Property Name="Sequence_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Emp_Id" Type="Int32" />
-          <Property Name="Status_Id" Type="Int32" />
-          <Property Name="Student_Id" Type="Int32" />
-          <Property Name="DateCreation" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Employee" Relationship="REU_RegistrationModel.FK_Sequence_Employee" FromRole="Sequence" ToRole="Employee" />
-          <NavigationProperty Name="Status" Relationship="REU_RegistrationModel.FK_Sequence_Status" FromRole="Sequence" ToRole="Status" />
-          <NavigationProperty Name="Student" Relationship="REU_RegistrationModel.FK_Sequence_Student" FromRole="Sequence" ToRole="Student" />
-        </EntityType>
-        <Association Name="FK_Sequence_Employee">
-          <End Type="REU_RegistrationModel.Employee" Role="Employee" Multiplicity="0..1" />
-          <End Type="REU_RegistrationModel.Sequence" Role="Sequence" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="Employee_Id" />
-            </Principal>
-            <Dependent Role="Sequence">
-              <PropertyRef Name="Emp_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1237,6 +1219,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Student_Specialization">
+          <End Type="REU_RegistrationModel.Specialization" Role="Specialization" Multiplicity="0..1" />
+          <End Type="REU_RegistrationModel.Student" Role="Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specialization">
+              <PropertyRef Name="Specialization_Id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="Student_Specialization_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Student_Status">
           <End Type="REU_RegistrationModel.Status" Role="Status" Multiplicity="0..1" />
           <End Type="REU_RegistrationModel.Student" Role="Student" Multiplicity="*" />
@@ -1249,19 +1243,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Files_Student1">
-          <End Type="REU_RegistrationModel.Student" Role="Student" Multiplicity="0..1" />
-          <End Type="REU_RegistrationModel.File" Role="File" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Student">
-              <PropertyRef Name="Student_Id" />
-            </Principal>
-            <Dependent Role="File">
-              <PropertyRef Name="Student_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1421,6 +1403,26 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Resources">
+            <EntityTypeMapping TypeName="REU_RegistrationModel.Resource">
+              <MappingFragment StoreEntitySet="Resource">
+                <ScalarProperty Name="Resource_Name_En" ColumnName="Resource_Name_En" />
+                <ScalarProperty Name="Resource_Name_Ar" ColumnName="Resource_Name_Ar" />
+                <ScalarProperty Name="ResourceID" ColumnName="ResourceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sequences">
+            <EntityTypeMapping TypeName="REU_RegistrationModel.Sequence">
+              <MappingFragment StoreEntitySet="Sequence">
+                <ScalarProperty Name="DateCreation" ColumnName="DateCreation" />
+                <ScalarProperty Name="Student_Id" ColumnName="Student_Id" />
+                <ScalarProperty Name="Status_Id" ColumnName="Status_Id" />
+                <ScalarProperty Name="Emp_Id" ColumnName="Emp_Id" />
+                <ScalarProperty Name="Sequence_Id" ColumnName="Sequence_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Specializations">
             <EntityTypeMapping TypeName="REU_RegistrationModel.Specialization">
               <MappingFragment StoreEntitySet="Specialization">
@@ -1439,19 +1441,10 @@
           <EntitySetMapping Name="Status">
             <EntityTypeMapping TypeName="REU_RegistrationModel.Status">
               <MappingFragment StoreEntitySet="Status">
-                <ScalarProperty Name="Status_Code" ColumnName="Status_Code" />
                 <ScalarProperty Name="Status_Name_En" ColumnName="Status_Name_En" />
                 <ScalarProperty Name="Status_Name_Ar" ColumnName="Status_Name_Ar" />
+                <ScalarProperty Name="Status_Code" ColumnName="Status_Code" />
                 <ScalarProperty Name="Status_Id" ColumnName="Status_Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Resources">
-            <EntityTypeMapping TypeName="REU_RegistrationModel.Resource">
-              <MappingFragment StoreEntitySet="Resource">
-                <ScalarProperty Name="Resource_Name_En" ColumnName="Resource_Name_En" />
-                <ScalarProperty Name="Resource_Name_Ar" ColumnName="Resource_Name_Ar" />
-                <ScalarProperty Name="ResourceID" ColumnName="ResourceID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1477,17 +1470,6 @@
                 <ScalarProperty Name="Student_Name_En" ColumnName="Student_Name_En" />
                 <ScalarProperty Name="Student_SSN" ColumnName="Student_SSN" />
                 <ScalarProperty Name="Student_Id" ColumnName="Student_Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Sequences">
-            <EntityTypeMapping TypeName="REU_RegistrationModel.Sequence">
-              <MappingFragment StoreEntitySet="Sequence">
-                <ScalarProperty Name="DateCreation" ColumnName="DateCreation" />
-                <ScalarProperty Name="Student_Id" ColumnName="Student_Id" />
-                <ScalarProperty Name="Status_Id" ColumnName="Status_Id" />
-                <ScalarProperty Name="Emp_Id" ColumnName="Emp_Id" />
-                <ScalarProperty Name="Sequence_Id" ColumnName="Sequence_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

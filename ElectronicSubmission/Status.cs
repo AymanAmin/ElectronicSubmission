@@ -16,16 +16,17 @@ namespace ElectronicSubmission
     {
         public Status()
         {
+            this.Group_Status = new HashSet<Group_Status>();
             this.Sequences = new HashSet<Sequence>();
             this.Students = new HashSet<Student>();
         }
     
         public int Status_Id { get; set; }
+        public Nullable<int> Status_Code { get; set; }
         public string Status_Name_Ar { get; set; }
         public string Status_Name_En { get; set; }
-        public Nullable<int> Status_Code { get; set; }
     
-        public virtual Group_Status Group_Status { get; set; }
+        public virtual ICollection<Group_Status> Group_Status { get; set; }
         public virtual ICollection<Sequence> Sequences { get; set; }
         public virtual ICollection<Student> Students { get; set; }
     }

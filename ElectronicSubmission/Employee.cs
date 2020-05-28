@@ -18,8 +18,8 @@ namespace ElectronicSubmission
         {
             this.Log_File = new HashSet<Log_File>();
             this.Notification_Employee = new HashSet<Notification_Employee>();
-            this.Students = new HashSet<Student>();
             this.Sequences = new HashSet<Sequence>();
+            this.Students = new HashSet<Student>();
         }
     
         public int Employee_Id { get; set; }
@@ -37,7 +37,7 @@ namespace ElectronicSubmission
         public virtual LanguageMaster LanguageMaster { get; set; }
         public virtual ICollection<Log_File> Log_File { get; set; }
         public virtual ICollection<Notification_Employee> Notification_Employee { get; set; }
-        public virtual ICollection<Student> Students { get; set; }
         public virtual ICollection<Sequence> Sequences { get; set; }
+        public virtual ICollection<Student> Students { get; set; }
     }
 }

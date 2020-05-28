@@ -18,14 +18,14 @@ namespace ElectronicSubmission
             if (SessionWrapper.LoggedUser == null)
                 Response.Redirect("~/Pages/Auth/Login.aspx");
 
-            lineChart();
+            
 
             int UserID = SessionWrapper.LoggedUser.Employee_Id;
 
             StudentList = db.Students.ToList();
             SequenceList = db.Sequences.ToList();
             Treatment_Status();
-            Charts();
+            lineChart();
         }
         private void Treatment_Status()
         {
@@ -44,19 +44,7 @@ namespace ElectronicSubmission
         {
             //List<Treatment_Master> FullMaster_Treatment = db.Treatment_Master.ToList();
             /* Pie Chart */
-            /*int new_treatment = DetialList.Where(x => x.Assignment_Status_Id == 1 && x.Is_Delete == false).Count();
-            int under_process_treatment = DetialList.Where(x => x.Assignment_Status_Id == 2 && x.Is_Delete == false).Count() + MasterList.Where(x => x.Treatment_Status_Id == 1).Count();
-            int finished_treatment = DetialList.Where(x => x.Assignment_Status_Id == 3 && x.Is_Delete == false).Count();
-            int deleted_treatment = DetialList.Where(x => x.Is_Delete == true).Count() * 0;
 
-            string New = FieldNames.getFieldName("Default-New", "New");
-            string Under_Process = FieldNames.getFieldName("Default-UnderProcess", "Under Process");
-            string Finised = FieldNames.getFieldName("Default-Finised", "Finised");
-            string Deleted = FieldNames.getFieldName("Default-Deleted", "Deleted"); 
-
-            string data = "[" + new_treatment + ", " + under_process_treatment + ", " + finished_treatment + ", " + deleted_treatment + "]";
-            string names = "['"+New+"', '"+Under_Process+"', '"+Finised+"', '"+Deleted+"']";
-            string Pie_Function = "Pie_Chart(" + data + "," + names + ");";*/
             /*  End of Pie Chart */
 
 
@@ -115,23 +103,87 @@ namespace ElectronicSubmission
         {
             string Status = "[";
             string Data = "[";
+            string AvgDelay = "[";
             List<Status> StatusList = db.Status.ToList();
             for(int i = 0; i < StatusList.Count; i++)
             {
                 List<Student> students = StatusList[i].Students.ToList();
-                Status += StatusList[i].Status_Name_En;
+                
+                Status += "'" + StatusList[i].Status_Name_En + "'";
                 Data += students.Count.ToString();
-                if (i > 0 && i < StatusList.Count - 1)
+                
+
+                List<Sequence> sequenceOne = StatusList[i].Sequences.ToList();
+                double sum = 0;
+                if (i > 0)
+                {
+                    List<Sequence> sequenceTwo = StatusList[i - 1].Sequences.ToList();
+
+                    for (int k = 0; k < sequenceOne.Count; k++)
+                    {
+                        DateTime firstDate = DateTime.Parse(sequenceOne[k].DateCreation.ToString());
+                        DateTime secondDate = DateTime.Parse(sequenceTwo[k].DateCreation.ToString());
+                        sum += (firstDate - secondDate).TotalHours;
+                    }
+                    try
+                    {
+                        int avg = (int)sum / sequenceOne.Count();
+                        AvgDelay += ""+avg;
+                    }
+                    catch { AvgDelay += "0"; }
+                }
+                else
+                    AvgDelay += "0";
+
+                if (i < StatusList.Count - 1)
                 {
                     Status += ",";
                     Data += ",";
+                    AvgDelay += ",";
                 }
             }
             Status += "]";
             Data += "]";
-            string lineChartfun = "lineChart(" + Data + "," + Status + ")";
+            AvgDelay += "]";
 
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", lineChartfun, true);
+            string Pie_Function = "Pie_Chart(" + Data + "," + Status + ");";
+            /* Pie Chart */
+            string lineChartfun = "lineChart(" + AvgDelay + "," + Status + ");";
+
+            /* Treatment Per mounth Chart */
+            DateTime date_today = DateTime.Now;
+            int day = date_today.Day;
+            date_today = date_today.AddDays(-day + 1);
+            List<DateTime> DateList = new List<DateTime>();
+            for (int i = 0; i < 12; i++)
+            {
+                DateList.Add(date_today);
+                date_today = date_today.AddMonths(-1);
+            }
+
+            string Total = "[";
+            string categories = "[";
+
+            for (int i = DateList.Count - 1; i >= 0; i--)
+            {
+                Total += StudentList.Where(x => x.Student_CreationDate >= DateList[i] && x.Student_CreationDate <= DateList[i].AddDays(30)).Count().ToString();
+
+                string mounth = DateList[i].ToString("MMM", CultureInfo.InvariantCulture);
+                if (SessionWrapper.LoggedUser.Language_id == 1)
+                    mounth = ArabicDate(mounth);
+                categories += "'" + mounth + "'";
+                if (i > 0)
+                {
+                    Total += ",";
+                    categories += ",";
+                }
+            }
+            Total += "]";
+            categories += "]";
+            string Treatment_Per_Mounth_Function = "Pie_ChartColumn(" + Total + "," + categories + ");";
+            /* End Treatment Per mounth Chart */
+
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", Pie_Function+ " " +lineChartfun + " "+ Treatment_Per_Mounth_Function, true);
         }
 
         private string ArabicDate(string DateName)

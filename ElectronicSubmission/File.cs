@@ -22,6 +22,5 @@ namespace ElectronicSubmission
         public Nullable<int> Type { get; set; }
     
         public virtual Student Student { get; set; }
-        public virtual Student Student1 { get; set; }
     }
 }

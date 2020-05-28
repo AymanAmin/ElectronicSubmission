@@ -25,105 +25,136 @@
             };
 
             var chart = new ApexCharts(document.querySelector("#chart"), options);
-            chart.render();
+            setTimeout(function () { chart.render(); }, 1000);
         }
 
         function lineChart(Data, Status) {
-            alert();
+
             var options = {
                 series: [{
-                    name: "Desktops",
+                    name: "<% = ElectronicSubmission.FieldNames.getFieldName("Default-Hour", "Hour") %>",
                     data: Data
                 }],
-                chart: {
-                    height: 350,
-                    type: 'line',
-                    zoom: {
+                    chart: {
+                        height: 350,
+                        type: 'line',
+                        zoom: {
+                            enabled: false
+                        }
+                    },
+                    dataLabels: {
                         enabled: false
-                    }
-                },
-                dataLabels: {
-                    enabled: false
-                },
-                stroke: {
-                    curve: 'straight'
-                },
-                title: {
-                    text: '<% = ElectronicSubmission.FieldNames.getFieldName("Default-DelayPerStatus", "Delay Per Status") %>',
+                    },
+                    stroke: {
+                        curve: 'straight'
+                    },
+                    title: {
+                        text: '<% = ElectronicSubmission.FieldNames.getFieldName("Default-DelayPerStatus", "Delay Per Status") %>',
                     align: 'left'
                 },
-                grid: {
-                    row: {
-                        colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-                        opacity: 0.5
+                    grid: {
+                        row: {
+                            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                            opacity: 0.5
+                        },
                     },
-                },
-                xaxis: {
-                    categories: Status,
-                }
-            };
+                    xaxis: {
+                        categories: Status,
+                    }
+                };
 
             var chart = new ApexCharts(document.querySelector("#Linechart"), options);
-            chart.render();
+            setTimeout(function () { chart.render(); }, 1000);
+
 
         }
 
-        function Pie_ChartColumn(Total, Recived, Sent, categories) {
+        function Pie_ChartColumn(data, categories) {
             var options = {
                 series: [{
-                    name: '<% = ElectronicSubmission.FieldNames.getFieldName("Default-Total", "Total") %>',
-                    data: Total
-                }, {
-                    name: '<% = ElectronicSubmission.FieldNames.getFieldName("Default-Recived", "Recived") %>',
-                    data: Recived
-                }, {
-                    name: '<% = ElectronicSubmission.FieldNames.getFieldName("Default-Sent", "Sent") %>',
-                    data: Sent
+                    name: 'Inflation',
+                    data: data
                 }],
                 chart: {
+                    height: 350,
                     type: 'bar',
-                    height: 350
                 },
                 plotOptions: {
                     bar: {
-                        horizontal: false,
-                        columnWidth: '55%',
-                        endingShape: 'rounded'
-                    },
-                },
-                dataLabels: {
-                    enabled: false
-                },
-                stroke: {
-                    show: true,
-                    width: 2,
-                    colors: ['transparent']
-                },
-                xaxis: {
-                    categories: categories,
-                },
-                yaxis: {
-                    title: {
-                        text: '# (<% = ElectronicSubmission.FieldNames.getFieldName("Default-Treatment", "Treatment") %>)'
+                        dataLabels: {
+                            position: 'top', // top, center, bottom
+                        },
                     }
                 },
-                fill: {
-                    opacity: 1
+                dataLabels: {
+                    enabled: true,
+                    formatter: function (val) {
+                        return val + "%";
+                    },
+                    offsetY: -20,
+                    style: {
+                        fontSize: '12px',
+                        colors: ["#304758"]
+                    }
                 },
-                tooltip: {
-                    y: {
-                        formatter: function (val) {
-                            return "# " + val + " <% = ElectronicSubmission.FieldNames.getFieldName("Default-Treatment", "Treatment") %>"
+
+                xaxis: {
+                    categories: categories,
+                    position: 'top',
+                    axisBorder: {
+                        show: false
+                    },
+                    axisTicks: {
+                        show: false
+                    },
+                    crosshairs: {
+                        fill: {
+                            type: 'gradient',
+                            gradient: {
+                                colorFrom: '#D8E3F0',
+                                colorTo: '#BED1E6',
+                                stops: [0, 100],
+                                opacityFrom: 0.4,
+                                opacityTo: 0.5,
+                            }
                         }
+                    },
+                    tooltip: {
+                        enabled: true,
+                    }
+                },
+                yaxis: {
+                    axisBorder: {
+                        show: false
+                    },
+                    axisTicks: {
+                        show: false,
+                    },
+                    labels: {
+                        show: false,
+                        formatter: function (val) {
+                            return val + " <% = ElectronicSubmission.FieldNames.getFieldName("Default-Record", "Record") %> ";
+                        }
+                    }
+
+                },
+                title: {
+                    text: ' <% = ElectronicSubmission.FieldNames.getFieldName("Default-NumberOfRecordPerMounths", "Number Of Record Per Mounths") %> ',
+                    floating: true,
+                    offsetY: 330,
+                    align: 'center',
+                    style: {
+                        color: '#444'
                     }
                 }
             };
 
             var chart = new ApexCharts(document.querySelector("#chart_Column"), options);
-            chart.render();
+            setTimeout(function () { chart.render(); }, 1000);
+
         }
 
-        setTimeout(function () { document.getElementById("header-div").style.display = "none"; }, 1);
+        setTimeout(function () { document.getElementById("header-div").style.display = "none"; }, 1000);
 
     </script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -239,10 +270,10 @@
 
     <div class="row">
         <!-- Chart start -->
-         <div class="col-xl-12 col-md-12">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                   
+
                     <div class="card-header-right">
                         <ul class="list-unstyled card-option">
                             <li><i class="feather icon-maximize full-card"></i></li>
@@ -254,11 +285,27 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-xl-7 col-md-12">
+        <div class="col-md-5">
             <div class="card">
                 <div class="card-header">
-                    <h5><% = ElectronicSubmission.FieldNames.getFieldName("Default-TreatmentPerMounths", "Treatment Per Mounths") %></h5>
+                    <h5><% = ElectronicSubmission.FieldNames.getFieldName("Default-RecordsPerStatus", "Records Per Status") %></h5>
+                    <div class="card-header-right">
+                        <ul class="list-unstyled card-option">
+                            <li><i class="feather icon-maximize full-card"></i></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-block">
+                    <div id="chart" style="width: 100%;"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-7">
+            <div class="card">
+                <div class="card-header">
+                    <h5><% = ElectronicSubmission.FieldNames.getFieldName("Default-RecordPerMounths", "Record Per Mounths") %></h5>
                     <div class="card-header-right">
                         <ul class="list-unstyled card-option">
                             <li><i class="feather icon-maximize full-card"></i></li>
@@ -271,24 +318,9 @@
             </div>
         </div>
 
-        <div class="col-xl-5 col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    <h5><% = ElectronicSubmission.FieldNames.getFieldName("Default-TreatmentPerStatus", "Treatment Per Status") %></h5>
-                    <div class="card-header-right">
-                        <ul class="list-unstyled card-option">
-                            <li><i class="feather icon-maximize full-card"></i></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card-block">
-                    <div id="chart" style="width:100%;"></div>
-                </div>
 
-            </div>
-        </div>
 
-       
+
     </div>
 
 </asp:Content>

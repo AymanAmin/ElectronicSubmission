@@ -103,6 +103,33 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment {
         protected global::System.Web.UI.WebControls.EntityDataSource PermissonsDataSource;
         
         /// <summary>
+        /// StatusGridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGridView StatusGridView;
+        
+        /// <summary>
+        /// StatusDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource StatusDataSource;
+        
+        /// <summary>
+        /// EntityDataSource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource1;
+        
+        /// <summary>
         /// SaveChanges control.
         /// </summary>
         /// <remarks>

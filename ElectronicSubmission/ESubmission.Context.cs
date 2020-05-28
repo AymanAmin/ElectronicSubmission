@@ -39,10 +39,10 @@ namespace ElectronicSubmission
         public DbSet<Notification_Show> Notification_Show { get; set; }
         public DbSet<Permission> Permissions { get; set; }
         public DbSet<Permission_Group> Permission_Group { get; set; }
+        public DbSet<Resource> Resources { get; set; }
+        public DbSet<Sequence> Sequences { get; set; }
         public DbSet<Specialization> Specializations { get; set; }
         public DbSet<Status> Status { get; set; }
-        public DbSet<Resource> Resources { get; set; }
         public DbSet<Student> Students { get; set; }
-        public DbSet<Sequence> Sequences { get; set; }
     }
 }
