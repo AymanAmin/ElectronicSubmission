@@ -7,63 +7,72 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ElectronicSubmission {
+namespace ElectronicSubmission.Pages.Setting {
     
     
-    public partial class Bachelors {
+    public partial class FormResource {
         
         /// <summary>
-        /// headerBachelors control.
+        /// txtResource_Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl headerBachelors;
+        protected global::System.Web.UI.WebControls.TextBox txtResource_Name;
         
         /// <summary>
-        /// detailedBachelors control.
+        /// RFVtxtResource_Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl detailedBachelors;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtResource_Name;
         
         /// <summary>
-        /// bachelorsImage control.
+        /// txtResource_Name_En control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage bachelorsImage;
+        protected global::System.Web.UI.WebControls.TextBox txtResource_Name_En;
         
         /// <summary>
-        /// headerBody control.
+        /// RFVtxtResource_Name_En control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl headerBody;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtResource_Name_En;
         
         /// <summary>
-        /// bachelorsDescription control.
+        /// Save control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl bachelorsDescription;
+        protected global::System.Web.UI.WebControls.Button Save;
         
         /// <summary>
-        /// bachelorsReque control.
+        /// ResourceGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl bachelorsReque;
+        protected global::DevExpress.Web.ASPxGridView ResourceGridView;
+        
+        /// <summary>
+        /// ResourceDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource ResourceDataSource;
     }
 }
