@@ -190,8 +190,7 @@
           <Property Name="Status_Code" Type="int" />
           <Property Name="Status_Name_Ar" Type="nvarchar(max)" />
           <Property Name="Status_Name_En" Type="nvarchar(max)" />
-          <Property Name="Status_Color" Type="nvarchar(max)" />
-          <Property Name="Status_Icon" Type="nvarchar(max)" />
+          <Property Name="Suspended" Type="int" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -210,12 +209,14 @@
           <Property Name="Student_CreationDate" Type="datetime" />
           <Property Name="Student_Employee_Id" Type="int" />
           <Property Name="Student_Assign_Date" Type="datetime" />
-          <Property Name="Student_Image_Profile_Id" Type="int" />
+          <Property Name="Student_Image_Profile" Type="nvarchar" MaxLength="50" />
           <Property Name="Student_Specialization_Id" Type="int" />
           <Property Name="Student_Nationality_Id" Type="int" />
           <Property Name="Student_Resource_Id" Type="int" />
           <Property Name="Student_Status_Id" Type="int" />
           <Property Name="Student_Total" Type="nvarchar" MaxLength="50" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="50" />
+          <Property Name="Suspended" Type="int" />
         </EntityType>
         <Association Name="FK_Employee_Group">
           <End Role="Group" Type="Self.Group" Multiplicity="0..1" />
@@ -446,14 +447,14 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Student_Nationality">
-          <End Role="Nationality" Type="Self.Nationality" Multiplicity="1" />
-          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="Nationality" Type="Self.Nationality" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Nationality">
               <PropertyRef Name="Nationality_Id" />
             </Principal>
             <Dependent Role="Student">
-              <PropertyRef Name="Student_Id" />
+              <PropertyRef Name="Student_Nationality_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -627,8 +628,13 @@
           <EntitySet Name="Permission_Group" EntityType="REU_RegistrationModel.Permission_Group" />
           <EntitySet Name="Resources" EntityType="REU_RegistrationModel.Resource" />
           <EntitySet Name="Sequences" EntityType="REU_RegistrationModel.Sequence" />
+          <EntitySet Name="Specializations" EntityType="REU_RegistrationModel.Specialization" />
           <EntitySet Name="Status" EntityType="REU_RegistrationModel.Status" />
           <EntitySet Name="Students" EntityType="REU_RegistrationModel.Student" />
+          <AssociationSet Name="FK_Specialization_Collage" Association="REU_RegistrationModel.FK_Specialization_Collage">
+            <End Role="Collage" EntitySet="Collages" />
+            <End Role="Specialization" EntitySet="Specializations" />
+          </AssociationSet>
           <AssociationSet Name="FK_Employee_Group" Association="REU_RegistrationModel.FK_Employee_Group">
             <End Role="Group" EntitySet="Groups" />
             <End Role="Employee" EntitySet="Employees" />
@@ -709,17 +715,12 @@
             <End Role="Student" EntitySet="Students" />
             <End Role="Sequence" EntitySet="Sequences" />
           </AssociationSet>
-          <AssociationSet Name="FK_Student_Status" Association="REU_RegistrationModel.FK_Student_Status">
-            <End Role="Status" EntitySet="Status" />
-            <End Role="Student" EntitySet="Students" />
-          </AssociationSet>
-          <EntitySet Name="Specializations" EntityType="REU_RegistrationModel.Specialization" />
-          <AssociationSet Name="FK_Specialization_Collage" Association="REU_RegistrationModel.FK_Specialization_Collage">
-            <End Role="Collage" EntitySet="Collages" />
-            <End Role="Specialization" EntitySet="Specializations" />
-          </AssociationSet>
           <AssociationSet Name="FK_Student_Specialization" Association="REU_RegistrationModel.FK_Student_Specialization">
             <End Role="Specialization" EntitySet="Specializations" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Status" Association="REU_RegistrationModel.FK_Student_Status">
+            <End Role="Status" EntitySet="Status" />
             <End Role="Student" EntitySet="Students" />
           </AssociationSet>
         </EntityContainer>
@@ -828,7 +829,7 @@
           <Property Name="Nationality_Name_En" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Nationality1" Relationship="REU_RegistrationModel.FK_Nationality_Nationality" FromRole="Nationality" ToRole="Nationality1" />
           <NavigationProperty Name="Nationality2" Relationship="REU_RegistrationModel.FK_Nationality_Nationality" FromRole="Nationality1" ToRole="Nationality" />
-          <NavigationProperty Name="Student" Relationship="REU_RegistrationModel.FK_Student_Nationality" FromRole="Nationality" ToRole="Student" />
+          <NavigationProperty Name="Students" Relationship="REU_RegistrationModel.FK_Student_Nationality" FromRole="Nationality" ToRole="Student" />
         </EntityType>
         <EntityType Name="Notification_Employee">
           <Key>
@@ -915,6 +916,27 @@
           <NavigationProperty Name="Status" Relationship="REU_RegistrationModel.FK_Sequence_Status" FromRole="Sequence" ToRole="Status" />
           <NavigationProperty Name="Student" Relationship="REU_RegistrationModel.FK_Sequence_Student" FromRole="Sequence" ToRole="Student" />
         </EntityType>
+        <EntityType Name="Specialization">
+          <Key>
+            <PropertyRef Name="Specialization_Id" />
+          </Key>
+          <Property Name="Specialization_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Specialization_Name_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Specialization_Name_En" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Collage_Id" Type="Int32" />
+          <Property Name="Condition_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="High_School_Percent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Capabilities_Percent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="My_Achievement_Percent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Weighted_Ratio_Percent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Specialization_Icon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Specialization_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Condition_En" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Specialization_Description_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Specialization_Description_En" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Collage" Relationship="REU_RegistrationModel.FK_Specialization_Collage" FromRole="Specialization" ToRole="Collage" />
+          <NavigationProperty Name="Students" Relationship="REU_RegistrationModel.FK_Student_Specialization" FromRole="Specialization" ToRole="Student" />
+        </EntityType>
         <EntityType Name="Status">
           <Key>
             <PropertyRef Name="Status_Id" />
@@ -923,11 +945,10 @@
           <Property Name="Status_Code" Type="Int32" />
           <Property Name="Status_Name_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Status_Name_En" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Suspended" Type="Int32" />
           <NavigationProperty Name="Group_Status" Relationship="REU_RegistrationModel.FK_Group_Status_Status" FromRole="Status" ToRole="Group_Status" />
           <NavigationProperty Name="Sequences" Relationship="REU_RegistrationModel.FK_Sequence_Status" FromRole="Status" ToRole="Sequence" />
           <NavigationProperty Name="Students" Relationship="REU_RegistrationModel.FK_Student_Status" FromRole="Status" ToRole="Student" />
-          <Property Name="Status_Color" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Status_Icon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -946,20 +967,34 @@
           <Property Name="Student_CreationDate" Type="DateTime" Precision="3" />
           <Property Name="Student_Employee_Id" Type="Int32" />
           <Property Name="Student_Assign_Date" Type="DateTime" Precision="3" />
-          <Property Name="Student_Image_Profile_Id" Type="Int32" />
+          <Property Name="Student_Image_Profile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Student_Specialization_Id" Type="Int32" />
           <Property Name="Student_Nationality_Id" Type="Int32" />
           <Property Name="Student_Resource_Id" Type="Int32" />
           <Property Name="Student_Status_Id" Type="Int32" />
           <Property Name="Student_Total" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Suspended" Type="Int32" />
           <NavigationProperty Name="Employee" Relationship="REU_RegistrationModel.FK_Student_Employee" FromRole="Student" ToRole="Employee" />
           <NavigationProperty Name="Files" Relationship="REU_RegistrationModel.FK_Files_Student" FromRole="Student" ToRole="File" />
           <NavigationProperty Name="Nationality" Relationship="REU_RegistrationModel.FK_Student_Nationality" FromRole="Student" ToRole="Nationality" />
           <NavigationProperty Name="Resource" Relationship="REU_RegistrationModel.FK_Student_Resource" FromRole="Student" ToRole="Resource" />
           <NavigationProperty Name="Sequences" Relationship="REU_RegistrationModel.FK_Sequence_Student" FromRole="Student" ToRole="Sequence" />
-          <NavigationProperty Name="Status" Relationship="REU_RegistrationModel.FK_Student_Status" FromRole="Student" ToRole="Status" />
           <NavigationProperty Name="Specialization" Relationship="REU_RegistrationModel.FK_Student_Specialization" FromRole="Student" ToRole="Specialization" />
+          <NavigationProperty Name="Status" Relationship="REU_RegistrationModel.FK_Student_Status" FromRole="Student" ToRole="Status" />
         </EntityType>
+        <Association Name="FK_Specialization_Collage">
+          <End Type="REU_RegistrationModel.Collage" Role="Collage" Multiplicity="0..1" />
+          <End Type="REU_RegistrationModel.Specialization" Role="Specialization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Collage">
+              <PropertyRef Name="Collage_ID" />
+            </Principal>
+            <Dependent Role="Specialization">
+              <PropertyRef Name="Collage_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Employee_Group">
           <End Type="REU_RegistrationModel.Group" Role="Group" Multiplicity="0..1" />
           <End Type="REU_RegistrationModel.Employee" Role="Employee" Multiplicity="*" />
@@ -1117,14 +1152,14 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Student_Nationality">
-          <End Type="REU_RegistrationModel.Nationality" Role="Nationality" Multiplicity="1" />
-          <End Type="REU_RegistrationModel.Student" Role="Student" Multiplicity="0..1" />
+          <End Type="REU_RegistrationModel.Nationality" Role="Nationality" Multiplicity="0..1" />
+          <End Type="REU_RegistrationModel.Student" Role="Student" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Nationality">
               <PropertyRef Name="Nationality_Id" />
             </Principal>
             <Dependent Role="Student">
-              <PropertyRef Name="Student_Id" />
+              <PropertyRef Name="Student_Nationality_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1200,51 +1235,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Student_Status">
-          <End Type="REU_RegistrationModel.Status" Role="Status" Multiplicity="0..1" />
-          <End Type="REU_RegistrationModel.Student" Role="Student" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Status">
-              <PropertyRef Name="Status_Id" />
-            </Principal>
-            <Dependent Role="Student">
-              <PropertyRef Name="Student_Status_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="Specialization">
-          <Key>
-            <PropertyRef Name="Specialization_Id" />
-          </Key>
-          <Property Name="Specialization_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Specialization_Name_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Specialization_Name_En" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Collage_Id" Type="Int32" />
-          <Property Name="Condition_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="High_School_Percent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Capabilities_Percent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="My_Achievement_Percent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Weighted_Ratio_Percent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Specialization_Icon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Specialization_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Condition_En" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Collage" Relationship="REU_RegistrationModel.FK_Specialization_Collage" FromRole="Specialization" ToRole="Collage" />
-          <NavigationProperty Name="Students" Relationship="REU_RegistrationModel.FK_Student_Specialization" FromRole="Specialization" ToRole="Student" />
-          <Property Name="Specialization_Description_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Specialization_Description_En" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <Association Name="FK_Specialization_Collage">
-          <End Type="REU_RegistrationModel.Collage" Role="Collage" Multiplicity="0..1" />
-          <End Type="REU_RegistrationModel.Specialization" Role="Specialization" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Collage">
-              <PropertyRef Name="Collage_ID" />
-            </Principal>
-            <Dependent Role="Specialization">
-              <PropertyRef Name="Collage_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Student_Specialization">
           <End Type="REU_RegistrationModel.Specialization" Role="Specialization" Multiplicity="0..1" />
           <End Type="REU_RegistrationModel.Student" Role="Student" Multiplicity="*" />
@@ -1254,6 +1244,18 @@
             </Principal>
             <Dependent Role="Student">
               <PropertyRef Name="Student_Specialization_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Status">
+          <End Type="REU_RegistrationModel.Status" Role="Status" Multiplicity="0..1" />
+          <End Type="REU_RegistrationModel.Student" Role="Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Status_Id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="Student_Status_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1437,43 +1439,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Status">
-            <EntityTypeMapping TypeName="REU_RegistrationModel.Status">
-              <MappingFragment StoreEntitySet="Status">
-                <ScalarProperty Name="Status_Icon" ColumnName="Status_Icon" />
-                <ScalarProperty Name="Status_Color" ColumnName="Status_Color" />
-                <ScalarProperty Name="Status_Name_En" ColumnName="Status_Name_En" />
-                <ScalarProperty Name="Status_Name_Ar" ColumnName="Status_Name_Ar" />
-                <ScalarProperty Name="Status_Code" ColumnName="Status_Code" />
-                <ScalarProperty Name="Status_Id" ColumnName="Status_Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Students">
-            <EntityTypeMapping TypeName="REU_RegistrationModel.Student">
-              <MappingFragment StoreEntitySet="Student">
-                <ScalarProperty Name="Student_Total" ColumnName="Student_Total" />
-                <ScalarProperty Name="Student_Status_Id" ColumnName="Student_Status_Id" />
-                <ScalarProperty Name="Student_Resource_Id" ColumnName="Student_Resource_Id" />
-                <ScalarProperty Name="Student_Nationality_Id" ColumnName="Student_Nationality_Id" />
-                <ScalarProperty Name="Student_Specialization_Id" ColumnName="Student_Specialization_Id" />
-                <ScalarProperty Name="Student_Image_Profile_Id" ColumnName="Student_Image_Profile_Id" />
-                <ScalarProperty Name="Student_Assign_Date" ColumnName="Student_Assign_Date" />
-                <ScalarProperty Name="Student_Employee_Id" ColumnName="Student_Employee_Id" />
-                <ScalarProperty Name="Student_CreationDate" ColumnName="Student_CreationDate" />
-                <ScalarProperty Name="Student_My_Achievement_Degree" ColumnName="Student_My_Achievement_Degree" />
-                <ScalarProperty Name="Student_Capabilities_Degree" ColumnName="Student_Capabilities_Degree" />
-                <ScalarProperty Name="Student_High_School_Degree" ColumnName="Student_High_School_Degree" />
-                <ScalarProperty Name="Student_Email" ColumnName="Student_Email" />
-                <ScalarProperty Name="Student_Phone" ColumnName="Student_Phone" />
-                <ScalarProperty Name="Student_Address" ColumnName="Student_Address" />
-                <ScalarProperty Name="Student_Name_Ar" ColumnName="Student_Name_Ar" />
-                <ScalarProperty Name="Student_Name_En" ColumnName="Student_Name_En" />
-                <ScalarProperty Name="Student_SSN" ColumnName="Student_SSN" />
-                <ScalarProperty Name="Student_Id" ColumnName="Student_Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Specializations">
             <EntityTypeMapping TypeName="REU_RegistrationModel.Specialization">
               <MappingFragment StoreEntitySet="Specialization">
@@ -1491,6 +1456,44 @@
                 <ScalarProperty Name="Specialization_Name_En" ColumnName="Specialization_Name_En" />
                 <ScalarProperty Name="Specialization_Name_Ar" ColumnName="Specialization_Name_Ar" />
                 <ScalarProperty Name="Specialization_Id" ColumnName="Specialization_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="REU_RegistrationModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="Suspended" ColumnName="Suspended" />
+                <ScalarProperty Name="Status_Name_En" ColumnName="Status_Name_En" />
+                <ScalarProperty Name="Status_Name_Ar" ColumnName="Status_Name_Ar" />
+                <ScalarProperty Name="Status_Code" ColumnName="Status_Code" />
+                <ScalarProperty Name="Status_Id" ColumnName="Status_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="REU_RegistrationModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="Suspended" ColumnName="Suspended" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Student_Total" ColumnName="Student_Total" />
+                <ScalarProperty Name="Student_Status_Id" ColumnName="Student_Status_Id" />
+                <ScalarProperty Name="Student_Resource_Id" ColumnName="Student_Resource_Id" />
+                <ScalarProperty Name="Student_Nationality_Id" ColumnName="Student_Nationality_Id" />
+                <ScalarProperty Name="Student_Specialization_Id" ColumnName="Student_Specialization_Id" />
+                <ScalarProperty Name="Student_Image_Profile" ColumnName="Student_Image_Profile" />
+                <ScalarProperty Name="Student_Assign_Date" ColumnName="Student_Assign_Date" />
+                <ScalarProperty Name="Student_Employee_Id" ColumnName="Student_Employee_Id" />
+                <ScalarProperty Name="Student_CreationDate" ColumnName="Student_CreationDate" />
+                <ScalarProperty Name="Student_My_Achievement_Degree" ColumnName="Student_My_Achievement_Degree" />
+                <ScalarProperty Name="Student_Capabilities_Degree" ColumnName="Student_Capabilities_Degree" />
+                <ScalarProperty Name="Student_High_School_Degree" ColumnName="Student_High_School_Degree" />
+                <ScalarProperty Name="Student_Email" ColumnName="Student_Email" />
+                <ScalarProperty Name="Student_Phone" ColumnName="Student_Phone" />
+                <ScalarProperty Name="Student_Address" ColumnName="Student_Address" />
+                <ScalarProperty Name="Student_Name_Ar" ColumnName="Student_Name_Ar" />
+                <ScalarProperty Name="Student_Name_En" ColumnName="Student_Name_En" />
+                <ScalarProperty Name="Student_SSN" ColumnName="Student_SSN" />
+                <ScalarProperty Name="Student_Id" ColumnName="Student_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

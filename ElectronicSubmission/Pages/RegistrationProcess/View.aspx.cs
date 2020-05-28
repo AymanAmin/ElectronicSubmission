@@ -75,7 +75,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                     if (index > Color.Length) index = 1;
 
                     // Set profile image
-                    txtProfileImage.ImageUrl = "~/media/Profile/" + std.Student_Image_Profile_Id;
+                    //txtProfileImage.ImageUrl = "~/media/Profile/" + std.Student_Image_Profile_Id;
 
                     // load other data
                     txtStudent_Id.Text = std.Student_Id.ToString();
