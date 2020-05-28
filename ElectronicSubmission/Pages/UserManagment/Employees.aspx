@@ -26,14 +26,27 @@
                     $('#Body_Holder_Groups').val(Emp.Group_Id).trigger('change');
                     $('#Body_Holder_Language').val(Emp.Language_id).trigger('change'); 
                     $('input[id=Body_Holder_Active]').prop('checked', Emp.Employee_Active);
-                    
+                    if (Emp.Calendar_id == 1){
+                        $("input[id=Body_Holder_DateofBirth][value=DateofBirth]").prop('checked', true);
+                    } else {
+                        $("input[id=Body_Holder_DateofHegira][value=DateofHegira]").prop('checked', true);
+                    }
+                    var Struc = Emp.Structures;
+                    $('#Body_Holder_Emp_Structure').val(Struc).trigger('change');
                     if (Emp.Employee_Profile == "" || Emp.Employee_Profile == null) {
                         var Profile = "..\/..\/..\/..\/media\/Profile\/Profile.jpg";
                     } else {
                         var Profile = "..\/..\/..\/..\/media\/Profile\/" + Emp.Employee_Profile;
                     }
 
+                    if (Emp.Employee_Signature == "" || Emp.Employee_Signature == null ) {
+                        var Signature = "..\/..\/..\/..\/media\/Signature\/Signature.jpg";
+                    } else {
+                        var Signature = "..\/..\/..\/..\/media\/Signature\/"+Emp.Employee_Signature;
+                    }
+
                     $('#Body_Holder_Emp_Profile').attr('src', Profile);
+                    $('#Body_Holder_Emp_Signature').attr('src', Signature);
                     }
                 });
             } else {
@@ -44,8 +57,11 @@
                 $('#Body_Holder_Employee_Phone').val('');
                 $('#Body_Holder_Groups').val('').trigger('change');
                 $('#Body_Holder_Language').val('').trigger('change');
+                $("input[id=Body_Holder_DateofBirth][value=DateofBirth]").prop('checked', true);
                 $('input[id=Body_Holder_Active]').prop('checked', true);
+                $('#Body_Holder_Emp_Structure').val('').trigger('change');
                 $('#Body_Holder_Emp_Profile').attr('src', "..\/..\/..\/..\/media\/Profile\/Profile.jpg");
+                $('#Body_Holder_Emp_Signature').attr('src', "..\/..\/..\/..\/media\/Signature\/Signature.jpg");
             }
 
             document.getElementById("AddEmp_show").click(); 
@@ -85,6 +101,14 @@
          <div class="card-block">
                 <!-- Start Search Form-->
                 <div class="row">
+                    <div class="form-group col-sm-3">
+                        <label><% = ElectronicSubmission.FieldNames.getFieldName("Employees-Structure", "Structure") %></label>
+                        <div class="input-group">
+                             <span class="input-group-addon"><i class="icofont icofont-tack-pin"></i></span>
+                            <asp:DropDownList ID="StructureF" CssClass="js-example-basic-single col-sm-12" runat="server" >
+                            </asp:DropDownList> 
+                        </div>
+                    </div>
                     <div class="form-group col-sm-3">
                         <label><% = ElectronicSubmission.FieldNames.getFieldName("Employees-Group", "Group") %></label>
                         <div class="input-group">
@@ -126,6 +150,11 @@
             </div>
             <!-- Article Editor card end -->
         </div>
+
+
+
+
+
 
         <!------------------------------------------------------------------------------------------------- -->
 
@@ -171,6 +200,20 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-xl-4 col-md-6">
+                                </div>
+                                <div class="col-lg-6 col-xl-4 col-md-6">
+                                    <div class="card rounded-card user-card">
+                                        <div class="card-block">
+                                            <div class="img-hover">
+                                                <asp:Image ID="Emp_Signature" class="img-fluid img-radius" alt="Signature.jpg" runat="server" ImageUrl="~/media/Signature/Signature.jpg" />
+                                                <div class="img-overlay img-radius">
+                                                    <span>
+                                                        <asp:FileUpload ID="EmpSignature" runat="server" class="form-control" />
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>
@@ -226,6 +269,18 @@
 
                             </div>
                             <div class="row">
+                                <div class="col-sm-6">
+                                    <label><% = ElectronicSubmission.FieldNames.getFieldName("Employees-Structure", "Structure") %></label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="icofont icofont-chart-flow-alt-1"></i></span>
+                                        <asp:ListBox ID="Emp_Structure" runat="server" CssClass="js-example-placeholder-multiple col-sm-12" data-placeholder="Enter Employee Structure"  DataSourceID="StructureDataSource" DataTextField="Structure_Name_En" DataValueField="Structure_Id"  SelectionMode="Multiple" ></asp:ListBox>
+                                        <asp:EntityDataSource ID="StructureDataSource" runat="server" ConnectionString="name=REU_RegistrationEntities" DefaultContainerName="REU_RegistrationEntities" EnableFlattening="False" EntitySetName="Structures" Where="it.[Is_Job_Title]==true">
+                                        </asp:EntityDataSource>
+                                    </div>
+                                     <div class="col-sm-12">
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Select Employee Structure" ValidationGroup="Per" ControlToValidate="Emp_Structure" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                    </div>
+                                </div>
 
                                 <div class="col-sm-6">
                                     <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("Employees-Group", "Group") %></label>
@@ -239,6 +294,9 @@
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Select Pesmission Group" ValidationGroup="Per" ControlToValidate="Groups" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
+                            </div>
+
+                              <div class="row">
 
                                 <div class="col-sm-6">
                                     <label><% = ElectronicSubmission.FieldNames.getFieldName("Employees-Language", "Language") %></label>
@@ -251,6 +309,24 @@
                                      <div class="col-sm-12">
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Select Language" ValidationGroup="Per" ControlToValidate="Language" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                     </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("Employees-TypeoFCalendar", "Type oF Calendar") %></label>
+                                    <div class="form-radio">
+                                    <div class="group-add-on">
+                                        <div class="radio radiofill radio-inline">
+                                            <label>
+                                                <asp:RadioButton ID="DateofHegira"  runat="server" GroupName="Calender" Text="Hegira" Checked="true" /><i class="helper"></i>
+                                            </label>
+                                        </div>
+                                        <div class="radio radiofill radio-inline">
+                                            <label>
+                                                <asp:RadioButton ID="DateofBirth" runat="server" GroupName="Calender"  Text="Birth" /><i class="helper"></i>
+                                        </label>
+                                        </div>
+                                    </div>
+                                </div>
                                 </div>
                             </div>
 

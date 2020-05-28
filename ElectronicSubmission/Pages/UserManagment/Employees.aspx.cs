@@ -25,7 +25,9 @@ namespace ElectronicSubmission.Pages.Treatment
 
         protected void Page_PreInit(object sender, EventArgs e)
         {
-           
+            if (Session["IsECMS"] != null)
+                if (!(bool)Session["IsECMS"])
+                    this.MasterPageFile = "~/EminutesMaster.Master";
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -37,12 +39,8 @@ namespace ElectronicSubmission.Pages.Treatment
             {
                 FillDropDownLists();
             }
-          
-                ALLEmployees = db.Employees.ToList();
-                UserCard();
-                Emp_Language();
-    
-           
+            UserCard();
+            Emp_Language();
         }
 
         public void Emp_Language()
@@ -50,6 +48,7 @@ namespace ElectronicSubmission.Pages.Treatment
             if (SessionWrapper.LoggedUser.Language_id == 1)
             {
                 Groups.DataTextField = "Group_Name_Ar";
+                Emp_Structure.DataTextField = "Structure_Name_Ar";
             }
         }
 
@@ -63,15 +62,15 @@ namespace ElectronicSubmission.Pages.Treatment
             int.TryParse(EmpID.Value ,out Emp_ID);
             int.TryParse(Groups.SelectedValue, out Group_id);
             int.TryParse(Language.SelectedValue, out Lang);
-            //if(DateofBirth.Checked) calander_id = 1;
+            if(DateofBirth.Checked) calander_id = 1;
             string EMPN = Employee_Name_Ar.Text;
-            bool result = AU_Emplooyees(Emp_ID, EMPN, Employee_Name_En.Text, Employee_Email.Text, Employee_Phone.Text, Active.Checked, Group_id,Lang);
+            bool result = AU_Emplooyees(Emp_ID, EMPN, Employee_Name_En.Text, Employee_Email.Text, Employee_Phone.Text, Active.Checked, Group_id,Lang, calander_id);
 
             if (result)
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','  The  Employee was Sucessfully saved in system ! ');", true);
-                ALLEmployees = db.Employees.ToList();
                 UserCard();
+
             }
             else
             {
@@ -79,7 +78,7 @@ namespace ElectronicSubmission.Pages.Treatment
             }
         }
 
-        public bool AU_Emplooyees(int EmployeeID, string ArabicName, string EnglishName, string Email, string Phone, bool Active, int GroupID,int lang)
+        public bool AU_Emplooyees(int EmployeeID, string ArabicName, string EnglishName, string Email, string Phone, bool Active, int GroupID,int lang,int calander)
         {
             
             try
@@ -90,6 +89,7 @@ namespace ElectronicSubmission.Pages.Treatment
                 Emp.Employee_Name_Ar = ArabicName;
                 Emp.Employee_Name_En = EnglishName;
                 Emp.Employee_Email = Email;
+                //Employee_Structure Emp_Stu= new Employee_Structure(); ;
                 if (EmployeeID == 0)
                 {
                     string New_Password = StringCipher.RandomString(7);
@@ -112,6 +112,45 @@ namespace ElectronicSubmission.Pages.Treatment
                 string ImagepathProfile = UploadFile(1);
                 string ImagepathSignature = UploadFile(2);
                 if (ImagepathProfile != "" ) Emp.Employee_Profile = ImagepathProfile; else if(EmployeeID == 0) ImagepathProfile = "Profile.JPG";
+                //if (ImagepathSignature != "") Emp.Employee_Signature =ImagepathSignature;else if (EmployeeID == 0) ImagepathSignature = "Signature.JPG";
+                /////////////////////////////////////// Employee_Structure /////////////////////////////////////
+                /*Boolean DefaultStructure = false;
+                for (int i = 0; i < Emp_Structure.Items.Count; i++)
+                {
+                    int id = 0;
+                    Boolean IsFound = false;
+                    int.TryParse(Emp_Structure.Items[i].Value, out id);
+                    var Emp_Stru_found = db.Employee_Structure.Where(x => x.Employee_Id == EmployeeID && x.Structure_Id==id).ToList();
+                    if(Emp_Stru_found.Count > 0 ) IsFound = true;
+                    if (Emp_Structure.Items[i].Selected)
+                    {
+                        if (!IsFound) {
+                            Emp_Stu = new Employee_Structure();
+                            Emp_Stu.Structure_Id = int.Parse(Emp_Structure.Items[i].Value);
+                            Emp_Stu.Status_Structure = true;
+                            Emp_Stu.Type_Delegation = false;
+                            if (!DefaultStructure) { Emp_Stu.Default_Structure = true; DefaultStructure = true; } else { Emp_Stu.Default_Structure = false; }
+                            Emp.Employee_Structure.Add(Emp_Stu);
+                        }
+                        else
+                        {
+                            Emp_Stu = db.Employee_Structure.First(x => x.Employee_Id == EmployeeID && x.Structure_Id == id);
+                            Emp_Stu.Status_Structure = true;
+                            Emp_Stu.Type_Delegation = false;
+                            if (!DefaultStructure) { Emp_Stu.Default_Structure = true; DefaultStructure = true; } else { Emp_Stu.Default_Structure = false; }
+                            Emp.Employee_Structure.Add(Emp_Stu);
+                        }
+                    }
+                    else if(IsFound)
+                    {
+                        Emp_Stu = db.Employee_Structure.First(x => x.Employee_Id == EmployeeID && x.Structure_Id == id);
+                        Emp_Stu.Status_Structure = false;
+                        Emp_Stu.Type_Delegation = false;
+                        Emp_Stu.Default_Structure = false;
+                        Emp.Employee_Structure.Add(Emp_Stu);
+                    }
+                }*/
+                /////////////////////////////////////// Employee_Structure /////////////////////////////////////
                 if (EmployeeID != 0) {
                     db.Entry(Emp).State =  System.Data.EntityState.Modified;
                 }
@@ -126,6 +165,8 @@ namespace ElectronicSubmission.Pages.Treatment
                 } else{
                     logFileModule.logfile(10, "إضافة موظف", "Add Employee", LogData);
                 }
+                /*LogData = "data:" + JsonConvert.SerializeObject(Emp_Stu, logFileModule.settings);
+                logFileModule.logfile(10, "هيكلة موظف", "Employee Structure", LogData);*/
             }
             catch { return false; }
             return true;
@@ -148,6 +189,18 @@ namespace ElectronicSubmission.Pages.Treatment
                         Imagepath = UtilityClass.UploadFileWithExtention(ref EmpProfile, Server.MapPath(@"~\media\Profile\"));
                     }
                 break;
+                case 2:
+                    if (this.Page.IsValid)
+                    {
+                        if (!UtilityClass.UploadFileIsValid(ref EmpSignature, UtilityClass.ValidImagesExtentions))
+                        {
+                            Imagepath = "false";
+                        }
+                        Imagepath = string.Empty;
+
+                        Imagepath = UtilityClass.UploadFileWithExtention(ref EmpSignature, Server.MapPath(@"~\media\Signature\"));
+                    }
+                    break;
             }
            
 
@@ -161,6 +214,17 @@ namespace ElectronicSubmission.Pages.Treatment
         private void Fillter()
         {
             string val_Fillter = string.Empty;
+            
+             /*if (StructureF.SelectedIndex !=0)
+             {
+                 int id = int.Parse(StructureF.SelectedValue.ToString());
+                ALLEmployees = (from s in ALLEmployees
+                 join sl in db.Employee_Structure on s.Employee_Id equals sl.Employee_Id
+                 where sl.Structure_Id == id
+                 select s).ToList();
+                //ALLEmployees = ALLEmployees.Where(x => x.Employee_Signature.Where(f=> f.)).ToList();
+                 val_Fillter += "<strong>" + FieldNames.getFieldName("Employees-Structure", "Structure") + " : </strong>" + StructureF.SelectedItem + " , ";
+             }*/
 
             if (GroupF.SelectedIndex !=0)
            {
@@ -208,6 +272,7 @@ namespace ElectronicSubmission.Pages.Treatment
             string yourHTMLstring = "";
             string Emp_Name = "";
             UCard.Controls.Clear();
+            ALLEmployees = db.Employees.ToList();
             while (i < ALLEmployees.Count)
             {
 
@@ -265,8 +330,11 @@ namespace ElectronicSubmission.Pages.Treatment
                     Employee_Password = x.Employee_Password,
                     Employee_Phone = x.Employee_Phone,
                     Employee_Profile = x.Employee_Profile,
+                    //Employee_Signature = x.Employee_Signature,
                     Language_id =x.Language_id,
+                    //Calendar_id =x.Calendar_id,
                     Group_Id = x.Group_Id,
+                    //Structures = x.Employee_Structure.Where(f => f.Status_Structure==true && f.Type_Delegation==false).Select(c=> c.Structure_Id)
                     }).FirstOrDefault();
              
                  //JavaScriptSerializer js = new JavaScriptSerializer();
@@ -282,12 +350,20 @@ namespace ElectronicSubmission.Pages.Treatment
             try
             { 
                 REU_RegistrationEntities db = new REU_RegistrationEntities();
+                /*var widgets = db.Employee_Structure.Where(x => x.Employee_Id == Employee_Id).ToList();
+                if (widgets.Count > 0)
+                {
+                    foreach (Employee_Structure widget in widgets)
+                    {
+                        db.Employee_Structure.Remove(widget);
+                    }
+                }
                 var DelEmp = db.Employees.First(x => x.Employee_Id == Employee_Id);
                 db.Employees.Remove(DelEmp);
-                db.SaveChanges();
-                //  Add it to log file 
-                LogData = "data:" + JsonConvert.SerializeObject(DelEmp, logFileModule.settings);
-                logFileModule.logfile(10, "حذف الموظف", "Delete Employee", LogData);
+                db.SaveChanges();*/
+                /* Add it to log file */
+                /*LogData = "data:" + JsonConvert.SerializeObject(DelEmp, logFileModule.settings);
+                logFileModule.logfile(10, "حذف الموظف", "Delete Employee", LogData);*/
              
             }
             catch(Exception e)
@@ -300,7 +376,8 @@ namespace ElectronicSubmission.Pages.Treatment
         {
             if (EmployeeId >0 ) {
                 var Employeess = db.Employees.First(x => x.Employee_Id == EmployeeId);
-                if (Employeess.Employee_Profile != "" && Employeess.Employee_Profile!=null) Emp_Profile.ImageUrl = "../../../../media/Profile/" + Employeess.Employee_Profile;
+               // if (Employees.Employee_Profile != "" && Employees.Employee_Profile!=null) Emp_Profile.ImageUrl = "../../../../media/Profile/" + Employees.Employee_Profile;
+               // if (Employees.Employee_Signature != "" && Employees.Employee_Signature != null) Emp_Signature.ImageUrl = "../../../../media/Signature/" + Employees.Employee_Signature;
                 Employee_Name_Ar.Text = Employeess.Employee_Name_Ar;
                 Employee_Name_En.Text = Employeess.Employee_Name_En;
                 Employee_Email.Text = Employeess.Employee_Email;
@@ -314,6 +391,13 @@ namespace ElectronicSubmission.Pages.Treatment
 
         private void FillDropDownLists()
         {
+            // Structure dropdown
+            /*List<Structure> StructuresList = db.Structures.ToList();
+            if (SessionWrapper.LoggedUser.Language_id == 1)
+                ddlFiller.dropDDL(StructureF, "Structure_Id", "Structure_Name_Ar", StructuresList, " - الكل -");
+            else
+                ddlFiller.dropDDL(StructureF, "Structure_Id", "Structure_Name_En", StructuresList, " - All -");*/
+
             // Group dropdown
             List<Group> GroupList = db.Groups.ToList();
             if (SessionWrapper.LoggedUser.Language_id == 1)

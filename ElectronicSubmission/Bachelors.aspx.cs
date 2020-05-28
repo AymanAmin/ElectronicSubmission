@@ -21,7 +21,7 @@ namespace ElectronicSubmission
                     {
                         headerBachelors.InnerHtml = oneSpecialization.Specialization_Name_En;
                         detailedBachelors.InnerHtml = oneSpecialization.Specialization_Name_En;
-                        //bachelorsReque.InnerHtml = oneSpecialization.Condition;
+                        bachelorsReque.InnerHtml = oneSpecialization.Condition;
                         headerBody.InnerHtml = "<i class='" + oneSpecialization.Specialization_Icon + "'></i> " + oneSpecialization.Specialization_Name_En;
                     }
                     else
