@@ -18,10 +18,6 @@ namespace ElectronicSubmission
             if (SessionWrapper.LoggedUser == null)
                 Response.Redirect("~/Pages/Auth/Login.aspx");
 
-            
-
-            int UserID = SessionWrapper.LoggedUser.Employee_Id;
-
             StudentList = db.Students.ToList();
             SequenceList = db.Sequences.ToList();
             Treatment_Status();
@@ -121,9 +117,13 @@ namespace ElectronicSubmission
 
                     for (int k = 0; k < sequenceOne.Count; k++)
                     {
-                        DateTime firstDate = DateTime.Parse(sequenceOne[k].DateCreation.ToString());
-                        DateTime secondDate = DateTime.Parse(sequenceTwo[k].DateCreation.ToString());
-                        sum += (firstDate - secondDate).TotalHours;
+                        try
+                        {
+                            DateTime firstDate = DateTime.Parse(sequenceOne[k].DateCreation.ToString());
+                            DateTime secondDate = DateTime.Parse(sequenceTwo[k].DateCreation.ToString());
+                            sum += (firstDate - secondDate).TotalHours;
+                        }
+                        catch {  }
                     }
                     try
                     {

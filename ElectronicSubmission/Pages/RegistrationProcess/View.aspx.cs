@@ -11,10 +11,11 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
     public partial class View : System.Web.UI.Page
     {
         REU_RegistrationEntities db = new REU_RegistrationEntities();
-        string[] Color = { "blue", "purple", "green", "black", "red", "orange", "maroon", "teal", "deepskyblue", "gray", "yellow", "hotpink", "blueviolet", "violet", "deepskyblue", "cyan", "olivedrab", "coral", "salmon" };
+        string[] Color = { "green", "orange", "blue", "red", "maroon", "purple", "teal", "deepskyblue", "gray", "yellow", "hotpink", "blueviolet", "violet", "deepskyblue", "cyan", "olivedrab", "coral", "salmon" };
+        int student_record_id = 0;
+        bool EnableEditActions = false, EnableEditAssign = false;
         protected void Page_Load(object sender, EventArgs e)
         {
-            int student_record_id = 1;
             if (SessionWrapper.LoggedUser == null)
                 Response.Redirect("~/Pages/Auth/Login.aspx");
 
@@ -23,29 +24,60 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             else
                 student_record_id = int.Parse(Request["StudentID"].ToString());
 
-            
-            //List<> Status_List = db.Status.Where(x => x.)
 
             if (!IsPostBack)
             {
-                int UserID = SessionWrapper.LoggedUser.Employee_Id;
+                //Fill Employee DropDown List
+                FillEmployeeDropDown();
 
-                LoadActivity(student_record_id);
-                LoadStudentInfo(student_record_id);
-                LoadStudentFiles(student_record_id);
+                //Get Current student Record
+                Student student = db.Students.Find(student_record_id);
 
+                //Get Current student information
+                LoadStudentInfo(student);
+
+                //Rename button names
+                btnAssign.Text = FieldNames.getFieldName("View-Assign", "Assign");
                 btnApprove.Text = FieldNames.getFieldName("View-Approve", "Approve");
                 btnReject.Text = FieldNames.getFieldName("View-Reject", "Reject");
             }
         }
 
-        private void LoadStudentInfo(int Id)
+        private void FillEmployeeDropDown()
+        {
+            Status status = db.Status.Where(x => x.Status_Code == 3).FirstOrDefault();
+            if (status == null)
+                return;
+
+            List<Group_Status> Group_Status_List = status.Group_Status.ToList();
+
+            List<Employee> EmpList = new List<Employee>();
+            for(int i =0; i < Group_Status_List.Count; i++)
+            {
+                List<Employee> Temp_List = Group_Status_List[i].Group.Employees.ToList();
+                EmpList.AddRange(Temp_List);
+            }
+            if (SessionWrapper.LoggedUser.Language_id == 1)
+                ddlFiller.dropDDL(txtEmployees, "Employee_Id", "Employee_Name_Ar", EmpList, "أختر الموظف");
+            else
+                ddlFiller.dropDDL(txtEmployees, "Employee_Id", "Employee_Name_En", EmpList, "Select Employee");
+
+        }
+
+        private void LoadStudentInfo(Student std)
         {
             try
             {
-                Student std = db.Students.Find(Id);
                 if (std != null)
                 {
+                    // select the color based on status id
+                    int index = (int)std.Student_Status_Id - 1;
+                    if (index > Color.Length) index = 1;
+
+                    // Set profile image
+                    txtProfileImage.ImageUrl = "~/media/Profile/" + std.Student_Image_Profile_Id;
+
+                    // load other data
                     txtStudent_Id.Text = std.Student_Id.ToString();
                     txtStudent_SSN.Text = std.Student_SSN;
                     txtStudent_Name.Text = std.Student_Name_En;
@@ -53,7 +85,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                     txtStudent_Email.Text = std.Student_Email;
                     txtStudent_Address.Text = std.Student_Address;
 
-                    txtStatus.Text = std.Status.Status_Name_En;
+                    txtStatus.Text = "<span class='label label-warning' style='background:" + Color[index] + " !important;'>" + std.Status.Status_Name_En + "</span>";
                     txtStudent_Nationality.Text = std.Nationality.Nationality_Name_En;
                     txtStudent_Resource.Text = std.Resource.Resource_Name_En;
 
@@ -64,33 +96,70 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
 
                     DateTime date = DateTime.Parse(std.Student_CreationDate.ToString());
                     txtStudent_CreationDate.Text = date.ToShortDateString();
+
+                    // Change status to pendding if it's new
+                    if (std.Status.Status_Code == 1)
+                    {
+                        std.Student_Status_Id = 2;
+                        db.Entry(std).State = System.Data.EntityState.Modified;
+
+                        Sequence seq = db.Sequences.Create();
+
+                        seq.Emp_Id = SessionWrapper.LoggedUser.Employee_Id;
+                        seq.Status_Id = 2;
+                        seq.Student_Id = std.Student_Id;
+                        seq.DateCreation = DateTime.Now;
+
+                        db.Sequences.Add(seq);
+                        db.SaveChanges();
+                    }
+                    // Set action if it's allow
+                    IsAllowToTakeAction((int)std.Student_Status_Id, student_record_id);
+
+                    //Set Action
+                    SetActions();
+
+                    // Load Files
+                    LoadStudentFiles(std.Student_Id);
+
+                    //Load sequence
+                    LoadSequence(std.Student_Id);
+
                 }
             }
             catch { }
         }
 
-        private void LoadStudentFiles(int Id)
+        private void SetActions()
+        {
+            if (EnableEditActions)
+                DivAction.Visible = true;
+
+            if (EnableEditAssign)
+                DivAssign.Visible = true;
+        }
+
+        private void LoadStudentFiles(int Student_Id)
         {
             try
             {
                 string str = string.Empty;
-                List<File> List_File = db.Files.Where(x => x.Student_Id == Id).ToList();
+                List<File> List_File = db.Files.Where(x => x.Student_Id == Student_Id).OrderBy(x => x.Type).ToList();
                 for (int i = 0; i < List_File.Count; i++)
                 {
                     string fileType = string.Empty;
                     if (List_File[i].Type == (int)FileType.ProfileImage) { txtProfileImage.ImageUrl = List_File[i].File_Path; continue; }
-                    else if (List_File[i].Type == (int)FileType.Nationality) fileType = "Nationality";
-                    else if (List_File[i].Type == (int)FileType.Capabilities) fileType = "Capabilities";
-                    else if (List_File[i].Type == (int)FileType.High_School) fileType = "High_School";
-                    else if (List_File[i].Type == (int)FileType.My_Achievement) fileType = "My_Achievement";
+                    else if (List_File[i].Type == (int)FileType.Nationality) fileType = FieldNames.getFieldName("View-Nationality", "Nationality");
+                    else if (List_File[i].Type == (int)FileType.Capabilities) fileType = FieldNames.getFieldName("View-Capabilities", "Capabilities");
+                    else if (List_File[i].Type == (int)FileType.High_School) fileType = FieldNames.getFieldName("View-HighSchool", "High School");
+                    else if (List_File[i].Type == (int)FileType.My_Achievement) fileType = FieldNames.getFieldName("View-MyAchievement", "My Achievement");
                     str += "<tr>" +
                            "<td>" +
-                           "<h6>"+ fileType + "</h6>" +
-                           "<p> "+ List_File[i].File_Name + " </p>" +
+                           "<h6>" + fileType + "</h6>" +
                            "</td>" +
+                           "<td> " + List_File[i].File_Name + " </td>" +
                            "<td><a href = '#' target='_blank' style ='font-size: x-large; color: green;' ><i class='icofont icofont-ui-edit'></i></a></td>" +
-                           "<td><a href = '#' target='_blank' style='font-size: x-large; color: red;'><i class='icofont icofont-ui-delete'></i></a></td>" +
-                           "<td><a href = '"+ List_File[i].File_Path+ "' target='_blank' style='font-size: x-large; color: blue;'><i class='icofont icofont-eye-alt'></i></a></td>" +
+                           "<td><a href = '../../../../media/StudentAttachment/" + List_File[i].File_Path + "' target='_blank' style='font-size: x-large; color: blue;'><i class='icofont icofont-eye-alt'></i></a></td>" +
                            "</tr>";
                 }
                 txtFiles.Text = str;
@@ -98,13 +167,32 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             catch { }
         }
 
+        public void IsAllowToTakeAction(int Current_Status_Id, int StatusId)
+        {
+            Group_Status GS = db.Group_Status.Where(x => x.Group_Id == SessionWrapper.LoggedUser.Group_Id && x.Status_Id == StatusId).FirstOrDefault();
+            if (GS != null)
+                EnableEditActions = true;
+            else
+                EnableEditActions = false;
 
-        public void LoadActivity(int Id)
+            if (Current_Status_Id == 1 || Current_Status_Id == 2)
+            {
+                EnableEditAssign = true;
+                EnableEditActions = false;
+            }
+            else
+            {
+                EnableEditAssign = false;
+            }
+
+        }
+
+
+        public void LoadSequence(int Student_Id)
         {
             string CssClass = "icofont icofont-exchange";//string.Empty;
             string str = string.Empty;
-            int counter = 0;
-            List<Sequence> sequence = db.Sequences.Where(x => x.Student_Id == Id).ToList();
+            List<Sequence> sequence = db.Sequences.Where(x => x.Student_Id == Student_Id).ToList();
             sequence = sequence.OrderByDescending(x => x.DateCreation).Take(100).ToList();
             List<Status> Status_List = db.Status.ToList();
 
@@ -122,7 +210,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 if (Log_Name == null || Log_Name == "")
                     Log_Name = "Unknow";
 
-                
+
                 string space = string.Empty, per_name = string.Empty;
                 string marginRight_RTL = string.Empty;
 
@@ -136,13 +224,14 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 {
                     marginRight_RTL = "margin-right:20% !important;";
                 }
-                counter++;
-                if (counter >= Color.Length)
-                    counter = counter - Color.Length;
+
+                // select the color based on status id
+                int index = (int)sequence[i].Status_Id - 1;
+                if (index > Color.Length) index = 1;
 
                 str += "<div class='row m-b-25'>" +
                                 "<div class='col-auto p-r-0' style='margin-top:3%;'>" +
-                                "<a class='btn btn-lg txt-muted btn-icon' href='#' role='button' style='font-size:150%;border-color:" + Color[counter] + ";color: " + Color[counter] + " !important;" + marginRight_RTL + "'>" + space + "<i class='" + CssClass + "'></i></a>" +
+                                "<a class='btn btn-lg txt-muted btn-icon' href='#' role='button' style='font-size:150%;border-color:" + Color[index] + ";color: " + Color[index] + " !important;" + marginRight_RTL + "'>" + space + "<i class='" + CssClass + "'></i></a>" +
                                 "</div>" +
                                 "<div class='col'>" +
                                 "<h6 class='m-b-5'>" + per_name + "</h6>" +
@@ -152,6 +241,81 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                             "</div>";
             }
             Activity.Text = str;
+        }
+
+        protected void Refresh_Click(object sender, EventArgs e)
+        {
+            /*int UserID = SessionWrapper.LoggedUser.Employee_Id;
+            LoadSequence(UserID);*/
+        }
+
+        protected void btnApprove_Click(object sender, EventArgs e)
+        {
+            int student_record_id = int.Parse(Request["StudentID"].ToString());
+            Student std = db.Students.Find(student_record_id);
+            if (std != null)
+            {
+                int newStatus = (int)std.Student_Status_Id + 1;
+                std.Student_Status_Id = newStatus;
+                db.Entry(std).State = System.Data.EntityState.Modified;
+
+                Sequence seq = db.Sequences.Create();
+
+                seq.Emp_Id = SessionWrapper.LoggedUser.Employee_Id;
+                seq.Status_Id = newStatus;
+                seq.Student_Id = student_record_id;
+                seq.DateCreation = DateTime.Now;
+
+                db.Sequences.Add(seq);
+                db.SaveChanges();
+            }
+
+        }
+
+        protected void btnReject_Click(object sender, EventArgs e)
+        {
+            int student_record_id = int.Parse(Request["StudentID"].ToString());
+            Student std = db.Students.Find(student_record_id);
+            if (std != null)
+            {
+                int newStatus = (int)std.Student_Status_Id - 1;
+                if (newStatus < 1)
+                    return;
+
+                std.Student_Status_Id = newStatus;
+                db.Entry(std).State = System.Data.EntityState.Modified;
+
+                Sequence seq = db.Sequences.Create();
+
+                seq.Emp_Id = SessionWrapper.LoggedUser.Employee_Id;
+                seq.Status_Id = newStatus;
+                seq.Student_Id = student_record_id;
+                seq.DateCreation = DateTime.Now;
+
+                db.Sequences.Add(seq);
+                db.SaveChanges();
+            }
+        }
+
+        protected void btnAssign_Click(object sender, EventArgs e)
+        {
+            Student std = db.Students.Find(student_record_id);
+            if (std != null)
+            {
+                std.Student_Status_Id = int.Parse(txtEmployees.SelectedValue);
+                db.Entry(std).State = System.Data.EntityState.Modified;
+
+                Sequence seq = db.Sequences.Create();
+
+                seq.Emp_Id = SessionWrapper.LoggedUser.Employee_Id;
+                seq.Status_Id = 3; // Assigned
+                seq.Student_Id = student_record_id;
+                seq.DateCreation = DateTime.Now;
+
+                db.Sequences.Add(seq);
+                db.SaveChanges();
+            }
+
         }
 
         public string Date_Different(DateTime ReveviedDate)
@@ -229,58 +393,6 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             return Different;
         }
 
-        protected void Refresh_Click(object sender, EventArgs e)
-        {
-            int UserID = SessionWrapper.LoggedUser.Employee_Id;
-            LoadActivity(UserID);
-        }
 
-        protected void btnApprove_Click(object sender, EventArgs e)
-        {
-            int student_record_id = int.Parse(Request["StudentID"].ToString());
-            Student std = db.Students.Find(student_record_id);
-            if(std!= null)
-            {
-                int newStatus =(int) std.Student_Status_Id + 1;
-                std.Student_Status_Id = newStatus;
-                db.Entry(std).State = System.Data.EntityState.Modified;
-
-                Sequence seq = db.Sequences.Create();
-                
-                seq.Emp_Id = SessionWrapper.LoggedUser.Employee_Id;
-                seq.Status_Id = newStatus;
-                seq.Student_Id = student_record_id;
-                seq.DateCreation = DateTime.Now;
-
-                db.Sequences.Add(seq);
-                db.SaveChanges();
-            }
-
-        }
-
-        protected void btnReject_Click(object sender, EventArgs e)
-        {
-            int student_record_id = int.Parse(Request["StudentID"].ToString());
-            Student std = db.Students.Find(student_record_id);
-            if (std != null)
-            {
-                int newStatus = (int)std.Student_Status_Id - 1;
-                if (newStatus < 1)
-                    return;
-
-                std.Student_Status_Id = newStatus;
-                db.Entry(std).State = System.Data.EntityState.Modified;
-
-                Sequence seq = db.Sequences.Create();
-
-                seq.Emp_Id = SessionWrapper.LoggedUser.Employee_Id;
-                seq.Status_Id = newStatus;
-                seq.Student_Id = student_record_id;
-                seq.DateCreation = DateTime.Now;
-
-                db.Sequences.Add(seq);
-                db.SaveChanges();
-            }
-        }
     }
 }
