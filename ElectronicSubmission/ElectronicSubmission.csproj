@@ -122,7 +122,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Bachelors.aspx" />
-    <Content Include="Database\Delete_All_Database.sql" />
     <Content Include="Database\REU_Registration.sql" />
     <Content Include="Default.aspx" />
     <Content Include="ESubmission.Context.tt">
@@ -145,6 +144,7 @@
     <Content Include="Pages\Auth\Login.aspx" />
     <Content Include="Pages\Auth\ResetPassword.aspx" />
     <Content Include="Pages\Setting\FormCollege.aspx" />
+    <Content Include="Pages\Setting\FormNationality.aspx" />
     <Content Include="Pages\Setting\FormResource.aspx" />
     <Content Include="Pages\Setting\FormSpecialization.aspx" />
     <Content Include="Pages\UserManagment\Employees.aspx" />
@@ -2707,6 +2707,13 @@
     </Compile>
     <Compile Include="Pages\Setting\FormCollege.aspx.designer.cs">
       <DependentUpon>FormCollege.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Setting\FormNationality.aspx.cs">
+      <DependentUpon>FormNationality.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Setting\FormNationality.aspx.designer.cs">
+      <DependentUpon>FormNationality.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Setting\FormResource.aspx.cs">
       <DependentUpon>FormResource.aspx</DependentUpon>

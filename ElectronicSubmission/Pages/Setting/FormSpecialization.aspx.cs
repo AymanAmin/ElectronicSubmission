@@ -12,6 +12,7 @@ using System.Web.UI.WebControls;
 //using Treatment.Entity;
 //using Website.Classes;
 
+
 namespace ElectronicSubmission.Pages.Setting
 {
     public partial class FormSpecialization : System.Web.UI.Page
@@ -322,6 +323,7 @@ namespace ElectronicSubmission.Pages.Setting
 
 
         }
+
         [WebMethod]
         public static string ViewUserCard(int Employee_Id)
         {
