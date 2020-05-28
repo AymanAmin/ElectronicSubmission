@@ -23,6 +23,8 @@ namespace ElectronicSubmission
                         detailedBachelors.InnerHtml = oneSpecialization.Specialization_Name_En;
                         bachelorsReque.InnerHtml = oneSpecialization.Condition_En;
                         headerBody.InnerHtml = "<i class='" + oneSpecialization.Specialization_Icon + "'></i> " + oneSpecialization.Specialization_Name_En;
+                        bachelorsDescription.InnerHtml = oneSpecialization.Specialization_Description_En;
+                        bachelorsImage.Src = oneSpecialization.Specialization_Image;
                     }
                     else
                     {
@@ -34,7 +36,6 @@ namespace ElectronicSubmission
             {
                 Response.Redirect("~/homepage.aspx");
             }
-            
         }
     }
 }

@@ -54,14 +54,6 @@
                                 <li><i class="wmicon-technology4"></i>+920-000-842</li>
                                 <li><i class="wmicon-clock2"></i>sat - fri: 7:00am - 6:00pm</li>
                             </ul>
-                            <ul class="wm-adminuser-section">
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#ModalLogin">login</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="wm-search-btn" data-toggle="modal" data-target="#ModalSearch"><i class="wmicon-search"></i></a>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -143,29 +135,9 @@
                                     <aside class="col-md-3">
                                         <div class="widget widget_our-professors">
                                             <figure>
-                                                <figcaption>
-                                                    <a href="#">Forms</a>
-                                                </figcaption>
+                                                <a href="#"><img src="Template/extra-images/dental-surgery.jpg" alt="" id="bachelorsImage" runat="server"/></a>
+                                                
                                             </figure>
-                                        </div>
-                                        <div class="widget widget_contact-form">
-                                            <h6>Contact Chester</h6>
-                                            <form>
-                                                <ul>
-                                                    <li>
-                                                        <input type="text" value="Your Name" onblur="if(this.value ==  '') { this.value ='Your Name'; }" onfocus="if(this.value =='Your Name') { this.value = ''; }">
-                                                    </li>
-                                                    <li>
-                                                        <input type="text" value="Your E-mail" onblur="if(this.value ==  '') { this.value ='Your E-mail'; }" onfocus="if(this.value =='Your E-mail') { this.value = ''; }">
-                                                    </li>
-                                                    <li class="full">
-                                                        <textarea placeholder="Message" name="send"></textarea>
-                                                    </li>
-                                                    <li class="full">
-                                                        <input type="submit" value="contact">
-                                                    </li>
-                                                </ul>
-                                            </form>
                                         </div>
                                     </aside>
                                     <div class="col-md-9">
@@ -178,7 +150,7 @@
                                                             <a href="#" class="icon-hidden"><i class="wmicon-technology4" aria-hidden="true"></i></a>
                                                         </div>
                                                         <h6>Phone:</h6>
-                                                        <span>(012) 345-6789</span>
+                                                        <span>+920-000-842</span>
                                                     </div>
                                                 </li>
                                                 <li class="col-md-4">
@@ -187,7 +159,7 @@
                                                             <a href="#"><i class="wmicon-web2" aria-hidden="true"></i></a>
                                                         </div>
                                                         <h6>Email:</h6>
-                                                        <span>kevin@student.com</span>
+                                                        <span>info@riyadh.edu.sa</span>
                                                     </div>
                                                 </li>
                                                 <li class="col-md-4">
@@ -195,15 +167,16 @@
                                                         <div class="wm-professor-icon">
                                                             <a href="#"><i class="wmicon-pen" aria-hidden="true"></i></a>
                                                         </div>
-                                                        <h6>Experience:</h6>
-                                                        <span>15+ years</span>
+                                                        <h6>Submission:</h6>
+                                                        <span>Form Request</span>
                                                     </div>
                                                 </li>
                                             </ul>
                                         </div>
                                         <div class="wm-rich-aditor">
-                                            <p>Becoming a student requires more than a test score. To “be student” requires persistence. And passion. And a desire to give back. It doesn’t matter whether you’re the first in your family to attend college or you’re the latest in a long tradition of educational excellence: You stand up and you stand out.</p>
-
+                                            <div id="bachelorsDescription" runat="server">
+                                                <!--// Code behene \\-->
+                                            </div><br/>
                                             <h3>Admission requirements</h3>
 
                                             <div id="bachelorsReque" runat="server">
@@ -235,9 +208,9 @@
                     <div class="row">
                         <div class="col-md-12">
                             <form>
-                                <i class="wmicon-interface2"></i>
-                                <input type="text" value="Enter your e-mail address" onblur="if(this.value == '') { this.value ='Enter your e-mail address'; }" onfocus="if(this.value =='Enter your e-mail address') { this.value = ''; }">
-                                <input type="submit" value="Subscribe to our newsletter">
+                                <i class="wmicon-pen"></i>
+                                <input type="text" readonly="readonly"  style="width: 50%;" value="Please click on the button to start the application process" onblur="if(this.value == 'Please click on the button to start the application process') { this.value ='Please click on the button to start the application process'; }" onfocus="if(this.value =='Please click on the button to start the application process') { this.value = 'Please click on the button to start the application process'; }">
+                                <input type="submit" value="Submission Form Request">
                             </form>
                         </div>
                     </div>

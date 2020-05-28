@@ -25,6 +25,8 @@ namespace ElectronicSubmission
         public Nullable<int> Status_Code { get; set; }
         public string Status_Name_Ar { get; set; }
         public string Status_Name_En { get; set; }
+        public string Status_Color { get; set; }
+        public string Status_Icon { get; set; }
     
         public virtual ICollection<Group_Status> Group_Status { get; set; }
         public virtual ICollection<Sequence> Sequences { get; set; }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="REU_RegistrationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="REU_RegistrationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Collage">
           <Key>
             <PropertyRef Name="Collage_ID" />
@@ -179,6 +179,8 @@
           <Property Name="Specialization_Icon" Type="nvarchar(max)" />
           <Property Name="Specialization_Image" Type="nvarchar(max)" />
           <Property Name="Condition_En" Type="nvarchar(max)" />
+          <Property Name="Specialization_Description_Ar" Type="nvarchar(max)" />
+          <Property Name="Specialization_Description_En" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
@@ -188,6 +190,8 @@
           <Property Name="Status_Code" Type="int" />
           <Property Name="Status_Name_Ar" Type="nvarchar(max)" />
           <Property Name="Status_Name_En" Type="nvarchar(max)" />
+          <Property Name="Status_Color" Type="nvarchar(max)" />
+          <Property Name="Status_Icon" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -922,6 +926,8 @@
           <NavigationProperty Name="Group_Status" Relationship="REU_RegistrationModel.FK_Group_Status_Status" FromRole="Status" ToRole="Group_Status" />
           <NavigationProperty Name="Sequences" Relationship="REU_RegistrationModel.FK_Sequence_Status" FromRole="Status" ToRole="Sequence" />
           <NavigationProperty Name="Students" Relationship="REU_RegistrationModel.FK_Student_Status" FromRole="Status" ToRole="Student" />
+          <Property Name="Status_Color" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status_Icon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -1224,6 +1230,8 @@
           <Property Name="Condition_En" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Collage" Relationship="REU_RegistrationModel.FK_Specialization_Collage" FromRole="Specialization" ToRole="Collage" />
           <NavigationProperty Name="Students" Relationship="REU_RegistrationModel.FK_Student_Specialization" FromRole="Specialization" ToRole="Student" />
+          <Property Name="Specialization_Description_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Specialization_Description_En" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_Specialization_Collage">
           <End Type="REU_RegistrationModel.Collage" Role="Collage" Multiplicity="0..1" />
@@ -1432,6 +1440,8 @@
           <EntitySetMapping Name="Status">
             <EntityTypeMapping TypeName="REU_RegistrationModel.Status">
               <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="Status_Icon" ColumnName="Status_Icon" />
+                <ScalarProperty Name="Status_Color" ColumnName="Status_Color" />
                 <ScalarProperty Name="Status_Name_En" ColumnName="Status_Name_En" />
                 <ScalarProperty Name="Status_Name_Ar" ColumnName="Status_Name_Ar" />
                 <ScalarProperty Name="Status_Code" ColumnName="Status_Code" />
@@ -1467,6 +1477,8 @@
           <EntitySetMapping Name="Specializations">
             <EntityTypeMapping TypeName="REU_RegistrationModel.Specialization">
               <MappingFragment StoreEntitySet="Specialization">
+                <ScalarProperty Name="Specialization_Description_En" ColumnName="Specialization_Description_En" />
+                <ScalarProperty Name="Specialization_Description_Ar" ColumnName="Specialization_Description_Ar" />
                 <ScalarProperty Name="Condition_En" ColumnName="Condition_En" />
                 <ScalarProperty Name="Specialization_Image" ColumnName="Specialization_Image" />
                 <ScalarProperty Name="Specialization_Icon" ColumnName="Specialization_Icon" />

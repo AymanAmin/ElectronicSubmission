@@ -31,6 +31,15 @@ namespace ElectronicSubmission {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl detailedBachelors;
         
         /// <summary>
+        /// bachelorsImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage bachelorsImage;
+        
+        /// <summary>
         /// headerBody control.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,15 @@ namespace ElectronicSubmission {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl headerBody;
+        
+        /// <summary>
+        /// bachelorsDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl bachelorsDescription;
         
         /// <summary>
         /// bachelorsReque control.
