@@ -17,6 +17,16 @@ namespace ElectronicSubmission
             {
                 loadFillDrop();
                 loadSpecialization();
+
+                
+            }
+            else
+            {
+                if (Session["IsReload"] != null)
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "scrollToElement();", true);
+                    Session["IsReload"] = null;
+                }
             }
         }
 
@@ -75,7 +85,8 @@ namespace ElectronicSubmission
             collegeId = int.Parse(CollegesUniv.SelectedValue);
             txtSearch = BachelorName.Value;
             loadSpecialization();
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "scrollToElement();", true);
+            Session["IsReload"] = true;
+            
         }
     }
 }

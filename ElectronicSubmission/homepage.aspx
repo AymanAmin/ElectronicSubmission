@@ -29,6 +29,15 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script type='text/javascript'>
+        function scrollToElement() {
+            //Get target
+            setTimeout(function () {  var target = document.getElementById("colleges").offsetTop;
+
+            //Scrolls to that target location
+                window.scrollTo(0, target);}, 1);
+        }
+    </script>
   </head>
   <body>
 	
@@ -547,15 +556,7 @@
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
     <script type="text/javascript" src="Template/script/functions.js"></script>
 
-    <script type='text/javascript'>
-        function scrollToElement() {
-            //Get target
-            var target = document.getElementById("colleges").offsetTop;
-
-            //Scrolls to that target location
-            window.scrollTo(0, target);
-        }
-    </script>
+    
   </body>
 
 <!-- index18:22  -->
