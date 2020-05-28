@@ -133,7 +133,7 @@
 		<!--// Main Banner \\-->
 
 		<!--// Main Content \\-->
-		<div class="wm-main-content" id="colleges">
+		<div class="wm-main-content" id="colleges" runat="server">
 
 			<!--// Main Section \\-->
 			<div class="wm-main-section">
@@ -153,7 +153,7 @@
                                                 <asp:DropDownList ID="CollegesUniv" runat="server"></asp:DropDownList>
                                             </div>
                                         </li>
-                                        <li><asp:Button ID="SearchButton" runat="server" Text="Search Bachelors" /> </li>
+                                        <li><asp:Button ID="SearchButton" runat="server" Text="Search Bachelors" OnClick="SearchButton_Click" /> </li>
                                     </ul>
                                 </form>
                             </div>
@@ -547,6 +547,15 @@
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
     <script type="text/javascript" src="Template/script/functions.js"></script>
 
+    <script type='text/javascript'>
+        function scrollToElement() {
+            //Get target
+            var target = document.getElementById("colleges").offsetTop;
+
+            //Scrolls to that target location
+            window.scrollTo(0, target);
+        }
+    </script>
   </body>
 
 <!-- index18:22  -->

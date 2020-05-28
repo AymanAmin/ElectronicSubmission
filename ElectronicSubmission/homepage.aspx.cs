@@ -9,10 +9,15 @@ namespace ElectronicSubmission
 {
     public partial class homepage : System.Web.UI.Page
     {
+        int collegeId = 0;
+        string txtSearch = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            loadFillDrop();
-            loadSpecialization();
+            if (!IsPostBack)
+            {
+                loadFillDrop();
+                loadSpecialization();
+            }
         }
 
         private void loadFillDrop()
@@ -38,15 +43,23 @@ namespace ElectronicSubmission
                     string yourHTMLstring = "<ul>";
                     Specialization.Controls.Add(new LiteralControl(yourHTMLstring));
                     List<Specialization> listSpecialization = new List<Specialization>();
-                    listSpecialization = db.Specializations.ToList();
+
+                    if(collegeId == 0 && txtSearch == "")
+                        listSpecialization = db.Specializations.ToList();
+                    else if(collegeId == 0)
+                        listSpecialization = db.Specializations.Where(x => x.Specialization_Name_En.Contains(txtSearch)).ToList();
+                    else if (txtSearch == "")
+                        listSpecialization = db.Specializations.Where(x => x.Collage_Id == collegeId).ToList();
+                    else listSpecialization = db.Specializations.Where(x => x.Collage_Id == collegeId && x.Specialization_Name_En.Contains(txtSearch)).ToList();
+
                     for (int i = 0; i < listSpecialization.Count; i++)
                     {
                         yourHTMLstring = "<li>"+
-                                        "<div class='wm-box-service-wrap wm-bgcolor'>"+
-                                            "<i class='" + listSpecialization[i].Specialization_Icon + "'></i>" +
-                                            "<h6><a href='Bachelors.aspx?SpecializationId="+listSpecialization[i].Specialization_Id+"'>" + listSpecialization[i].Specialization_Name_En + " </a></h6>" +
-                                        "</div>"+
-                                    "</li>";
+                                            "<div class='wm-box-service-wrap wm-bgcolor'>"+
+                                                "<i class='" + listSpecialization[i].Specialization_Icon + "'></i>" +
+                                                "<h6><a href='Bachelors.aspx?SpecializationId="+listSpecialization[i].Specialization_Id+"'>" + listSpecialization[i].Specialization_Name_En + " </a></h6>" +
+                                            "</div>"+
+                                        "</li>";
                         Specialization.Controls.Add(new LiteralControl(yourHTMLstring));
                     }
                     yourHTMLstring = "</ul>";
@@ -54,6 +67,15 @@ namespace ElectronicSubmission
                 }
                 catch (Exception eee) {  }
             }
+        }
+
+        protected void SearchButton_Click(object sender, EventArgs e)
+        {
+            Specialization.Controls.Clear();
+            collegeId = int.Parse(CollegesUniv.SelectedValue);
+            txtSearch = BachelorName.Value;
+            loadSpecialization();
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "scrollToElement();", true);
         }
     }
 }
