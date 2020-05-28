@@ -110,7 +110,7 @@
                                         <CellStyle HorizontalAlign="Center">
                                         </CellStyle>
                                     </dx:GridViewDataTextColumn>
-                                    <dx:GridViewDataTextColumn FieldName="Collage_Name_Ar" ShowInCustomizationForm="True" VisibleIndex="1" Caption="Arabic Name">
+                                    <dx:GridViewDataTextColumn FieldName="Nationality_Name_Ar" ShowInCustomizationForm="True" VisibleIndex="1" Caption="Arabic Name">
                                         <HeaderStyle HorizontalAlign="Center" />
                                         <CellStyle HorizontalAlign="Center">
                                         </CellStyle>
@@ -120,12 +120,12 @@
                                         <CellStyle HorizontalAlign="Center">
                                         </CellStyle>
                                     </dx:GridViewCommandColumn>
-                                    <dx:GridViewDataTextColumn Caption="English Name" FieldName="Collage_Name_En" Name="English Name" VisibleIndex="2">
+                                    <dx:GridViewDataTextColumn Caption="English Name" FieldName="Nationality_Name_En" Name="English Name" VisibleIndex="2">
                                     </dx:GridViewDataTextColumn>
                                 </Columns>
                             </dx:ASPxGridView>
                         </div>
-                        <asp:EntityDataSource ID="NationalityDataSource" runat="server" ConnectionString="name=REU_RegistrationEntities" DefaultContainerName="REU_RegistrationEntities" EnableDelete="True" EnableFlattening="False" EnableInsert="True" EnableUpdate="True" EntitySetName="Collages">
+                        <asp:EntityDataSource ID="NationalityDataSource" runat="server" ConnectionString="name=REU_RegistrationEntities" DefaultContainerName="REU_RegistrationEntities" EnableDelete="True" EnableFlattening="False" EnableInsert="True" EnableUpdate="True" EntitySetName="Nationalities">
                         </asp:EntityDataSource>
                     </div>
                     <hr />

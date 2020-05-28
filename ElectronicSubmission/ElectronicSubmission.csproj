@@ -136,9 +136,11 @@
     </Content>
     <Content Include="Global.asax" />
     <Content Include="homepage.aspx" />
+    <Content Include="media\Profile\Profile.jpg" />
     <Content Include="Pages\Admin\Language.aspx" />
     <Content Include="Pages\Admin\LogFile.aspx" />
     <Content Include="Pages\RegistrationProcess\ListView.aspx" />
+    <Content Include="Pages\RegistrationProcess\StudentInfo.aspx" />
     <Content Include="Pages\RegistrationProcess\View.aspx" />
     <Content Include="Pages\Auth\LockScreen.aspx" />
     <Content Include="Pages\Auth\Login.aspx" />
@@ -2663,12 +2665,22 @@
     <Compile Include="Pages\Admin\LogFile.aspx.designer.cs">
       <DependentUpon>LogFile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\RegistrationProcess\DeleteStudent.ashx.cs">
+      <DependentUpon>DeleteStudent.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\RegistrationProcess\ListView.aspx.cs">
       <DependentUpon>ListView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\RegistrationProcess\ListView.aspx.designer.cs">
       <DependentUpon>ListView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RegistrationProcess\StudentInfo.aspx.cs">
+      <DependentUpon>StudentInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RegistrationProcess\StudentInfo.aspx.designer.cs">
+      <DependentUpon>StudentInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\RegistrationProcess\View.aspx.cs">
       <DependentUpon>View.aspx</DependentUpon>
@@ -2916,6 +2928,7 @@
     <Content Include="Template\fonts\icon749c.eot" />
     <Content Include="Template\fonts\icon749c.ttf" />
     <Content Include="Template\fonts\icon749c.woff" />
+    <Content Include="Pages\RegistrationProcess\DeleteStudent.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2926,6 +2939,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
+    <Folder Include="media\StudentAttachments\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
