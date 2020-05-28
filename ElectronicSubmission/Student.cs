@@ -45,7 +45,7 @@ namespace ElectronicSubmission
         public virtual Nationality Nationality { get; set; }
         public virtual Resource Resource { get; set; }
         public virtual ICollection<Sequence> Sequences { get; set; }
-        public virtual Specialization Specialization { get; set; }
         public virtual Status Status { get; set; }
+        public virtual Specialization Specialization { get; set; }
     }
 }

@@ -21,10 +21,8 @@
         <EntityTypeShape EntityType="REU_RegistrationModel.Permission_Group" Width="1.5" PointX="3" PointY="12.625" />
         <EntityTypeShape EntityType="REU_RegistrationModel.Resource" Width="1.5" PointX="6" PointY="17.25" />
         <EntityTypeShape EntityType="REU_RegistrationModel.Sequence" Width="1.5" PointX="8.25" PointY="9.375" />
-        <EntityTypeShape EntityType="REU_RegistrationModel.Specialization" Width="1.5" PointX="6" PointY="19.875" />
         <EntityTypeShape EntityType="REU_RegistrationModel.Status" Width="1.5" PointX="0.75" PointY="8.375" />
         <EntityTypeShape EntityType="REU_RegistrationModel.Student" Width="1.5" PointX="8.25" PointY="15.625" />
-        <AssociationConnector Association="REU_RegistrationModel.FK_Specialization_Collage" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Employee_Group" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Employee_LanguageMaster" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Log_File_Employee" />
@@ -45,8 +43,10 @@
         <AssociationConnector Association="REU_RegistrationModel.FK_Student_Resource" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Sequence_Status" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Sequence_Student" />
-        <AssociationConnector Association="REU_RegistrationModel.FK_Student_Specialization" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Student_Status" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.Specialization" Width="1.5" PointX="6" PointY="27.5" />
+        <AssociationConnector Association="REU_RegistrationModel.FK_Specialization_Collage" />
+        <AssociationConnector Association="REU_RegistrationModel.FK_Student_Specialization" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
