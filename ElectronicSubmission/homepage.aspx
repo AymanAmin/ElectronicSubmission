@@ -40,7 +40,7 @@
     </script>
   </head>
   <body>
-	
+	<form runat="server">
     <!--// Main Wrapper \\-->
     <div class="wm-main-wrapper">
         
@@ -154,7 +154,6 @@
 							<div class="wm-search-course">
                                 <h3 class="wm-short-title wm-color">Find Your Bachelors</h3>
                                 <p>Fill in the form below to find your Bachelors:</p>
-                                <form runat="server">
                                     <ul>
                                         <li> <input type="text" id="BachelorName" runat="server" placeholder="Bachelors Name"/> <i class="wmicon-search"></i> </li>
                                         <li>
@@ -164,7 +163,6 @@
                                         </li>
                                         <li><asp:Button ID="SearchButton" runat="server" Text="Search Bachelors" OnClick="SearchButton_Click" /> </li>
                                     </ul>
-                                </form>
                             </div>
 						</div>
                         <div class="col-md-8">
@@ -474,14 +472,12 @@
             
             <div class="wm-modallogin-form wm-login-popup">
                 <span class="wm-color">Login to Your Account</span>
-                <form>
                     <ul>
                         <li> <input type="text" value="Your Username" onblur="if(this.value == '') { this.value ='Your Username'; }" onfocus="if(this.value =='Your Username') { this.value = ''; }"> </li>
                         <li> <input type="password" value="password" onblur="if(this.value == '') { this.value ='password'; }" onfocus="if(this.value =='password') { this.value = ''; }"> </li>
                         <li> <a href="#" class="wm-forgot-btn">Forgot Password?</a> </li>
                         <li> <input type="submit" value="Log In"> </li>
                     </ul>
-                </form>
             </div>
 
           </div>
@@ -499,12 +495,10 @@
             
             <div class="wm-modallogin-form">
                 <span class="wm-color">Search Your Bachelors:</span>
-                <form>
                     <ul>
                         <li> <input type="text" placeholder="Bachelors..." id="keywordBachelors" runat="server" /> </li>
-                        <li> <asp:Button ID="SearchkeyWord"  Text="Search" OnClick="SearchkeyWord_Click" /></li>
+                        <li> <asp:Button ID="SearchkeyWord" runat="server"  Text="Search" OnClick="SearchkeyWord_Click" /></li>
                     </ul>
-                </form>
             </div>
 
           </div>
@@ -513,6 +507,7 @@
       </div>
     </div>
     <!-- ModalSearch Box -->
+        </form>
 
 	<!-- jQuery (necessary for JavaScript plugins) -->
 	<script type="text/javascript" src="Template/script/jquery.js"></script>

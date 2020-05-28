@@ -122,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Bachelors.aspx" />
+    <Content Include="Database\Delete_All_Database.sql" />
     <Content Include="Database\REU_Registration.sql" />
     <Content Include="Default.aspx" />
     <Content Include="ESubmission.Context.tt">
