@@ -7,72 +7,72 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ElectronicSubmission {
+namespace ElectronicSubmission.Pages.Setting {
     
     
-    public partial class homepage {
+    public partial class FormCollege {
         
         /// <summary>
-        /// colleges control.
+        /// txtCollege_Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl colleges;
+        protected global::System.Web.UI.WebControls.TextBox txtCollege_Name;
         
         /// <summary>
-        /// BachelorName control.
+        /// RFVtxtCollege_Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText BachelorName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtCollege_Name;
         
         /// <summary>
-        /// CollegesUniv control.
+        /// txtCollege_Name_En control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList CollegesUniv;
+        protected global::System.Web.UI.WebControls.TextBox txtCollege_Name_En;
         
         /// <summary>
-        /// SearchButton control.
+        /// RFVtxtCollege_Name_En control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SearchButton;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtCollege_Name_En;
         
         /// <summary>
-        /// Specialization control.
+        /// Save control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Specialization;
+        protected global::System.Web.UI.WebControls.Button Save;
         
         /// <summary>
-        /// keywordBachelors control.
+        /// CollegeGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText keywordBachelors;
+        protected global::DevExpress.Web.ASPxGridView CollegeGridView;
         
         /// <summary>
-        /// SearchkeyWord control.
+        /// CollegeDataSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SearchkeyWord;
+        protected global::System.Web.UI.WebControls.EntityDataSource CollegeDataSource;
     }
 }

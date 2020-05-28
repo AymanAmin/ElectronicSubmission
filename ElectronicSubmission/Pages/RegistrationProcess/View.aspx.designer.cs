@@ -13,6 +13,33 @@ namespace ElectronicSubmission.Pages.RegistrationProcess {
     public partial class View {
         
         /// <summary>
+        /// DivAssign control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivAssign;
+        
+        /// <summary>
+        /// txtEmployees control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList txtEmployees;
+        
+        /// <summary>
+        /// btnAssign control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAssign;
+        
+        /// <summary>
         /// txtProfileImage control.
         /// </summary>
         /// <remarks>
@@ -157,22 +184,13 @@ namespace ElectronicSubmission.Pages.RegistrationProcess {
         protected global::System.Web.UI.WebControls.Literal txtFiles;
         
         /// <summary>
-        /// Refresh control.
+        /// DivAction control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Refresh;
-        
-        /// <summary>
-        /// Activity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal Activity;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivAction;
         
         /// <summary>
         /// btnApprove control.
@@ -191,5 +209,23 @@ namespace ElectronicSubmission.Pages.RegistrationProcess {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnReject;
+        
+        /// <summary>
+        /// Refresh control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton Refresh;
+        
+        /// <summary>
+        /// Activity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Activity;
     }
 }

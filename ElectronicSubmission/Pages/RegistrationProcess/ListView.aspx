@@ -120,6 +120,7 @@
                                 <th><% = ElectronicSubmission.FieldNames.getFieldName("ListView-Expand", "Expand") %></th>
                                 <th><% = ElectronicSubmission.FieldNames.getFieldName("ListView-Actions", "Actions") %></th>
                                 <th><% = ElectronicSubmission.FieldNames.getFieldName("ListView-Status", "Status") %></th>
+                                <th><% = ElectronicSubmission.FieldNames.getFieldName("ListView-AssignTo", "Assign To") %></th>
                                 <th><% = ElectronicSubmission.FieldNames.getFieldName("ListView-EnglishName", "English Name") %></th>
                                 <th><% = ElectronicSubmission.FieldNames.getFieldName("ListView-ArabicName", "Arabic Name") %></th>
                                 <th><% = ElectronicSubmission.FieldNames.getFieldName("ListView-Phone", "Phone") %></th>

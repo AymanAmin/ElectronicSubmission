@@ -17,16 +17,6 @@ namespace ElectronicSubmission
             {
                 loadFillDrop();
                 loadSpecialization();
-
-                
-            }
-            else
-            {
-                if (Session["IsReload"] != null)
-                {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "scrollToElement();", true);
-                    Session["IsReload"] = null;
-                }
             }
         }
 
@@ -37,7 +27,6 @@ namespace ElectronicSubmission
                 using (REU_RegistrationEntities db = new REU_RegistrationEntities())
                 {
                     List<Collage> listCollage = db.Collages.ToList();
-
                     ddlFiller.dropDDL(CollegesUniv, "Collage_ID", "Collage_Name_En", listCollage, "All Colleges");
                 }
             }
@@ -85,8 +74,16 @@ namespace ElectronicSubmission
             collegeId = int.Parse(CollegesUniv.SelectedValue);
             txtSearch = BachelorName.Value;
             loadSpecialization();
-            Session["IsReload"] = true;
-            
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "scrollToElement();", true);
+        }
+
+        protected void SearchkeyWord_Click(object sender, EventArgs e)
+        {
+            Specialization.Controls.Clear();
+            collegeId = 0;
+            txtSearch = keywordBachelors.Value;
+            loadSpecialization();
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "scrollToElement();", true);
         }
     }
 }

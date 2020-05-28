@@ -77,7 +77,7 @@ namespace ElectronicSubmission
 
             try
             {
-                Permission CurrentPage = CurrentPageNow =  ListPermission.Where(x => x.Url_Path == LocalPath).First();
+                Permission CurrentPage = CurrentPageNow =  ListPermission.Where(x => x.Url_Path == LocalPath).FirstOrDefault();
 
                 if (CurrentPage != null)
                 {
@@ -113,10 +113,17 @@ namespace ElectronicSubmission
                         str += "<li class='breadcrumb-item'><a href='#'> " + breadcrumbs[i] + "</a> </li>";
                     }
                 }
+                else
+                {
+                    if (LocalPath == "default.aspx")
+                        Response.Redirect("~/Pages/RegistrationProcess/ListView.aspx");
+                    else
+                        Response.Redirect("~/");
+                }
                 PageName.Text = Current_PageName;
                 breadcrumb.Text = str;
             }
-            catch { breadcrumb.Text = str; PageName.Text = Current_PageName; }
+            catch(Exception er) { breadcrumb.Text = str; PageName.Text = Current_PageName; }
         }
 
         private void LoadMenu(List<Permission> Permission_List)

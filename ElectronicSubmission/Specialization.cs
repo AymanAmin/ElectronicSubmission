@@ -23,12 +23,16 @@ namespace ElectronicSubmission
         public string Specialization_Name_Ar { get; set; }
         public string Specialization_Name_En { get; set; }
         public Nullable<int> Collage_Id { get; set; }
-        public string Condition { get; set; }
+        public string Condition_Ar { get; set; }
         public string High_School_Percent { get; set; }
         public string Capabilities_Percent { get; set; }
         public string My_Achievement_Percent { get; set; }
         public string Weighted_Ratio_Percent { get; set; }
         public string Specialization_Icon { get; set; }
+        public string Specialization_Image { get; set; }
+        public string Condition_En { get; set; }
+        public string Specialization_Description_Ar { get; set; }
+        public string Specialization_Description_En { get; set; }
     
         public virtual Collage Collage { get; set; }
         public virtual ICollection<Student> Students { get; set; }

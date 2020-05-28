@@ -7,72 +7,72 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ElectronicSubmission {
+namespace ElectronicSubmission.Pages.Setting {
     
     
-    public partial class homepage {
+    public partial class FormResource {
         
         /// <summary>
-        /// colleges control.
+        /// txtResource_Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl colleges;
+        protected global::System.Web.UI.WebControls.TextBox txtResource_Name;
         
         /// <summary>
-        /// BachelorName control.
+        /// RFVtxtResource_Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText BachelorName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtResource_Name;
         
         /// <summary>
-        /// CollegesUniv control.
+        /// txtResource_Name_En control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList CollegesUniv;
+        protected global::System.Web.UI.WebControls.TextBox txtResource_Name_En;
         
         /// <summary>
-        /// SearchButton control.
+        /// RFVtxtResource_Name_En control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SearchButton;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtResource_Name_En;
         
         /// <summary>
-        /// Specialization control.
+        /// Save control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Specialization;
+        protected global::System.Web.UI.WebControls.Button Save;
         
         /// <summary>
-        /// keywordBachelors control.
+        /// ResourceGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText keywordBachelors;
+        protected global::DevExpress.Web.ASPxGridView ResourceGridView;
         
         /// <summary>
-        /// SearchkeyWord control.
+        /// ResourceDataSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SearchkeyWord;
+        protected global::System.Web.UI.WebControls.EntityDataSource ResourceDataSource;
     }
 }
