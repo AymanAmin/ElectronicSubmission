@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
-using System.Web.Script.Serialization;
+//using System.Web.Script.Serialization;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -337,7 +337,7 @@ namespace ElectronicSubmission.Pages.Treatment
                     //Structures = x.Employee_Structure.Where(f => f.Status_Structure==true && f.Type_Delegation==false).Select(c=> c.Structure_Id)
                     }).FirstOrDefault();
              
-                 JavaScriptSerializer js = new JavaScriptSerializer();
+                 //JavaScriptSerializer js = new JavaScriptSerializer();
                 return JsonConvert.SerializeObject(Emplo);
             }
         }

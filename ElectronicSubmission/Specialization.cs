@@ -28,6 +28,7 @@ namespace ElectronicSubmission
         public string Capabilities_Percent { get; set; }
         public string My_Achievement_Percent { get; set; }
         public string Weighted_Ratio_Percent { get; set; }
+        public string Specialization_Icon { get; set; }
     
         public virtual Collage Collage { get; set; }
         public virtual ICollection<Student> Students { get; set; }
