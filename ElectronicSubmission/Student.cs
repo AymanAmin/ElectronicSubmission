@@ -33,12 +33,14 @@ namespace ElectronicSubmission
         public Nullable<System.DateTime> Student_CreationDate { get; set; }
         public Nullable<int> Student_Employee_Id { get; set; }
         public Nullable<System.DateTime> Student_Assign_Date { get; set; }
-        public Nullable<int> Student_Image_Profile_Id { get; set; }
+        public string Student_Image_Profile { get; set; }
         public Nullable<int> Student_Specialization_Id { get; set; }
         public Nullable<int> Student_Nationality_Id { get; set; }
         public Nullable<int> Student_Resource_Id { get; set; }
         public Nullable<int> Student_Status_Id { get; set; }
         public string Student_Total { get; set; }
+        public string Notes { get; set; }
+        public Nullable<int> Suspended { get; set; }
     
         public virtual Employee Employee { get; set; }
         public virtual ICollection<File> Files { get; set; }

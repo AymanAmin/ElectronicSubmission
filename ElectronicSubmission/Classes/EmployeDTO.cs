@@ -13,9 +13,7 @@ namespace ElectronicSubmission
         public string Employee_Password { get; set; }
         public string Employee_Phone { get; set; }
         public string Employee_Profile { get; set; }
-        public string Employee_Signature { get; set; }
         public int? Group_Id { get; set; }
-        public IEnumerable<int?> Structures { get; set; }
 
         public Nullable<int> Language_id { get; set; }
         public Nullable<int> Calendar_id { get; set; }
