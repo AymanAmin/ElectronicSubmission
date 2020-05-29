@@ -10,10 +10,12 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
     public partial class ListView : System.Web.UI.Page
     {
         List<Student> ListAllStudent = new List<Student>();
+        List<Student> ListAllStudentStatistic = new List<Student>();
         List<Student> ListStudentWithStatus = new List<Student>();
+        List<Student> ListStudentCurrent = new List<Student>();
         List<Sequence> ListSequence = new List<Sequence>();
         REU_RegistrationEntities db = new REU_RegistrationEntities();
-        string[] Color = { "green", "orange", "blue", "red", "maroon", "purple",  "teal", "deepskyblue", "gray", "yellow", "hotpink", "blueviolet", "violet", "deepskyblue", "cyan", "olivedrab", "coral", "salmon" };
+        string[] Color = { "green", "orange", "blue", "red", "maroon", "purple", "teal", "deepskyblue", "gray", "hotpink", "blueviolet", "violet", "deepskyblue", "cyan", "olivedrab", "coral", "salmon", "yellow" };
         protected void Page_Load(object sender, EventArgs e)
         {
             if (SessionWrapper.LoggedUser == null)
@@ -21,6 +23,8 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
 
             if(!IsPostBack)
             {
+                loadAllRecord();
+
                 int GroupID = (int)SessionWrapper.LoggedUser.Group_Id;
                 
                 List<Group_Status> List_Status = db.Group_Status.Where(x => x.Group_Id == GroupID).ToList();
@@ -39,6 +43,44 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             LoadStudent();
         }
 
+        private void loadAllRecord()
+        {
+            int GroupID = (int)SessionWrapper.LoggedUser.Group_Id;
+
+            // Start if it's on his status
+            List<Group_Status> List_Status = db.Group_Status.Where(x => x.Group_Id == GroupID).ToList();
+            for (int i = 0; i < List_Status.Count; i++)
+            {
+                ListStudentCurrent.AddRange(List_Status[i].Status.Students.Where(x => x.Suspended != 1).ToList());   
+            }
+            ListStudentCurrent = ListStudentCurrent.Distinct().ToList();
+            // Set TempList1 into ListAllStudentStatistic
+            ListAllStudentStatistic.AddRange(ListStudentCurrent);
+            // End if it's on his status
+
+            // Start if he is Call cetner
+            List<Student> TempList2 = db.Students.Where(x => x.Student_Employee_Id == SessionWrapper.LoggedUser.Employee_Id && x.Suspended != 1).ToList();
+
+            // Set TempList2 into ListAllStudentStatistic
+            ListAllStudentStatistic.AddRange(TempList2);
+            // End if he is Call cetner
+
+            // Start if he made action on sequence table
+            ListSequence = db.Sequences.Where(x => x.Emp_Id == SessionWrapper.LoggedUser.Employee_Id).ToList();
+            List<Student> TempList3 = new List<Student>();
+            for (int i = 0; i < ListSequence.Count; i++)
+            {
+                Student student = ListSequence[i].Student;
+                TempList3.Add(student);
+            }
+            // Set TempList3 into ListAllStudentStatistic
+            ListAllStudentStatistic.AddRange(TempList3);
+            // End if he made action on sequence table
+
+            // Set TempList3 into ListAllStudentStatistic
+            ListAllStudentStatistic = ListAllStudentStatistic.Distinct().ToList();
+        }
+
         private void LoadStudent()
         {
             try
@@ -49,10 +91,10 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
 
 
                 //Start Statistic
-                string total = txtFirst.Text = ListAllStudent.Count().ToString();
-                string current = txtSecond.Text = ListStudentWithStatus.Count().ToString();
-                string approved = txtThird.Text = ListSequence.Where(x => x.Status_Id != 4 && x.Status_Id != 9 && x.Status_Id != 15).Count().ToString();
-                string rejected = txtFour.Text = ListSequence.Where(x => x.Status_Id == 4 || x.Status_Id == 9 || x.Status_Id == 15).Count().ToString();
+                string total = txtFirst.Text = ListAllStudentStatistic.Count().ToString();
+                string current = txtSecond.Text = ListAllStudentStatistic.Count(x => x.Student_Status_Id != 14 && x.Student_Status_Id != 15).ToString();
+                string approved = txtThird.Text = ListAllStudentStatistic.Where(x => x.Student_Status_Id == 14).Count().ToString();
+                string rejected = txtFour.Text = ListAllStudentStatistic.Where(x =>  x.Student_Status_Id == 15).Count().ToString();
 
                 txtFirstPercentage.Text = CalcPercentage(double.Parse(total), double.Parse(total)) + "%";
                 txtSecondPercentage.Text = CalcPercentage(double.Parse(current), double.Parse(total)) + "%";

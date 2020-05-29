@@ -19,6 +19,7 @@ namespace ElectronicSubmission
         public Nullable<int> Status_Id { get; set; }
         public Nullable<int> Student_Id { get; set; }
         public Nullable<System.DateTime> DateCreation { get; set; }
+        public string Note { get; set; }
     
         public virtual Employee Employee { get; set; }
         public virtual Status Status { get; set; }

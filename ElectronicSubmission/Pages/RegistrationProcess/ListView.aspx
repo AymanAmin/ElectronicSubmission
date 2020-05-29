@@ -31,7 +31,7 @@
         <div class="col-xl-3 col-md-6">
             <div class="card statustic-progress-card">
                 <div class="card-header">
-                    <h5><% = ElectronicSubmission.FieldNames.getFieldName("ListView-Current", "Current") %></h5>
+                    <h5><% = ElectronicSubmission.FieldNames.getFieldName("ListView-InProgress", "In Progress") %></h5>
                 </div>
                 <div class="card-block">
                     <div class="row align-items-center">
@@ -53,7 +53,7 @@
         <div class="col-xl-3 col-md-6">
             <div class="card statustic-progress-card">
                 <div class="card-header">
-                    <h5><% = ElectronicSubmission.FieldNames.getFieldName("ListView-Approved", "Approved") %></h5>
+                    <h5><% = ElectronicSubmission.FieldNames.getFieldName("ListView-CompletedSuccessfully", "Completed Successfully") %></h5>
                 </div>
                 <div class="card-block">
                     <div class="row align-items-center">
@@ -75,7 +75,7 @@
         <div class="col-xl-3 col-md-6">
             <div class="card statustic-progress-card">
                 <div class="card-header">
-                    <h5><% = ElectronicSubmission.FieldNames.getFieldName("ListView-Rejected", "Rejected") %></h5>
+                    <h5><% = ElectronicSubmission.FieldNames.getFieldName("ListView-EndinFailure", "End in Failure") %></h5>
                 </div>
                 <div class="card-block">
                     <div class="row align-items-center">

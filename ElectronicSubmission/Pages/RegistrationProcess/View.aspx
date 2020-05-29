@@ -19,7 +19,7 @@
                                 <asp:DropDownList ID="txtEmployees" runat="server" AutoPostBack="false" class="form-control form-control-primary"></asp:DropDownList>
                             </div>
                         </div>
-                        <div class="col-md-6" style="float:right">
+                        <div class="col-md-6" style="">
                             <asp:Button ID="btnAssign" class="btn btn-info btn-print-invoice m-b-10 btn-sm waves-effect waves-light m-r-20" runat="server" Text="Assign" OnClick="btnAssign_Click" />
                         </div>
                     </div>
@@ -56,13 +56,14 @@
                                         </tr>
                                         <tr>
                                             <td><strong>
+                                                <% = ElectronicSubmission.FieldNames.getFieldName("View-Specialization", "Specialization") %> : </strong>
+                                                <asp:Label ID="txtSpecialization" runat="server" Text="Student_Resource"></asp:Label></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>
                                                 <% = ElectronicSubmission.FieldNames.getFieldName("View-Resource", "Resource") %> : </strong>
                                                 <asp:Label ID="txtStudent_Resource" runat="server" Text="Student_Resource"></asp:Label></td>
                                         </tr>
-                                        <!-- <tr>
-                                                            <td><a href="#" target="_blank">www.demo.com</a>
-                                                            </td>
-                                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>
@@ -146,7 +147,7 @@
                                         <tr class="thead-default">
                                             <th><% = ElectronicSubmission.FieldNames.getFieldName("View-FileName", "File Name") %></th>
                                             <th><% = ElectronicSubmission.FieldNames.getFieldName("View-Type", "Type") %></th>
-                                            <th><% = ElectronicSubmission.FieldNames.getFieldName("View-Update", "Update") %></th>
+                                            <th><% = ElectronicSubmission.FieldNames.getFieldName("View-Delete", "Delete") %></th>
                                             <th><% = ElectronicSubmission.FieldNames.getFieldName("View-View", "View") %></th>
                                         </tr>
                                     </thead>
@@ -166,7 +167,12 @@
                     <div class="card">
                         <div class="card-block">
                             <div class="row text-center">
+                                <div class="col-sm-12">
+                                    <asp:TextBox ID="txtNote" runat="server" class="form-control" TextMode="MultiLine" style="width:100%"></asp:TextBox>
+                                </div>
+                                
                                 <div class="col-sm-12 invoice-btn-group text-center">
+                                    <br />
                                     <asp:Button ID="btnApprove" class="btn btn-success btn-print-invoice m-b-10 btn-sm waves-effect waves-light m-r-20" runat="server" Text="Approve" OnClick="btnApprove_Click" />
                                     <asp:Button ID="btnReject" class="btn btn-danger waves-effect m-b-10 btn-sm waves-light" runat="server" Text="Reject" OnClick="btnReject_Click" />
                                 </div>

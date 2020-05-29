@@ -162,6 +162,7 @@
           <Property Name="Status_Id" Type="int" />
           <Property Name="Student_Id" Type="int" />
           <Property Name="DateCreation" Type="datetime" />
+          <Property Name="Note" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Specialization">
           <Key>
@@ -916,6 +917,7 @@
           <NavigationProperty Name="Employee" Relationship="REU_RegistrationModel.FK_Sequence_Employee" FromRole="Sequence" ToRole="Employee" />
           <NavigationProperty Name="Status" Relationship="REU_RegistrationModel.FK_Sequence_Status" FromRole="Sequence" ToRole="Status" />
           <NavigationProperty Name="Student" Relationship="REU_RegistrationModel.FK_Sequence_Student" FromRole="Sequence" ToRole="Student" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Specialization">
           <Key>
@@ -1433,6 +1435,7 @@
           <EntitySetMapping Name="Sequences">
             <EntityTypeMapping TypeName="REU_RegistrationModel.Sequence">
               <MappingFragment StoreEntitySet="Sequence">
+                <ScalarProperty Name="Note" ColumnName="Note" />
                 <ScalarProperty Name="DateCreation" ColumnName="DateCreation" />
                 <ScalarProperty Name="Student_Id" ColumnName="Student_Id" />
                 <ScalarProperty Name="Status_Id" ColumnName="Status_Id" />
