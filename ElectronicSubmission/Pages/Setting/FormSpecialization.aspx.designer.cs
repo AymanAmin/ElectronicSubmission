@@ -13,40 +13,13 @@ namespace ElectronicSubmission.Pages.Setting {
     public partial class FormSpecialization {
         
         /// <summary>
-        /// StructureF control.
+        /// CollegeF control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList StructureF;
-        
-        /// <summary>
-        /// GroupF control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList GroupF;
-        
-        /// <summary>
-        /// LanguageF control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList LanguageF;
-        
-        /// <summary>
-        /// ActiveF control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox ActiveF;
+        protected global::System.Web.UI.WebControls.DropDownList CollegeF;
         
         /// <summary>
         /// Keyword control.
@@ -65,24 +38,6 @@ namespace ElectronicSubmission.Pages.Setting {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSearch;
-        
-        /// <summary>
-        /// Emp_Profile control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Emp_Profile;
-        
-        /// <summary>
-        /// EmpProfile control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload EmpProfile;
         
         /// <summary>
         /// Specialization_Name_Ar control.
@@ -238,6 +193,15 @@ namespace ElectronicSubmission.Pages.Setting {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
         
         /// <summary>
+        /// addAttachments1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload addAttachments1;
+        
+        /// <summary>
         /// Specialization_Description_Ar control.
         /// </summary>
         /// <remarks>
@@ -292,13 +256,13 @@ namespace ElectronicSubmission.Pages.Setting {
         protected global::System.Web.UI.WebControls.TextBox Minutes;
         
         /// <summary>
-        /// EmpID control.
+        /// SpecId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField EmpID;
+        protected global::System.Web.UI.WebControls.HiddenField SpecId;
         
         /// <summary>
         /// Save control.

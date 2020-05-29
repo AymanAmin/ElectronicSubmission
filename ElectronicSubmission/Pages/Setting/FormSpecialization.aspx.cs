@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using ElectronicSubmission.Classes;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,10 +20,12 @@ namespace ElectronicSubmission.Pages.Setting
     {
         REU_RegistrationEntities db = new REU_RegistrationEntities();
         int EmployeeId = 0;
+
+        int SpecializationId = 0;
         //LogFile Data
         LogFileModule logFileModule = new LogFileModule();
         String LogData = "";
-        List<Employee> ALLEmployees = new List<Employee>();
+        List<Specialization> listSpecialization = new List<Specialization>();
         public string name { get; set; }
 
         protected void Page_PreInit(object sender, EventArgs e)
@@ -39,8 +42,10 @@ namespace ElectronicSubmission.Pages.Setting
 
             if (!IsPostBack)
             {
-                //FillDropDownLists();
+                FillDropDownLists();
             }
+            listSpecialization = new List<Specialization>();
+            listSpecialization = db.Specializations.ToList();
             UserCard();
             Emp_Language();
         }
@@ -49,93 +54,77 @@ namespace ElectronicSubmission.Pages.Setting
         {
             if (SessionWrapper.LoggedUser.Language_id == 1)
             {
-                //Groups.DataTextField = "Group_Name_Ar";
-                //Emp_Structure.DataTextField = "Structure_Name_Ar";
+                Collage_Id.DataTextField = "Collage_Name_Ar";
             }
         }
 
         protected void Save_Click(object sender, EventArgs e)
         {
-            int Group_id = 0;
-            int calander_id = 0;
-            int Lang = 0;
-
-            int Emp_ID = 0;
-            /*int.TryParse(EmpID.Value, out Emp_ID);
-            int.TryParse(Groups.SelectedValue, out Group_id);
-            int.TryParse(Language.SelectedValue, out Lang);
-            if (DateofBirth.Checked) calander_id = 1;
-            string EMPN = Employee_Name_Ar.Text;
-            bool result = AU_Emplooyees(Emp_ID, EMPN, Employee_Name_En.Text, Employee_Email.Text, Employee_Phone.Text, Active.Checked, Group_id, Lang, calander_id);
+            int collegeId = 0;
+            int.TryParse(Collage_Id.SelectedValue, out collegeId);
+            int.TryParse(SpecId.Value, out SpecializationId);
+            bool result = AU_Specialization(Specialization_Name_Ar.Text, Specialization_Name_En.Text, collegeId, Specialization_Icon.Text, High_School_Percent.Text, Capabilities_Percent.Text, My_Achievement_Percent.Text, Weighted_Ratio_Percent.Text, Specialization_Description_Ar.Text, Specialization_Description_En.Text, speech.Text, Minutes.Text);
 
             if (result)
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','  The  Employee was Sucessfully saved in system ! ');", true);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','  The  Specialization was Sucessfully saved in system ! ');", true);
+                clearForm();
+                listSpecialization = new List<Specialization>();
+                listSpecialization = db.Specializations.ToList();
                 UserCard();
             }
             else
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','Error');", true);
-            }*/
+            }
         }
 
-        public bool AU_Emplooyees(int EmployeeID, string ArabicName, string EnglishName, string Email, string Phone, bool Active, int GroupID, int lang, int calander)
+        public bool AU_Specialization(string SpecializationNameAr, string SpecializationNameEn, int collegeId, string SpecializationIcon, string HighSchoolPercent, string CapabilitiesPercent, string MyAchievementPercent, string WeightedRatioPercent, string SpecializationDescriptionAr, string SpecializationDescriptionEn, string Speech, string Minutes)
         {
-
             try
             {
                 db.Configuration.LazyLoadingEnabled = false;
-                Employee Emp = db.Employees.Create();
-                if (EmployeeID != 0) Emp = db.Employees.First(x => x.Employee_Id == EmployeeID);
-                Emp.Employee_Name_Ar = ArabicName;
-                Emp.Employee_Name_En = EnglishName;
-                Emp.Employee_Email = Email;
-                //Employee_Structure Emp_Stu = new Employee_Structure(); ;
-                if (EmployeeID == 0)
-                {
-                    string New_Password = StringCipher.RandomString(7);
-                    string Encrypted_Password = StringCipher.Encrypt(New_Password, "Password"); // emp.Employee_Password.ToString();
-                    Emp.Employee_Password = Encrypted_Password;
-
-                    string sever_name = Request.Url.Authority.ToString();
-                    SendEmail send = new SendEmail();
-                    bool EmailResult = send.ResetEmail(Email, New_Password, sever_name);
-                    if (EmailResult)
-                    {
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "show_model_sucess();", true);
-                    }
-                }
-                Emp.Employee_Phone = Phone;
-                Emp.Employee_Active = Active;
-                Emp.Group_Id = GroupID;
-                Emp.Language_id = lang;
-                //Emp.Calendar_id = calander;
+                Specialization Specl = db.Specializations.Create();
+                if (SpecializationId != 0) Specl = db.Specializations.First(x => x.Specialization_Id == SpecializationId);
+                Specl.Specialization_Name_Ar = SpecializationNameAr;
+                Specl.Specialization_Name_En = SpecializationNameEn;
+                Specl.Collage_Id = collegeId;
+                Specl.Specialization_Icon = SpecializationIcon;
+                Specl.High_School_Percent = HighSchoolPercent;
+                Specl.Capabilities_Percent = CapabilitiesPercent;
+                Specl.My_Achievement_Percent = MyAchievementPercent;
+                Specl.Weighted_Ratio_Percent = WeightedRatioPercent;
+                Specl.Specialization_Description_Ar = SpecializationDescriptionAr;
+                Specl.Specialization_Description_En = SpecializationDescriptionEn;
+                Specl.Condition_Ar = Speech;
+                Specl.Condition_En = Minutes;
                 string ImagepathProfile = UploadFile(1);
-                string ImagepathSignature = UploadFile(2);
-                if (ImagepathProfile != "") Emp.Employee_Profile = ImagepathProfile; else if (EmployeeID == 0) ImagepathProfile = "Profile.JPG";
-                //if (ImagepathSignature != "") Emp.Employee_Signature = ImagepathSignature; else if (EmployeeID == 0) ImagepathSignature = "Signature.JPG";
-                
-                if (EmployeeID != 0)
+                if (ImagepathProfile != "")
+                    Specl.Specialization_Image = ImagepathProfile;
+                else if (SpecializationId == 0)
+                    ImagepathProfile = "blue-and-silver.jpg";
+
+                if (SpecializationId != 0)
                 {
-                    db.Entry(Emp).State = System.Data.EntityState.Modified;
+                    db.Entry(Specl).State = System.Data.EntityState.Modified;
                 }
                 else
                 {
-                    db.Employees.Add(Emp);
+                    db.Specializations.Add(Specl);
                 }
                 db.SaveChanges();
+
                 /* Add it to log file */
-                LogData = "data:" + JsonConvert.SerializeObject(Emp, logFileModule.settings);
-                if (EmployeeID != 0)
+                LogData = "data:" + JsonConvert.SerializeObject(Specl, logFileModule.settings);
+                if (SpecializationId != 0)
                 {
-                    logFileModule.logfile(10, "تعديل بيانات موظف", "update Employee", LogData);
+                    logFileModule.logfile(10, "تعديل بيانات تخصص", "Update Specialization", LogData);
                 }
                 else
                 {
-                    logFileModule.logfile(10, "إضافة موظف", "Add Employee", LogData);
+                    logFileModule.logfile(10, "إضافة تخصص جديد", "Add New Specialization", LogData);
                 }
-                //LogData = "data:" + JsonConvert.SerializeObject(Emp_Stu, logFileModule.settings);
-                logFileModule.logfile(10, "هيكلة موظف", "Employee Structure", LogData);
+                SpecializationId = Specl.Specialization_Id;
             }
             catch { return false; }
             return true;
@@ -149,57 +138,48 @@ namespace ElectronicSubmission.Pages.Setting
                 case 1:
                     if (this.Page.IsValid)
                     {
-                        if (!UtilityClass.UploadFileIsValid(ref EmpProfile, UtilityClass.ValidImagesExtentions))
+                        if (!UtilityClass.UploadFileIsValid(ref addAttachments1, UtilityClass.ValidImagesExtentions))
                         {
                             Imagepath = "false";
                         }
                         Imagepath = string.Empty;
 
-                        Imagepath = UtilityClass.UploadFileWithExtention(ref EmpProfile, Server.MapPath(@"~\media\Profile\"));
+                        Imagepath = UtilityClass.UploadFileWithExtention(ref addAttachments1, Server.MapPath(@"~\Template\extra-images\"));
                     }
                     break;
             }
             return Imagepath;
         }
 
+        private void clearForm()
+        {
+            Specialization_Name_Ar.Text = "";
+            Specialization_Name_En.Text = "";
+            Specialization_Icon.Text = "";
+            High_School_Percent.Text = "";
+            Capabilities_Percent.Text = "";
+            My_Achievement_Percent.Text = "";
+            Weighted_Ratio_Percent.Text = "";
+            Specialization_Description_Ar.Text = "";
+            Specialization_Description_En.Text = "";
+            speech.Text = "";
+            Minutes.Text = "";
+        }
         private void Fillter()
         {
             string val_Fillter = string.Empty;
-
-            if (StructureF.SelectedIndex != 0)
+            listSpecialization = new List<Specialization>();
+            listSpecialization = db.Specializations.ToList();
+            if (CollegeF.SelectedIndex != 0)
             {
-                int id = int.Parse(StructureF.SelectedValue.ToString());
-                ALLEmployees = (from s in ALLEmployees
-                                //join sl in db.Employee_Structure on s.Employee_Id equals sl.Employee_Id
-                               // where sl.Structure_Id == id
-                                select s).ToList();
-                //ALLEmployees = ALLEmployees.Where(x => x.Employee_Signature.Where(f=> f.)).ToList();
-                val_Fillter += "<strong>" + FieldNames.getFieldName("Employees-Structure", "Structure") + " : </strong>" + StructureF.SelectedItem + " , ";
-            }
-
-            if (GroupF.SelectedIndex != 0)
-            {
-                int id = int.Parse(GroupF.SelectedValue.ToString());
-                ALLEmployees = ALLEmployees.Where(x => x.Group_Id == id).ToList();
-                val_Fillter += "<strong>" + FieldNames.getFieldName("Employees-Group", "Group") + " : </strong>" + GroupF.SelectedItem + " , ";
-            }
-
-            if (LanguageF.SelectedIndex != 0)
-            {
-                int id = int.Parse(LanguageF.SelectedValue.ToString());
-                ALLEmployees = ALLEmployees.Where(x => x.Language_id == id).ToList();
-                val_Fillter += "<strong>" + FieldNames.getFieldName("Employees-Language", "Language") + " : </strong>" + LanguageF.SelectedItem + " , ";
-            }
-
-            if (ActiveF.Value != null)
-            {
-                ALLEmployees = ALLEmployees.Where(x => x.Employee_Active == ActiveF.Checked).ToList();
-                val_Fillter += "<strong>" + FieldNames.getFieldName("Employees-Active", "Active") + " : </strong>" + ActiveF.Checked + " , ";
+                int id = int.Parse(CollegeF.SelectedValue.ToString());
+                listSpecialization = listSpecialization.Where(x => x.Collage_Id == id).ToList();
+                val_Fillter += "<strong>" + FieldNames.getFieldName("FormSpecialization-College", "College") + " : </strong>" + CollegeF.SelectedItem + " , ";
             }
             if (Keyword.Text.Trim() != "")
             {
-                ALLEmployees = ALLEmployees.Where(x => (x.Employee_Name_Ar != null && x.Employee_Name_Ar.Contains(Keyword.Text.Trim())) || (x.Employee_Name_En != null && x.Employee_Name_En.Contains(Keyword.Text.Trim())) || (x.Employee_Email != null && x.Employee_Email.Contains(Keyword.Text.Trim())) || (x.Employee_Phone != null && x.Employee_Phone.Contains(Keyword.Text.Trim()))).ToList();
-                val_Fillter += "<strong>" + FieldNames.getFieldName("AdvancedSearch-Keyword", "Keyword") + " : </strong>" + Keyword.Text + " , ";
+                listSpecialization = listSpecialization.Where(x => (x.Specialization_Name_Ar != null && x.Specialization_Name_Ar.Contains(Keyword.Text.Trim())) || (x.Specialization_Name_En != null && x.Specialization_Name_En.Contains(Keyword.Text.Trim()))).ToList();
+                val_Fillter += "<strong>" + FieldNames.getFieldName("FormSpecialization-Keyword", "Keyword") + " : </strong>" + Keyword.Text + " , ";
             }
 
             // Create the details of fillter text
@@ -223,34 +203,31 @@ namespace ElectronicSubmission.Pages.Setting
             string yourHTMLstring = "";
             string Emp_Name = "";
             UCard.Controls.Clear();
-            ALLEmployees = db.Employees.ToList();
-            while (i < ALLEmployees.Count)
+            while (i < listSpecialization.Count)
             {
 
-                if (ALLEmployees[i].Employee_Profile != "" && ALLEmployees[i].Employee_Profile != null)
+                if (listSpecialization[i].Specialization_Image != "" && listSpecialization[i].Specialization_Image != null)
                 {
-                    img = ALLEmployees[i].Employee_Profile.ToString();
+                    img = listSpecialization[i].Specialization_Image.ToString();
                 }
                 else
                 {
-                    img = "Profile.jpg";
+                    img = "blue-and-silver.jpg";
                 }
                 if (SessionWrapper.LoggedUser.Language_id == 1)
-                    Emp_Name = ALLEmployees[i].Employee_Name_Ar.ToString();
+                    Emp_Name = listSpecialization[i].Specialization_Name_Ar.ToString();
                 else
-                    Emp_Name = ALLEmployees[i].Employee_Name_En.ToString();
-
-                ImgTag = "<img class='img-fluid img-radius'" + "src='../../../../media/Profile/" + img + "'alt='" + img + "'>";
+                    Emp_Name = listSpecialization[i].Specialization_Name_En.ToString();
+                ImgTag = "<img class='img-fluid img-radius'" + "src='../../../../Template/extra-images/" + img + "'alt='" + img + "' style='height: 180px;'>";
                 yourHTMLstring = "<div class='col-lg-6 col-xl-3 col-md-6'>" +
                                                "<div class='card rounded-card user-card'>" +
                                                    "<div class='card-block'>" +
                                                           " <div class='img-hover'>" +
-                    //"<img class='img-fluid img-radius' src='~/media/Signature/' alt='m.jpg'> " +
                                                                ImgTag +
                                                                "<div class='img-overlay img-radius'>" +
                                                                 "   <span>" +
-                                                                      " <a class='btn btn-primary btn-outline-primary btn-icon'  id='" + ALLEmployees[i].Employee_Id.ToString() + "'OnClick='showmodel(this)'><i class='icofont icofont-ui-edit text-info h5'></i></a> " +
-                                                                      " <a class='btn btn-danger btn-outline-danger btn-icon'  id='" + ALLEmployees[i].Employee_Id.ToString() + "'OnClick='DeleteEmplooye(this)'><i class='icofont icofont-ui-delete text-danger h5'></i></a> " +
+                                                                      " <a class='btn btn-primary btn-outline-primary btn-icon'  id='" + listSpecialization[i].Specialization_Id.ToString() + "'OnClick='showmodel(this)'><i class='icofont icofont-ui-edit text-info h5'></i></a> " +
+                                                                      " <a class='btn btn-danger btn-outline-danger btn-icon'  id='" + listSpecialization[i].Specialization_Id.ToString() + "'OnClick='DeleteEmplooye(this)'><i class='icofont icofont-ui-delete text-danger h5'></i></a> " +
                                                                    "</span>" +
                                                                "</div>" +
                                                            "</div>" +
@@ -263,60 +240,51 @@ namespace ElectronicSubmission.Pages.Setting
                 UCard.Controls.Add(new LiteralControl(yourHTMLstring));
                 i += 1;
             }
-
-
         }
 
         [WebMethod]
-        public static string ViewUserCard(int Employee_Id)
+        public static string ViewUserCard(int AjaxSpecialization_Id)
         {
 
             using (var dbcont = new REU_RegistrationEntities())
             {
-                var Emplo = dbcont.Employees.Where(d => d.Employee_Id == Employee_Id).Select(x => new EmployeDTO
+                var Emplo = dbcont.Specializations.Where(d => d.Specialization_Id == AjaxSpecialization_Id).Select(x => new SpecializationDTO
                 {
-                    Employee_Name_Ar = x.Employee_Name_Ar,
-                    Employee_Name_En = x.Employee_Name_En,
-                    Employee_Id = x.Employee_Id,
-                    Employee_Active = x.Employee_Active,
-                    Employee_Email = x.Employee_Email,
-                    Employee_Password = x.Employee_Password,
-                    Employee_Phone = x.Employee_Phone,
-                    Employee_Profile = x.Employee_Profile,
-                    //Employee_Signature = x.Employee_Signature,
-                    Language_id = x.Language_id,
-                    //Calendar_id = x.Calendar_id,
-                    Group_Id = x.Group_Id,
-                    //Structures = x.Employee_Structure.Where(f => f.Status_Structure == true && f.Type_Delegation == false).Select(c => c.Structure_Id)
+                    Specialization_Id = x.Specialization_Id,
+                    Specialization_Name_Ar = x.Specialization_Name_Ar,
+                    Specialization_Name_En = x.Specialization_Name_En,
+                    Collage_Id = x.Collage_Id,
+                    Specialization_Icon = x.Specialization_Icon,
+                    High_School_Percent = x.High_School_Percent,
+                    Capabilities_Percent = x.Capabilities_Percent,
+                    My_Achievement_Percent = x.My_Achievement_Percent,
+                    Weighted_Ratio_Percent = x.Weighted_Ratio_Percent,
+                    Specialization_Image = x.Specialization_Image,
+                    Specialization_Description_Ar = x.Specialization_Description_Ar,
+                    Specialization_Description_En = x.Specialization_Description_En,
+                    Condition_Ar = x.Condition_Ar,
+                    Condition_En = x.Condition_En,
                 }).FirstOrDefault();
 
-                //JavaScriptSerializer js = new JavaScriptSerializer();
                 return JsonConvert.SerializeObject(Emplo);
             }
         }
 
         [WebMethod]
-        public static void DeleteEmplooye(int Employee_Id)
+        public static void DeleteEmplooye(int AjaxSpecialization_Id)
         {
             LogFileModule logFileModule = new LogFileModule();
             String LogData = "";
             try
             {
                 REU_RegistrationEntities db = new REU_RegistrationEntities();
-                /*var widgets = db.Employee_Structure.Where(x => x.Employee_Id == Employee_Id).ToList();
-                if (widgets.Count > 0)
-                {
-                    foreach (Employee_Structure widget in widgets)
-                    {
-                        db.Employee_Structure.Remove(widget);
-                    }
-                }*/
-                var DelEmp = db.Employees.First(x => x.Employee_Id == Employee_Id);
-                db.Employees.Remove(DelEmp);
+
+                var DelSep = db.Specializations.First(x => x.Specialization_Id == AjaxSpecialization_Id);
+                db.Specializations.Remove(DelSep);
                 db.SaveChanges();
                 /* Add it to log file */
-                LogData = "data:" + JsonConvert.SerializeObject(DelEmp, logFileModule.settings);
-                logFileModule.logfile(10, "حذف الموظف", "Delete Employee", LogData);
+                LogData = "data:" + JsonConvert.SerializeObject(DelSep, logFileModule.settings);
+                logFileModule.logfile(10, "حذف التخصص", "Delete Specialization", LogData);
 
             }
             catch (Exception e)
@@ -325,55 +293,18 @@ namespace ElectronicSubmission.Pages.Setting
 
         }
 
-        public void ViewDataEmp()
+        private void FillDropDownLists()
         {
-            if (EmployeeId > 0)
-            {
-                var Employeess = db.Employees.First(x => x.Employee_Id == EmployeeId);
-                // if (Employees.Employee_Profile != "" && Employees.Employee_Profile!=null) Emp_Profile.ImageUrl = "../../../../media/Profile/" + Employees.Employee_Profile;
-                // if (Employees.Employee_Signature != "" && Employees.Employee_Signature != null) Emp_Signature.ImageUrl = "../../../../media/Signature/" + Employees.Employee_Signature;
-                /*Employee_Name_Ar.Text = Employeess.Employee_Name_Ar;
-                Employee_Name_En.Text = Employeess.Employee_Name_En;
-                Employee_Email.Text = Employeess.Employee_Email;
-                Employee_Phone.Text = Employeess.Employee_Phone;
-                Groups.SelectedValue = Employeess.Group_Id.ToString();
-                Active.Checked = bool.Parse(Employeess.Employee_Active.ToString());*/
-            }
-
-            //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "showmodel();", true);
+            List<Collage> listCollage = db.Collages.ToList();
+            if (SessionWrapper.LoggedUser.Language_id == 1)
+                ddlFiller.dropDDL(CollegeF, "Collage_ID", "Collage_Name_Ar", listCollage, " - الكل -");
+            else
+                ddlFiller.dropDDL(CollegeF, "Collage_ID", "Collage_Name_En", listCollage, " - All -");
         }
-
-        /*private void FillDropDownLists()
-        {
-
-            // Structure dropdown
-            List<Structure> StructuresList = db.Structures.ToList();
-            if (SessionWrapper.LoggedUser.Language_id == 1)
-                ddlFiller.dropDDL(StructureF, "Structure_Id", "Structure_Name_Ar", StructuresList, " - الكل -");
-            else
-                ddlFiller.dropDDL(StructureF, "Structure_Id", "Structure_Name_En", StructuresList, " - All -");
-
-            // Group dropdown
-            List<Group> GroupList = db.Groups.ToList();
-            if (SessionWrapper.LoggedUser.Language_id == 1)
-                ddlFiller.dropDDL(GroupF, "Group_Id", "Group_Name_Ar", GroupList, " - الكل -");
-            else
-                ddlFiller.dropDDL(GroupF, "Group_Id", "Group_Name_En", GroupList, " - All -");
-
-            // Group dropdown
-            List<LanguageMaster> LanguageList = db.LanguageMasters.ToList();
-            if (SessionWrapper.LoggedUser.Language_id == 1)
-                ddlFiller.dropDDL(LanguageF, "ID", "Language_Name", LanguageList, " - الكل -");
-            else
-                ddlFiller.dropDDL(LanguageF, "ID", "Language_Name", LanguageList, " - All -");
-        }*/
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             Fillter();
         }
-
-
-
     }
 }

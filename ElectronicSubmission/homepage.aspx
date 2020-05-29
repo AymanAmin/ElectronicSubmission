@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" enableEventValidation="false" CodeBehind="homepage.aspx.cs" Inherits="ElectronicSubmission.homepage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" EnableEventValidation="false" CodeBehind="homepage.aspx.cs" Inherits="ElectronicSubmission.homepage" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,8 +83,10 @@
                 <div class="wm-main-header">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-3"><a href="index-2.html" class="wm-logo">
-                                <img src="Template/images/logo-5.png" alt="" style="height: 62px;"></a></div>
+                            <div class="col-md-3">
+                                <a href="index-2.html" class="wm-logo">
+                                    <img src="Template/images/logo-5.png" alt="" style="height: 62px;"></a>
+                            </div>
                             <div class="col-md-9">
                                 <!--// Navigation \\-->
                                 <nav class="navbar navbar-default">
@@ -123,13 +126,13 @@
                 <div class="wm-banner-one">
                     <div class="wm-banner-one-for">
                         <div class="wm-banner-one-for-layer">
-                            <img src="Template/extra-images/banner-view1-3.jpg" alt="">
+                            <img src="Template/extra-images/banner-view1-3.jpg" alt="" style="height: 478px;">
                         </div>
                         <div class="wm-banner-one-for-layer">
-                            <img src="Template/extra-images/banner-view1-2.jpg" alt="">
+                            <img src="Template/extra-images/banner-view1-2.jpg" alt="" style="height: 478px;">
                         </div>
                         <div class="wm-banner-one-for-layer">
-                            <img src="Template/extra-images/banner-view1-1.jpg" alt="">
+                            <img src="Template/extra-images/banner-view1-1.jpg" alt="" style="height: 478px;">
                         </div>
                     </div>
                     <div class="wm-banner-one-nav">
@@ -141,7 +144,7 @@
                         <div class="wm-banner-one-nav-layer">
                             <h1>UA Degree Programmes</h1>
                             <p>We offer companies the opportunity to access the technology and knowledge developed at the  Riyadh Elm University.</p>
-                            <a href="#" class="wm-banner-btn">know more</a>
+                            <a href="#" class="wm-banner-btn">learn more</a>
                         </div>
                         <div class="wm-banner-one-nav-layer banner-bgcolor">
                             <h1>Research & Business</h1>
@@ -276,9 +279,11 @@
                                 <div class="wm-subscribe-form">
                                     <h2>Still not convinced? We can help you!</h2>
                                     <p>Fill out the form below and we will contact you.</p>
-                                    <input type="text" value="Name:" />
-                                    <input type="text" value="E-mail:" />
-                                    <input type="submit" value="Get Advice">
+                                    <div style="float: left; width: 100%; border: 2px solid #ffffff; padding: 12px 8px;">
+                                        <input type="text" value="Name:" />
+                                        <input type="text" value="E-mail:" />
+                                        <input type="submit" value="Get Advice">
+                                    </div>
                                 </div>
                             </div>
 
@@ -314,8 +319,7 @@
                                                 <div class="col-md-8">
                                                     <div class="wm-contact-form">
                                                         <span>Talk To Us Today</span>
-                                                        <form>
-                                                            <ul>
+                                                            <ul style="float: left;width: 100%;">
                                                                 <li>
                                                                     <i class="wmicon-black"></i>
                                                                     <input type="text" value="Name" onblur="if(this.value == '') { this.value ='Name'; }" onfocus="if(this.value =='Name') { this.value = ''; }">
@@ -336,7 +340,6 @@
                                                                     <input type="submit" value="Send Message">
                                                                 </li>
                                                             </ul>
-                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -507,16 +510,16 @@
 
                         <div class="wm-modallogin-form wm-login-popup">
                             <span class="wm-color">Login to Your Account</span>
-                            <ul>
-                                <li>
-                                    <input type="text" value="Your Username" onblur="if(this.value == '') { this.value ='Your Username'; }" onfocus="if(this.value =='Your Username') { this.value = ''; }">
+                            <ul style="margin-bottom: 22px; float: left; width: 100%;">
+                                <li style="margin-bottom: 5%; float: left; width: 100%;">
+                                    <asp:TextBox ID="txtEmail" runat="server" class="form-control" required="" placeholder="Your Email"></asp:TextBox>
                                 </li>
-                                <li>
-                                    <input type="password" value="password" onblur="if(this.value == '') { this.value ='password'; }" onfocus="if(this.value =='password') { this.value = ''; }">
+                                <li style="margin-bottom: 5%; float: left; width: 100%;">
+                                    <asp:TextBox ID="txtPassword" runat="server" class="form-control" required="" placeholder="Your Password" TextMode="Password"></asp:TextBox>
                                 </li>
                                 <li><a href="#" class="wm-forgot-btn">Forgot Password?</a> </li>
                                 <li>
-                                    <input type="submit" value="Log In">
+                                    <asp:Button ID="LoginAcc" runat="server" Text="LogIn" OnClick="LoginAcc_Click"/>
                                 </li>
                             </ul>
                         </div>
@@ -533,15 +536,11 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-
                         <div class="wm-modallogin-form">
                             <span class="wm-color">Search Your Bachelors:</span>
-                            <ul>
-                                <li>
-                                    <input type="text" placeholder="Bachelors..." id="keywordBachelors" runat="server" />
-                                </li>
-                                <li>
-                                    <asp:Button ID="SearchkeyWord" runat="server" Text="Search" OnClick="SearchkeyWord_Click" /></li>
+                            <ul style="margin-bottom: 22px; float: left; width: 100%;">
+                                <li style="margin-bottom: 5%; float: left; width: 100%;"><input type="text" placeholder="Bachelors..." id="keywordBachelors" runat="server" /></li> 
+                                <li><asp:Button ID="SearchkeyWord" runat="server" Text="Button" OnClick="SearchkeyWord_Click1"/></li>
                             </ul>
                         </div>
 

@@ -2797,7 +2797,7 @@ ul li:last-child .wm-event-medium-wrap {
     border: 2px solid #ffffff;
     padding: 12px 8px;
 }
-.wm-subscribe-form form input[type="text"] {
+.wm-subscribe-form input[type="text"] {
     float: left;
     width: 28%;
     font-size: 18px;
@@ -2807,17 +2807,17 @@ ul li:last-child .wm-event-medium-wrap {
     border-right: 2px solid #c2c8e2;
     background-color: transparent;
 }
-.wm-subscribe-form form input[type="email"] {
-    float: left;
-    width: 46%;
-    font-size: 18px;
-    color: #c2c8e2;
-    padding: 0px 0px 0px 26px;
-    height: 46px;
-    border-right: 2px solid #c2c8e2;
-    background-color: transparent;
+.wm-subscribe-formxt p {
+    margin-bottom: 24px;
+    line-height: 24px;
 }
-.wm-subscribe-form form input[type="submit"] {
+/* NewsMedium */
+.wm-news-medium figure {
+    float: left;
+    width: 365px;
+    margin: 0px 0px 0px 0px;
+}
+.wm-subscribe-form input[type="submit"] {
     background-color: transparent;
     color: #ffffff;
     font-weight: 600;
@@ -2826,13 +2826,25 @@ ul li:last-child .wm-event-medium-wrap {
     font-size: 18px;
     padding: 9px 0px 0px 0px;
 }
-/* Subscribe Modren */
-.wm-subscribe-modren.wm-subscribe-form form {
-    border: none;
-    padding: 0px;
-    position: relative;
+
+.wm-news-medium .wm-newsgrid-text {
+    border: 1px solid #f0f0f0;
+    border-left: none;
+    padding: 18px 25px 30px 33px;
 }
-.wm-subscribe-modren.wm-subscribe-form form .bg-form {
+.wm-news-medium figure ~ .wm-newsgrid-text { margin-left: 365px; }
+.wm-news figure > a { position: relative; }
+.wm-transparent-hover {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+ul li:hover .wm-transparent-hover { opacity: 0.70; }
+/* Latest News */
+.wm-latest-news figure > a, .bg-form {
     float: left;
     width: 80%;
     background-color: #ffffff;
@@ -3210,9 +3222,9 @@ ul li:last-child .wm-latest-news-wrap {
 #map { height: 496px; }
 /* ContactForm */
 .wm-contact-form,.wm-contact-form span,
-.wm-contact-form form,.wm-contact-form form ul,
-.wm-contact-form form ul li,.wm-contact-form form input[type="text"],
-.wm-contact-form form textarea {
+.wm-contact-form,.wm-contact-form ul,
+.wm-contact-form ul li,.wm-contact-form input[type="text"],
+.wm-contact-form textarea {
     float: left;
     width: 100%;
 }
@@ -3223,12 +3235,12 @@ ul li:last-child .wm-latest-news-wrap {
     margin-bottom: 46px;
     line-height: 0.9;
 }
-.wm-contact-form form ul li {
+.wm-contact-form ul li {
     list-style: none;
     margin-bottom: 8px;
     position: relative;
 }
-.wm-contact-form form i {
+.wm-contact-form i {
     position: absolute;
     left: 20px;
     top: 8px;
@@ -3238,7 +3250,7 @@ ul li:last-child .wm-latest-news-wrap {
     padding-right: 18px;
     padding: 8px 18px 8px 0px;
 }
-.wm-contact-form form input[type="text"] {
+.wm-contact-form input[type="text"] {
     font-size: 15px;
     color: #bdbcbc;
     padding: 7px 20px 7px 74px;
@@ -3246,7 +3258,7 @@ ul li:last-child .wm-latest-news-wrap {
     border-bottom: 2px solid #efefef;
     height: 48px;
 }
-.wm-contact-form form textarea {
+.wm-contact-form textarea {
     font-size: 15px;
     color: #777;
     padding: 12px 20px 7px 74px;
@@ -3254,7 +3266,7 @@ ul li:last-child .wm-latest-news-wrap {
     border-bottom: 2px solid #efefef;
     height: 175px;
 }
-.wm-contact-form form input[type="submit"] {
+.wm-contact-form input[type="submit"] {
     display: inline-block;
     padding: 11px 15px 13px 15px;
     line-height: 1;
@@ -3264,7 +3276,7 @@ ul li:last-child .wm-latest-news-wrap {
     font-size: 12px;
     margin-top: 22px;
 }
-.wm-contact-form form input[type="submit"]:hover { color: #ffffff; }
+.wm-contact-form input[type="submit"]:hover { color: #ffffff; }
 /* Contact Title */
 .wm-contact-title {
     float: left;
@@ -9552,7 +9564,7 @@ aside .widget {
 }
 
 /* Footer One */
-#wm-footer,.wm-footer-newslatter,.wm-footer-newslatter form,.wm-footer-widget {
+#wm-footer,.wm-footer-newslatter,.wm-footer-newslatter,.wm-footer-widget {
     float: left;
     width: 100%;
 }
@@ -9560,13 +9572,13 @@ aside .widget {
     background-color: #222845;
     padding: 17px 0px;
 }
-.wm-footer-newslatter form i {
+.wm-footer-newslatter i {
     float: left;
     font-size: 25px;
     color: #ffffff;
     margin: 7px 21px 0px 0px;
 }
-.wm-footer-newslatter form input[type="text"] {
+.wm-footer-newslatter input[type="text"] {
     float: left;
     background-color: transparent;
     border: none;
@@ -9575,7 +9587,7 @@ aside .widget {
     padding: 0px;
     margin-top: 6px;
 }
-.wm-footer-newslatter form input[type="submit"] {
+.wm-footer-newslatter input[type="submit"] {
     float: right;
     background-color: transparent;
     font-size: 12px;

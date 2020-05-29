@@ -24,7 +24,7 @@ namespace ElectronicSubmission
                         bachelorsReque.InnerHtml = oneSpecialization.Condition_En;
                         headerBody.InnerHtml = "<i class='" + oneSpecialization.Specialization_Icon + "'></i> " + oneSpecialization.Specialization_Name_En;
                         bachelorsDescription.InnerHtml = oneSpecialization.Specialization_Description_En;
-                        bachelorsImage.Src = oneSpecialization.Specialization_Image;
+                        bachelorsImage.Src = "Template/extra-images/" + oneSpecialization.Specialization_Image;
                     }
                     else
                     {
