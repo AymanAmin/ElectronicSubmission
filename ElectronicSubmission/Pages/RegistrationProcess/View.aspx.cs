@@ -72,6 +72,9 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             {
                 if (std != null)
                 {
+                    //Check If He Has Permission
+                    CheckIfHeHasPermission(std);
+
                     // select the color based on status id
                     int index = (int)std.Student_Status_Id - 1;
                     if (index > Color.Length) index = 1;
@@ -134,7 +137,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                     int emp_id = 0;
                     if (std.Student_Employee_Id != null)
                         emp_id = (int)std.Student_Employee_Id;
-                    IsAllowToTakeAction((int)std.Student_Status_Id, emp_id);
+                    IsAllowToTakeAction((int)std.Student_Status_Id, emp_id, std);
 
                     //Set Action
                     SetActions();
@@ -151,7 +154,31 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
 
                 }
             }
-            catch { }
+            catch { Response.Redirect("~/Pages/RegistrationProcess/ListView.aspx"); }
+        }
+
+        private void CheckIfHeHasPermission(Student std)
+        {
+            if (std.Student_Employee_Id == SessionWrapper.LoggedUser.Employee_Id)
+                return;
+            else
+            {
+                List<Group_Status> List_group_status = db.Group_Status.Where(x => x.Group_Id == SessionWrapper.LoggedUser.Group_Id).ToList();
+                for(int i =0; i < List_group_status.Count; i++)
+                {
+                    if (List_group_status[i].Status_Id == std.Student_Status_Id)
+                        return;
+                    else
+                    {
+                        int Temp_Status_Id = (int)List_group_status[i].Status_Id;
+                        List<Sequence> list_sequence = db.Sequences.Where(x => x.Student_Id == std.Student_Id && x.Status_Id == Temp_Status_Id).ToList();
+                        if (list_sequence.Count > 0)
+                            return;
+                    }
+                }
+            }
+
+            Response.Redirect("~/Pages/RegistrationProcess/ListView.aspx");
         }
 
         private void SetActions()
@@ -196,7 +223,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             catch { }
         }
 
-        public void IsAllowToTakeAction(int StatusId, int emp_id)
+        public void IsAllowToTakeAction(int StatusId, int emp_id,Student std)
         {
             Group_Status GS = db.Group_Status.Where(x => x.Group_Id == SessionWrapper.LoggedUser.Group_Id && x.Status_Id == StatusId).FirstOrDefault();
             if (GS != null && (GS.Status_Id != 3 || (GS.Status_Id == 3 && emp_id == SessionWrapper.LoggedUser.Employee_Id)))
@@ -216,7 +243,15 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 EnableEditAssign = false;
             }
 
+            if ((std.Student_Employee_Id != SessionWrapper.LoggedUser.Employee_Id && (std.Student_Status_Id == 3 || std.Student_Status_Id == 4 || std.Student_Status_Id == 5)))
+            {
+                EnableEditActions = false;
+            }
+
+
         }
+
+        
 
 
         public void LoadSequence(int Student_Id)

@@ -34,7 +34,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                     List<Student> Temp_List = List_Status[i].Status.Students.Where(x => x.Suspended != 1).ToList();
                     ListStudentWithStatus.AddRange(Temp_List);
                 }
-                List<Student> TempList3 = db.Students.Where(x => x.Student_Employee_Id == SessionWrapper.LoggedUser.Employee_Id && x.Suspended != 1 && (x.Student_Status_Id == 3 && x.Student_Status_Id == 4 && x.Student_Status_Id == 5)).ToList();
+                List<Student> TempList3 = db.Students.Where(x => x.Student_Employee_Id == SessionWrapper.LoggedUser.Employee_Id && x.Suspended != 1 && (x.Student_Status_Id == 3 || x.Student_Status_Id == 4 || x.Student_Status_Id == 5)).ToList();
                 ListStudentWithStatus.AddRange(TempList3);
 
                 ListAllStudent.AddRange(ListStudentWithStatus);
