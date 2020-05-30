@@ -94,6 +94,7 @@ namespace ElectronicSubmission
                 Stu.Student_Specialization_Id = SpecializationID;
                 Stu.Student_Nationality_Id = NationalityID;
                 Stu.Student_Total = StudentTotal.ToString();
+                Stu.Suspended = 0;
                 if (StudentID == 0) Stu.Student_Status_Id = 1;
                 string ImegProfile = UploadFile(StProfile, @"~\media\StudentProfile\");
                 if (ImegProfile != "") Stu.Student_Image_Profile = ImegProfile; else if (StudentID == 0) Stu.Student_Image_Profile = "Profile.JPG";

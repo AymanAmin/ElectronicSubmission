@@ -23,7 +23,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             {
                 int GroupID = (int)SessionWrapper.LoggedUser.Group_Id;
 
-                List<Group_Status> List_Status = db.Group_Status.Where(x => x.Group_Id == GroupID).ToList();
+                List<Group_Status> List_Status = db.Group_Status.Where(x => x.Group_Id == GroupID && x.Status_Id != 3 && x.Status_Id != 4 && x.Status_Id != 5).ToList();
 
                 for (int i = 0; i < List_Status.Count; i++)
                 {
