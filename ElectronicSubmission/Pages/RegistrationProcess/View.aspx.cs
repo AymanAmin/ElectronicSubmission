@@ -333,7 +333,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             Student std = db.Students.Find(student_record_id);
             if (std != null)
             {
-                if (Can_I_Make_Record_Update(std))
+                if (!Can_I_Make_Record_Update(std))
                     return;
                 
                 if (std.Student_Status_Id == 15)
@@ -424,7 +424,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             Student std = db.Students.Find(student_record_id);
             if (std != null)
             {
-                if (Can_I_Make_Record_Update(std))
+                if (!Can_I_Make_Record_Update(std))
                     return;
 
                 switch (std.Student_Status_Id)
