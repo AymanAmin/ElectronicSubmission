@@ -10,13 +10,7 @@
     <div class="page-body">
         <!-- Article Editor card start -->
         <%--<div class="card" runat="server">--%>
-            <div class="card-header">
-                <div class="card-header-right">
-                    <ul class="list-unstyled card-option">
-                        <li><i class="feather icon-maximize full-card"></i></li>
-                    </ul>
-                </div>
-            </div>
+         
             <div class="card-block">
                 <div class="row">
                     <div class="col-lg-12">
@@ -64,7 +58,7 @@
                                     <div class="slide"></div>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#changePassWord" role="tab"><% = ElectronicSubmission.FieldNames.getFieldName("Profile-changePassWord", "change PassWord") %></a>
+                                    <a class="nav-link" data-toggle="tab" href="#changePassWord" role="tab"><% = ElectronicSubmission.FieldNames.getFieldName("Profile-changePassWord", "Change Password") %></a>
                                     <div class="slide"></div>
                                 </li>
                             </ul>
@@ -252,7 +246,7 @@
                         <!-- info card start -->
                          <div class="card">
                             <div class="card-header">
-                                <h5 class="card-header-text"><% = ElectronicSubmission.FieldNames.getFieldName("Profile-ChangePassWord", "Change PassWord") %></h5>
+                                <h5 class="card-header-text"><% = ElectronicSubmission.FieldNames.getFieldName("Profile-Change Password", "Change Password") %></h5>
                             </div>
                                 <!-- end of view-info -->
                                 <div class="edit-info-11">
@@ -265,7 +259,7 @@
                                                             <tbody>
                                                                 <tr>
                                                                     <td>
-                                                                       <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("Profile-OldPassWord", "Old Pass Word") %></label>
+                                                                       <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("Profile-OldPassword", "Old Password") %></label>
                                                                         <div class="input-group">
                                                                             <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
                                                                             <asp:TextBox ID="OldPassWord" runat="server" class="form-control" placeholder="Enter Old Pass Word" TextMode="SingleLine" type="password"></asp:TextBox>
@@ -277,7 +271,7 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
-                                                                      <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("Profile-NewPassWord", "New PassWord") %></label>
+                                                                      <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("Profile-NewPassword", "New Password") %></label>
                                                                         <div class="input-group">
                                                                             <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
                                                                             <asp:TextBox ID="NewPassWord" runat="server" class="form-control" placeholder="Enter New PassWord" TextMode="SingleLine" type="password"></asp:TextBox>
@@ -289,7 +283,7 @@
                                                                 </tr>
                                                               <tr>
                                                                     <td>
-                                                                         <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("Profile-TryNewPassWord", "Try New PassWord") %></label>
+                                                                         <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("Profile-TryNewPassword", "Try New Password") %></label>
                                                                         <div class="input-group">
                                                                             <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
                                                                             <asp:TextBox ID="TryNewPassWord" runat="server" class="form-control" placeholder="Try New PassWord" TextMode="SingleLine" type="password" ValidationGroup="Per2"></asp:TextBox>

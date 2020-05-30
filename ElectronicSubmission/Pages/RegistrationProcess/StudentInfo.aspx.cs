@@ -112,7 +112,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 Stu.Student_Total = StudentTotal.ToString();
                 if (StudentID == 0) Stu.Student_Status_Id = 1;
                 string ImegProfile = UploadFile(StProfile, @"~\media\StudentProfile\");
-                if (ImegProfile != "") Stu.Student_Image_Profile = ImegProfile; else if (StudentID == 0) ImegProfile = "Profile.JPG";
+                if (ImegProfile != "") Stu.Student_Image_Profile = ImegProfile; else if (StudentID == 0) Stu.Student_Image_Profile = "Profile.JPG";
 
                 if (StudentID != 0)
                 {
