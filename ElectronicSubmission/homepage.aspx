@@ -84,7 +84,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-3">
-                                <a href="index-2.html" class="wm-logo">
+                                <a href="../../../homepage.aspx" class="wm-logo">
                                     <img src="Template/images/logo-5.png" alt="" style="height: 62px;"></a>
                             </div>
                             <div class="col-md-9">
@@ -137,19 +137,19 @@
                     </div>
                     <div class="wm-banner-one-nav">
                         <div class="wm-banner-one-nav-layer">
-                            <h1>International Programmes</h1>
-                            <p>The study programmes of the Riyadh Elm University are open to people from all nationalities.</p>
-                            <a href="#" class="wm-banner-btn">learn more</a>
+                            <h1>Riyadh Elm University</h1>
+                            <p>Riyadh Elm University, Formerly Riyadh Colleges of Dentistry and Pharmacy (RCsDP) is a privately supported post-secondary...</p>
+                            <a href="http://www.home.riyadh.edu.sa/about-us/" class="wm-banner-btn">Read More</a>
                         </div>
                         <div class="wm-banner-one-nav-layer">
-                            <h1>UA Degree Programmes</h1>
-                            <p>We offer companies the opportunity to access the technology and knowledge developed at the  Riyadh Elm University.</p>
-                            <a href="#" class="wm-banner-btn">learn more</a>
+                            <h1>Bachelors Degrees</h1>
+                            <p>The core of Riyadh Elm University, Formerly Riyadh Colleges of Dentistry and Pharmacy (RCsDP) is the academic excellence.</p>
+                            <a href="http://www.home.riyadh.edu.sa/bachelors-degrees/" class="wm-banner-btn">Read More</a>
                         </div>
                         <div class="wm-banner-one-nav-layer banner-bgcolor">
                             <h1>Research & Business</h1>
                             <p>The scientific community nominates CRISPR System, based on research developed at the UA.</p>
-                            <a href="#" class="wm-banner-btn">learn more</a>
+                            <a href="http://www.home.riyadh.edu.sa/" class="wm-banner-btn">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -412,7 +412,7 @@
                     <div class="container">
                         <div class="row">
                             <aside class="widget widget_contact_info col-md-3">
-                                <a href="index-2.html" class="wm-footer-logo">
+                                <a href="../../../homepage.aspx" class="wm-footer-logo">
                                     <img src="Template/images/logo-5.png" alt="" style="height: 77px;"></a>
                                 <ul>
                                     <li><i class="wm-color wmicon-pin"></i><a href="https://www.google.com.sa/maps/place/Riyadh+Elm+University/@24.7595734,46.4668287,11z/data=!4m8!1m2!2m1!1sriyadh+colleges+of+dentistry+and+pharmacy!3m4!1s0x3e2efc51ecffffff:0x654f534d5c948f2e!8m2!3d24.6580528!4d46.7005641">

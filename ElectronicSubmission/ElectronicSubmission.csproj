@@ -2950,6 +2950,7 @@
     <Content Include="Template\fonts\icon749c.woff" />
     <Content Include="Pages\RegistrationProcess\DeleteStudent.ashx" />
     <Content Include="Pages\RegistrationProcess\DeleteFile.ashx" />
+    <None Include="Properties\PublishProfiles\ElectronicSubmission.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
