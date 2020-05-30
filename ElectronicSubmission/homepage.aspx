@@ -126,13 +126,13 @@
                 <div class="wm-banner-one">
                     <div class="wm-banner-one-for">
                         <div class="wm-banner-one-for-layer">
-                            <img src="Template/extra-images/banner-view1-3.jpg" alt="" style="height: 478px;">
+                            <img src="Template/extra-images/banner-view1-3.jpg" alt="">
                         </div>
                         <div class="wm-banner-one-for-layer">
-                            <img src="Template/extra-images/banner-view1-2.jpg" alt="" style="height: 478px;">
+                            <img src="Template/extra-images/banner-view1-2.jpg" alt="">
                         </div>
                         <div class="wm-banner-one-for-layer">
-                            <img src="Template/extra-images/banner-view1-1.jpg" alt="" style="height: 478px;">
+                            <img src="Template/extra-images/banner-view1-1.jpg" alt="">
                         </div>
                     </div>
                     <div class="wm-banner-one-nav">
@@ -303,13 +303,13 @@
 
                                     <!-- Nav tabs -->
                                     <ul class="nav nav-tabs">
-                                        <li class="active"><a href="#home" aria-controls="home" data-toggle="tab">Contact Us</a></li>
+                                        <li class="active"><a href="#homeContact" aria-controls="homeContact" data-toggle="tab">Contact Us</a></li>
                                         <li><a href="#profile" aria-controls="profile" data-toggle="tab">Information Details</a></li>
                                     </ul>
 
                                     <!-- Tab panes -->
                                     <div class="tab-content">
-                                        <div class="tab-pane active" id="home">
+                                        <div class="tab-pane active" id="homeContact">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="wm-map">
@@ -512,12 +512,12 @@
                             <span class="wm-color">Login to Your Account</span>
                             <ul style="margin-bottom: 22px; float: left; width: 100%;">
                                 <li style="margin-bottom: 5%; float: left; width: 100%;">
-                                    <asp:TextBox ID="txtEmail" runat="server" class="form-control" required="" placeholder="Your Email"></asp:TextBox>
+                                    <asp:TextBox ID="txtEmail" runat="server" class="form-control" placeholder="Your Email"></asp:TextBox>
                                 </li>
                                 <li style="margin-bottom: 5%; float: left; width: 100%;">
-                                    <asp:TextBox ID="txtPassword" runat="server" class="form-control" required="" placeholder="Your Password" TextMode="Password"></asp:TextBox>
+                                    <asp:TextBox ID="txtPassword" runat="server" class="form-control" placeholder="Your Password" TextMode="Password"></asp:TextBox>
                                 </li>
-                                <li><a href="#" class="wm-forgot-btn">Forgot Password?</a> </li>
+                                <li><a href="Pages/Auth/ResetPassword.aspx" class="wm-forgot-btn">Forgot Password?</a> </li>
                                 <li>
                                     <asp:Button ID="LoginAcc" runat="server" Text="LogIn" OnClick="LoginAcc_Click"/>
                                 </li>

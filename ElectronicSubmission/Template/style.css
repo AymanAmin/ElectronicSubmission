@@ -199,7 +199,6 @@ input[type="submit"] {
     outline: none;
 }
 form p {
-    float: left;
     position: relative;
 }
 form p span i {
