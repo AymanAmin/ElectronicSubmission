@@ -7,27 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ElectronicSubmission.Pages.Setting.UserManagment {
+namespace ElectronicSubmission.Pages.RegistrationProcess {
     
     
-    public partial class MyNotifications {
+    public partial class RestoreStudent {
         
         /// <summary>
-        /// Refresh control.
+        /// Literal1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton Refresh;
+        protected global::System.Web.UI.WebControls.Literal Literal1;
         
         /// <summary>
-        /// Activity control.
+        /// txtStudentList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal Activity;
+        protected global::System.Web.UI.WebControls.Literal txtStudentList;
     }
 }

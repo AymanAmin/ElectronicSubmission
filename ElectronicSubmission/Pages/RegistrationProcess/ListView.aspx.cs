@@ -10,10 +10,12 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
     public partial class ListView : System.Web.UI.Page
     {
         List<Student> ListAllStudent = new List<Student>();
+        List<Student> ListAllStudentStatistic = new List<Student>();
         List<Student> ListStudentWithStatus = new List<Student>();
+        List<Student> ListStudentCurrent = new List<Student>();
         List<Sequence> ListSequence = new List<Sequence>();
         REU_RegistrationEntities db = new REU_RegistrationEntities();
-        string[] Color = { "green", "orange", "blue", "red", "maroon", "purple",  "teal", "deepskyblue", "gray", "yellow", "hotpink", "blueviolet", "violet", "deepskyblue", "cyan", "olivedrab", "coral", "salmon" };
+        string[] Color = { "green", "orange", "blue", "red", "maroon", "purple", "teal", "deepskyblue", "gray", "hotpink", "blueviolet", "violet", "deepskyblue", "cyan", "olivedrab", "coral", "salmon", "yellow" };
         protected void Page_Load(object sender, EventArgs e)
         {
             if (SessionWrapper.LoggedUser == null)
@@ -21,16 +23,18 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
 
             if(!IsPostBack)
             {
+                loadAllRecord();
+
                 int GroupID = (int)SessionWrapper.LoggedUser.Group_Id;
                 
                 List<Group_Status> List_Status = db.Group_Status.Where(x => x.Group_Id == GroupID).ToList();
                 
                 for (int i = 0; i< List_Status.Count;i++)
                 {
-                    List<Student> Temp_List = List_Status[i].Status.Students.ToList();
+                    List<Student> Temp_List = List_Status[i].Status.Students.Where(x => x.Suspended != 1).ToList();
                     ListStudentWithStatus.AddRange(Temp_List);
                 }
-                List<Student> TempList3 = db.Students.Where(x => x.Student_Employee_Id == SessionWrapper.LoggedUser.Employee_Id ).ToList();
+                List<Student> TempList3 = db.Students.Where(x => x.Student_Employee_Id == SessionWrapper.LoggedUser.Employee_Id && x.Suspended != 1).ToList();
                 ListAllStudent = ListStudentWithStatus.Union(TempList3).ToList();
 
                 // List Sequence
@@ -39,66 +43,109 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             LoadStudent();
         }
 
+        private void loadAllRecord()
+        {
+            int GroupID = (int)SessionWrapper.LoggedUser.Group_Id;
+
+            // Start if it's on his status
+            List<Group_Status> List_Status = db.Group_Status.Where(x => x.Group_Id == GroupID).ToList();
+            for (int i = 0; i < List_Status.Count; i++)
+            {
+                ListStudentCurrent.AddRange(List_Status[i].Status.Students.Where(x => x.Suspended != 1).ToList());   
+            }
+            ListStudentCurrent = ListStudentCurrent.Distinct().ToList();
+            // Set TempList1 into ListAllStudentStatistic
+            ListAllStudentStatistic.AddRange(ListStudentCurrent);
+            // End if it's on his status
+
+            // Start if he is Call cetner
+            List<Student> TempList2 = db.Students.Where(x => x.Student_Employee_Id == SessionWrapper.LoggedUser.Employee_Id && x.Suspended != 1).ToList();
+
+            // Set TempList2 into ListAllStudentStatistic
+            ListAllStudentStatistic.AddRange(TempList2);
+            // End if he is Call cetner
+
+            // Start if he made action on sequence table
+            ListSequence = db.Sequences.Where(x => x.Emp_Id == SessionWrapper.LoggedUser.Employee_Id).ToList();
+            List<Student> TempList3 = new List<Student>();
+            for (int i = 0; i < ListSequence.Count; i++)
+            {
+                Student student = ListSequence[i].Student;
+                TempList3.Add(student);
+            }
+            // Set TempList3 into ListAllStudentStatistic
+            ListAllStudentStatistic.AddRange(TempList3);
+            // End if he made action on sequence table
+
+            // Set TempList3 into ListAllStudentStatistic
+            ListAllStudentStatistic = ListAllStudentStatistic.Distinct().ToList();
+        }
+
         private void LoadStudent()
         {
-            int emp_id = (int)SessionWrapper.LoggedUser.Employee_Id;
-            int index = 0;
-            //txtAddMeeting.Text = "<a class='btn btn-success btn-round' href='#' > </a>";
-            
-
-            //Start Statistic
-            string total = txtFirst.Text = ListAllStudent.Count().ToString();
-            string current = txtSecond.Text = ListStudentWithStatus.Count().ToString();
-            string approved = txtThird.Text = ListSequence.Where(x => x.Status_Id != 4 && x.Status_Id != 9 && x.Status_Id != 15).Count().ToString();
-            string rejected = txtFour.Text = ListSequence.Where(x => x.Status_Id == 4 || x.Status_Id == 9 || x.Status_Id == 15).Count().ToString();
-
-            txtFirstPercentage.Text = CalcPercentage(double.Parse(total) , double.Parse(total)) + "%";
-            txtSecondPercentage.Text = CalcPercentage(double.Parse(current), double.Parse(total)) + "%";
-            txtThirdPercentage.Text = CalcPercentage(double.Parse(approved), double.Parse(total)) + "%";
-            txtFourPercentage.Text = CalcPercentage(double.Parse(rejected), double.Parse(total)) + "%";
-
-            txtFirstPercentageCss.Text = "<div class='progress-bar bg-c-green' style='width: " + CalcPercentage(double.Parse(total), double.Parse(total)) + "%'></div>";
-            txtSecondPercentageCss.Text = "<div class='progress-bar bg-c-lite-green' style='width: " + CalcPercentage(double.Parse(current), double.Parse(total)) + "%'></div>";
-            txtThirdPercentageCss.Text = "<div class='progress-bar bg-c-pink' style='width: " + CalcPercentage(double.Parse(approved), double.Parse(total)) + "%'></div>";
-            txtFourPercentageCss.Text = "<div class='progress-bar bg-c-yellow' style='width: " + CalcPercentage(double.Parse(rejected), double.Parse(total)) + "%'></div>";
-
-            //End Statistic
-
-            string str = string.Empty;
-            for (int i = 0; i < ListAllStudent.Count; i++)
+            try
             {
-                // select the color based on status id
-                index = (int)ListAllStudent[i].Status.Status_Code - 1;
-                if (index >= Color.Length)
-                    index = 1;
+                int emp_id = (int)SessionWrapper.LoggedUser.Employee_Id;
+                int index = 0;
+                //txtAddMeeting.Text = "<a class='btn btn-success btn-round' href='#' > </a>";
 
-                str += "<tr>";
-                str += "<td class='txt-primary'>Expand</td>";
-                str += "<td> <a href= '../../../../Pages/RegistrationProcess/view.aspx?StudentID=" + ListAllStudent[i].Student_Id + "' style='color:#00c3da;'> <i class='icofont icofont-eye-alt h6'></i>&nbsp;&nbsp;&nbsp; </a>";
-                str += "<a href= '../../../../Pages/RegistrationProcess/StudentInfo.aspx?StudentID=" + ListAllStudent[i].Student_Id + "' style='color:green;'> <i class='icofont icofont-ui-edit h6'> </i></a></td>";
-                if (SessionWrapper.LoggedUser.Language_id == 1)
+
+                //Start Statistic
+                string total = txtFirst.Text = ListAllStudentStatistic.Count().ToString();
+                string current = txtSecond.Text = ListAllStudentStatistic.Count(x => x.Student_Status_Id != 14 && x.Student_Status_Id != 15).ToString();
+                string approved = txtThird.Text = ListAllStudentStatistic.Where(x => x.Student_Status_Id == 14).Count().ToString();
+                string rejected = txtFour.Text = ListAllStudentStatistic.Where(x =>  x.Student_Status_Id == 15).Count().ToString();
+
+                txtFirstPercentage.Text = CalcPercentage(double.Parse(total), double.Parse(total)) + "%";
+                txtSecondPercentage.Text = CalcPercentage(double.Parse(current), double.Parse(total)) + "%";
+                txtThirdPercentage.Text = CalcPercentage(double.Parse(approved), double.Parse(total)) + "%";
+                txtFourPercentage.Text = CalcPercentage(double.Parse(rejected), double.Parse(total)) + "%";
+
+                txtFirstPercentageCss.Text = "<div class='progress-bar bg-c-green' style='width: " + CalcPercentage(double.Parse(total), double.Parse(total)) + "%'></div>";
+                txtSecondPercentageCss.Text = "<div class='progress-bar bg-c-lite-green' style='width: " + CalcPercentage(double.Parse(current), double.Parse(total)) + "%'></div>";
+                txtThirdPercentageCss.Text = "<div class='progress-bar bg-c-pink' style='width: " + CalcPercentage(double.Parse(approved), double.Parse(total)) + "%'></div>";
+                txtFourPercentageCss.Text = "<div class='progress-bar bg-c-yellow' style='width: " + CalcPercentage(double.Parse(rejected), double.Parse(total)) + "%'></div>";
+
+                //End Statistic
+
+                string str = string.Empty;
+                for (int i = 0; i < ListAllStudent.Count; i++)
                 {
-                    str += "<td><label class='label label-success' style='background:" + Color[index] + " !important;'>" + ListAllStudent[i].Status.Status_Name_Ar + "</label></td>";
-                    if (ListAllStudent[i].Student_Employee_Id != null) str += "<td>" + ListAllStudent[i].Employee.Employee_Name_Ar + "</td>"; else str += "<td> - </td>";
+                    // select the color based on status id
+                    index = (int)ListAllStudent[i].Status.Status_Code - 1;
+                    if (index >= Color.Length)
+                        index = 1;
+
+                    str += "<tr>";
+                    str += "<td class='txt-primary'>Expand</td>";
+                    str += "<td> <a href= '../../../../Pages/RegistrationProcess/view.aspx?StudentID=" + ListAllStudent[i].Student_Id + "' style='color:#00c3da;'>&nbsp;&nbsp; <i class='icofont icofont-eye-alt h5'></i>&nbsp;&nbsp;</a>";
+                    str += "<a href= '../../../../Pages/RegistrationProcess/StudentInfo.aspx?StudentID=" + ListAllStudent[i].Student_Id + "' style='color:green;'>&nbsp;&nbsp; <i class='icofont icofont-ui-edit h5'></i>&nbsp;&nbsp;</a>";
+                    str += "<a href= '../../../../Pages/RegistrationProcess/DeleteStudent.ashx?StudentID=" + ListAllStudent[i].Student_Id + "' style='color:red;'>&nbsp;&nbsp; <i class='icofont icofont-ui-delete h5'></i>&nbsp;&nbsp;</a></td>";
+                    if (SessionWrapper.LoggedUser.Language_id == 1)
+                    {
+                        str += "<td><label class='label label-success' style='background:" + Color[index] + " !important;'>" + ListAllStudent[i].Status.Status_Name_Ar + "</label></td>";
+                        if (ListAllStudent[i].Student_Employee_Id != null) str += "<td>" + ListAllStudent[i].Employee.Employee_Name_Ar + "</td>"; else str += "<td> - </td>";
+                    }
+                    else
+                    {
+                        str += "<td><label class='label label-success' style='background:" + Color[index] + " !important;'>" + ListAllStudent[i].Status.Status_Name_En + "</label></td>";
+                        if (ListAllStudent[i].Student_Employee_Id != null) str += "<td>" + ListAllStudent[i].Employee.Employee_Name_En + "</td>"; else str += "<td> - </td>";
+                    }
+
+
+                    str += "<td>" + ListAllStudent[i].Student_Name_En + "</td>";
+                    str += "<td>" + ListAllStudent[i].Student_Name_Ar + "</td>";
+                    str += "<td>" + ListAllStudent[i].Student_Phone + "</td>";
+                    str += "<td>" + ListAllStudent[i].Student_Email + "</td>";
+                    str += "<td>" + ListAllStudent[i].Student_Address + "</td>";
+                    str += "<td>" + ListAllStudent[i].Student_CreationDate.ToString() + "</td>";
+                    str += "</tr>";
+
+
                 }
-                else
-                {
-                    str += "<td><label class='label label-success' style='background:" + Color[index] + " !important;'>" + ListAllStudent[i].Status.Status_Name_En + "</label></td>";
-                    if (ListAllStudent[i].Student_Employee_Id != null) str += "<td>" + ListAllStudent[i].Employee.Employee_Name_En + "</td>"; else str += "<td> - </td>";
-                }
-                
-
-                str += "<td>" + ListAllStudent[i].Student_Name_En + "</td>";
-                str += "<td>" + ListAllStudent[i].Student_Name_Ar + "</td>";
-                str += "<td>" + ListAllStudent[i].Student_Phone + "</td>";
-                str += "<td>" + ListAllStudent[i].Student_Email + "</td>";
-                str += "<td>" + ListAllStudent[i].Student_Address + "</td>";
-                str += "<td>" + ListAllStudent[i].Student_CreationDate.ToString() + "</td>";
-                str += "</tr>";
-
-
+                txtStudentList.Text = str;
             }
-            txtStudentList.Text = str;
+            catch { Response.Redirect("~/Pages/RegistrationProcess/ListView.aspx"); }
         }
 
         private double CalcPercentage(double sub, double Total)

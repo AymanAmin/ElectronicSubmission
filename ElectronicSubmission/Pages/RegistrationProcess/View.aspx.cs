@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,9 +12,11 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
     public partial class View : System.Web.UI.Page
     {
         REU_RegistrationEntities db = new REU_RegistrationEntities();
-        string[] Color = { "green", "orange", "blue", "red", "maroon", "purple", "teal", "deepskyblue", "gray", "yellow", "hotpink", "blueviolet", "violet", "deepskyblue", "cyan", "olivedrab", "coral", "salmon" };
+        string[] Color = { "green", "orange", "blue", "red", "maroon", "purple", "teal", "deepskyblue", "gray", "hotpink", "blueviolet", "violet", "deepskyblue", "cyan", "olivedrab", "coral", "salmon", "yellow" };
         int student_record_id = 0;
         bool EnableEditActions = false, EnableEditAssign = false;
+        LogFileModule logFileModule = new LogFileModule();
+        String LogData = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (SessionWrapper.LoggedUser == null)
@@ -38,8 +41,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
 
                 //Rename button names
                 btnAssign.Text = FieldNames.getFieldName("View-Assign", "Assign");
-                btnApprove.Text = FieldNames.getFieldName("View-Approve", "Approve");
-                btnReject.Text = FieldNames.getFieldName("View-Reject", "Reject");
+                
             }
         }
 
@@ -75,7 +77,11 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                     if (index > Color.Length) index = 1;
 
                     // Set profile image
-                    txtProfileImage.ImageUrl = "~/media/Profile/" + std.Student_Image_Profile; 
+                    if(std.Student_Image_Profile == null || std.Student_Image_Profile == "")
+                        txtProfileImage.ImageUrl = "~/media/Profile/Profile.jpg";
+                    else
+                        txtProfileImage.ImageUrl = "~/media/Profile/" + std.Student_Image_Profile;
+                    
 
                     // load other data
                     txtStudent_Id.Text = std.Student_Id.ToString();
@@ -84,14 +90,15 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                     txtStudent_Phone.Text = std.Student_Phone;
                     txtStudent_Email.Text = std.Student_Email;
                     txtStudent_Address.Text = std.Student_Address;
+                    txtSpecialization.Text = std.Specialization.Specialization_Name_En;
 
                     txtStatus.Text = "<span class='label label-warning' style='background:" + Color[index] + " !important;'>" + std.Status.Status_Name_En + "</span>";
                     txtStudent_Nationality.Text = std.Nationality.Nationality_Name_En;
                     txtStudent_Resource.Text = std.Resource.Resource_Name_En;
 
-                    txtStudent_Capabilities_Degree.Text = " " + std.Student_Capabilities_Degree + "%";
-                    txtStudent_High_School_Degree.Text = " " + std.Student_High_School_Degree + "%";
-                    txtStudent_My_Achievement_Degree.Text = " " + std.Student_My_Achievement_Degree + "%";
+                    txtStudent_Capabilities_Degree.Text = " " + std.Student_Capabilities_Degree + "";
+                    txtStudent_High_School_Degree.Text = " " + std.Student_High_School_Degree + "";
+                    txtStudent_My_Achievement_Degree.Text = " " + std.Student_My_Achievement_Degree + "";
                     txtStudent_Total.Text = " " + std.Student_Total + "%";
 
                     DateTime date = DateTime.Parse(std.Student_CreationDate.ToString());
@@ -112,9 +119,22 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
 
                         db.Sequences.Add(seq);
                         db.SaveChanges();
+
+                        db.Configuration.LazyLoadingEnabled = false;
+                        /* Add it to log file */
+                        Student stdLogFile = db.Students.Find(std.Student_Id);
+                        stdLogFile.Employee = db.Employees.Find(seq.Emp_Id);
+                        stdLogFile.Status = db.Status.Find(seq.Status_Id);
+
+                        LogData = "data:" + JsonConvert.SerializeObject(stdLogFile, logFileModule.settings);
+                        logFileModule.logfile(10, "تغير الحالة", "Update Status", LogData);
                     }
+
                     // Set action if it's allow
-                    IsAllowToTakeAction((int)std.Student_Status_Id);
+                    int emp_id = 0;
+                    if (std.Student_Employee_Id != null)
+                        emp_id = (int)std.Student_Employee_Id;
+                    IsAllowToTakeAction((int)std.Student_Status_Id, emp_id);
 
                     //Set Action
                     SetActions();
@@ -124,6 +144,10 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
 
                     //Load sequence
                     LoadSequence(std.Student_Id);
+
+                    //Button Names
+                    btnReject.Text = GetRejectStatusName((int)std.Student_Status_Id);
+                    btnApprove.Text = GetApproveStatusName((int)std.Student_Status_Id);
 
                 }
             }
@@ -143,23 +167,28 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
         {
             try
             {
-                string str = string.Empty;
+                string str = string.Empty, FileName = string.Empty;
+                int Nationality_Counter = 0, Capabilities_Counter = 0, High_School_Counter = 0, My_Achievement_Counter = 0;
+                int Current_Counter = 1;
                 List<File> List_File = db.Files.Where(x => x.Student_Id == Student_Id).OrderBy(x => x.Type).ToList();
                 for (int i = 0; i < List_File.Count; i++)
                 {
                     string fileType = string.Empty;
                     if (List_File[i].Type == (int)FileType.ProfileImage) { txtProfileImage.ImageUrl = List_File[i].File_Path; continue; }
-                    else if (List_File[i].Type == (int)FileType.Nationality) fileType = FieldNames.getFieldName("View-Nationality", "Nationality");
-                    else if (List_File[i].Type == (int)FileType.Capabilities) fileType = FieldNames.getFieldName("View-Capabilities", "Capabilities");
-                    else if (List_File[i].Type == (int)FileType.High_School) fileType = FieldNames.getFieldName("View-HighSchool", "High School");
-                    else if (List_File[i].Type == (int)FileType.My_Achievement) fileType = FieldNames.getFieldName("View-MyAchievement", "My Achievement");
+                    else if (List_File[i].Type == (int)FileType.Nationality) { fileType = FieldNames.getFieldName("View-Nationality", "Nationality"); Current_Counter = Nationality_Counter = Nationality_Counter + 1; }
+                    else if (List_File[i].Type == (int)FileType.Capabilities) { fileType = FieldNames.getFieldName("View-Capabilities", "Capabilities"); Current_Counter = Capabilities_Counter = Capabilities_Counter + 1; }
+                    else if (List_File[i].Type == (int)FileType.High_School) { fileType = FieldNames.getFieldName("View-HighSchool", "High School"); Current_Counter = High_School_Counter = High_School_Counter + 1; }
+                    else if (List_File[i].Type == (int)FileType.My_Achievement) { fileType = FieldNames.getFieldName("View-MyAchievement", "My Achievement"); Current_Counter = My_Achievement_Counter = My_Achievement_Counter + 1; }
                     str += "<tr>" +
                            "<td>" +
-                           "<h6>" + fileType + "</h6>" +
+                           "<h6>" + fileType + " " + Current_Counter + "</h6>" +
                            "</td>" +
-                           "<td> " + List_File[i].File_Name + " </td>" +
-                           "<td><a href = '#' target='_blank' style ='font-size: x-large; color: green;' ><i class='icofont icofont-ui-edit'></i></a></td>" +
-                           "<td><a href = '../../../../media/StudentAttachments/" + List_File[i].File_Path + "' target='_blank' style='font-size: x-large; color: blue;'><i class='icofont icofont-eye-alt'></i></a></td>" +
+                           "<td>" + fileType + " </td>";
+                    if (EnableEditActions)
+                        str += "<td><a href = '../../../Pages/RegistrationProcess/DeleteFile.ashx?FileID=" + List_File[i].File_Id + "&StudentID=" + List_File[i].Student_Id + "' style ='font-size: x-large; color: red;' ><i class='icofont icofont-ui-delete'></i></a></td>";
+                    else
+                        str += "<td><a href = '#' style ='font-size: x-large; color: red;' ><i class='icofont icofont-ui-delete'></i></a></td>";
+                    str += "<td><a href = '../../../../media/StudentAttachments/" + List_File[i].File_Path + "' target='_blank' style='font-size: x-large; color: blue;'><i class='icofont icofont-eye-alt'></i></a></td>" +
                            "</tr>";
                 }
                 txtFiles.Text = str;
@@ -167,11 +196,13 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             catch { }
         }
 
-        public void IsAllowToTakeAction(int StatusId)
+        public void IsAllowToTakeAction(int StatusId, int emp_id)
         {
             Group_Status GS = db.Group_Status.Where(x => x.Group_Id == SessionWrapper.LoggedUser.Group_Id && x.Status_Id == StatusId).FirstOrDefault();
-            if (GS != null)
+            if (GS != null && (GS.Status_Id != 3 || (GS.Status_Id == 3 && emp_id == SessionWrapper.LoggedUser.Employee_Id)))
+            {
                 EnableEditActions = true;
+            }
             else
                 EnableEditActions = false;
 
@@ -235,10 +266,13 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                                 "</div>" +
                                 "<div class='col'>" +
                                 "<h6 class='m-b-5'>" + per_name + "</h6>" +
-                                "<p class='text-muted m-b-0'>" + "<span style='color:green'>" + activity_verb + "</span>" + Log_Name + " </p>" +
-                                "<p class='text-muted m-b-0'> <i class='feather icon-clock m-r-10'></i> " + Date_Different((DateTime)sequence[i].DateCreation) + "</p>" +
-                                "</div>" +
-                            "</div>";
+                                "<p class='text-muted m-b-0'>" + "<span style='color:green'>" + activity_verb + "</span>" + Log_Name + " </p>";
+                if (sequence[i].Note != null && sequence[i].Note != "")
+                    str += "<p class='text-muted m-b-0'>" + "<span style='color:" + Color[index] + "'>" + sequence[i].Note + "</span></p>";
+
+                str += "<p class='text-muted m-b-0'> <i class='feather icon-clock m-r-10'></i> " + Date_Different((DateTime)sequence[i].DateCreation) + "</p>" +
+                "</div>" +
+            "</div>";
             }
             Activity.Text = str;
         }
@@ -251,11 +285,41 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
 
         protected void btnApprove_Click(object sender, EventArgs e)
         {
+            int newStatus = 0, restore_id = 15;
             int student_record_id = int.Parse(Request["StudentID"].ToString());
             Student std = db.Students.Find(student_record_id);
             if (std != null)
             {
-                int newStatus = (int)std.Student_Status_Id + 1;
+                if(std.Student_Status_Id == 15)
+                {
+                    List<Sequence> list_seq = db.Sequences.Where(x => x.Student_Id == student_record_id).OrderBy(x => x.DateCreation).ToList();
+                    if(list_seq.Count > 1)
+                    {
+                        restore_id = (int)list_seq[list_seq.Count - 2].Status_Id;
+                    }
+                        
+                }
+                switch (std.Student_Status_Id)
+                {
+                    case 1: newStatus = 2; break; // 1- New
+                    case 2: newStatus = 2; break; // 2- Pending
+                    case 3: newStatus = 5; break; // 3- Assigned
+                    case 4: newStatus = 5; break; // 4- Not Complete
+                    case 5: newStatus = 6; break; // 5- Data Completed
+                    case 6: newStatus = 7; break; // 6- Pay the Registration Fees
+                    case 7: newStatus = 8; break; // 7- Registration Fee Paid
+                    case 8: newStatus = 10; break; // 8- Book a Test Date
+                    case 9: newStatus = 8; break; // 9- Failure in the Test
+                    case 10: newStatus = 11; break; // 10- Success in the Test
+                    case 11: newStatus = 12; break; // 11- Pay the Tuition Fees
+                    case 12: newStatus = 13; break; // 12- Tuition Fees Paid
+                    case 13: newStatus = 14; break; // 13- Issuance University ID
+                    case 14: newStatus = 15; break; // 14- File Completed Successfully
+                    case 15: newStatus = restore_id; break; // 15- File Complete with Failure
+                    default: newStatus = 15; break; // Defalut Set To 15 File Complete with Failure
+                }
+
+                
                 std.Student_Status_Id = newStatus;
                 db.Entry(std).State = System.Data.EntityState.Modified;
 
@@ -264,23 +328,76 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 seq.Emp_Id = SessionWrapper.LoggedUser.Employee_Id;
                 seq.Status_Id = newStatus;
                 seq.Student_Id = student_record_id;
+                seq.Note = txtNote.Text;
                 seq.DateCreation = DateTime.Now;
 
                 db.Sequences.Add(seq);
                 db.SaveChanges();
+
+                db.Configuration.LazyLoadingEnabled = false;
+                /* Add it to log file */
+                Student stdLogFile = db.Students.Find(std.Student_Id);
+                stdLogFile.Employee = db.Employees.Find(seq.Emp_Id);
+                stdLogFile.Status = db.Status.Find(seq.Status_Id);
+
+                LogData = "data:" + JsonConvert.SerializeObject(stdLogFile, logFileModule.settings);
+                logFileModule.logfile(10, "تغير الحالة", "Update Status", LogData);
+
+                Response.Redirect("~/Pages/RegistrationProcess/view.aspx?StudentID=" + (int)seq.Student_Id);
             }
 
         }
 
+        private string GetApproveStatusName(int CurrentStatus_Id)
+        {
+            switch (CurrentStatus_Id)
+            {
+                case 1: return db.Status.Find(2).Status_Name_En;// 1- New
+                case 2: return db.Status.Find(3).Status_Name_En;// 2- Pending
+                case 3: return db.Status.Find(5).Status_Name_En;// 3- Assigned
+                case 4: return db.Status.Find(5).Status_Name_En;// 4- Not Complete
+                case 5: return db.Status.Find(6).Status_Name_En;// 5- Data Completed
+                case 6: return db.Status.Find(7).Status_Name_En;// 6- Pay the Registration Fees
+                case 7: return db.Status.Find(8).Status_Name_En;// 7- Registration Fee Paid
+                case 8: return db.Status.Find(10).Status_Name_En;// 8- Book a Test Date
+                case 9: return db.Status.Find(8).Status_Name_En;// 9- Failure in the Test
+                case 10: return db.Status.Find(11).Status_Name_En;// 10- Success in the Test
+                case 11: return db.Status.Find(12).Status_Name_En;// 11- Pay the Tuition Fees
+                case 12: return db.Status.Find(13).Status_Name_En;// 12- Tuition Fees Paid
+                case 13: return db.Status.Find(14).Status_Name_En;// 13- Issuance University ID
+                case 14: return db.Status.Find(15).Status_Name_En;// 14- File Completed Successfully
+                case 15: return "Restore the last Status";// 15- File Complete with Failure
+                default: return db.Status.Find(4).Status_Name_En;// Defalut Set To 4 Not Complate
+            }
+        }
+
         protected void btnReject_Click(object sender, EventArgs e)
         {
+            int newStatus = 0;
             int student_record_id = int.Parse(Request["StudentID"].ToString());
             Student std = db.Students.Find(student_record_id);
             if (std != null)
             {
-                int newStatus = (int)std.Student_Status_Id - 1;
-                if (newStatus < 1)
-                    return;
+                switch (std.Student_Status_Id)
+                {
+                    case 1: newStatus = 4; break; // 1- New
+                    case 2: newStatus = 4; break; // 2- Pending
+                    case 3: newStatus = 4; break; // 3- Assigned
+                    case 4: newStatus = 15; break; // 4- Not Complete
+                    case 5: newStatus = 4; break; // 5- Data Completed
+                    case 6: newStatus = 15; break; // 6- Pay the Registration Fees
+                    case 7: newStatus = 15; break; // 7- Registration Fee Paid
+                    case 8: newStatus = 9; break; // 8- Book a Test Date
+                    case 9: newStatus = 15; break; // 9- Failure in the Test
+                    case 10: newStatus = 15; break; // 10- Success in the Test
+                    case 11: newStatus = 15; break; // 11- Pay the Tuition Fees
+                    case 12: newStatus = 15; break; // 12- Tuition Fees Paid
+                    case 13: newStatus = 15; break; // 13- Issuance University ID
+                    case 14: newStatus = 15; break; // 14- File Completed Successfully
+                    case 15: newStatus = 15; return; // 15- File Complete with Failure
+                    default: newStatus = 15; break; // Defalut Set To 15 File Complete with Failure
+                }
+
 
                 std.Student_Status_Id = newStatus;
                 db.Entry(std).State = System.Data.EntityState.Modified;
@@ -290,10 +407,45 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 seq.Emp_Id = SessionWrapper.LoggedUser.Employee_Id;
                 seq.Status_Id = newStatus;
                 seq.Student_Id = student_record_id;
+                seq.Note = txtNote.Text;
                 seq.DateCreation = DateTime.Now;
 
                 db.Sequences.Add(seq);
                 db.SaveChanges();
+
+                db.Configuration.LazyLoadingEnabled = false;
+                /* Add it to log file */
+                Student stdLogFile = db.Students.Find(std.Student_Id);
+                stdLogFile.Employee = db.Employees.Find(seq.Emp_Id);
+                stdLogFile.Status = db.Status.Find(seq.Status_Id);
+
+                LogData = "data:" + JsonConvert.SerializeObject(stdLogFile, logFileModule.settings);
+                logFileModule.logfile(10, "تغير الحالة", "Update Status", LogData);
+
+                Response.Redirect("~/Pages/RegistrationProcess/view.aspx?StudentID=" + (int)seq.Student_Id);
+            }
+        }
+
+        private string GetRejectStatusName(int CurrentStatus_Id)
+        {
+            switch (CurrentStatus_Id)
+            {
+                case 1: return db.Status.Find(4).Status_Name_En;// 1- New
+                case 2: return db.Status.Find(4).Status_Name_En;// 2- Pending
+                case 3: return db.Status.Find(4).Status_Name_En;// 3- Assigned
+                case 4: return db.Status.Find(15).Status_Name_En;// 4- Not Complete
+                case 5: return db.Status.Find(4).Status_Name_En;// 5- Data Completed
+                case 6: return db.Status.Find(15).Status_Name_En;// 6- Pay the Registration Fees
+                case 7: return db.Status.Find(15).Status_Name_En;// 7- Registration Fee Paid
+                case 8: return db.Status.Find(9).Status_Name_En;// 8- Book a Test Date
+                case 9: return db.Status.Find(15).Status_Name_En;// 9- Failure in the Test
+                case 10: return db.Status.Find(15).Status_Name_En;// 10- Success in the Test
+                case 11: return db.Status.Find(15).Status_Name_En;// 11- Pay the Tuition Fees
+                case 12: return db.Status.Find(15).Status_Name_En;// 12- Tuition Fees Paid
+                case 13: return db.Status.Find(15).Status_Name_En;// 13- Issuance University ID
+                case 14: return db.Status.Find(15).Status_Name_En;// 14- File Completed Successfully
+                case 15: return db.Status.Find(15).Status_Name_En;// 15- File Complete with Failure
+                default: return db.Status.Find(15).Status_Name_En;// Defalut Set To 15 Not Complate
             }
         }
 
@@ -302,7 +454,8 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             Student std = db.Students.Find(student_record_id);
             if (std != null)
             {
-                std.Student_Status_Id = int.Parse(txtEmployees.SelectedValue);
+                std.Student_Employee_Id = int.Parse(txtEmployees.SelectedValue);
+                std.Student_Status_Id = 3; // Assigned
                 db.Entry(std).State = System.Data.EntityState.Modified;
 
                 Sequence seq = db.Sequences.Create();
@@ -314,6 +467,17 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
 
                 db.Sequences.Add(seq);
                 db.SaveChanges();
+
+                db.Configuration.LazyLoadingEnabled = false;
+                /* Add it to log file */
+                Student stdLogFile = db.Students.Find(std.Student_Id);
+                stdLogFile.Employee = db.Employees.Find(seq.Emp_Id);
+                stdLogFile.Status = db.Status.Find(seq.Status_Id);
+
+                LogData = "data:" + JsonConvert.SerializeObject(stdLogFile, logFileModule.settings);
+                logFileModule.logfile(10, "اسناد ملف لموظف مركز الاتصالات", "File assigned to Call Center", LogData);
+
+                Response.Redirect("~/Pages/RegistrationProcess/view.aspx?StudentID=" + (int)seq.Student_Id);
             }
 
         }

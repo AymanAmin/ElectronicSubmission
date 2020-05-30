@@ -25,7 +25,6 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
-    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -140,7 +139,9 @@
     <Content Include="media\Profile\Profile.jpg" />
     <Content Include="Pages\Admin\Language.aspx" />
     <Content Include="Pages\Admin\LogFile.aspx" />
+    <Content Include="Pages\RegistrationProcess\AllRecords.aspx" />
     <Content Include="Pages\RegistrationProcess\ListView.aspx" />
+    <Content Include="Pages\RegistrationProcess\RestoreStudent.aspx" />
     <Content Include="Pages\RegistrationProcess\StudentInfo.aspx" />
     <Content Include="Pages\RegistrationProcess\View.aspx" />
     <Content Include="Pages\Auth\LockScreen.aspx" />
@@ -155,7 +156,6 @@
     <Content Include="Pages\UserManagment\PermissionGroups.aspx" />
     <Content Include="Pages\UserManagment\Permissions.aspx" />
     <Content Include="Pages\UserManagment\Profile.aspx" />
-    <Content Include="StudentSubmitting.aspx" />
     <Content Include="Template\404-page.html" />
     <Content Include="Template\about-us.html" />
     <Content Include="Template\blog-detail.html" />
@@ -188,9 +188,6 @@
     <Content Include="Template\css\color.css" />
     <Content Include="Template\css\flaticon.css" />
     <Content Include="Template\css\font-awesome.css" />
-    <Content Include="Template\css\icofont\css\icofont.css" />
-    <Content Include="Template\css\icofont\fonts\icofont.hxd" />
-    <Content Include="Template\css\icofont\fonts\icofont.svg" />
     <Content Include="Template\css\prettyphoto.css" />
     <Content Include="Template\css\responsive.css" />
     <Content Include="Template\css\slick-slider.css" />
@@ -2579,6 +2576,7 @@
     <Compile Include="Classes\LogFileModule.cs" />
     <Compile Include="Classes\SendEmail.cs" />
     <Compile Include="Classes\SessionWrapper.cs" />
+    <Compile Include="Classes\SpecializationDTO.cs" />
     <Compile Include="Classes\StringCipher.cs" />
     <Compile Include="Classes\UtilityClass.cs" />
     <Compile Include="Collage.cs">
@@ -2670,6 +2668,16 @@
     <Compile Include="Pages\Admin\LogFile.aspx.designer.cs">
       <DependentUpon>LogFile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\RegistrationProcess\AllRecords.aspx.cs">
+      <DependentUpon>AllRecords.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RegistrationProcess\AllRecords.aspx.designer.cs">
+      <DependentUpon>AllRecords.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RegistrationProcess\DeleteFile.ashx.cs">
+      <DependentUpon>DeleteFile.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\RegistrationProcess\DeleteStudent.ashx.cs">
       <DependentUpon>DeleteStudent.ashx</DependentUpon>
     </Compile>
@@ -2679,6 +2687,13 @@
     </Compile>
     <Compile Include="Pages\RegistrationProcess\ListView.aspx.designer.cs">
       <DependentUpon>ListView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RegistrationProcess\RestoreStudent.aspx.cs">
+      <DependentUpon>RestoreStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RegistrationProcess\RestoreStudent.aspx.designer.cs">
+      <DependentUpon>RestoreStudent.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\RegistrationProcess\StudentInfo.aspx.cs">
       <DependentUpon>StudentInfo.aspx</DependentUpon>
@@ -2803,18 +2818,18 @@
     <Compile Include="Student.cs">
       <DependentUpon>ESubmission.tt</DependentUpon>
     </Compile>
-    <Compile Include="StudentSubmitting.aspx.cs">
-      <DependentUpon>StudentSubmitting.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="StudentSubmitting.aspx.designer.cs">
-      <DependentUpon>StudentSubmitting.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="ESubmission.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ESubmission.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="ESubmission.edmx.diagram">
+      <DependentUpon>ESubmission.edmx</DependentUpon>
     </Content>
     <Content Include="Theme\files\assets\fonts\fontawesome-webfont.ttf" />
     <Content Include="Theme\files\assets\fonts\fontawesome-webfont.woff" />
@@ -2934,15 +2949,7 @@
     <Content Include="Template\fonts\icon749c.ttf" />
     <Content Include="Template\fonts\icon749c.woff" />
     <Content Include="Pages\RegistrationProcess\DeleteStudent.ashx" />
-    <EntityDeploy Include="ESubmission.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ESubmission.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="ESubmission.edmx.diagram">
-      <DependentUpon>ESubmission.edmx</DependentUpon>
-    </Content>
-    <Content Include="Template\css\icofont\fonts\icofont.ttf" />
-    <Content Include="Template\css\icofont\fonts\icofont.woff" />
+    <Content Include="Pages\RegistrationProcess\DeleteFile.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

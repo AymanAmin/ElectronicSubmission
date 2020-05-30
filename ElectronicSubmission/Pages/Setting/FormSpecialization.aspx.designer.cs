@@ -13,40 +13,13 @@ namespace ElectronicSubmission.Pages.Setting {
     public partial class FormSpecialization {
         
         /// <summary>
-        /// StructureF control.
+        /// CollegeF control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList StructureF;
-        
-        /// <summary>
-        /// GroupF control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList GroupF;
-        
-        /// <summary>
-        /// LanguageF control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList LanguageF;
-        
-        /// <summary>
-        /// ActiveF control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox ActiveF;
+        protected global::System.Web.UI.WebControls.DropDownList CollegeF;
         
         /// <summary>
         /// Keyword control.
@@ -67,67 +40,58 @@ namespace ElectronicSubmission.Pages.Setting {
         protected global::System.Web.UI.WebControls.Button btnSearch;
         
         /// <summary>
-        /// Emp_Profile control.
+        /// Specialization_Name_Ar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Emp_Profile;
+        protected global::System.Web.UI.WebControls.TextBox Specialization_Name_Ar;
         
         /// <summary>
-        /// EmpProfile control.
+        /// RFVtxtSpecialization_Name_Ar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload EmpProfile;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtSpecialization_Name_Ar;
         
         /// <summary>
-        /// Emp_Signature control.
+        /// Specialization_Name_En control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Emp_Signature;
+        protected global::System.Web.UI.WebControls.TextBox Specialization_Name_En;
         
         /// <summary>
-        /// EmpSignature control.
+        /// RFVtxtSpecialization_Name_En control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload EmpSignature;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtSpecialization_Name_En;
         
         /// <summary>
-        /// Employee_Name_Ar control.
+        /// Collage_Id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Employee_Name_Ar;
+        protected global::System.Web.UI.WebControls.DropDownList Collage_Id;
         
         /// <summary>
-        /// RFVtxtEmployee_Name_Ar control.
+        /// CollageEntityDataSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RFVtxtEmployee_Name_Ar;
-        
-        /// <summary>
-        /// Employee_Name_En control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Employee_Name_En;
+        protected global::System.Web.UI.WebControls.EntityDataSource CollageEntityDataSource;
         
         /// <summary>
         /// RequiredFieldValidator1 control.
@@ -139,31 +103,13 @@ namespace ElectronicSubmission.Pages.Setting {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// Employee_Email control.
+        /// Specialization_Icon control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Employee_Email;
-        
-        /// <summary>
-        /// RequiredFieldValidator2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-        
-        /// <summary>
-        /// Employee_Phone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Employee_Phone;
+        protected global::System.Web.UI.WebControls.TextBox Specialization_Icon;
         
         /// <summary>
         /// RequiredFieldValidator4 control.
@@ -175,13 +121,31 @@ namespace ElectronicSubmission.Pages.Setting {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
         
         /// <summary>
-        /// Emp_Structure control.
+        /// High_School_Percent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox Emp_Structure;
+        protected global::System.Web.UI.WebControls.TextBox High_School_Percent;
+        
+        /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        
+        /// <summary>
+        /// Capabilities_Percent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Capabilities_Percent;
         
         /// <summary>
         /// RequiredFieldValidator3 control.
@@ -193,49 +157,13 @@ namespace ElectronicSubmission.Pages.Setting {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
-        /// Groups control.
+        /// My_Achievement_Percent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Groups;
-        
-        /// <summary>
-        /// GroupDataSource control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource GroupDataSource;
-        
-        /// <summary>
-        /// RequiredFieldValidator6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
-        
-        /// <summary>
-        /// Language control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Language;
-        
-        /// <summary>
-        /// LangDataSource control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource LangDataSource;
+        protected global::System.Web.UI.WebControls.TextBox My_Achievement_Percent;
         
         /// <summary>
         /// RequiredFieldValidator5 control.
@@ -247,40 +175,94 @@ namespace ElectronicSubmission.Pages.Setting {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
         
         /// <summary>
-        /// DateofHegira control.
+        /// Weighted_Ratio_Percent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton DateofHegira;
+        protected global::System.Web.UI.WebControls.TextBox Weighted_Ratio_Percent;
         
         /// <summary>
-        /// DateofBirth control.
+        /// RequiredFieldValidator6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton DateofBirth;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
         
         /// <summary>
-        /// Active control.
+        /// addAttachments1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox Active;
+        protected global::System.Web.UI.WebControls.FileUpload addAttachments1;
         
         /// <summary>
-        /// EmpID control.
+        /// Specialization_Description_Ar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField EmpID;
+        protected global::System.Web.UI.WebControls.TextBox Specialization_Description_Ar;
+        
+        /// <summary>
+        /// valSubjectTreatement control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valSubjectTreatement;
+        
+        /// <summary>
+        /// Specialization_Description_En control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Specialization_Description_En;
+        
+        /// <summary>
+        /// RequiredFieldValidator7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
+        
+        /// <summary>
+        /// speech control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox speech;
+        
+        /// <summary>
+        /// Minutes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Minutes;
+        
+        /// <summary>
+        /// SpecId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField SpecId;
         
         /// <summary>
         /// Save control.

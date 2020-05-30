@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
@@ -11,32 +10,30 @@ using System.Web.UI.WebControls;
 namespace ElectronicSubmission.Pages.RegistrationProcess
 {
     /// <summary>
-    /// Summary description for DeleteStudent
+    /// Summary description for DeleteFile
     /// </summary>
-    public class DeleteStudent : IHttpHandler , System.Web.SessionState.IRequiresSessionState
+    public class DeleteFile : IHttpHandler, System.Web.SessionState.IRequiresSessionState
     {
         REU_RegistrationEntities db = new REU_RegistrationEntities();
+        int StudentID = 0;
         public void ProcessRequest(HttpContext context)
         {
-            if (context.Request["StudentID"] == null)
-                context.Response.Redirect("~/");
-
-            int StudentID = int.Parse(context.Request["StudentID"].ToString());
-
-            if (StudentID > 0) DeleteStudents(StudentID);
-
-            context.Response.Redirect("~/Pages/RegistrationProcess/ListView.aspx");
-        }
-
-        public bool IsReusable
-        {
-            get
+            try
             {
-                return false;
+                if (context.Request["FileID"] == null || context.Request["StudentID"] == null)
+                    context.Response.Redirect("~/");
+
+                int FileID = int.Parse(context.Request["FileID"].ToString());
+                StudentID = int.Parse(context.Request["StudentID"].ToString());
+
+                if ( FileID > 0) DeleteFileID(FileID, StudentID);
+
+                context.Response.Redirect("~/Pages/RegistrationProcess/view.aspx?StudentID=" + StudentID);
             }
+            catch { context.Response.Redirect("~/Pages/RegistrationProcess/view.aspx?StudentID=" + StudentID); }
         }
 
-        public bool DeleteStudents(int StudentID)
+        public bool DeleteFileID(int FileID,int studentID)
         {
             LogFileModule logFileModule = new LogFileModule();
             String LogData = "";
@@ -44,24 +41,18 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             try
             {
                 db.Configuration.LazyLoadingEnabled = false;
-                Student Stu = db.Students.First(x => x.Student_Id == StudentID);
-                if (Stu.Suspended == null || Stu.Suspended == 0)
-                {
-                    Stu.Suspended = 1;
-                    str_En = "Delete Student";
-                    str_Ar = "حذف طالب";
-                }
-                else
-                {
-                    Stu.Suspended = 0;
-                    str_En = "Restore Student";
-                    str_Ar = "استعادة طالب";
-                }
-                db.Entry(Stu).State = System.Data.EntityState.Modified;
+                File file = db.Files.First(x => x.File_Id == FileID);
+                file.Student_Id = studentID;
+                str_En = "Delete File";
+                str_Ar = "حذف ملف";
+
+                db.Entry(file).State = System.Data.EntityState.Deleted;
                 db.SaveChanges();
 
+                file.Student_Id = studentID;
+
                 /* Add it to log file */
-                LogData = "data:" + JsonConvert.SerializeObject(Stu, logFileModule.settings);
+                LogData = "data:" + JsonConvert.SerializeObject(file, logFileModule.settings);
                 logfile(10, str_Ar, str_En, LogData);
 
             }
@@ -82,7 +73,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                     logFileInsert.Log_Date = DateTime.Now;
                     if (controlId != 0)
                     {
-                        if(SessionWrapper.LoggedUser != null)
+                        if (SessionWrapper.LoggedUser != null)
                             logFileInsert.Login_Id = SessionWrapper.LoggedUser.Employee_Id;
                         else
                             logFileInsert.Login_Id = 1;
@@ -111,6 +102,15 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             catch { CurrentPage = db.Permissions.FirstOrDefault(); }
 
             return CurrentPage.Permission_Id;
+        }
+
+
+        public bool IsReusable
+        {
+            get
+            {
+                return false;
+            }
         }
     }
 }
