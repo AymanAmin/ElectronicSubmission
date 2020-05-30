@@ -21,7 +21,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             try
             {
                 if (context.Request["FileID"] == null || context.Request["StudentID"] == null)
-                    context.Response.Redirect("~/");
+                    context.Response.Redirect("~/default.aspx");
 
                 int FileID = int.Parse(context.Request["FileID"].ToString());
                 StudentID = int.Parse(context.Request["StudentID"].ToString());

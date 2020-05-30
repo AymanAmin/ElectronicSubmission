@@ -2966,6 +2966,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
     <Folder Include="media\StudentAttachments\" />
+    <Folder Include="media\StudentProfile\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

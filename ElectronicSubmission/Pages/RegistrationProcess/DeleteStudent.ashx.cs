@@ -19,7 +19,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
         public void ProcessRequest(HttpContext context)
         {
             if (context.Request["StudentID"] == null)
-                context.Response.Redirect("~/");
+                context.Response.Redirect("~/default.aspx");
 
             int StudentID = int.Parse(context.Request["StudentID"].ToString());
 

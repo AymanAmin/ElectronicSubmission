@@ -21,7 +21,7 @@ namespace ElectronicSubmission.Pages.Setting.Auth
         protected void Page_Load(object sender, EventArgs e)
         {
             if (SessionWrapper.LoggedUser != null)
-                Response.Redirect("~/");
+                Response.Redirect("~/default.aspx");
         }
 
         protected void btLogin_Click(object sender, EventArgs e)
@@ -29,7 +29,7 @@ namespace ElectronicSubmission.Pages.Setting.Auth
           //string Encrpted_Password = StringCipher.Encrypt(,"Password");
            bool result =  auth_Login(txtEmail.Text, txtPassword.Text);
             if (result)
-                Response.Redirect("~/");
+                Response.Redirect("~/default.aspx");
             else
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-check', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Validation : ','  " + Error_message + " ! ');", true);

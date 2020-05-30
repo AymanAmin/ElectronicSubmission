@@ -41,7 +41,7 @@ namespace ElectronicSubmission.Pages.Setting.Auth
                     logFileModule.logfile(10, "الدخول بعد الايقاف المؤقت", "login after pause", LogData);
 
                     SessionWrapper.IsLocked = false;
-                    Response.Redirect("~/");
+                    Response.Redirect("~/default.aspx");
                     
                 }
             }

@@ -73,7 +73,10 @@ namespace ElectronicSubmission
             LocalPath = LocalPath.Substring(0, found + 5);
 
             if (LocalPath == "default.aspx")
+            {
                 isDashBoard = true;
+                return;
+            }
 
             try
             {
@@ -114,12 +117,8 @@ namespace ElectronicSubmission
                     }
                 }
                 else
-                {
-                    if (LocalPath == "default.aspx")
-                        Response.Redirect("~/Pages/RegistrationProcess/ListView.aspx");
-                    else
-                        Response.Redirect("~/");
-                }
+                Response.Redirect("~/default.aspx");
+                
                 PageName.Text = Current_PageName;
                 breadcrumb.Text = str;
             }
@@ -137,7 +136,7 @@ namespace ElectronicSubmission
                     str += "<ul class='pcoded-item pcoded-left-item'>";
                 str += "<li class='SubMenuRTL'>";
                 str += "<a href = '../../../../' > ";
-                str += "<span class='pcoded-micon active' style='color:#452a74'><i class='feather icon-home'></i></span>";
+                str += "<span class='pcoded-micon active' style='color:#222845'><i class='feather icon-home'></i></span>";
                 if (SessionWrapper.LoggedUser.Language_id == 1)
                     str += "<span class='pcoded-mtext'>لوحة المعلومات</span>";
                 else
@@ -220,7 +219,7 @@ namespace ElectronicSubmission
                 str += "<ul class='pcoded-item pcoded-left-item'>";
                 str += "<li class='SubMenuRTL'>";
                 str += "<a href = '../../../../Pages/Auth/Logout.ashx' > ";
-                str += "<span class='pcoded-micon active' style='color:#452a74'><i class='icofont icofont-logout'></i></span>";
+                str += "<span class='pcoded-micon active' style='color:#222845'><i class='icofont icofont-logout'></i></span>";
                 if (SessionWrapper.LoggedUser.Language_id == 1)
                     str += "<span class='pcoded-mtext'>تسجيل خروج</span>";
                 else

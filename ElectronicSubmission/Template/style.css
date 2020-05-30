@@ -1411,7 +1411,7 @@ span.wm-blue-transparent {
 /* Plain Service */
 .wm-plain-service                                       { text-align: center; }
 .wm-plain-service span small                            { font-size: 45px; }
-.wm-plain-service h5 a                                  { color: #222845; }
+.wm-plain-service h5 a                                  { color: #0a1350; }
 .wm-plain-service h5                                    { margin-bottom: 20px; }
 .wm-plain-service ul li                                 { margin-bottom: 30px; }
 .wm-plain-service span {
@@ -2171,7 +2171,7 @@ ul li:hover .wm-coursemodren-btn                            { top: 50%; }
 .wm-event-latest-slider .wm-banner-btn { padding: 9px 26px 10px 26px; }
 .wm-event-latest-slider .slick-arrow {
     font-size: 16px;
-    color: #222845;
+    color: #0a1350;
     top: auto;
     bottom: 0px;
 }
@@ -4580,13 +4580,13 @@ ul li:hover .wm-ctservice-icon {
     margin-bottom: 30px;
 }
 .wm-editore-text p {
-    color: #222845;
+    color: #0a1350;
     margin-bottom: 20px;
     font-size: 16px;
 }
 .wm-editore-text ul li {
     list-style: none;
-    color: #222845;
+    color: #0a1350;
     font-size: 16px;
     margin-bottom: 2px;
 }
@@ -4664,7 +4664,7 @@ ul li:hover .wm-ctservice-icon {
 .wm-detail-editore h3 {
     font-size: 30px;
     border-bottom: 2px solid #f2f2f2;
-    color: #222845;
+    color: #0a1350;
     padding-bottom: 12px;
     margin-bottom: 22px;
 }
@@ -4844,7 +4844,7 @@ ul li:hover .wm-ctservice-icon {
     float: left;
     margin-bottom: 0px;
     font-weight: 400;
-    color: #222845;
+    color: #0a1350;
 }
 .wm-register-title span {
     float: right;
@@ -4864,7 +4864,7 @@ ul li:hover .wm-ctservice-icon {
     float: left;
     list-style: none;
     width: 20%;
-    color: #222845;
+    color: #0a1350;
     font-size: 14px;
     font-weight: 600;
     text-transform: uppercase;
@@ -4944,7 +4944,7 @@ ul li:hover .wm-ctservice-icon {
 .wm-event-options ul li span {
     font-weight: 700;
     text-transform: uppercase;
-    color: #222845;
+    color: #0a1350;
     font-size: 14px;
 }
 .wm-event-options ul i {
@@ -4956,7 +4956,7 @@ ul li:hover .wm-ctservice-icon {
 }
 .wm-event-options ul li p {
     margin-bottom: 0px;
-    color: #222845;
+    color: #0a1350;
 }
 .wm-buyticket-section,.wm-buyticket-section ul li,
 .wm-buyticket-section ul {
@@ -7325,7 +7325,7 @@ aside .widget {
 .wm-futurecourse h4 {
     float: left;
     font-size: 16px;
-    color: #222845;
+    color: #0a1350;
     display: block;
     margin: 0px;
     padding-bottom: 4px;
@@ -7346,7 +7346,7 @@ aside .widget {
 }
 .wm-futurecourse li                                        {margin-right: 14px;}
 .wm-futurecourse li a {
-    color: #222845;
+    color: #0a1350;
     font-size: 15px;
     margin-left: 24px;
     position: relative;
@@ -9569,7 +9569,7 @@ aside .widget {
     width: 100%;
 }
 .wm-footer-newslatter {
-    background-color: #222845;
+    background-color: #0a1350;
     padding: 17px 0px;
 }
 .wm-footer-newslatter i {
@@ -9730,7 +9730,7 @@ aside .widget {
     padding: 35px 0px 32px 0px;
 }
 .wm-copyright span {
-    color: #222845;
+    color: #0a1350;
     font-size: 15px;
 }
 .wm-copyright span i {
