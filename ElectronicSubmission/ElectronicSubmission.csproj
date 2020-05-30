@@ -139,6 +139,7 @@
     <Content Include="media\Profile\Profile.jpg" />
     <Content Include="Pages\Admin\Language.aspx" />
     <Content Include="Pages\Admin\LogFile.aspx" />
+    <Content Include="Pages\RegistrationProcess\AllRecords.aspx" />
     <Content Include="Pages\RegistrationProcess\ListView.aspx" />
     <Content Include="Pages\RegistrationProcess\RestoreStudent.aspx" />
     <Content Include="Pages\RegistrationProcess\StudentInfo.aspx" />
@@ -2667,6 +2668,16 @@
     <Compile Include="Pages\Admin\LogFile.aspx.designer.cs">
       <DependentUpon>LogFile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\RegistrationProcess\AllRecords.aspx.cs">
+      <DependentUpon>AllRecords.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RegistrationProcess\AllRecords.aspx.designer.cs">
+      <DependentUpon>AllRecords.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RegistrationProcess\DeleteFile.ashx.cs">
+      <DependentUpon>DeleteFile.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\RegistrationProcess\DeleteStudent.ashx.cs">
       <DependentUpon>DeleteStudent.ashx</DependentUpon>
     </Compile>
@@ -2938,6 +2949,7 @@
     <Content Include="Template\fonts\icon749c.ttf" />
     <Content Include="Template\fonts\icon749c.woff" />
     <Content Include="Pages\RegistrationProcess\DeleteStudent.ashx" />
+    <Content Include="Pages\RegistrationProcess\DeleteFile.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
