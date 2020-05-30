@@ -27,7 +27,7 @@
                         <div class="card rounded-card user-card" style="max-width:165px">
                             <div class="card-block">
                                 <div class="img-hover">
-                                    <asp:Image ID="Stu_Profile" class="img-fluid img-radius"  runat="server"   alt="Profile.jpg"  ImageUrl="~/media/Profile/Profile.jpg"  />
+                                    <asp:Image ID="Stu_Profile" class="img-fluid img-radius"  runat="server"   alt="Profile.jpg"  ImageUrl="~/media/StudentProfile/Profile.jpg"  />
                                     <div class="img-overlay img-radius">
                                         <span>
                                             <asp:FileUpload ID="stuProfile" runat="server" class="form-control"  />

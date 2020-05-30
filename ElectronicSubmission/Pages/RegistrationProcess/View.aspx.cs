@@ -78,9 +78,9 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
 
                     // Set profile image
                     if(std.Student_Image_Profile == null || std.Student_Image_Profile == "")
-                        txtProfileImage.ImageUrl = "~/media/Profile/Profile.jpg";
+                        txtProfileImage.ImageUrl = "~/media/StudentProfile/Profile.jpg";
                     else
-                        txtProfileImage.ImageUrl = "~/media/Profile/" + std.Student_Image_Profile;
+                        txtProfileImage.ImageUrl = "~/media/StudentProfile/" + std.Student_Image_Profile;
                     
 
                     // load other data

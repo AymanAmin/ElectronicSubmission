@@ -24,7 +24,7 @@
     <link href="Template/css/color-four.css" rel="stylesheet">
     <link href="Template/css/responsive.css" rel="stylesheet">
     <link href="Template/css/icofont/css/icofont.css" rel="stylesheet">
-      <!-- ico font -->
+    <!-- ico font -->
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -54,7 +54,7 @@
         }
     </style>
 </head>
-<body >
+<body>
 
     <!--// Main Wrapper \\-->
     <div class="wm-main-wrapper">
@@ -88,8 +88,10 @@
             <div class="wm-main-header">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-3"><a href="index-2.html" class="wm-logo">
-                            <img src="Template/images/logo-5.png" alt="" style="height: 62px;"></a></div>
+                        <div class="col-md-3">
+                            <a href="index-2.html" class="wm-logo">
+                                <img src="Template/images/logo-5.png" alt="" style="height: 62px;"></a>
+                        </div>
                         <div class="col-md-9">
                             <!--// Navigation \\-->
                             <nav class="navbar navbar-default">
@@ -128,9 +130,10 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="wm-mini-title">
-                                <h1 id="headerBachelors" runat="server"></h1>
+                                <h1 id="headerBachelors" runat="server"><% = ElectronicSubmission.FieldNames.getFieldName("StudentSubmitting-Applicationform", "Application form") %></h1>
+
                             </div>
-                       
+
                         </div>
                     </div>
                 </div>
@@ -143,194 +146,194 @@
             <div class="wm-main-content ">
 
                 <!--// Main Section \\-->
-                <div class="wm-main-section" >
-                    <div class="container" >
+                <div class="wm-main-section">
+                    <div class="container">
                         <form id="form1" runat="server">
-                                   <div class="card-block">
-                            <!-- Start Student Form-->
+                            <div class="card-block">
+                                <!-- Start Student Form-->
 
-                            <!-- Start Profile-->
-                            <div class="row users-card">
-                                <div class="col-lg-6 col-xl-4 col-md-6">
-                                    <div class="card rounded-card user-card" style="max-width:165px">
-                                        <div class="card-block">
-                                            <div class="img-hover">
-                                                <asp:Image ID="Stu_Profile" class="img-fluid img-radius"  runat="server"   alt="Profile.jpg"  ImageUrl="~/media/Profile/Profile.jpg"  />
-                                                <div class="img-overlay img-radius">
-                                                    <span>
-                                                        <asp:FileUpload ID="stuProfile" runat="server" class="form-control"  />
-                                                    </span>
+                                <!-- Start Profile-->
+                                <div class="row users-card">
+                                    <div class="col-lg-6 col-xl-4 col-md-6">
+                                        <div class="card rounded-card user-card" style="max-width: 165px">
+                                            <div class="card-block">
+                                                <div class="img-hover">
+                                                    <asp:Image ID="Stu_Profile" class="img-fluid img-radius" runat="server" alt="Profile.jpg" ImageUrl="~/media/StudentProfile/Profile.jpg" />
+                                                    <div class="img-overlay img-radius">
+                                                        <span>
+                                                            <asp:FileUpload ID="stuProfile" runat="server" class="form-control" />
+                                                        </span>
+                                                    </div>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Select Profile image" ValidationGroup="valFormGroup" ControlToValidate="stuProfile" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                                 </div>
-                                                  <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Select Profile image" ValidationGroup="valFormGroup" ControlToValidate="stuProfile" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-lg-6 col-xl-4 col-md-6">
+                                    </div>
                                 </div>
-                                <div class="col-lg-6 col-xl-4 col-md-6">
+                                <!-- End Profile-->
+
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentName", "Student Arabic Name") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
+                                            <asp:TextBox ID="StudentNameAr" runat="server" class="form-control" placeholder="Enter Student Name"></asp:TextBox>
+                                        </div>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student Arabic Name" ValidationGroup="valFormGroup" ControlToValidate="StudentNameAr" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                    </div>
+
+                                    <div class="form-group col-sm-6">
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentName", "Student English Name") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
+                                            <asp:TextBox ID="StudentNameEn" runat="server" class="form-control" placeholder="Enter Student Name"></asp:TextBox>
+                                        </div>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student English Name" ValidationGroup="valFormGroup" ControlToValidate="StudentNameEn" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                    </div>
                                 </div>
+
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentPhone", "Student Phone") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="icofont icofont-ui-call"></i></span>
+                                            <asp:TextBox ID="StudentPhone" runat="server" class="form-control" placeholder="Enter Student Phone" TextMode="Phone"></asp:TextBox>
+                                        </div>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student Phone" ValidationGroup="valFormGroup" ControlToValidate="StudentPhone" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentEmail", "Student Email") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="icofont icofont-email"></i></span>
+                                            <asp:TextBox ID="StudentEmail" runat="server" class="form-control" placeholder="Enter Student Email" TextMode="Email"></asp:TextBox>
+                                        </div>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student Email" ValidationGroup="valFormGroup" ControlToValidate="StudentEmail" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-sm-4">
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentSSN", "Student SSN") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="icofont icofont-stamp"></i></span>
+                                            <asp:TextBox ID="Student_SSN" runat="server" class="form-control" placeholder="Enter Student SSN"></asp:TextBox>
+                                        </div>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student SSN" ValidationGroup="valFormGroup" ControlToValidate="Student_SSN" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                    </div>
+
+                                    <div class="form-group col-sm-6">
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-Add StudentSSNAttachments", "Add Student SSN Attachments") %></label>
+                                        <asp:FileUpload ID="StudentSSNFile" runat="server" class="form-control" AllowMultiple="True" />
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Add Student SSN Attachments" ValidationGroup="valFormGroup" ControlToValidate="StudentSSNFile" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-sm-12">
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentAddress", "Student Address") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="icofont icofont-address-book"></i></span>
+                                            <asp:TextBox ID="Address" runat="server" class="form-control" placeholder="Enter Student Address"></asp:TextBox>
+                                        </div>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student Address" ValidationGroup="valFormGroup" ControlToValidate="Address" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="form-group col-sm-4">
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-Specialization", "Specialization") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="icofont icofont-safety"></i></span>
+                                            <asp:DropDownList ID="Specialization_ID" class="form-control" runat="server">
+                                            </asp:DropDownList>
+                                        </div>
+                                        <asp:RequiredFieldValidator ID="valSpecialization" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Select Specialization" ValidationGroup="valFormGroup" ControlToValidate="Specialization_ID" Display="Dynamic" CssClass="col-form-label" InitialValue="0" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                    </div>
+
+                                    <div class="form-group col-sm-4">
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-Resource", "Resource") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="icofont icofont-stock-mobile"></i></span>
+                                            <asp:DropDownList ID="Resource_ID" class="form-control" runat="server">
+                                            </asp:DropDownList>
+                                        </div>
+                                        <asp:RequiredFieldValidator ID="valResource" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Select Resource" ValidationGroup="valFormGroup" ControlToValidate="Resource_ID" Display="Dynamic" CssClass="col-form-label" InitialValue="0" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                    </div>
+
+                                    <div class="form-group col-sm-4">
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-Nationality", "Nationality") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="icofont icofont-ui-tag"></i></span>
+                                            <asp:DropDownList ID="Nationality_ID" class="form-control" runat="server">
+                                            </asp:DropDownList>
+                                        </div>
+                                        <asp:RequiredFieldValidator ID="valNationalityID" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Select Nationality" ValidationGroup="valFormGroup" ControlToValidate="Nationality_ID" Display="Dynamic" CssClass="col-form-label" InitialValue="0" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-HighSchoolDegree", "High School Degree") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="icofont icofont-numbered"></i></span>
+                                            <asp:TextBox ID="HighSchoolDegree" runat="server" class="form-control" placeholder="Enter Student High School Degree"></asp:TextBox>
+                                        </div>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student High School Degree" ValidationGroup="valFormGroup" ControlToValidate="HighSchoolDegree" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                    </div>
+
+                                    <div class="form-group col-sm-6">
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-AddHighSchoolDegreeAttachments", "Add High School Degree Attachments") %></label>
+                                        <asp:FileUpload ID="HighSchoolDegreeFile" runat="server" class="form-control" AllowMultiple="True" />
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Add High School Degree Attachments" ValidationGroup="valFormGroup" ControlToValidate="HighSchoolDegreeFile" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-CapabilitiesDegree", "Capabilities Degree") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="icofont icofont-numbered"></i></span>
+                                            <asp:TextBox ID="CapabilitiesDegree" runat="server" class="form-control" placeholder="Enter Student Capabilities Degree"></asp:TextBox>
+                                        </div>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student Capabilities Degree" ValidationGroup="valFormGroup" ControlToValidate="CapabilitiesDegree" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                    </div>
+
+                                    <div class="form-group col-sm-6">
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-AddCapabilitiesDegreeFileAttachments", "Add Capabilities Degree File Attachments") %></label>
+                                        <asp:FileUpload ID="CapabilitiesDegreeFile" runat="server" class="form-control" AllowMultiple="True" />
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Add Capabilities Degree Attachments" ValidationGroup="valFormGroup" ControlToValidate="CapabilitiesDegreeFile" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-MyAchievementDegree", "My Achievement Degree") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="icofont icofont-numbered"></i></span>
+                                            <asp:TextBox ID="MyAchievementDegree" runat="server" class="form-control" placeholder="Enter Student My Achievement Degree"></asp:TextBox>
+                                        </div>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter My Achievement Degree" ValidationGroup="valFormGroup" ControlToValidate="MyAchievementDegree" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                    </div>
+
+                                    <div class="form-group col-sm-6">
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-AddMyAchievementDegreeAttachments", "Add My Achievement Degree Attachments") %></label>
+                                        <asp:FileUpload ID="MyAchievementDegreeFile" runat="server" class="form-control" AllowMultiple="True" />
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Add My Achievement Degree Attachments" ValidationGroup="valFormGroup" ControlToValidate="MyAchievementDegree" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-group col-sm-12 text-right">
+                                    <asp:Button ID="Save" runat="server" Text="Save" CssClass="btn btn-primary" ValidationGroup="valFormGroup" OnClick="Save_Click" />
+                                </div>
+                                <!-- End Student Form-->
                             </div>
-                            <!-- End Profile-->
-
-                            <div class="row">
-                                 <div class="form-group col-sm-6">
-                                    <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentName", "Student Arabic Name") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
-                                        <asp:TextBox ID="StudentNameAr" runat="server" class="form-control"  placeholder="Enter Student Name"></asp:TextBox>
-                                    </div>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student Arabic Name" ValidationGroup="valFormGroup" ControlToValidate="StudentNameAr" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                </div>
-
-                                <div class="form-group col-sm-6">
-                                    <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentName", "Student English Name") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
-                                        <asp:TextBox ID="StudentNameEn" runat="server" class="form-control" placeholder="Enter Student Name"></asp:TextBox>
-                                    </div>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student English Name" ValidationGroup="valFormGroup" ControlToValidate="StudentNameEn" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                </div>
-                           </div>
-
-                            <div class="row">
-                                <div class="form-group col-sm-6">
-                                    <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentPhone", "Student Phone") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="icofont icofont-ui-call"></i></span>
-                                        <asp:TextBox ID="StudentPhone" runat="server" class="form-control" placeholder="Enter Student Phone" TextMode="Phone"></asp:TextBox>
-                                    </div>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student Phone" ValidationGroup="valFormGroup" ControlToValidate="StudentPhone" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                </div>
-                                 <div class="form-group col-sm-6">
-                                    <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentEmail", "Student Email") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="icofont icofont-email"></i></span>
-                                        <asp:TextBox ID="StudentEmail" runat="server" class="form-control" placeholder="Enter Student Email" TextMode="Email"></asp:TextBox>
-                                    </div>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student Email" ValidationGroup="valFormGroup" ControlToValidate="StudentEmail" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                 <div class="form-group col-sm-4">
-                                    <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentSSN", "Student SSN") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="icofont icofont-stamp"></i></span>
-                                        <asp:TextBox ID="Student_SSN" runat="server" class="form-control" placeholder="Enter Student SSN"></asp:TextBox>
-                                    </div>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student SSN" ValidationGroup="valFormGroup" ControlToValidate="Student_SSN" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                </div>
-
-                                   <div class="form-group col-sm-6">
-                                    <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-Add StudentSSNAttachments", "Add Student SSN Attachments") %></label>
-                                    <asp:FileUpload ID="StudentSSNFile" runat="server" class="form-control" AllowMultiple="True" />
-                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Add Student SSN Attachments" ValidationGroup="valFormGroup" ControlToValidate="StudentSSNFile" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                </div>
-                              </div>
-
-                             <div class="row">
-                                <div class="form-group col-sm-12">
-                                       <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentAddress", "Student Address") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="icofont icofont-address-book"></i></span>
-                                        <asp:TextBox ID="Address" runat="server" class="form-control" placeholder="Enter Student Address"></asp:TextBox>
-                                    </div>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student Address" ValidationGroup="valFormGroup" ControlToValidate="Address" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                    
-                                <div class="form-group col-sm-4">
-                                    <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-Specialization", "Specialization") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="icofont icofont-safety"></i></span>
-                                        <asp:DropDownList ID="Specialization_ID" class="form-control" runat="server">
-                                        </asp:DropDownList>
-                                    </div>
-                                    <asp:RequiredFieldValidator ID="valSpecialization" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Select Specialization" ValidationGroup="valFormGroup" ControlToValidate="Specialization_ID" Display="Dynamic" CssClass="col-form-label" InitialValue="0" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                </div>
-
-                                <div class="form-group col-sm-4">
-                                    <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-Resource", "Resource") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="icofont icofont-stock-mobile"></i></span>
-                                        <asp:DropDownList ID="Resource_ID" class="form-control" runat="server" >
-                                        </asp:DropDownList>
-                                    </div>
-                                    <asp:RequiredFieldValidator ID="valResource" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Select Resource" ValidationGroup="valFormGroup" ControlToValidate="Resource_ID" Display="Dynamic" CssClass="col-form-label" InitialValue="0" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                </div>
-
-                                <div class="form-group col-sm-4">
-                                    <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-Nationality", "Nationality") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="icofont icofont-ui-tag"></i></span>
-                                        <asp:DropDownList ID="Nationality_ID" class="form-control" runat="server" >
-                                        </asp:DropDownList>
-                                    </div>
-                                    <asp:RequiredFieldValidator ID="valNationalityID" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Select Nationality" ValidationGroup="valFormGroup" ControlToValidate="Nationality_ID" Display="Dynamic" CssClass="col-form-label" InitialValue="0" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                </div>
-
-                            </div>
-
-                             <div class="row">
-                                <div class="form-group col-sm-6">
-                                    <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-HighSchoolDegree", "High School Degree") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="icofont icofont-numbered"></i></span>
-                                        <asp:TextBox ID="HighSchoolDegree" runat="server" class="form-control" placeholder="Enter Student High School Degree"></asp:TextBox>
-                                    </div>
-                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student High School Degree" ValidationGroup="valFormGroup" ControlToValidate="HighSchoolDegree" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                </div>
-
-                                 <div class="form-group col-sm-6">
-                                    <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-AddHighSchoolDegreeAttachments", "Add High School Degree Attachments") %></label>
-                                    <asp:FileUpload ID="HighSchoolDegreeFile" runat="server" class="form-control" AllowMultiple="True" />
-                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Add High School Degree Attachments" ValidationGroup="valFormGroup" ControlToValidate="HighSchoolDegreeFile" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                </div>
-                            </div>
-
-                           <div class="row">
-                                <div class="form-group col-sm-6">
-                                    <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-CapabilitiesDegree", "Capabilities Degree") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="icofont icofont-numbered"></i></span>
-                                        <asp:TextBox ID="CapabilitiesDegree" runat="server" class="form-control" placeholder="Enter Student Capabilities Degree"></asp:TextBox>
-                                    </div>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student Capabilities Degree" ValidationGroup="valFormGroup" ControlToValidate="CapabilitiesDegree" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                </div>
-
-                                 <div class="form-group col-sm-6">
-                                    <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-AddCapabilitiesDegreeFileAttachments", "Add Capabilities Degree File Attachments") %></label>
-                                    <asp:FileUpload ID="CapabilitiesDegreeFile" runat="server" class="form-control" AllowMultiple="True" />
-                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Add Capabilities Degree Attachments" ValidationGroup="valFormGroup" ControlToValidate="CapabilitiesDegreeFile" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                </div>
-                            </div> 
-                
-                           <div class="row">
-                                 <div class="form-group col-sm-6">
-                                    <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-MyAchievementDegree", "My Achievement Degree") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon"><i class="icofont icofont-numbered"></i></span>
-                                        <asp:TextBox ID="MyAchievementDegree" runat="server" class="form-control" placeholder="Enter Student My Achievement Degree"></asp:TextBox>
-                                    </div>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter My Achievement Degree" ValidationGroup="valFormGroup" ControlToValidate="MyAchievementDegree" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                </div>
-
-                                 <div class="form-group col-sm-6">
-                                    <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-AddMyAchievementDegreeAttachments", "Add My Achievement Degree Attachments") %></label>
-                                    <asp:FileUpload ID="MyAchievementDegreeFile" runat="server" class="form-control" AllowMultiple="True" />
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Add My Achievement Degree Attachments" ValidationGroup="valFormGroup" ControlToValidate="MyAchievementDegree" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                </div>
-
-                            </div>
-  
-
-                            <div class="form-group col-sm-12 text-right">
-                                <asp:Button ID="Save" runat="server" Text="Save" CssClass="btn btn-primary" ValidationGroup="valFormGroup" OnClick="Save_Click" />
-                            </div>
-                            <!-- End Student Form-->
-                        </div>
-                      </form>
+                        </form>
                     </div>
                 </div>
                 <!--// Main Section \\-->
@@ -351,7 +354,7 @@
                         <div class="col-md-12">
                             <form>
                                 <i class="wmicon-pen"></i>
-                                <input type="text" readonly="readonly"  style="width: 50%;" value="Please click on the button to start the application process" onblur="if(this.value == 'Please click on the button to start the application process') { this.value ='Please click on the button to start the application process'; }" onfocus="if(this.value =='Please click on the button to start the application process') { this.value = 'Please click on the button to start the application process'; }">
+                                <input type="text" readonly="readonly" style="width: 50%;" value="Please click on the button to start the application process" onblur="if(this.value == 'Please click on the button to start the application process') { this.value ='Please click on the button to start the application process'; }" onfocus="if(this.value =='Please click on the button to start the application process') { this.value = 'Please click on the button to start the application process'; }">
                                 <input type="submit" value="Submission Form Request">
                             </form>
                         </div>
@@ -433,19 +436,19 @@
             <!--// FooterWidgets \\-->
 
             <!--// FooterCopyRight \\-->
-                <div class="wm-copyright">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <span>© Riyadh Elm University, Formerly Riyadh Colleges of Dentistry and Pharmacy | All Rights Reserved</span>
-                            </div>
-                            <div class="col-md-4">
-                                <p><a target="_blank" href="http://www.home.riyadh.edu.sa/">Riyadh Elm University</a></p>
-                            </div>
+            <div class="wm-copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <span>© Riyadh Elm University, Formerly Riyadh Colleges of Dentistry and Pharmacy | All Rights Reserved</span>
+                        </div>
+                        <div class="col-md-4">
+                            <p><a target="_blank" href="http://www.home.riyadh.edu.sa/">Riyadh Elm University</a></p>
                         </div>
                     </div>
                 </div>
-                <!--// FooterCopyRight \\-->
+            </div>
+            <!--// FooterCopyRight \\-->
 
         </footer>
         <!--// Footer \\-->

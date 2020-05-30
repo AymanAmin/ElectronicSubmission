@@ -95,7 +95,7 @@ namespace ElectronicSubmission
                 Stu.Student_Nationality_Id = NationalityID;
                 Stu.Student_Total = StudentTotal.ToString();
                 if (StudentID == 0) Stu.Student_Status_Id = 1;
-                string ImegProfile = UploadFile(StProfile, @"~\media\Profile\");
+                string ImegProfile = UploadFile(StProfile, @"~\media\StudentProfile\");
                 if (ImegProfile != "") Stu.Student_Image_Profile = ImegProfile; else if (StudentID == 0) ImegProfile = "Profile.JPG";
 
                 if (StudentID != 0)
@@ -199,7 +199,7 @@ namespace ElectronicSubmission
         {
             try
             {
-                Stu_Profile.ImageUrl = "../../../../media/Profile/Profile.JPG";
+                Stu_Profile.ImageUrl = "../../../../media/StudentProfile/Profile.JPG";
                 StudentNameAr.Text = string.Empty;
                 StudentNameEn.Text = string.Empty;
                 StudentEmail.Text = string.Empty;

@@ -111,7 +111,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 Stu.Notes = Notes;
                 Stu.Student_Total = StudentTotal.ToString();
                 if (StudentID == 0) Stu.Student_Status_Id = 1;
-                string ImegProfile = UploadFile(StProfile, @"~\media\Profile\");
+                string ImegProfile = UploadFile(StProfile, @"~\media\StudentProfile\");
                 if (ImegProfile != "") Stu.Student_Image_Profile = ImegProfile; else if (StudentID == 0) ImegProfile = "Profile.JPG";
 
                 if (StudentID != 0)
@@ -216,7 +216,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 if (StudentId > 0)
                 {
                     var Student = db.Students.First(x => x.Student_Id == StudentId);
-                    Stu_Profile.ImageUrl = "../../../../media/Profile/" + Student.Student_Image_Profile;
+                    Stu_Profile.ImageUrl = "../../../../media/StudentProfile/" + Student.Student_Image_Profile;
                     Student_ID.Text = Student.Student_Id.ToString();
                     StudentNameAr.Text = Student.Student_Name_Ar;
                     StudentNameEn.Text = Student.Student_Name_En;

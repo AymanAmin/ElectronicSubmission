@@ -127,6 +127,7 @@
     <Content Include="Default.aspx" />
     <Content Include="homepage.aspx" />
     <Content Include="media\Profile\Profile.jpg" />
+    <Content Include="media\StudentProfile\Profile.jpg" />
     <Content Include="Pages\Admin\Language.aspx" />
     <Content Include="Pages\Admin\LogFile.aspx" />
     <Content Include="Pages\RegistrationProcess\AllRecords.aspx" />
@@ -2966,7 +2967,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
     <Folder Include="media\StudentAttachments\" />
-    <Folder Include="media\StudentProfile\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
