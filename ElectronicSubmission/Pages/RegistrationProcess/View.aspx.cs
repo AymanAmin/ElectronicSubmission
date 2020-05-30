@@ -318,6 +318,14 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             LoadSequence(UserID);*/
         }
 
+        private bool Can_I_Make_Record_Update(Student Currnet_std)
+        {
+            Student Last_std = db.Students.Where(x => x.Student_Id == Currnet_std.Student_Id).FirstOrDefault();
+            if (Currnet_std.Student_Status_Id == Last_std.Student_Status_Id)
+                return true;
+            else
+                return false;
+        }
         protected void btnApprove_Click(object sender, EventArgs e)
         {
             int newStatus = 0, restore_id = 15;
@@ -325,7 +333,10 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             Student std = db.Students.Find(student_record_id);
             if (std != null)
             {
-                if(std.Student_Status_Id == 15)
+                if (Can_I_Make_Record_Update(std))
+                    return;
+                
+                if (std.Student_Status_Id == 15)
                 {
                     List<Sequence> list_seq = db.Sequences.Where(x => x.Student_Id == student_record_id).OrderBy(x => x.DateCreation).ToList();
                     if(list_seq.Count > 1)
@@ -413,6 +424,9 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             Student std = db.Students.Find(student_record_id);
             if (std != null)
             {
+                if (Can_I_Make_Record_Update(std))
+                    return;
+
                 switch (std.Student_Status_Id)
                 {
                     case 1: newStatus = 4; break; // 1- New
