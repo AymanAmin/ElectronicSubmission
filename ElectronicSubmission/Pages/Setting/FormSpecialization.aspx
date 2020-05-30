@@ -181,7 +181,7 @@
                                         <div class="col-sm-6">
                                             <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("FormSpecialization-College", "College") %></label>
                                             <div class="input-group">
-                                                <span class="input-group-addon"><i class="icofont icofont-group"></i></span>
+                                                <span class="input-group-addon"><i class="icofont icofont-university"></i></span>
                                                 <asp:DropDownList ID="Collage_Id" runat="server" class="form-control" DataTextField="Collage_Name_En" DataValueField="Collage_ID" DataSourceID="CollageEntityDataSource"></asp:DropDownList>
                                                 <asp:EntityDataSource ID="CollageEntityDataSource" runat="server" ConnectionString="name=REU_RegistrationEntities" DefaultContainerName="REU_RegistrationEntities" EnableFlattening="False" EntitySetName="Collages">
                                                 </asp:EntityDataSource>
@@ -194,7 +194,7 @@
                                         <div class="col-sm-6">
                                             <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("FormSpecialization-Icon", "Icon") %></label>
                                             <div class="input-group">
-                                                <span class="input-group-addon"><i class="icofont icofont-ui-call"></i></span>
+                                                <span class="input-group-addon"><i class="icofont icofont-lens"></i></span>
                                                 <asp:TextBox ID="Specialization_Icon" runat="server" class="form-control" placeholder="Enter Specialization Icon" TextMode="SingleLine"></asp:TextBox>
                                             </div>
                                             <div class="col-sm-12">
@@ -207,7 +207,7 @@
                                         <div class="col-sm-6">
                                             <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("FormSpecialization-HighSchoolPercent", "High School Percente") %></label>
                                             <div class="input-group">
-                                                <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
+                                                <span class="input-group-addon"><i class="icofont icofont-abacus"></i></span>
                                                 <asp:TextBox ID="High_School_Percent" runat="server" class="form-control" placeholder="Enter High School Percent" TextMode="SingleLine"></asp:TextBox>
                                             </div>
                                             <div class="col-sm-12">
@@ -218,7 +218,7 @@
                                         <div class="col-sm-6">
                                             <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("FormSpecialization-CapabilitiesPercent", "Capabilities Percent") %></label>
                                             <div class="input-group">
-                                                <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
+                                                <span class="input-group-addon"><i class="icofont icofont-mathematical-alt-1"></i></span>
                                                 <asp:TextBox ID="Capabilities_Percent" runat="server" class="form-control" placeholder="Enter Capabilities Percente" TextMode="SingleLine"></asp:TextBox>
                                             </div>
                                             <div class="col-sm-12">
@@ -231,7 +231,7 @@
                                         <div class="col-sm-6">
                                             <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("FormSpecialization-MyAchievementPercent", "My Achievement Percent") %></label>
                                             <div class="input-group">
-                                                <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
+                                                <span class="input-group-addon"><i class="icofont icofont-square-root"></i></span>
                                                 <asp:TextBox ID="My_Achievement_Percent" runat="server" class="form-control" placeholder="Enter My Achievement Percent" TextMode="SingleLine"></asp:TextBox>
                                             </div>
                                             <div class="col-sm-12">
@@ -242,7 +242,7 @@
                                         <div class="col-sm-6">
                                             <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("FormSpecialization-WeightedRatioPercent", "Weighted Ratio Percent") %></label>
                                             <div class="input-group">
-                                                <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
+                                                <span class="input-group-addon"><i class="icofont icofont-ruler-compass-alt"></i></span>
                                                 <asp:TextBox ID="Weighted_Ratio_Percent" runat="server" class="form-control" placeholder="Enter Weighted Ratio Percent" TextMode="SingleLine"></asp:TextBox>
                                             </div>
                                             <div class="col-sm-12">
@@ -255,7 +255,7 @@
                                         <div class="form-group col-sm-12">
                                             <label><% = ElectronicSubmission.FieldNames.getFieldName("FormSpecialization-SpecializationImage", "Specialization Image") %></label>
                                             <div class="input-group">
-                                                <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
+                                                <span class="input-group-addon"><i class="icofont icofont-picture"></i></span>
                                                 <asp:FileUpload ID="addAttachments1" runat="server" class="form-control" AllowMultiple="False" />
                                             </div>
                                         </div>
@@ -265,7 +265,7 @@
                                         <div class="form-group col-sm-6">
                                             <label><% = ElectronicSubmission.FieldNames.getFieldName("NewTreatment-SpecializationDescriptionArabic", "Specialization Description Arabic") %></label><i class="icofont icofont-star-alt-1 text-danger"></i>
                                             <div class="input-group">
-                                                <span class="input-group-addon"><i class="icofont icofont-presentation-alt "></i></span>
+                                                <span class="input-group-addon"><i class="icofont icofont-ui-file"></i></span>
                                                 <asp:TextBox ID="Specialization_Description_Ar" runat="server" placeholder="Enter Specialization Description Arabic" TextMode="MultiLine" Rows="3" class="form-control"></asp:TextBox>
                                             </div>
                                             <asp:RequiredFieldValidator ID="valSubjectTreatement" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Specialization Description Arabic" ValidationGroup="valFormGroup" ControlToValidate="Specialization_Description_Ar" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
@@ -273,7 +273,7 @@
                                         <div class="form-group col-sm-6">
                                             <label><% = ElectronicSubmission.FieldNames.getFieldName("NewTreatment-SpecializationDescriptionEnglish", "Specialization Description English") %></label><i class="icofont icofont-star-alt-1 text-danger"></i>
                                             <div class="input-group">
-                                                <span class="input-group-addon"><i class="icofont icofont-presentation-alt "></i></span>
+                                                <span class="input-group-addon"><i class="icofont icofont-ui-file"></i></span>
                                                 <asp:TextBox ID="Specialization_Description_En" runat="server" placeholder="Enter Specialization Description English" TextMode="MultiLine" Rows="3" class="form-control"></asp:TextBox>
                                             </div>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Specialization Description English" ValidationGroup="valFormGroup" ControlToValidate="Specialization_Description_En" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
@@ -301,9 +301,9 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-12">
                                             <label></label>
-                                            <div class="col-md-12">
+                                            <div class="col-md-12 text-center">
                                                 <asp:HiddenField ID="SpecId" runat="server" />
                                                 <asp:Button ID="Save" runat="server" Text="Save" class="btn btn-primary" ValidationGroup="Per" OnClick="Save_Click" />
                                             </div>
