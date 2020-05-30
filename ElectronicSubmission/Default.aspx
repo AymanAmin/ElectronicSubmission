@@ -164,7 +164,7 @@
     <div class="row">
         <!-- treatment status, page counter  start -->
         <div class="col-xl-3 col-md-6">
-            <a href="../../../Pages/Treatment/Inbox.aspx#e-inbox">
+            <a href="#">
                 <div class="card bg-c-yellow update-card">
                     <div class="card-block">
                         <div class="row align-items-end">
@@ -189,7 +189,7 @@
         </div>
 
         <div class="col-xl-3 col-md-6">
-            <a href="../../../Pages/Treatment/Inbox.aspx#e-inbox">
+            <a href="#">
                 <div class="card bg-c-green update-card">
                     <div class="card-block">
                         <div class="row align-items-end">
@@ -215,7 +215,7 @@
         </div>
 
         <div class="col-xl-3 col-md-6">
-            <a href="../../../Pages/Treatment/Inbox.aspx#e-send">
+            <a href="#">
                 <div class="card bg-c-lite-green update-card">
                     <div class="card-block">
                         <div class="row align-items-end">

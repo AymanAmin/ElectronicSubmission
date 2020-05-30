@@ -27,7 +27,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
 
                 int GroupID = (int)SessionWrapper.LoggedUser.Group_Id;
                 
-                List<Group_Status> List_Status = db.Group_Status.Where(x => x.Group_Id == GroupID).ToList();
+                List<Group_Status> List_Status = db.Group_Status.Where(x => x.Group_Id == GroupID && x.Status_Id != 3 && x.Status_Id != 4 && x.Status_Id != 5).ToList();
                 
                 for (int i = 0; i< List_Status.Count;i++)
                 {
@@ -35,7 +35,10 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                     ListStudentWithStatus.AddRange(Temp_List);
                 }
                 List<Student> TempList3 = db.Students.Where(x => x.Student_Employee_Id == SessionWrapper.LoggedUser.Employee_Id && x.Suspended != 1).ToList();
-                ListAllStudent = ListStudentWithStatus.Union(TempList3).ToList();
+                ListStudentWithStatus.AddRange(TempList3);
+
+                ListAllStudent.AddRange(ListStudentWithStatus);
+                ListAllStudent = ListAllStudent.Distinct().ToList();
 
                 // List Sequence
                 ListSequence = db.Sequences.Where(x => x.Emp_Id == SessionWrapper.LoggedUser.Employee_Id).ToList();
@@ -48,7 +51,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             int GroupID = (int)SessionWrapper.LoggedUser.Group_Id;
 
             // Start if it's on his status
-            List<Group_Status> List_Status = db.Group_Status.Where(x => x.Group_Id == GroupID).ToList();
+            List<Group_Status> List_Status = db.Group_Status.Where(x => x.Group_Id == GroupID && x.Status_Id != 3 && x.Status_Id != 4 && x.Status_Id != 5).ToList();
             for (int i = 0; i < List_Status.Count; i++)
             {
                 ListStudentCurrent.AddRange(List_Status[i].Status.Students.Where(x => x.Suspended != 1).ToList());   

@@ -190,6 +190,9 @@
     <Content Include="Template\css\color.css" />
     <Content Include="Template\css\flaticon.css" />
     <Content Include="Template\css\font-awesome.css" />
+    <Content Include="Template\css\icofont\css\icofont.css" />
+    <Content Include="Template\css\icofont\fonts\icofont.hxd" />
+    <Content Include="Template\css\icofont\fonts\icofont.svg" />
     <Content Include="Template\css\prettyphoto.css" />
     <Content Include="Template\css\responsive.css" />
     <Content Include="Template\css\slick-slider.css" />
@@ -2956,6 +2959,8 @@
     <Content Include="REU_Registration.edmx.diagram">
       <DependentUpon>REU_Registration.edmx</DependentUpon>
     </Content>
+    <Content Include="Template\css\icofont\fonts\icofont.ttf" />
+    <Content Include="Template\css\icofont\fonts\icofont.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
