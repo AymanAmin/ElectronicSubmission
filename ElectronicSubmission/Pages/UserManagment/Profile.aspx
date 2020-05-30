@@ -54,7 +54,7 @@
                         <div class="tab-header card">
                             <ul class="nav nav-tabs md-tabs tab-timeline" role="tablist" id="mytab">
                                 <li class="nav-item">
-                                    <a class="nav-link active" data-toggle="tab" href="#personal" role="tab"><% = ElectronicSubmission.FieldNames.getFieldName("Profile-personal", "personal Info") %></a>
+                                    <a class="nav-link active" data-toggle="tab" href="#personal" role="tab"><% = ElectronicSubmission.FieldNames.getFieldName("Profile-Personal", "Personal Info") %></a>
                                     <div class="slide"></div>
                                 </li>
                                 <li class="nav-item">
@@ -262,10 +262,10 @@
                                                                        <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("Profile-OldPassword", "Old Password") %></label>
                                                                         <div class="input-group">
                                                                             <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
-                                                                            <asp:TextBox ID="OldPassWord" runat="server" class="form-control" placeholder="Enter Old Pass Word" TextMode="SingleLine" type="password"></asp:TextBox>
+                                                                            <asp:TextBox ID="OldPassWord" runat="server" class="form-control" placeholder="Enter Old Password" TextMode="SingleLine" type="password"></asp:TextBox>
                                                                         </div>
                                                                         <div class="col-sm-12">
-                                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Old Pass Word" ValidationGroup="Per2" ControlToValidate="OldPassWord" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Old Password" ValidationGroup="Per2" ControlToValidate="OldPassWord" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                                                         </div>
                                                                     </td>
                                                                 </tr>
@@ -274,10 +274,10 @@
                                                                       <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("Profile-NewPassword", "New Password") %></label>
                                                                         <div class="input-group">
                                                                             <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
-                                                                            <asp:TextBox ID="NewPassWord" runat="server" class="form-control" placeholder="Enter New PassWord" TextMode="SingleLine" type="password"></asp:TextBox>
+                                                                            <asp:TextBox ID="NewPassWord" runat="server" class="form-control" placeholder="Enter New Password" TextMode="SingleLine" type="password"></asp:TextBox>
                                                                         </div>
                                                                         <div class="col-sm-12">
-                                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter New PassWord" ValidationGroup="Per2" ControlToValidate="NewPassWord" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter New Password" ValidationGroup="Per2" ControlToValidate="NewPassWord" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                                                         </div>
                                                                     </td>
                                                                 </tr>
@@ -286,10 +286,10 @@
                                                                          <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("Profile-TryNewPassword", "Try New Password") %></label>
                                                                         <div class="input-group">
                                                                             <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
-                                                                            <asp:TextBox ID="TryNewPassWord" runat="server" class="form-control" placeholder="Try New PassWord" TextMode="SingleLine" type="password" ValidationGroup="Per2"></asp:TextBox>
+                                                                            <asp:TextBox ID="TryNewPassWord" runat="server" class="form-control" placeholder="Try New Password" TextMode="SingleLine" type="password" ValidationGroup="Per2"></asp:TextBox>
                                                                         </div>
                                                                         <div class="col-sm-12">
-                                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Try New PassWord" ValidationGroup="Per2" ControlToValidate="TryNewPassWord" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Try New Password" ValidationGroup="Per2" ControlToValidate="TryNewPassWord" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                                                         </div>
                                                                     </td>
                                                                 </tr>
@@ -302,6 +302,7 @@
                                                     <asp:Button  ID="ChangeButton"  runat="server" Text="Save" class="btn btn-primary waves-effect waves-light m-r-20" ValidationGroup="Per2" OnClick="ChangeButton_Click"  />
                                                     <a href="#!" id="edit-cancel2" class="btn btn-default waves-effect btn-outline-danger"><% = ElectronicSubmission.FieldNames.getFieldName("Profile-Cancel", "Cancel") %></a>
                                                 </div>
+                                                <br /><br />
                                             </div>
                                             <!-- end of edit info -->
                                         </div>
