@@ -89,7 +89,7 @@
                                 </div>
                             </nav>
                             <!--// Navigation \\-->
-                            <a href="#" class="wm-header-btn">Submission</a>
+                            <a href="StudentSubmitting.aspx" class="wm-header-btn">Submission</a>
                         </div>
                     </div>
                 </div>
@@ -203,20 +203,18 @@
         <footer id="wm-footer" class="wm-footer-one">
 
             <!--// FooterNewsLatter \\-->
-            <div class="wm-footer-newslatter">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <form>
+                <div class="wm-footer-newslatter">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
                                 <i class="wmicon-pen"></i>
-                                <input type="text" readonly="readonly"  style="width: 50%;" value="Please click on the button to start the application process" onblur="if(this.value == 'Please click on the button to start the application process') { this.value ='Please click on the button to start the application process'; }" onfocus="if(this.value =='Please click on the button to start the application process') { this.value = 'Please click on the button to start the application process'; }">
-                                <input type="submit" value="Submission Form Request">
-                            </form>
+                                <input type="text" readonly="readonly" style="width: 50%;" value="Please click on the button to start the application process" onblur="if(this.value == 'Please click on the button to start the application process') { this.value ='Please click on the button to start the application process'; }" onfocus="if(this.value =='Please click on the button to start the application process') { this.value = 'Please click on the button to start the application process'; }">
+                                <a href="StudentSubmitting.aspx">Submission Form Request</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!--// FooterNewsLatter \\-->
+                <!--// FooterNewsLatter \\-->
 
             <!--// FooterWidgets \\-->
             <div class="wm-footer-widget" id="aboutas">
@@ -251,7 +249,7 @@
                                 <li><a href="homepage.aspx#steps">Steps</a></li>
                                 <li><a href="homepage.aspx#contactas">Contact</a></li>
                                 <li><a href="homepage.aspx#aboutas">About</a></li>
-                                <li><a href="homepage.aspx#aboutas">Get Started</a></li>
+                                <li><a href="StudentSubmitting.aspx">Get Started</a></li>
                             </ul>
                         </aside>
                         <aside class="widget widget_twitter col-md-3">

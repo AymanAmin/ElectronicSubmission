@@ -113,7 +113,7 @@
                                 </div>
                             </nav>
                             <!--// Navigation \\-->
-                            <a href="#" class="wm-header-btn">Submission</a>
+                            <a href="StudentSubmitting.aspx" class="wm-header-btn">Submission</a>
                         </div>
                     </div>
                 </div>
@@ -393,7 +393,7 @@
                                 <li><a href="homepage.aspx#steps">Steps</a></li>
                                 <li><a href="homepage.aspx#contactas">Contact</a></li>
                                 <li><a href="homepage.aspx#aboutas">About</a></li>
-                                <li><a href="homepage.aspx#aboutas">Get Started</a></li>
+                                <li><a href="StudentSubmitting.aspx">Get Started</a></li>
                             </ul>
                         </aside>
                         <aside class="widget widget_twitter col-md-3">
@@ -433,19 +433,19 @@
             <!--// FooterWidgets \\-->
 
             <!--// FooterCopyRight \\-->
-            <div class="wm-copyright">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <span>© Riyadh Elm University, Formerly Riyadh Colleges of Dentistry and Pharmacy | All Rights Reserved</span>
-                        </div>
-                        <div class="col-md-4">
-                            <p><a target="_blank" href="http://www.home.riyadh.edu.sa/">Riyadh Elm University</a></p>
+                <div class="wm-copyright">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <span>© Riyadh Elm University, Formerly Riyadh Colleges of Dentistry and Pharmacy | All Rights Reserved</span>
+                            </div>
+                            <div class="col-md-4">
+                                <p><a target="_blank" href="http://www.home.riyadh.edu.sa/">Riyadh Elm University</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!--// FooterCopyRight \\-->
+                <!--// FooterCopyRight \\-->
 
         </footer>
         <!--// Footer \\-->
@@ -561,7 +561,7 @@
     <script type="text/javascript" src="Template/script/isotope.min.js"></script>
     <script type="text/javascript" src="Template/script/jquery.nicescroll.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-    <script type="text/javascript" src="Template/script/functions.js"></script>>
+    <script type="text/javascript" src="Template/script/functions.js"></script>
 
 </body>
 
