@@ -400,7 +400,7 @@
                                     <i class="feather icon-menu"></i>
                                 </a>
                                 <a href="../../../../">
-                                    <img class="img-fluid" src="..\..\..\..\Theme\files\assets\images\logo.jpg" width="49%" alt="Theme-Logo" />
+                                    <img class="img-fluid" src="..\..\..\..\Theme\files\assets\images\favicon.ico" width="35%" alt="Theme-Logo" />
                                 </a>
                                 <a class="mobile-options">
                                     <i class="feather icon-more-horizontal"></i>
