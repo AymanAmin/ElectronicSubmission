@@ -802,11 +802,10 @@
           <Property Name="Status_Id" Type="Int32" />
           <Property Name="Student_Id" Type="Int32" />
           <Property Name="DateCreation" Type="DateTime" Precision="3" />
-
-          <NavigationProperty Name="Employee" Relationship="REU_RegistrationModel.FK_Sequence_Employee" FromRole="Sequence" ToRole="Employee" />
-          <NavigationProperty Name="Status" Relationship="REU_RegistrationModel.FK_Sequence_Status" FromRole="Sequence" ToRole="Status" />
-          <NavigationProperty Name="Student" Relationship="REU_RegistrationModel.FK_Sequence_Student" FromRole="Sequence" ToRole="Student" />
           <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Sequence_Employee" FromRole="Sequence" ToRole="Employee" />
+          <NavigationProperty Name="Status" Relationship="Self.FK_Sequence_Status" FromRole="Sequence" ToRole="Status" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Sequence_Student" FromRole="Sequence" ToRole="Student" />
         </EntityType>
         <EntityType Name="Specialization">
           <Key>
@@ -1437,12 +1436,12 @@
           <EntitySetMapping Name="Sequences">
             <EntityTypeMapping TypeName="REU_RegistrationModel.Sequence">
               <MappingFragment StoreEntitySet="Sequence">
-
                 <ScalarProperty Name="Sequence_Id" ColumnName="Sequence_Id" />
                 <ScalarProperty Name="Emp_Id" ColumnName="Emp_Id" />
                 <ScalarProperty Name="Status_Id" ColumnName="Status_Id" />
                 <ScalarProperty Name="Student_Id" ColumnName="Student_Id" />
                 <ScalarProperty Name="DateCreation" ColumnName="DateCreation" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

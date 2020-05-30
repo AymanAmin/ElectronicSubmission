@@ -25,6 +25,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -124,17 +125,6 @@
     <Content Include="Bachelors.aspx" />
     <Content Include="Database\REU_Registration.sql" />
     <Content Include="Default.aspx" />
-    <Content Include="ESubmission.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ESubmission.edmx</DependentUpon>
-      <LastGenOutput>ESubmission.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ESubmission.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ESubmission.edmx</DependentUpon>
-      <LastGenOutput>ESubmission.cs</LastGenOutput>
-    </Content>
-    <Content Include="Global.asax" />
     <Content Include="homepage.aspx" />
     <Content Include="media\Profile\Profile.jpg" />
     <Content Include="Pages\Admin\Language.aspx" />
@@ -156,6 +146,17 @@
     <Content Include="Pages\UserManagment\PermissionGroups.aspx" />
     <Content Include="Pages\UserManagment\Permissions.aspx" />
     <Content Include="Pages\UserManagment\Profile.aspx" />
+    <Content Include="REU_Registration.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>REU_Registration.edmx</DependentUpon>
+      <LastGenOutput>REU_Registration.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="REU_Registration.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>REU_Registration.edmx</DependentUpon>
+      <LastGenOutput>REU_Registration.cs</LastGenOutput>
+    </Content>
+    <Content Include="StudentSubmitting.aspx" />
     <Content Include="Template\404-page.html" />
     <Content Include="Template\about-us.html" />
     <Content Include="Template\blog-detail.html" />
@@ -2580,7 +2581,7 @@
     <Compile Include="Classes\StringCipher.cs" />
     <Compile Include="Classes\UtilityClass.cs" />
     <Compile Include="Collage.cs">
-      <DependentUpon>ESubmission.tt</DependentUpon>
+      <DependentUpon>REU_Registration.tt</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -2590,34 +2591,16 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Employee.cs">
-      <DependentUpon>ESubmission.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ESubmission.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ESubmission.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ESubmission.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ESubmission.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ESubmission.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ESubmission.edmx</DependentUpon>
+      <DependentUpon>REU_Registration.tt</DependentUpon>
     </Compile>
     <Compile Include="File.cs">
-      <DependentUpon>ESubmission.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
+      <DependentUpon>REU_Registration.tt</DependentUpon>
     </Compile>
     <Compile Include="Group.cs">
-      <DependentUpon>ESubmission.tt</DependentUpon>
+      <DependentUpon>REU_Registration.tt</DependentUpon>
     </Compile>
     <Compile Include="Group_Status.cs">
-      <DependentUpon>ESubmission.tt</DependentUpon>
+      <DependentUpon>REU_Registration.tt</DependentUpon>
     </Compile>
     <Compile Include="homepage.aspx.cs">
       <DependentUpon>homepage.aspx</DependentUpon>
@@ -2627,13 +2610,13 @@
       <DependentUpon>homepage.aspx</DependentUpon>
     </Compile>
     <Compile Include="LanguageMaster.cs">
-      <DependentUpon>ESubmission.tt</DependentUpon>
+      <DependentUpon>REU_Registration.tt</DependentUpon>
     </Compile>
     <Compile Include="Lanuage_Detials.cs">
-      <DependentUpon>ESubmission.tt</DependentUpon>
+      <DependentUpon>REU_Registration.tt</DependentUpon>
     </Compile>
     <Compile Include="Log_File.cs">
-      <DependentUpon>ESubmission.tt</DependentUpon>
+      <DependentUpon>REU_Registration.tt</DependentUpon>
     </Compile>
     <Compile Include="MasterEn.Master.cs">
       <DependentUpon>MasterEn.Master</DependentUpon>
@@ -2643,16 +2626,16 @@
       <DependentUpon>MasterEn.Master</DependentUpon>
     </Compile>
     <Compile Include="Nationality.cs">
-      <DependentUpon>ESubmission.tt</DependentUpon>
+      <DependentUpon>REU_Registration.tt</DependentUpon>
     </Compile>
     <Compile Include="Notification_Employee.cs">
-      <DependentUpon>ESubmission.tt</DependentUpon>
+      <DependentUpon>REU_Registration.tt</DependentUpon>
     </Compile>
     <Compile Include="Notification_Master.cs">
-      <DependentUpon>ESubmission.tt</DependentUpon>
+      <DependentUpon>REU_Registration.tt</DependentUpon>
     </Compile>
     <Compile Include="Notification_Show.cs">
-      <DependentUpon>ESubmission.tt</DependentUpon>
+      <DependentUpon>REU_Registration.tt</DependentUpon>
     </Compile>
     <Compile Include="Pages\Admin\Language.aspx.cs">
       <DependentUpon>Language.aspx</DependentUpon>
@@ -2797,39 +2780,54 @@
       <DependentUpon>Profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Permission.cs">
-      <DependentUpon>ESubmission.tt</DependentUpon>
+      <DependentUpon>REU_Registration.tt</DependentUpon>
     </Compile>
     <Compile Include="Permission_Group.cs">
-      <DependentUpon>ESubmission.tt</DependentUpon>
+      <DependentUpon>REU_Registration.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource.cs">
-      <DependentUpon>ESubmission.tt</DependentUpon>
+      <DependentUpon>REU_Registration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="REU_Registration.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>REU_Registration.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="REU_Registration.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>REU_Registration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="REU_Registration.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>REU_Registration.edmx</DependentUpon>
     </Compile>
     <Compile Include="Sequence.cs">
-      <DependentUpon>ESubmission.tt</DependentUpon>
+      <DependentUpon>REU_Registration.tt</DependentUpon>
     </Compile>
     <Compile Include="Specialization.cs">
-      <DependentUpon>ESubmission.tt</DependentUpon>
+      <DependentUpon>REU_Registration.tt</DependentUpon>
     </Compile>
     <Compile Include="Status.cs">
-      <DependentUpon>ESubmission.tt</DependentUpon>
+      <DependentUpon>REU_Registration.tt</DependentUpon>
     </Compile>
     <Compile Include="Student.cs">
-      <DependentUpon>ESubmission.tt</DependentUpon>
+      <DependentUpon>REU_Registration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentSubmitting.aspx.cs">
+      <DependentUpon>StudentSubmitting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentSubmitting.aspx.designer.cs">
+      <DependentUpon>StudentSubmitting.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EntityDeploy Include="ESubmission.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ESubmission.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="ESubmission.edmx.diagram">
-      <DependentUpon>ESubmission.edmx</DependentUpon>
     </Content>
     <Content Include="Theme\files\assets\fonts\fontawesome-webfont.ttf" />
     <Content Include="Theme\files\assets\fonts\fontawesome-webfont.woff" />
@@ -2950,6 +2948,13 @@
     <Content Include="Template\fonts\icon749c.woff" />
     <Content Include="Pages\RegistrationProcess\DeleteStudent.ashx" />
     <Content Include="Pages\RegistrationProcess\DeleteFile.ashx" />
+    <EntityDeploy Include="REU_Registration.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>REU_Registration.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="REU_Registration.edmx.diagram">
+      <DependentUpon>REU_Registration.edmx</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
