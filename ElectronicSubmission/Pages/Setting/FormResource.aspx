@@ -37,7 +37,7 @@
                                         </div>
                                         <div class="col-sm-12 ">
                                             <div class="form-group col-sm-12 j-unit" style="margin-top: 5%">
-                                                <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("FormResource-ArabicName", "Arabic Name") %></label>
+                                                <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("FormResource-ArabicName", "Arabic Name") %></label><i class="icofont icofont-star-alt-1 text-danger"></i>
                                                 <div class="input-group">
                                                     <span class="input-group-addon" id="basic-addon1"><i class="icofont icofont-underline"></i></span>
                                                     <asp:TextBox ID="txtResource_Name" runat="server" class="form-control" placeholder="Enter Name in Arabic" TextMode="SingleLine"></asp:TextBox>
@@ -47,7 +47,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group col-sm-12 j-unit">
-                                                <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("FormResource-EnglishName", "English Name") %></label>
+                                                <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("FormResource-EnglishName", "English Name") %></label><i class="icofont icofont-star-alt-1 text-danger"></i>
                                                 <div class="input-group">
                                                     <span class="input-group-addon" id="basic-addon2"><i class="icofont icofont-underline"></i></span>
                                                     <asp:TextBox ID="txtResource_Name_En" runat="server" class="form-control" placeholder="Enter Name in English" TextMode="SingleLine"></asp:TextBox>
