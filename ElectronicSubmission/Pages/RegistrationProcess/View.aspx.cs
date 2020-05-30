@@ -99,7 +99,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                     txtStudent_Capabilities_Degree.Text = " " + std.Student_Capabilities_Degree + "";
                     txtStudent_High_School_Degree.Text = " " + std.Student_High_School_Degree + "";
                     txtStudent_My_Achievement_Degree.Text = " " + std.Student_My_Achievement_Degree + "";
-                    txtStudent_Total.Text = " " + std.Student_Total + "%";
+                    txtStudent_Total.Text = " " + Math.Round(double.Parse(std.Student_Total),1) + "%";
 
                     DateTime date = DateTime.Parse(std.Student_CreationDate.ToString());
                     txtStudent_CreationDate.Text = date.ToShortDateString();
@@ -181,13 +181,13 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                     else if (List_File[i].Type == (int)FileType.My_Achievement) { fileType = FieldNames.getFieldName("View-MyAchievement", "My Achievement"); Current_Counter = My_Achievement_Counter = My_Achievement_Counter + 1; }
                     str += "<tr>" +
                            "<td>" +
-                           "<h6>" + fileType + " " + Current_Counter + "</h6>" +
+                           "" + fileType + " " + Current_Counter + "" +
                            "</td>" +
                            "<td>" + fileType + " </td>";
                     if (EnableEditActions)
                         str += "<td><a href = '../../../Pages/RegistrationProcess/DeleteFile.ashx?FileID=" + List_File[i].File_Id + "&StudentID=" + List_File[i].Student_Id + "' style ='font-size: x-large; color: red;' ><i class='icofont icofont-ui-delete'></i></a></td>";
                     else
-                        str += "<td><a href = '#' style ='font-size: x-large; color: red;' ><i class='icofont icofont-ui-delete'></i></a></td>";
+                        str += "<td><a href = '#' disabled='disabled' style ='font-size: x-large; color: red;' ><i class='icofont icofont-ui-delete'></i></a></td>";
                     str += "<td><a href = '../../../../media/StudentAttachments/" + List_File[i].File_Path + "' target='_blank' style='font-size: x-large; color: blue;'><i class='icofont icofont-eye-alt'></i></a></td>" +
                            "</tr>";
                 }
@@ -266,11 +266,11 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                                 "</div>" +
                                 "<div class='col'>" +
                                 "<h6 class='m-b-5'>" + per_name + "</h6>" +
-                                "<p class='text-muted m-b-0'>" + "<span style='color:green'>" + activity_verb + "</span>" + Log_Name + " </p>";
+                                "<p class='text-muted m-b-0'>" + "<span style='font-weight: bold;'>" + activity_verb + "</span>" + Log_Name + " </p>";
                 if (sequence[i].Note != null && sequence[i].Note != "")
                     str += "<p class='text-muted m-b-0'>" + "<span style='color:" + Color[index] + "'>" + sequence[i].Note + "</span></p>";
 
-                str += "<p class='text-muted m-b-0'> <i class='feather icon-clock m-r-10'></i> " + Date_Different((DateTime)sequence[i].DateCreation) + "</p>" +
+                str += "<p class='text-muted m-b-0'> <i class='feather icon-clock m-r-10'></i>" + Date_Different((DateTime)sequence[i].DateCreation) + "</p>" +
                 "</div>" +
             "</div>";
             }

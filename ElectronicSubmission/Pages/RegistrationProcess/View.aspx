@@ -28,7 +28,7 @@
 
             <!-- Student Details card  -->
             <div class="card">
-                <div class="row invoice-contact">
+                <div class="row invoice-contact" style="margin-bottom:2%">
                     <div class="col-md-12">
                         <div class="invoice-box row">
                             <div class="col-sm-12">

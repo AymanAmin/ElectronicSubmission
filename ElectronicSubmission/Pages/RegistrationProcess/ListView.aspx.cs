@@ -34,7 +34,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                     List<Student> Temp_List = List_Status[i].Status.Students.Where(x => x.Suspended != 1).ToList();
                     ListStudentWithStatus.AddRange(Temp_List);
                 }
-                List<Student> TempList3 = db.Students.Where(x => x.Student_Employee_Id == SessionWrapper.LoggedUser.Employee_Id && x.Suspended != 1).ToList();
+                List<Student> TempList3 = db.Students.Where(x => x.Student_Employee_Id == SessionWrapper.LoggedUser.Employee_Id && x.Suspended != 1 && (x.Student_Status_Id == 3 && x.Student_Status_Id == 4 && x.Student_Status_Id == 5)).ToList();
                 ListStudentWithStatus.AddRange(TempList3);
 
                 ListAllStudent.AddRange(ListStudentWithStatus);
@@ -56,7 +56,6 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             {
                 ListStudentCurrent.AddRange(List_Status[i].Status.Students.Where(x => x.Suspended != 1).ToList());   
             }
-            ListStudentCurrent = ListStudentCurrent.Distinct().ToList();
             // Set TempList1 into ListAllStudentStatistic
             ListAllStudentStatistic.AddRange(ListStudentCurrent);
             // End if it's on his status
@@ -97,7 +96,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 string total = txtFirst.Text = ListAllStudentStatistic.Count().ToString();
                 string current = txtSecond.Text = ListAllStudentStatistic.Count(x => x.Student_Status_Id != 14 && x.Student_Status_Id != 15).ToString();
                 string approved = txtThird.Text = ListAllStudentStatistic.Where(x => x.Student_Status_Id == 14).Count().ToString();
-                string rejected = txtFour.Text = ListAllStudentStatistic.Where(x =>  x.Student_Status_Id == 15).Count().ToString();
+                string rejected = txtFour.Text = ListAllStudentStatistic.Where(x => x.Student_Status_Id == 15).Count().ToString();
 
                 txtFirstPercentage.Text = CalcPercentage(double.Parse(total), double.Parse(total)) + "%";
                 txtSecondPercentage.Text = CalcPercentage(double.Parse(current), double.Parse(total)) + "%";
@@ -122,8 +121,15 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                     str += "<tr>";
                     str += "<td class='txt-primary'>Expand</td>";
                     str += "<td> <a href= '../../../../Pages/RegistrationProcess/view.aspx?StudentID=" + ListAllStudent[i].Student_Id + "' style='color:#00c3da;'>&nbsp;&nbsp; <i class='icofont icofont-eye-alt h5'></i>&nbsp;&nbsp;</a>";
-                    str += "<a href= '../../../../Pages/RegistrationProcess/StudentInfo.aspx?StudentID=" + ListAllStudent[i].Student_Id + "' style='color:green;'>&nbsp;&nbsp; <i class='icofont icofont-ui-edit h5'></i>&nbsp;&nbsp;</a>";
+
+                    if (ListAllStudent[i].Status.Status_Code == 4)
+                    {
+                        str += "<a href= '../../../../Pages/RegistrationProcess/StudentInfo.aspx?StudentID=" + ListAllStudent[i].Student_Id + "' style='color:green;'>&nbsp;&nbsp; <i class='icofont icofont-ui-edit h5'></i>&nbsp;&nbsp;</a>";
+
+                    }
+
                     str += "<a href= '../../../../Pages/RegistrationProcess/DeleteStudent.ashx?StudentID=" + ListAllStudent[i].Student_Id + "' style='color:red;'>&nbsp;&nbsp; <i class='icofont icofont-ui-delete h5'></i>&nbsp;&nbsp;</a></td>";
+
                     if (SessionWrapper.LoggedUser.Language_id == 1)
                     {
                         str += "<td><label class='label label-success' style='background:" + Color[index] + " !important;'>" + ListAllStudent[i].Status.Status_Name_Ar + "</label></td>";
