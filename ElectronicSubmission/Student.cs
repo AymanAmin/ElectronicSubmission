@@ -39,8 +39,8 @@ namespace ElectronicSubmission
         public Nullable<int> Student_Resource_Id { get; set; }
         public Nullable<int> Student_Status_Id { get; set; }
         public string Student_Total { get; set; }
-        public string Notes { get; set; }
         public Nullable<int> Suspended { get; set; }
+        public string Notes { get; set; }
     
         public virtual Employee Employee { get; set; }
         public virtual ICollection<File> Files { get; set; }

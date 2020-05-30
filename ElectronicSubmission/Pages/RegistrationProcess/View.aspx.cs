@@ -75,7 +75,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                     if (index > Color.Length) index = 1;
 
                     // Set profile image
-                    //txtProfileImage.ImageUrl = "~/media/Profile/" + std.Student_Image_Profile_Id;
+                    txtProfileImage.ImageUrl = "~/media/Profile/" + std.Student_Image_Profile; 
 
                     // load other data
                     txtStudent_Id.Text = std.Student_Id.ToString();
@@ -114,7 +114,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                         db.SaveChanges();
                     }
                     // Set action if it's allow
-                    IsAllowToTakeAction((int)std.Student_Status_Id, student_record_id);
+                    IsAllowToTakeAction((int)std.Student_Status_Id);
 
                     //Set Action
                     SetActions();
@@ -159,7 +159,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                            "</td>" +
                            "<td> " + List_File[i].File_Name + " </td>" +
                            "<td><a href = '#' target='_blank' style ='font-size: x-large; color: green;' ><i class='icofont icofont-ui-edit'></i></a></td>" +
-                           "<td><a href = '../../../../media/StudentAttachment/" + List_File[i].File_Path + "' target='_blank' style='font-size: x-large; color: blue;'><i class='icofont icofont-eye-alt'></i></a></td>" +
+                           "<td><a href = '../../../../media/StudentAttachments/" + List_File[i].File_Path + "' target='_blank' style='font-size: x-large; color: blue;'><i class='icofont icofont-eye-alt'></i></a></td>" +
                            "</tr>";
                 }
                 txtFiles.Text = str;
@@ -167,7 +167,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             catch { }
         }
 
-        public void IsAllowToTakeAction(int Current_Status_Id, int StatusId)
+        public void IsAllowToTakeAction(int StatusId)
         {
             Group_Status GS = db.Group_Status.Where(x => x.Group_Id == SessionWrapper.LoggedUser.Group_Id && x.Status_Id == StatusId).FirstOrDefault();
             if (GS != null)
@@ -175,7 +175,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             else
                 EnableEditActions = false;
 
-            if (Current_Status_Id == 1 || Current_Status_Id == 2)
+            if (StatusId == 1 || StatusId == 2)
             {
                 EnableEditAssign = true;
                 EnableEditActions = false;

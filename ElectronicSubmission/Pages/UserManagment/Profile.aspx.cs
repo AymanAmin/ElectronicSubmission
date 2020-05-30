@@ -17,9 +17,7 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment
         int EmployeeId = 0;
         protected void Page_PreInit(object sender, EventArgs e)
         {
-            if (Session["IsECMS"] != null)
-                if (!(bool)Session["IsECMS"])
-                    this.MasterPageFile = "~/EminutesMaster.Master";
+        
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -67,14 +65,13 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment
                 if (EmployeeId > 0)
                 {
                     var Employees = db.Employees.First(x => x.Employee_Id == EmployeeId);
-                    /*var Stru = db.Employee_Structure.FirstOrDefault(x => x.Employee_Id == EmployeeId && x.Default_Structure == true);
+
                     if (Employees.Employee_Profile != "" && Employees.Employee_Profile != null)
                     {
                         Emp_Profile.ImageUrl = "../../../../media/Profile/" + Employees.Employee_Profile;
                         Emp_Profile1.ImageUrl = "../../../../media/Profile/" + Employees.Employee_Profile;
                     }
-                    if (Employees.Employee_Signature != "" && Employees.Employee_Signature != null) Emp_Signature.ImageUrl = "../../../../media/Signature/" + Employees.Employee_Signature;
-                    */
+                   
                     ArabicName.InnerText = Employees.Employee_Name_Ar;
                     EnglishName.InnerText = Employees.Employee_Name_En;
                     if (SessionWrapper.LoggedUser.Language_id == 1)
@@ -88,10 +85,9 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment
                     Employee_Phone.Text = Employees.Employee_Phone;
                     Phone.InnerText = Employees.Employee_Phone;
 
-                    //DefaultStructure.SelectedValue = Stru.Structure_Id.ToString();
 
-                    /*if (Employees.Calendar_id == 1) CalendarType.InnerText = "Birth Date"; else CalendarType.InnerText = "Hegira Date";
-                    ActiveL.InnerText = bool.Parse(Employees.Employee_Active.ToString()).ToString();*/
+                    /*if (Employees.Calendar_id == 1) CalendarType.InnerText = "Birth Date"; else CalendarType.InnerText = "Hegira Date";*/
+                    ActiveL.InnerText = bool.Parse(Employees.Employee_Active.ToString()).ToString();
 
                     if (Employees.Group_Id != null && Employees.Group_Id > 0)
                     {
@@ -113,33 +109,9 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment
                         Language.SelectedValue = Employees.Language_id.ToString();
                     }
 
-                    /*var Emp_Stru = db.Employee_Structure.Where(x => x.Employee_Id == EmployeeId && x.Status_Structure == true).ToList();
-                    while (i < Emp_Stru.Count)
-                    {
-                        int str_id = int.Parse(Emp_Stru[i].Structure_Id.ToString());
-                        var Stru_Name = db.Structures.First(s => s.Structure_Id == str_id);
-                        if (SessionWrapper.LoggedUser.Language_id == 1)
-                        {
-                            EmpStru += " - " + Stru_Name.Structure_Name_Ar;
-                        }
-                        else
-                        {
-                            EmpStru += " - " + Stru_Name.Structure_Name_En;
-                        }
-                        i++;
-                    }*/
-
-                    Structure.InnerText = EmpStru;
                     Position.InnerText = EmpStru;
                 }
 
-
-                //----------------------------Notification Employee-------------------------------------------
-                List<Notification_Employee> Notification_Employee_List = db.Notification_Employee.Where(x => x.Employee_Id == EmployeeId).ToList();
-                for (int y = 0; y < Notification_Employee_List.Count; y++)
-                {
-                    NotificationGridView.Selection.SelectRowByKey(Notification_Employee_List[y].NotificationShow_Id);
-                }
             }
             catch (Exception e) { }
         }
@@ -149,7 +121,7 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment
             int calander_id = 0;
             int Lang = 0;
             int.TryParse(Language.SelectedValue, out Lang);
-            if (DateofBirth.Checked) calander_id = 1;
+            //if (DateofBirth.Checked) calander_id = 1;
             bool result = AU_Emplooyees(EmployeeId, Employee_Email.Text, Employee_Phone.Text, Lang, calander_id);
 
             if (result)
@@ -172,27 +144,6 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment
                 string ImagepathProfile = UploadFile(1);
                 string ImagepathSignature = UploadFile(2);
                 if (ImagepathProfile != "") Emp.Employee_Profile = ImagepathProfile;
-                //if (ImagepathSignature != "") Emp.Employee_Signature = ImagepathSignature;
-                //----------------------------Employee Structure-------------------------------------------
-
-                /*var Emp_Stru = db.Employee_Structure.Where(x => x.Employee_Id == EmployeeID).ToList();
-                for (int i = 0; i < Emp_Stru.Count; i++)
-                {
-                    int E_S = 0;
-                    int.TryParse(Emp_Stru[i].Structure_Id.ToString(), out E_S);
-                    Employee_Structure stu = db.Employee_Structure.First(x => x.Employee_Id == EmployeeID && x.Structure_Id == E_S);
-                    if (E_S.ToString() == DefaultStructure.SelectedValue)
-                    {
-                        stu.Default_Structure = true;
-                    }
-                    else
-                    {
-                        stu.Default_Structure = false;
-                    }
-                    Emp.Employee_Structure.Add(stu);
-                }*/
-
-                //----------------------------End Employee Structure-------------------------------------------
                 db.Entry(Emp).State = System.Data.EntityState.Modified;
                 db.SaveChanges();
                 /* Add it to log file */
@@ -220,18 +171,6 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment
                         Imagepath = string.Empty;
 
                         Imagepath = UtilityClass.UploadFileWithExtention(ref EmpProfile, Server.MapPath(@"~\media\Profile\"));
-                    }
-                    break;
-                case 2:
-                    if (this.Page.IsValid)
-                    {
-                        if (!UtilityClass.UploadFileIsValid(ref EmpSignature, UtilityClass.ValidImagesExtentions))
-                        {
-                            Imagepath = "false";
-                        }
-                        Imagepath = string.Empty;
-
-                        Imagepath = UtilityClass.UploadFileWithExtention(ref EmpSignature, Server.MapPath(@"~\media\Signature\"));
                     }
                     break;
             }
@@ -272,27 +211,5 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment
             }
         }
 
-        protected void NotificationSave_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                db.Configuration.LazyLoadingEnabled = false;
-                var Notification_Ids = NotificationGridView.GetSelectedFieldValues("Notification_Show_Id");
-                db.Database.ExecuteSqlCommand("Delete Notification_Employee where Employee_Id = " + EmployeeId);
-                for (int i = 0; i < Notification_Ids.Count; i++)
-                {
-                    Notification_Employee Notif_Empl = db.Notification_Employee.Create();
-                    Notif_Empl.Employee_Id = EmployeeId;
-                    Notif_Empl.NotificationShow_Id = int.Parse(Notification_Ids[i].ToString());
-                    db.Notification_Employee.Add(Notif_Empl);
-                }
-                db.SaveChanges();
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','  The Update Notification was Sucessfully saved in system ! ');", true);
-                /* Add it to log file */
-                LogData = "data:" + JsonConvert.SerializeObject(Notification_Ids, logFileModule.settings);
-                logFileModule.logfile(10, "تعديل تنبيهات موظف", "update Notification Employee", LogData);
-            }
-            catch { }
-        }
     }
 }

@@ -75,7 +75,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 str += "<tr>";
                 str += "<td class='txt-primary'>Expand</td>";
                 str += "<td> <a href= '../../../../Pages/RegistrationProcess/view.aspx?StudentID=" + ListAllStudent[i].Student_Id + "' style='color:#00c3da;'> <i class='icofont icofont-eye-alt h6'></i>&nbsp;&nbsp;&nbsp; </a>";
-                str += "<a href= '../../../../Pages/RegistrationProcess/view?StudentID=" + ListAllStudent[i].Student_Id + "' style='color:green;'> <i class='icofont icofont-ui-edit h6'> </i></a></td>";
+                str += "<a href= '../../../../Pages/RegistrationProcess/StudentInfo.aspx?StudentID=" + ListAllStudent[i].Student_Id + "' style='color:green;'> <i class='icofont icofont-ui-edit h6'> </i></a></td>";
                 if (SessionWrapper.LoggedUser.Language_id == 1)
                 {
                     str += "<td><label class='label label-success' style='background:" + Color[index] + " !important;'>" + ListAllStudent[i].Status.Status_Name_Ar + "</label></td>";
