@@ -499,8 +499,7 @@
                 </div>
                 <!--// FooterCopyRight \\-->
                 <!-- Page body start -->
-                <button type="button" style="display: none" class="btn btn-primary sweet-1 m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'sweet-1']);">Basic</button>
-                <button type="button" class="btn btn-success alert-success-msg m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'alert-success']);">Success</button>
+                
             </footer>
             <!--// Footer \\-->
 
@@ -573,14 +572,6 @@
     <script type="text/javascript" src="Template/script/jquery.nicescroll.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
     <script type="text/javascript" src="Template/script/functions.js"></script>
-
-
-    <!-- sweet alert js -->
-    <script type="text/javascript" src="Theme\files\bower_components\sweetalert\js\sweetalert.min.js"></script>
-    <script type="text/javascript" src="Theme\files\assets\js\modal.js"></script>
-    <!-- sweet alert modal.js intialize js -->
-    <!-- Custom js -->
-    <script type="text/javascript" src="Theme\files\assets\js\script.js"></script>
 
 </body>
 
