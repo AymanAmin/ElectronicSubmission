@@ -6,6 +6,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Favicon icon -->
+    <link rel="icon" href="Theme\files\assets\images\favicon.ico" type="image/x-icon" />
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>REU - Student Submitting</title>
 
@@ -139,7 +142,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="wm-mini-title">
-                                <h1 id="headerBachelors" runat="server"><% = ElectronicSubmission.FieldNames.getFieldName("StudentSubmitting-Applicationform", "Application form") %></h1>
+                                <h1 id="headerBachelors" runat="server"><% = ElectronicSubmission.FieldNames.getFieldName("StudentSubmitting-Applicationform", "Application Form") %></h1>
 
                             </div>
 
@@ -368,7 +371,7 @@
                         <div class="col-md-12">
                             <form>
                                 <i class="wmicon-pen"></i>
-                                <input type="text" readonly="readonly" style="width: 50%;" value="Please click on the button to start the application process" onblur="if(this.value == 'Please click on the button to start the application process') { this.value ='Please click on the button to start the application process'; }" onfocus="if(this.value =='Please click on the button to start the application process') { this.value = 'Please click on the button to start the application process'; }">
+                                <input type="text" readonly="readonly" style="width: 50%;" value="Please click on the button to start the application Form" onblur="if(this.value == 'Please click on the button to start the application Form') { this.value ='Please click on the button to start the application Form'; }" onfocus="if(this.value =='Please click on the button to start the application Form') { this.value = 'Please click on the button to start the application Form'; }">
                                 <input type="submit" value="Submission Form Request">
                             </form>
                         </div>
