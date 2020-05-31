@@ -124,6 +124,7 @@
   <ItemGroup>
     <Content Include="Bachelors.aspx" />
     <Content Include="Database\REU_Registration.sql" />
+    <Content Include="Database\SpecializationData.sql" />
     <Content Include="Default.aspx" />
     <Content Include="homepage.aspx" />
     <Content Include="media\Profile\Profile.jpg" />
