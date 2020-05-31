@@ -38,7 +38,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 ListStudentWithStatus.AddRange(TempList3);
 
                 ListAllStudent.AddRange(ListStudentWithStatus);
-                ListAllStudent = ListAllStudent.Distinct().ToList();
+                ListAllStudent = ListAllStudent.OrderByDescending(x => x.Student_CreationDate).Distinct().ToList();
 
                 // List Sequence
                 ListSequence = db.Sequences.Where(x => x.Emp_Id == SessionWrapper.LoggedUser.Employee_Id).ToList();

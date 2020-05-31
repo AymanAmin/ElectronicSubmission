@@ -11,7 +11,6 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
     {
         List<Student> ListAllStudent = new List<Student>();
         List<Student> ListStudentWithStatus = new List<Student>();
-        List<Sequence> ListSequence = new List<Sequence>();
         REU_RegistrationEntities db = new REU_RegistrationEntities();
         string[] Color = { "green", "orange", "blue", "red", "maroon", "purple", "teal", "deepskyblue", "gray", "hotpink", "blueviolet", "violet", "deepskyblue", "cyan", "olivedrab", "coral", "salmon", "yellow" };
         protected void Page_Load(object sender, EventArgs e)
@@ -23,7 +22,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             {
                 int GroupID = (int)SessionWrapper.LoggedUser.Group_Id;
 
-                List<Group_Status> List_Status = db.Group_Status.Where(x => x.Group_Id == GroupID && x.Status_Id != 3 && x.Status_Id != 4 && x.Status_Id != 5).ToList();
+                List<Group_Status> List_Status = db.Group_Status.Where(x => x.Group_Id == GroupID && x.Status_Id != 3 && x.Status_Id != 4).ToList();
 
                 for (int i = 0; i < List_Status.Count; i++)
                 {
@@ -32,9 +31,8 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 }
                 List<Student> TempList3 = db.Students.Where(x => x.Student_Employee_Id == SessionWrapper.LoggedUser.Employee_Id && x.Suspended == 1).ToList();
                 ListAllStudent = ListStudentWithStatus.Union(TempList3).ToList();
+                ListAllStudent = ListAllStudent.OrderByDescending(x => x.Student_CreationDate).Distinct().ToList();
 
-                // List Sequence
-                ListSequence = db.Sequences.Where(x => x.Emp_Id == SessionWrapper.LoggedUser.Employee_Id).ToList();
             }
             LoadStudent();
         }

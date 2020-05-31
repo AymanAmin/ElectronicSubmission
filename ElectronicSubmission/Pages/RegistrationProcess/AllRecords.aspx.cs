@@ -55,7 +55,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 // End if he made action on sequence table
 
                 // Set TempList3 into ListAllStudent
-                ListAllStudent = ListAllStudent.Distinct().ToList();
+                ListAllStudent = ListAllStudent.OrderByDescending(x => x.Student_CreationDate).Distinct().ToList();
             }
             LoadStudent();
         }

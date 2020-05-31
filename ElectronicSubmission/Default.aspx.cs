@@ -36,64 +36,6 @@ namespace ElectronicSubmission
             txtLastUpdateThree.Text = str + DateTime.Now.ToShortTimeString();
             txtLastUpdateFour.Text = str + DateTime.Now.ToShortTimeString();
         }
-        private void Charts()
-        {
-            //List<Treatment_Master> FullMaster_Treatment = db.Treatment_Master.ToList();
-            /* Pie Chart */
-
-            /*  End of Pie Chart */
-
-
-            /* Treatment Per mounth Chart */
-            /*DateTime date_today = DateTime.Now;
-            int day = date_today.Day;
-            date_today = date_today.AddDays(-day + 1);
-            List<DateTime> DateList = new List<DateTime>();
-            for (int i = 0; i < 6; i++)
-            {
-                DateList.Add(date_today);
-                date_today = date_today.AddMonths(-1);
-            }
-
-            string Total = "[";
-            string Recived = "[";
-            string Sent = "[";
-            string categories = "[";
-
-            for (int i = DateList.Count - 1; i >= 0; i--)
-            {
-                int sent = MasterList.Where(x => x.Create_Date > DateList[i] && x.Create_Date < DateList[i].AddDays(30) && x.Treatment_Status_Id == 1).Count();
-                int recived = 0;
-                for (int k = 0; k < DetialList.Count; k++)
-                {
-                    recived += FullMaster_Treatment.Where(x => x.Create_Date > DateList[i] && x.Create_Date < DateList[i].AddDays(30) && x.Treatment_Id == DetialList[k].Treatment_Id).Count();
-                }
-
-                Total += (sent + recived).ToString();
-                Recived += recived.ToString();
-                Sent += sent.ToString();
-                string mounth = DateList[i].ToString("MMM", CultureInfo.InvariantCulture);
-                if (SessionWrapper.LoggedUser.Language_id == 1)
-                    mounth = ArabicDate(mounth);
-                categories += "'" + mounth + "'";
-                if (i > 0)
-                {
-                    Total += ",";
-                    Recived += ",";
-                    Sent += ",";
-                    categories += ",";
-                }
-            }
-            Total += "]";
-            Recived += "]";
-            Sent += "]";
-            categories += "]";
-            string Treatment_Per_Mounth_Function = "Pie_ChartColumn(" + Total + "," + Recived + "," + Sent + "," + categories + ");";*/
-            /* End Treatment Per mounth Chart */
-
-            /* Call javascript funcations   */
-            //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", Pie_Function + "  " + Treatment_Per_Mounth_Function, true);
-        }
 
         private void lineChart()
         {
@@ -101,39 +43,36 @@ namespace ElectronicSubmission
             string Data = "[";
             string AvgDelay = "[";
             List<Status> StatusList = db.Status.ToList();
-            for(int i = 0; i < StatusList.Count; i++)
+            for (int i = 0; i < StatusList.Count; i++)
+                StatusList[i].Status_Color = "0";
+
+            List<Sequence> list_sequence = db.Sequences.ToList();
+            DateTime date_two = DateTime.Now;
+            int student_id = 0;
+            for (int i = 0; i < list_sequence.Count; i++)
+            {
+                try
+                {
+                    DateTime date_one = (DateTime)list_sequence[i].DateCreation;
+                    student_id = (int)list_sequence[i].Student_Id;
+                    Sequence nextDate = list_sequence.Where(x => x.Student_Id == student_id && x.DateCreation > date_one).FirstOrDefault();
+                    if (nextDate != null)
+                        date_two = (DateTime)nextDate.DateCreation;
+
+                    int status_id = (int)list_sequence[i].Status_Id;
+                    StatusList[status_id].Status_Color = (double.Parse(StatusList[status_id].Status_Color) + (date_two - date_one).TotalHours).ToString();
+
+                }
+                catch { }
+            }
+
+            for (int i = 0; i < StatusList.Count; i++)
             {
                 List<Student> students = StatusList[i].Students.ToList();
-                
+
                 Status += "'" + StatusList[i].Status_Name_En + "'";
                 Data += students.Count.ToString();
-                
-
-                List<Sequence> sequenceOne = StatusList[i].Sequences.ToList();
-                double sum = 0;
-                if (i > 0)
-                {
-                    List<Sequence> sequenceTwo = StatusList[i - 1].Sequences.ToList();
-
-                    for (int k = 0; k < sequenceOne.Count; k++)
-                    {
-                        try
-                        {
-                            DateTime firstDate = DateTime.Parse(sequenceOne[k].DateCreation.ToString());
-                            DateTime secondDate = DateTime.Parse(sequenceTwo[k].DateCreation.ToString());
-                            sum += (firstDate - secondDate).TotalHours;
-                        }
-                        catch {  }
-                    }
-                    try
-                    {
-                        int avg = (int)sum / sequenceOne.Count();
-                        AvgDelay += ""+avg;
-                    }
-                    catch { AvgDelay += "0"; }
-                }
-                else
-                    AvgDelay += "0";
+                AvgDelay += Math.Round(double.Parse(StatusList[i].Status_Color),1);
 
                 if (i < StatusList.Count - 1)
                 {
@@ -183,7 +122,7 @@ namespace ElectronicSubmission
             string Treatment_Per_Mounth_Function = "Pie_ChartColumn(" + Total + "," + categories + ");";
             /* End Treatment Per mounth Chart */
 
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", Pie_Function+ " " +lineChartfun + " "+ Treatment_Per_Mounth_Function, true);
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", Pie_Function + " " + lineChartfun + " " + Treatment_Per_Mounth_Function, true);
         }
 
         private string ArabicDate(string DateName)
