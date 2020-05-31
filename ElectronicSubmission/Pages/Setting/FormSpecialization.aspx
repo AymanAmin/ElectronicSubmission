@@ -1,8 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterEn.Master" AutoEventWireup="true" CodeBehind="FormSpecialization.aspx.cs" Inherits="ElectronicSubmission.Pages.Setting.FormSpecialization" %>
 
-<%@ Register Assembly="DevExpress.Web.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
-
-<%@ Register Assembly="DevExpress.Web.Bootstrap.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.Bootstrap" TagPrefix="dx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title><% = ElectronicSubmission.FieldNames.getFieldName("FormSpecialization-Title", "REU - Specialization") %></title>
     <!-- ckeditor.css-->
@@ -97,7 +94,7 @@
             <div class="card-block">
                 <!-- Start Search Form-->
                 <div class="row">
-                    <div class="form-group col-sm-3">
+                    <div class="form-group col-sm-4">
                         <label><% = ElectronicSubmission.FieldNames.getFieldName("FormSpecialization-College", "College") %></label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="icofont icofont-tack-pin"></i></span>
@@ -105,7 +102,7 @@
                             </asp:DropDownList>
                         </div>
                     </div>
-                    <div class="form-group col-sm-7">
+                    <div class="form-group col-sm-6">
                         <label><% = ElectronicSubmission.FieldNames.getFieldName("FormSpecialization-Keyword", "Keyword") %></label>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="icofont icofont-search"></i></span>
