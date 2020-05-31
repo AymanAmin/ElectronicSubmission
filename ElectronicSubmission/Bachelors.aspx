@@ -165,7 +165,7 @@
                                                 <li class="col-md-4">
                                                     <div class="wm-professor-contact">
                                                         <div class="wm-professor-icon">
-                                                            <a href="#"><i class="wmicon-pen" aria-hidden="true"></i></a>
+                                                            <a href="StudentSubmitting.aspx"><i class="wmicon-pen" aria-hidden="true"></i></a>
                                                         </div>
                                                         <h6>Submission:</h6>
                                                         <span>Form Request</span>
