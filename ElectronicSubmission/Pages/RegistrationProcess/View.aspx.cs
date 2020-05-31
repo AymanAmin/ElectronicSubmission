@@ -243,7 +243,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 EnableEditAssign = false;
             }
 
-            if ((std.Student_Employee_Id != SessionWrapper.LoggedUser.Employee_Id && (std.Student_Status_Id == 3 || std.Student_Status_Id == 4 || std.Student_Status_Id == 5)))
+            if ((std.Student_Employee_Id != SessionWrapper.LoggedUser.Employee_Id && (std.Student_Status_Id == 3 || std.Student_Status_Id == 4)))
             {
                 EnableEditActions = false;
             }
@@ -318,7 +318,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             LoadSequence(UserID);*/
         }
 
-        private bool Can_I_Make_Record_Update(Student Currnet_std)
+        private bool Can_I_Update_Record(Student Currnet_std)
         {
             Student Last_std = db.Students.Where(x => x.Student_Id == Currnet_std.Student_Id).FirstOrDefault();
             if (Currnet_std.Student_Status_Id == Last_std.Student_Status_Id)
@@ -333,7 +333,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             Student std = db.Students.Find(student_record_id);
             if (std != null)
             {
-                if (!Can_I_Make_Record_Update(std))
+                if (!Can_I_Update_Record(std))
                     return;
                 
                 if (std.Student_Status_Id == 15)
@@ -424,7 +424,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             Student std = db.Students.Find(student_record_id);
             if (std != null)
             {
-                if (!Can_I_Make_Record_Update(std))
+                if (!Can_I_Update_Record(std))
                     return;
 
                 switch (std.Student_Status_Id)
