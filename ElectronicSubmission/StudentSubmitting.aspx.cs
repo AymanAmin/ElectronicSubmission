@@ -34,6 +34,17 @@ namespace ElectronicSubmission
             if (!IsPostBack)
             {
                 FillDropDownLists();
+                if (Session["Success"] != null)
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "Success();", true);
+                    Session["Success"] = null;
+                }
+
+                if (Session["Basic"] != null)
+                {
+                    //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "Basic();", true);
+                    Session["Basic"] = null;
+                }
             }
         }
 
@@ -61,7 +72,7 @@ namespace ElectronicSubmission
 
                 if (result)
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "Success();", true);
+                    Session["Success"] = true;
                     if (StudentID == 0) Response.Redirect("~/StudentSubmitting.aspx");
                 }
                 else

@@ -36,17 +36,7 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script type='text/javascript'>
-        function scrollToElement() {
-            //Get target
-            setTimeout(function () {
-                var target = document.getElementById("colleges").offsetTop;
-
-                //Scrolls to that target location
-                window.scrollTo(0, target);
-            }, 1);
-        }
-    </script>
+    
     <style>
         .form-control {
             height: 43px !important;
@@ -59,17 +49,18 @@
         }
     </style>
     <script>
+        
         /* Close Model */
         function Success() {
-            document.getElementById("Success-btn").click();
+            setTimeout(function () { document.getElementById("Success-btn").click(); }, 1000);
             // Click on the checkbox
         }
 
         function Basic() {
-            document.getElementById("Basic-btn").click();
+            setTimeout(function () { document.getElementById("Basic-btn").click(); }, 1000);
             // Click on the checkbox
         }
-        /*--------------------------------------
+        /*--------------------------------------*/
     </script>
 </head>
 <body>
@@ -352,8 +343,8 @@
 
                                     <!--// FooterCopyRight \\-->
                                     <!-- Page body start -->
-                                    <button type="button" id="Basic-btn" style="display:none;" class="btn btn-primary sweet-1 m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'sweet-1']);">Basic</button>
-                                    <button type="button" id="Success-btn" style="display:none;" class="btn btn-success alert-success-msg m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'alert-success']);">Success</button>
+                                    <button type="button" id="Basic-btn" class="btn btn-primary sweet-1 m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'sweet-1']);">Basic</button>
+                                    <button type="button" id="Success-btn"  class="btn btn-success alert-success-msg m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'alert-success']);">Success</button>
                                 <!-- End Student Form-->
                             </div>
                         </form>
