@@ -2953,6 +2953,8 @@
     <Content Include="Template\fonts\icon749c.woff" />
     <Content Include="Pages\RegistrationProcess\DeleteStudent.ashx" />
     <Content Include="Pages\RegistrationProcess\DeleteFile.ashx" />
+    <Content Include="Template\css\icofont\fonts\icofont.ttf" />
+    <Content Include="Template\css\icofont\fonts\icofont.woff" />
     <EntityDeploy Include="REU_Registration.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>REU_Registration.Designer.cs</LastGenOutput>
@@ -2960,8 +2962,6 @@
     <Content Include="REU_Registration.edmx.diagram">
       <DependentUpon>REU_Registration.edmx</DependentUpon>
     </Content>
-    <Content Include="Template\css\icofont\fonts\icofont.ttf" />
-    <Content Include="Template\css\icofont\fonts\icofont.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

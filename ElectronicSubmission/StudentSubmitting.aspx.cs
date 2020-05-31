@@ -61,7 +61,7 @@ namespace ElectronicSubmission
 
                 if (result)
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','  The  Employee was Sucessfully saved in system ! ');", true);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "Success();", true);
                     if (StudentID == 0) Response.Redirect("~/StudentSubmitting.aspx");
                 }
                 else

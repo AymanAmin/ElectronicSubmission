@@ -10,7 +10,7 @@
     <title>REU - Student Submitting</title>
 
 
-    <!-- Css Files -->
+     <!-- Css Files -->
     <link href="Template/css/bootstrap.css" rel="stylesheet">
     <link href="Template/css/font-awesome.css" rel="stylesheet">
     <link href="Template/css/flaticon.css" rel="stylesheet">
@@ -23,8 +23,13 @@
     <link href="Template/css/color-three.css" rel="stylesheet">
     <link href="Template/css/color-four.css" rel="stylesheet">
     <link href="Template/css/responsive.css" rel="stylesheet">
+
     <link href="Template/css/icofont/css/icofont.css" rel="stylesheet">
     <!-- ico font -->
+
+    <!-- sweet alert framework -->
+    <link rel="stylesheet" type="text/css" href="Theme\files\bower_components\sweetalert\css\sweetalert.css">
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -53,6 +58,19 @@
             font-style: italic !important;
         }
     </style>
+    <script>
+        /* Close Model */
+        function Success() {
+            document.getElementById("Success-btn").click();
+            // Click on the checkbox
+        }
+
+        function Basic() {
+            document.getElementById("Basic-btn").click();
+            // Click on the checkbox
+        }
+        /*--------------------------------------
+    </script>
 </head>
 <body>
 
@@ -331,6 +349,11 @@
                                 <div class="form-group col-sm-12 text-right">
                                     <asp:Button ID="Save" runat="server" Text="Save" CssClass="btn btn-primary" ValidationGroup="valFormGroup" OnClick="Save_Click" />
                                 </div>
+
+                                    <!--// FooterCopyRight \\-->
+                                    <!-- Page body start -->
+                                    <button type="button" id="Basic-btn" style="display:none;" class="btn btn-primary sweet-1 m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'sweet-1']);">Basic</button>
+                                    <button type="button" id="Success-btn" style="display:none;" class="btn btn-success alert-success-msg m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'alert-success']);">Success</button>
                                 <!-- End Student Form-->
                             </div>
                         </form>
@@ -549,8 +572,7 @@
             <div class="clearfix"></div>
         </div>
     </div>
-    <!-- ModalSearch Box -->
-    <!-- jQuery (necessary for JavaScript plugins) -->
+       <!-- jQuery (necessary for JavaScript plugins) -->
     <script type="text/javascript" src="Template/script/jquery.js"></script>
     <script type="text/javascript" src="Template/script/modernizr.js"></script>
     <script type="text/javascript" src="Template/script/bootstrap.min.js"></script>
@@ -566,6 +588,13 @@
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
     <script type="text/javascript" src="Template/script/functions.js"></script>
 
+
+    <!-- sweet alert js -->
+    <script type="text/javascript" src="Theme\files\bower_components\sweetalert\js\sweetalert.min.js"></script>
+    <script type="text/javascript" src="Theme\files\assets\js\modal.js"></script>
+    <!-- sweet alert modal.js intialize js -->
+    <!-- Custom js -->
+    <script type="text/javascript" src="Theme\files\assets\js\script.js"></script>
 </body>
 
 <!-- index18:22  -->
