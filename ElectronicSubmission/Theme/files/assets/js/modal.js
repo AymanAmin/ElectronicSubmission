@@ -1,13 +1,31 @@
-  'use strict';
+﻿  'use strict';
 $(document).ready(function () {
 //Basic alert
-	document.querySelector('.sweet-1').onclick = function(){
-		swal("Here's a message!", "It's pretty, isn't it?")
-	};
-	//success message
-	document.querySelector('.alert-success-msg').onclick = function(){
-		swal("Good job!", "You clicked the button!", "success");
-	};
+
+    document.querySelector('.Warning-En').onclick = function () {
+        swal("The required percentage is not met !", "Choose the appropriate major, not this!")
+    };
+
+    document.querySelector('.Warning-Ar').onclick = function () {
+        swal("غير مستوفي النسبة المطلوبة !", "إختر التخصص المناسب")
+    };
+    //success message
+
+    document.querySelector('.success-En').onclick = function () {
+        swal("Submitted successfully!", "You clicked the button!", "success");
+    };
+
+    document.querySelector('.success-Ar').onclick = function () {
+        swal("تم التقديم بنجاح !", "إضفط على زر");
+    };
+
+    document.querySelector('.sweet-1').onclick = function () {
+        swal("mazin!", "It's mazin, isn't it?")
+    };
+    //success message
+    document.querySelector('.alert-success-msg').onclick = function () {
+        swal("Good job!", "You clicked the button!", "success");
+    };
 
 	//Alert confirm
 	document.querySelector('.alert-confirm').onclick = function(){

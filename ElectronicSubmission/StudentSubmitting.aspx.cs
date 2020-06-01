@@ -34,17 +34,15 @@ namespace ElectronicSubmission
             if (!IsPostBack)
             {
                 FillDropDownLists();
-                if (Session["Success"] != null)
-                {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "Success();", true);
-                    Session["Success"] = null;
-                }
+                 if (Session["Success"] != null)
+                 {
+                     if (language_Id == 0)
+                         Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "SuccessEn();", true);
+                     else
+                         Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "SuccessAr();", true);
 
-                if (Session["Basic"] != null)
-                {
-                    //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "Basic();", true);
-                    Session["Basic"] = null;
-                }
+                     Session["Success"] = null;
+                 }
             }
         }
 
@@ -77,9 +75,15 @@ namespace ElectronicSubmission
                 }
                 else
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','Error');", true);
+                    // Session["Warning"] = true; Response.Redirect("~/StudentSubmitting.aspx");
+                    if (language_Id == 0)
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "WarningEn();", true);
+                    else
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "WarningAr();", true);
+
                 }
-            }catch(Exception x) { }
+            }
+            catch(Exception x) { }
         }
 
         public bool IU_Student(int StudentID, string ArabicName, string EnglishName, FileUpload StProfile, string Email, string Phone, string StuAddress, DateTime RegistrationDate, string StudentSSN, float HighSchoolDeg, float CapabilitiesDeg, float MyAchievementDeg, int ResourceID, int SpecializationID, int NationalityID, float StudentTotal)

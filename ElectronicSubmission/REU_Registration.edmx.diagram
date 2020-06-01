@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c610ec2635bd439cac878ee2f5ec889d" Name="Diagram1">
+      <Diagram DiagramId="d35739244d9a49828fae239f502e34a8" Name="Diagram1">
         <EntityTypeShape EntityType="REU_RegistrationModel.Collage" Width="1.5" PointX="6.75" PointY="19.5" IsExpanded="true" />
         <EntityTypeShape EntityType="REU_RegistrationModel.Employee" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
         <EntityTypeShape EntityType="REU_RegistrationModel.File" Width="1.5" PointX="13.5" PointY="11.5" IsExpanded="true" />

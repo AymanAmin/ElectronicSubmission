@@ -12,7 +12,6 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>REU - Student Submitting</title>
 
-
      <!-- Css Files -->
     <link href="Template/css/bootstrap.css" rel="stylesheet">
     <link href="Template/css/font-awesome.css" rel="stylesheet">
@@ -54,13 +53,23 @@
     <script>
         
         /* Close Model */
-        function Success() {
-            setTimeout(function () { document.getElementById("Success-btn").click(); }, 1000);
+        function SuccessAr() {
+            setTimeout(function () { document.getElementById("Success-btn-Ar").click(); }, 1000);
             // Click on the checkbox
         }
 
-        function Basic() {
-            setTimeout(function () { document.getElementById("Basic-btn").click(); }, 1000);
+        function SuccessEn() {
+            setTimeout(function () { document.getElementById("Success-btn-En").click(); }, 1000);
+            // Click on the checkbox
+        }
+
+        function WarningAr() {
+            setTimeout(function () { document.getElementById("Warning-btn-Ar").click(); }, 1000);
+            // Click on the checkbox
+        }
+
+        function WarningEn() {
+            setTimeout(function () { document.getElementById("Warning-btn-En").click(); }, 1000);
             // Click on the checkbox
         }
         /*--------------------------------------*/
@@ -101,7 +110,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3">
-                            <a href="index-2.html" class="wm-logo">
+                            <a href="homepage.aspx" class="wm-logo">
                                 <img src="Template/images/logo-5.png" alt="" style="height: 62px;"></a>
                         </div>
                         <div class="col-md-9">
@@ -127,7 +136,6 @@
                                 </div>
                             </nav>
                             <!--// Navigation \\-->
-                            <a href="StudentSubmitting.aspx" class="wm-header-btn">Submission</a>
                         </div>
                     </div>
                 </div>
@@ -339,15 +347,18 @@
 
                                 </div>
 
-
                                 <div class="form-group col-sm-12 text-right">
                                     <asp:Button ID="Save" runat="server" Text="Save" CssClass="btn btn-primary" ValidationGroup="valFormGroup" OnClick="Save_Click" />
                                 </div>
 
                                     <!--// FooterCopyRight \\-->
                                     <!-- Page body start -->
-                                    <button type="button" id="Basic-btn" class="btn btn-primary sweet-1 m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'sweet-1']);">Basic</button>
-                                    <button type="button" id="Success-btn"  class="btn btn-success alert-success-msg m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'alert-success']);">Success</button>
+                                    <button type="button" style="display:none;" id="Warning-btn-Ar" class="btn btn-primary Warning-Ar m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'Warning-Ar']);">Basic</button>
+                                    <button type="button" style="display:none;" id="Warning-btn-En" class="btn btn-primary Warning-En m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'Warning-En']);">Basic</button>
+                                
+                                    <button type="button" style="display:none;" id="Success-btn-Ar"  class="btn btn-success success-Ar m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'success-Ar']);">Success</button>
+                                    <button type="button" style="display:none;" id="Success-btn-En"  class="btn btn-success success-En m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'success-En']);">Success</button>
+                                
                                 <!-- End Student Form-->
                             </div>
                         </form>
@@ -371,8 +382,7 @@
                         <div class="col-md-12">
                             <form>
                                 <i class="wmicon-pen"></i>
-                                <input type="text" readonly="readonly" style="width: 50%;" value="Please click on the button to start the application Form" onblur="if(this.value == 'Please click on the button to start the application Form') { this.value ='Please click on the button to start the application Form'; }" onfocus="if(this.value =='Please click on the button to start the application Form') { this.value = 'Please click on the button to start the application Form'; }">
-                                <input type="submit" value="Submission Form Request">
+                                <input type="text" readonly="readonly" style="width: 50%;" value="Please Fill the application Form" onblur="if(this.value == 'Please click on the button to start the application Form') { this.value ='Please click on the button to start the application Form'; }" onfocus="if(this.value =='Please click on the button to start the application Form') { this.value = 'Please click on the button to start the application Form'; }">
                             </form>
                         </div>
                     </div>
@@ -385,7 +395,7 @@
                 <div class="container">
                     <div class="row">
                         <aside class="widget widget_contact_info col-md-3">
-                            <a href="index-2.html" class="wm-footer-logo">
+                            <a href="homepage.aspx" class="wm-footer-logo">
                                 <img src="Template/images/logo-5.png" alt="" style="height: 77px;"></a>
                             <ul>
                                 <li><i class="wm-color wmicon-pin"></i><a href="https://www.google.com.sa/maps/place/Riyadh+Elm+University/@24.7595734,46.4668287,11z/data=!4m8!1m2!2m1!1sriyadh+colleges+of+dentistry+and+pharmacy!3m4!1s0x3e2efc51ecffffff:0x654f534d5c948f2e!8m2!3d24.6580528!4d46.7005641">
