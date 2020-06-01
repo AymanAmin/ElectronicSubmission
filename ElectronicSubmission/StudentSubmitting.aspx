@@ -9,7 +9,6 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>REU - Student Submitting</title>
 
-
      <!-- Css Files -->
     <link href="Template/css/bootstrap.css" rel="stylesheet">
     <link href="Template/css/font-awesome.css" rel="stylesheet">
@@ -51,13 +50,23 @@
     <script>
         
         /* Close Model */
-        function Success() {
-            setTimeout(function () { document.getElementById("Success-btn").click(); }, 1000);
+        function SuccessAr() {
+            setTimeout(function () { document.getElementById("Success-btn-Ar").click(); }, 1000);
             // Click on the checkbox
         }
 
-        function Basic() {
-            setTimeout(function () { document.getElementById("Basic-btn").click(); }, 1000);
+        function SuccessEn() {
+            setTimeout(function () { document.getElementById("Success-btn-En").click(); }, 1000);
+            // Click on the checkbox
+        }
+
+        function WarningAr() {
+            setTimeout(function () { document.getElementById("Warning-btn-Ar").click(); }, 1000);
+            // Click on the checkbox
+        }
+
+        function WarningEn() {
+            setTimeout(function () { document.getElementById("Warning-btn-En").click(); }, 1000);
             // Click on the checkbox
         }
         /*--------------------------------------*/
@@ -336,15 +345,18 @@
 
                                 </div>
 
-
                                 <div class="form-group col-sm-12 text-right">
                                     <asp:Button ID="Save" runat="server" Text="Save" CssClass="btn btn-primary" ValidationGroup="valFormGroup" OnClick="Save_Click" />
                                 </div>
 
                                     <!--// FooterCopyRight \\-->
                                     <!-- Page body start -->
-                                    <button type="button" id="Basic-btn" class="btn btn-primary sweet-1 m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'sweet-1']);">Basic</button>
-                                    <button type="button" id="Success-btn"  class="btn btn-success alert-success-msg m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'alert-success']);">Success</button>
+                                    <button type="button" style="display:none;" id="Warning-btn-Ar" class="btn btn-primary Warning-Ar m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'Warning-Ar']);">Basic</button>
+                                    <button type="button" style="display:none;" id="Warning-btn-En" class="btn btn-primary Warning-En m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'Warning-En']);">Basic</button>
+                                
+                                    <button type="button" style="display:none;" id="Success-btn-Ar"  class="btn btn-success success-Ar m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'success-Ar']);">Success</button>
+                                    <button type="button" style="display:none;" id="Success-btn-En"  class="btn btn-success success-En m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'success-En']);">Success</button>
+                                
                                 <!-- End Student Form-->
                             </div>
                         </form>
