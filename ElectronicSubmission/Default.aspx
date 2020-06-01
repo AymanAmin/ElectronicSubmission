@@ -72,7 +72,7 @@
         function Pie_ChartColumn(data, categories) {
             var options = {
                 series: [{
-                    name: 'Inflation',
+                    name: '<% = ElectronicSubmission.FieldNames.getFieldName("Default-NewStudent", "New Student") %>',
                     data: data
                 }],
                 chart: {
@@ -89,7 +89,7 @@
                 dataLabels: {
                     enabled: true,
                     formatter: function (val) {
-                        return val + "%";
+                        return val + "#";
                     },
                     offsetY: -20,
                     style: {
@@ -165,7 +165,7 @@
         <!-- treatment status, page counter  start -->
         <div class="col-xl-3 col-md-6">
             <a href="#">
-                <div class="card bg-c-yellow update-card">
+                <div class="card bg-c-lite-green update-card">
                     <div class="card-block">
                         <div class="row align-items-end">
                             <div class="col-8">
@@ -190,7 +190,7 @@
 
         <div class="col-xl-3 col-md-6">
             <a href="#">
-                <div class="card bg-c-green update-card">
+                <div class="card bg-c-yellow update-card">
                     <div class="card-block">
                         <div class="row align-items-end">
                             <div class="col-8">
@@ -216,7 +216,7 @@
 
         <div class="col-xl-3 col-md-6">
             <a href="#">
-                <div class="card bg-c-lite-green update-card">
+                <div class="card bg-c-green update-card">
                     <div class="card-block">
                         <div class="row align-items-end">
                             <div class="col-8">
@@ -285,7 +285,24 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-5">
+       
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5><% = ElectronicSubmission.FieldNames.getFieldName("Default-RecordPerMounths", "Record Per Mounths") %></h5>
+                    <div class="card-header-right">
+                        <ul class="list-unstyled card-option">
+                            <li><i class="feather icon-maximize full-card"></i></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-block">
+                    <div id="chart_Column" style="width: 100%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                     <h5><% = ElectronicSubmission.FieldNames.getFieldName("Default-RecordsPerStatus", "Records Per Status") %></h5>
@@ -299,22 +316,6 @@
                     <div id="chart" style="width: 100%;"></div>
                 </div>
 
-            </div>
-        </div>
-
-        <div class="col-md-7">
-            <div class="card">
-                <div class="card-header">
-                    <h5><% = ElectronicSubmission.FieldNames.getFieldName("Default-RecordPerMounths", "Record Per Mounths") %></h5>
-                    <div class="card-header-right">
-                        <ul class="list-unstyled card-option">
-                            <li><i class="feather icon-maximize full-card"></i></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card-block">
-                    <div id="chart_Column" style="width: 100%;"></div>
-                </div>
             </div>
         </div>
 

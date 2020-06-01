@@ -380,6 +380,9 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 db.Sequences.Add(seq);
                 db.SaveChanges();
 
+                //Send Email
+                sendEamil(std);
+
                 db.Configuration.LazyLoadingEnabled = false;
                 /* Add it to log file */
                 Student stdLogFile = db.Students.Find(std.Student_Id);
@@ -392,6 +395,15 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 Response.Redirect("~/Pages/RegistrationProcess/view.aspx?StudentID=" + (int)seq.Student_Id);
             }
 
+        }
+
+        public bool sendEamil(Student std)
+        {
+            string sever_name = Request.Url.Authority.ToString();
+            SendEmail send = new SendEmail();
+            string Text = " <Strong>You have new student file  </Strong><br /><Strong>TrackId : </Strong> " + std.Student_Id + " <br /> <Strong>Current Status:</Strong> " + std.Status.Status_Name_En+ " <br /> <Strong>Note:</Strong> " + txtNote.Text;
+            //bool result = send.TextEmail("Student File : #"+ std.Student_Id,SessionWrapper.LoggedUser.Employee_Email, Text, sever_name);
+            return false;
         }
 
         private string GetApproveStatusName(int CurrentStatus_Id)
@@ -461,6 +473,9 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
 
                 db.Sequences.Add(seq);
                 db.SaveChanges();
+
+                //Send Email
+                sendEamil(std);
 
                 db.Configuration.LazyLoadingEnabled = false;
                 /* Add it to log file */

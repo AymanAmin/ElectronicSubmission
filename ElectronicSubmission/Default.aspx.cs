@@ -40,11 +40,17 @@ namespace ElectronicSubmission
         private void lineChart()
         {
             string Status = "[";
+            string StatusPie = "[";
             string Data = "[";
             string AvgDelay = "[";
+
+            // Replace Status_Color with delay until new step & Status_Icon with counter
             List<Status> StatusList = db.Status.ToList();
             for (int i = 0; i < StatusList.Count; i++)
+            {
                 StatusList[i].Status_Color = "0";
+                StatusList[i].Status_Icon = "0";
+            }
 
             List<Sequence> list_sequence = db.Sequences.ToList();
             DateTime date_two = DateTime.Now;
@@ -54,14 +60,25 @@ namespace ElectronicSubmission
                 try
                 {
                     DateTime date_one = (DateTime)list_sequence[i].DateCreation;
+
+                    //Check if he go to next step and then get the date... if he isn't the set Datetime.Now
+                    int current_Id = list_sequence[i].Sequence_Id;
                     student_id = (int)list_sequence[i].Student_Id;
-                    Sequence nextDate = list_sequence.Where(x => x.Student_Id == student_id && x.DateCreation > date_one).FirstOrDefault();
-                    if (nextDate != null)
-                        date_two = (DateTime)nextDate.DateCreation;
+                    List<Sequence> nextDate = list_sequence.Where(x => x.Student_Id == student_id && x.Sequence_Id > current_Id).ToList();
+                    if (nextDate.Count > 0)
+                        date_two = (DateTime)nextDate[0].DateCreation;
+                    else
+                        date_two = DateTime.Now;
 
                     int status_id = (int)list_sequence[i].Status_Id;
-                    StatusList[status_id].Status_Color = (double.Parse(StatusList[status_id].Status_Color) + (date_two - date_one).TotalHours).ToString();
 
+                    // find the index
+                    int index = StatusList.FindIndex(x => x.Status_Id == status_id);
+                    // Set the delay in Status_Color 
+                    StatusList[index].Status_Color = (double.Parse(StatusList[index].Status_Color) + (date_two - date_one).TotalHours).ToString();
+
+                    //Increase counter in Status_Icon 
+                    StatusList[index].Status_Icon = (int.Parse(StatusList[index].Status_Icon) + 1).ToString();
                 }
                 catch { }
             }
@@ -69,35 +86,54 @@ namespace ElectronicSubmission
             for (int i = 0; i < StatusList.Count; i++)
             {
                 List<Student> students = StatusList[i].Students.ToList();
+                double delay = 0;
+                if (double.Parse(StatusList[i].Status_Icon) != 0)
+                    delay = double.Parse(StatusList[i].Status_Color) / double.Parse(StatusList[i].Status_Icon);
 
                 Status += "'" + StatusList[i].Status_Name_En + "'";
-                Data += students.Count.ToString();
-                AvgDelay += Math.Round(double.Parse(StatusList[i].Status_Color),1);
+
+                if (students.Count != 0)
+                {
+                    StatusPie += "'" + StatusList[i].Status_Name_En + "'";
+                    Data += students.Count.ToString();
+                }
+
+                AvgDelay += Math.Round(delay, 1);
 
                 if (i < StatusList.Count - 1)
                 {
                     Status += ",";
-                    Data += ",";
+
+                    if (students.Count != 0)
+                    {
+                        StatusPie += ",";
+                        Data += ",";
+                    }
+
                     AvgDelay += ",";
                 }
             }
             Status += "]";
+            StatusPie += "]";
             Data += "]";
             AvgDelay += "]";
 
-            string Pie_Function = "Pie_Chart(" + Data + "," + Status + ");";
+            string Pie_Function = "Pie_Chart(" + Data + "," + StatusPie + ");";
             /* Pie Chart */
             string lineChartfun = "lineChart(" + AvgDelay + "," + Status + ");";
 
-            /* Treatment Per mounth Chart */
+              /******************************/
+             /* Treatment Per mounth Chart */
+            /******************************/
+
             DateTime date_today = DateTime.Now;
             int day = date_today.Day;
             date_today = date_today.AddDays(-day + 1);
             List<DateTime> DateList = new List<DateTime>();
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < 15; i++)
             {
                 DateList.Add(date_today);
-                date_today = date_today.AddMonths(-1);
+                date_today = date_today.AddDays(-1);
             }
 
             string Total = "[";
@@ -105,11 +141,13 @@ namespace ElectronicSubmission
 
             for (int i = DateList.Count - 1; i >= 0; i--)
             {
-                Total += StudentList.Where(x => x.Student_CreationDate >= DateList[i] && x.Student_CreationDate <= DateList[i].AddDays(30)).Count().ToString();
+                Total += StudentList.Where(x => x.Student_CreationDate > DateList[i].AddDays(-1) && x.Student_CreationDate <= DateList[i]).Count().ToString();
 
-                string mounth = DateList[i].ToString("MMM", CultureInfo.InvariantCulture);
+                string mounth = DateList[i].Day+" / " +DateList[i].ToString("MMM", CultureInfo.InvariantCulture);
+
                 if (SessionWrapper.LoggedUser.Language_id == 1)
-                    mounth = ArabicDate(mounth);
+                    mounth = DateList[i].Day + " / " + ArabicDate(mounth);
+
                 categories += "'" + mounth + "'";
                 if (i > 0)
                 {
@@ -124,6 +162,7 @@ namespace ElectronicSubmission
 
             Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", Pie_Function + " " + lineChartfun + " " + Treatment_Per_Mounth_Function, true);
         }
+
 
         private string ArabicDate(string DateName)
         {

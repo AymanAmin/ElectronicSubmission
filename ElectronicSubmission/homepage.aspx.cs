@@ -19,10 +19,28 @@ namespace ElectronicSubmission
 
         LogFileModule logFileModule = new LogFileModule();
         String LogData = "";
+        public int langId = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                if (int.TryParse(Request["lang"], out langId) && langId > 0)
+                {
+                    Session["lang"] = langId;
+                }
+                else
+                {
+                    if (Session["lang"] == null)
+                    {
+                        langId = 2;
+                        Session["lang"] = langId;
+                    }
+                    else
+                    {
+                        langId = int.Parse(Session["lang"].ToString());
+                    }
+                }
+                SessionWrapper.Language = db.Lanuage_Detials.Where(x => x.Language_Master_Id == langId).ToList();
                 loadFillDrop();
                 loadSpecialization();
             }
@@ -35,7 +53,10 @@ namespace ElectronicSubmission
                 using (REU_RegistrationEntities db = new REU_RegistrationEntities())
                 {
                     List<Collage> listCollage = db.Collages.ToList();
-                    ddlFiller.dropDDL(CollegesUniv, "Collage_ID", "Collage_Name_En", listCollage, "All Colleges");
+                    if(langId == 1)
+                        ddlFiller.dropDDL(CollegesUniv, "Collage_ID", "Collage_Name_Ar", listCollage, "كل الكليات");
+                    else
+                        ddlFiller.dropDDL(CollegesUniv, "Collage_ID", "Collage_Name_En", listCollage, "All Colleges");
                 }
             }
             catch (Exception esw) { }
@@ -54,17 +75,21 @@ namespace ElectronicSubmission
                     if(collegeId == 0 && txtSearch == "")
                         listSpecialization = db.Specializations.ToList();
                     else if(collegeId == 0)
-                        listSpecialization = db.Specializations.Where(x => x.Specialization_Name_En.Contains(txtSearch)).ToList();
+                        listSpecialization = db.Specializations.Where(x => x.Specialization_Name_En.Contains(txtSearch) || x.Specialization_Name_Ar.Contains(txtSearch)).ToList();
                     else if (txtSearch == "")
                         listSpecialization = db.Specializations.Where(x => x.Collage_Id == collegeId).ToList();
-                    else listSpecialization = db.Specializations.Where(x => x.Collage_Id == collegeId && x.Specialization_Name_En.Contains(txtSearch)).ToList();
-
+                    else listSpecialization = db.Specializations.Where(x => x.Collage_Id == collegeId && (x.Specialization_Name_En.Contains(txtSearch) || x.Specialization_Name_Ar.Contains(txtSearch))).ToList();
+                    string SpecializationLangName = "";
                     for (int i = 0; i < listSpecialization.Count; i++)
                     {
+                        if(langId == 1)
+                            SpecializationLangName = listSpecialization[i].Specialization_Name_Ar;
+                        else
+                            SpecializationLangName = listSpecialization[i].Specialization_Name_En;
                         yourHTMLstring = "<li>"+
                                             "<div class='wm-box-service-wrap wm-bgcolor'>"+
-                                                "<i class='" + listSpecialization[i].Specialization_Icon + "'></i>" +
-                                                "<h6><a href='Bachelors.aspx?SpecializationId="+listSpecialization[i].Specialization_Id+"'>" + listSpecialization[i].Specialization_Name_En + " </a></h6>" +
+                                                "<a href='Bachelors.aspx?SpecializationId=" + listSpecialization[i].Specialization_Id + "'><i class='" + listSpecialization[i].Specialization_Icon + "'></i></a>" +
+                                                "<h6><a href='Bachelors.aspx?SpecializationId="+listSpecialization[i].Specialization_Id+"'>" + SpecializationLangName + " </a></h6>" +
                                             "</div>"+
                                         "</li>";
                         Specialization.Controls.Add(new LiteralControl(yourHTMLstring));

@@ -17,9 +17,10 @@ namespace ElectronicSubmission
             {
                 try
                 {
-                    int LanguageID = (int)SessionWrapper.LoggedUser.Language_id;
+                    //int LanguageID = (int)SessionWrapper.LoggedUser.Language_id;
                     List<Lanuage_Detials> list = SessionWrapper.Language;
-                    Lanuage_Detials lang = list.Where(x => x.Language_Detial_FieldName == fieldname && x.Language_Master_Id == LanguageID).First();
+                    //Lanuage_Detials lang = list.Where(x => x.Language_Detial_FieldName == fieldname && x.Language_Master_Id == LanguageID).First();
+                    Lanuage_Detials lang = list.Where(x => x.Language_Detial_FieldName == fieldname).First();
                     name = lang.Language_Detial_Value;
                 }
                 catch { return name; }

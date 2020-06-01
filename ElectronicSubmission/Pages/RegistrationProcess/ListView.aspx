@@ -14,7 +14,7 @@
                 <div class="card-block">
                     <div class="row align-items-center">
                         <div class="col">
-                            <label class="label label-success">
+                            <label class="label bg-c-lite-green">
                                 <asp:Literal ID="txtFirstPercentage" runat="server"></asp:Literal><i class="m-l-10 feather icon-arrow-up"></i>
                             </label>
                         </div>
@@ -36,7 +36,7 @@
                 <div class="card-block">
                     <div class="row align-items-center">
                         <div class="col">
-                            <label class="label bg-c-lite-green">
+                            <label class="label label-warning">
                                 <asp:Literal ID="txtSecondPercentage" runat="server"></asp:Literal> <i class="m-l-10 feather icon-arrow-up"></i>
                             </label>
                         </div>
@@ -58,7 +58,7 @@
                 <div class="card-block">
                     <div class="row align-items-center">
                         <div class="col">
-                            <label class="label label-danger">
+                            <label class="label label-success">
                                 <asp:Literal ID="txtThirdPercentage" runat="server"></asp:Literal> <i class="m-l-10 feather icon-arrow-up"></i>
                             </label>
                         </div>
@@ -80,7 +80,7 @@
                 <div class="card-block">
                     <div class="row align-items-center">
                         <div class="col">
-                            <label class="label label-warning">
+                            <label class="label label-danger">
                                 <asp:Literal ID="txtFourPercentage" runat="server"></asp:Literal> <i class="m-l-10 feather icon-arrow-up"></i>
                             </label>
                         </div>

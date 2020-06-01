@@ -152,7 +152,7 @@ strong {
 }
 iframe {
     border: none;
-    float: left;
+    float: right;
     width: 100%;
 }
 .wp-caption, .wp-caption-text, .gallery-caption, .bypostauthor {
@@ -203,7 +203,7 @@ form p {
 }
 form p span i {
     color: #474747;
-    left: 16px;
+    right: 16px;
     position: absolute;
     top: 13px;
 }
@@ -215,15 +215,15 @@ li {
     list-style: inside none disc;
 }
 ul ul {
-    margin-left: 20px;
+    margin-right: 20px;
 }
 ol {
     float: none;
     list-style: outside none decimal;
-    padding-left: 15px;
+    padding-right: 15px;
 }
 ol ol {
-    margin-left: 20px;
+    margin-right: 20px;
 }
 ol li {
     list-style: outside none decimal;
@@ -234,7 +234,7 @@ table {
     max-width: 100%;
 }
 th {
-    text-align: left;
+    text-align: right;
 }
 table {
     margin-bottom: 15px;
@@ -243,7 +243,7 @@ table {
 table > thead > tr > th, table > tbody > tr > th, table > tfoot > tr > th, table > thead > tr > td, table > tbody > tr > td, table > tfoot > tr > td {
     border: 1px solid #dddddd;
     line-height: 2.5;
-    padding-left: 3px;
+    padding-right: 3px;
     text-align: center;
     vertical-align: top;
 }
@@ -271,20 +271,20 @@ table > tbody + tbody {
 p ins {
     color: #999;
 }
-dl dd 	{ margin-left: 20px; }
+dl dd 	{ margin-right: 20px; }
 address { font-style: italic; }
 .sticky {}
 .wm-main-section,.wm-main-content {
-	float: left;
+	float: right;
 	width: 100%;
 	position: relative;
 }
 .wm-main-content 	{ padding: 100px 0px 60px 0px; }
-.wm-right-section 	{ float: right; }
-.wm-left-section 	{ float: left; }
+.wm-right-section 	{ float: left; }
+.wm-left-section 	{ float: right; }
 /* Header */
 #wm-header,.wm-topstrip {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-topstrip {
@@ -294,21 +294,21 @@ address { font-style: italic; }
 }
 /* TopStrip */
 .wm-language {
-    float: left;
+    float: right;
 }
 .wm-language ul li {
-    float: left;
+    float: right;
     list-style: none;
     padding: 0px 18px 0px 18px;
     position: relative;
 }
-.wm-language ul li:first-child,.wm-stripinfo li:first-child                     { padding-left: 0px; }
+.wm-language ul li:first-child,.wm-stripinfo li:first-child                     { padding-right: 0px; }
 .wm-language ul li:first-child:before,.wm-stripinfo li:first-child:before       { display: none; }
 .wm-language ul li:before,.wm-stripinfo li:before,
 .wm-adminuser-section li a.wm-search-btn:before {
     content: '';
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 4px;
     border-right: 1px solid #474d6b;
     width: 1px;
@@ -323,7 +323,7 @@ address { font-style: italic; }
     display: inline-block;
 }
 .wm-stripinfo li {
-    float: left;
+    float: right;
     list-style: none;
     text-transform: uppercase;
     color: #ffffff;
@@ -331,17 +331,17 @@ address { font-style: italic; }
     position: relative;
 }
 .wm-stripinfo li i {
-    float: left;
+    float: right;
     color: #8a8fa7;
-    margin: 9px 5px 0px 0px;
+    margin: 9px 0px 0px 5px;
 }
 .wm-adminuser-section {
-    float: right;
+    float: left;
 }
 .wm-adminuser-section li {
-    float: left;
+    float: right;
     list-style: none;
-    margin-left: 23px;
+    margin-right: 23px;
 }
 .wm-adminuser-section li a {
     text-transform: uppercase;
@@ -351,17 +351,17 @@ address { font-style: italic; }
     color: #8a8fa7;
     font-size: 14px;
     position: relative;
-    padding: 3px 0px 0px 30px;
+    padding: 3px 30px 0px 0px;
 }
 .wm-adminuser-section li a.wm-search-btn:before { top: 0px; }
 /* Logo */
 .wm-logo {
-    float: left;
+    float: right;
     margin: 35px 0px 26px 0px;
 }
 /* MainHeader */
 .wm-main-header {
-    float: left;
+    float: right;
     width: 100%;
     background-color: #ffffff;
 }
@@ -373,7 +373,7 @@ address { font-style: italic; }
 .wm-modallogin-form span {
     font-size: 18px;
     font-weight: bold;
-    float: left;
+    float: right;
     width: 100%;
     text-transform: uppercase;
     border-bottom: 2px solid #f2f2f2;
@@ -383,7 +383,7 @@ address { font-style: italic; }
 .wm-modallogin-form,.wm-modallogin-form ul li,.wm-modallogin-form,
 .wm-modallogin-form ul,.wm-modallogin-form input[type="text"],
 .wm-modallogin-form input[type="password"],.wm-modallogin-form p {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-modallogin-form ul li       { list-style: none; }
@@ -398,13 +398,13 @@ address { font-style: italic; }
 }
 .wm-modallogin-form ul li { margin-bottom: 10px; }
 .wm-forgot-btn {
-    float: right;
+    float: left;
     font-size: 14px;
     color: #424242;
     text-decoration: underline;
 }
 .wm-modallogin-form input[type="submit"] {
-    float: left;
+    float: right;
     padding: 14px 35px 14px 35px;
     color: #ffffff;
     font-size: 12px;
@@ -416,14 +416,14 @@ address { font-style: italic; }
 .wm-register-popup input[type="submit"] { margin-top: 10px; }
 .wm-login-social-media { margin: 0px -5px; }
 .wm-login-social-media li {
-    float: left;
+    float: right;
     width: 33.333%;
     list-style: none;
     padding: 0px 5px;
     margin-bottom: 15px;
 }
 .wm-login-social-media li a {
-    float: left;
+    float: right;
     width: 100%;
     padding: 10px 17px;
     color: #ffffff;
@@ -455,9 +455,9 @@ address { font-style: italic; }
 .navbar {
     background: none;
     border: none;
-    float: left;
+    float: right;
     margin-bottom: 0px;
-    text-align: left;
+    text-align: right;
 }
 .navbar-nav > li > a {
     font-size: 15px;
@@ -479,7 +479,7 @@ address { font-style: italic; }
 }
 .wm-dropdown-menu {
     background-color: #ffffff;
-    left: 0;
+    right: 0;
     margin: 10px 0px 0px 0px;
     opacity: 0;
     position: absolute;
@@ -499,11 +499,11 @@ address { font-style: italic; }
     z-index: 99;
 }
 .wm-dropdown-menu .wm-dropdown-menu {
-    left: 100%;
+    right: 100%;
     top: 20%;
 }
 .wm-dropdown-menu li {
-    float: left;
+    float: right;
     list-style: none;
     position: relative;
     width: 100%;
@@ -511,7 +511,7 @@ address { font-style: italic; }
 .wm-dropdown-menu li a {
     border-bottom: 1px solid #f8f8f8;
     color: #6c8391;
-    float: left;
+    float: right;
     font-size: 16px;
     font-weight: 300;
     padding: 10px 30px;
@@ -523,7 +523,7 @@ address { font-style: italic; }
 .nav > li.wm-megamenu-li,#wm-header [class*="col-md-"] { position: static; }
 .wm-megamenu {
     position: absolute;
-    left: 0%;
+    right: 0%;
     top: 100%;
     width: 100%;
     background-color: #fff;
@@ -578,12 +578,12 @@ address { font-style: italic; }
 
 /* Mega Menu List */
 .wm-megalist {
-    float: left;
+    float: right;
     width: 100%;
     margin: 10px 0px 0px 0px;
 }
 .wm-megalist li {
-    float: left;
+    float: right;
     width: 100%;
     list-style: none;
     border-bottom: 1px solid #f8f8f8;
@@ -596,7 +596,7 @@ address { font-style: italic; }
 }
 .wm-mega-text p { margin-bottom: 30px; }
 .wm-header-btn {
-    float: right;
+    float: left;
     padding: 13px 35px;
     color: #424242;
     font-weight: bold;
@@ -606,7 +606,7 @@ address { font-style: italic; }
 }
 /* HeaderTwo */
 .wm-header-two .wm-topstrip {
-    text-align: left;
+    text-align: right;
     padding: 10px 0px 6px;
     background-color: #003c5a;
 }
@@ -614,9 +614,9 @@ address { font-style: italic; }
 .wm-header-two .wm-stripinfo li i                   { margin: 9px 7px 0px 0px; }
 .wm-login-section li:first-child:before             { display: none; }
 .wm-login-section li a                              { color: #ffffff; }
-.wm-login-section                                   { float: left; }
+.wm-login-section                                   { float: right; }
 .wm-header-two .navbar-nav > li > a                 { padding: 46px 20px 38px 20px; }
-.wm-header-two .navbar-nav > li:last-child > a      { padding-right: 0px; }
+.wm-header-two .navbar-nav > li:last-child > a      { padding-left: 0px; }
 .wm-header-two .wm-stripinfo li {
     text-transform: capitalize;
     padding: 0px 20px;
@@ -629,7 +629,7 @@ address { font-style: italic; }
     top: 14px;
 }
 .wm-login-section li {
-    float: left;
+    float: right;
     list-style: none;
     position: relative;
     padding: 0px 20px;
@@ -640,17 +640,17 @@ address { font-style: italic; }
     width: 3px;
     height: 2px;
     top: 14px;
-    left: 0px;
+    right: 0px;
     position: absolute;
 }
 .wm-search-section {
-    float: right;
+    float: left;
     width: 124px;
     position: relative;
-    margin-left: 66px;
+    margin-right: 66px;
 }
 .wm-search-section input[type="text"] {
-    float: left;
+    float: right;
     width: 100%;
     background-color: transparent;
     border: none;
@@ -662,7 +662,7 @@ address { font-style: italic; }
 }
 .wm-search-section input[type="submit"] {
     position: absolute;
-    right: 0px;
+    left: 0px;
     top: 7px;
     width: 15px;
     height: 15px;
@@ -672,43 +672,43 @@ address { font-style: italic; }
 }
 .wm-search-section i {
     position: absolute;
-    right: 0px;
+    left: 0px;
     top: 8px;
     font-size: 13px;
     z-index: 0;
 }
 .wm-enroll-btn {
-    float: right;
+    float: left;
     text-transform: uppercase;
     font-weight: 600;
     margin: 46px 0px 0px 0px;
 }
 .wm-enroll-btn i {
-    float: left;
+    float: right;
     font-size: 13px;
     margin: 4px 5px 0px 0px;
 }
 /* Header Three */
 .wm-header-three .wm-stripinfo li:before        { display: none; }
 .wm-header-three .wm-stripinfo li               { padding: 0px 20px; }
-.wm-header-three .wm-login-section li a i       { margin-right: 3px; }
+.wm-header-three .wm-login-section li a i       { margin-left: 3px; }
 .wm-header-three .wm-search-btn {
-    float: right;
+    float: left;
     font-size: 12px;
     margin: 6px 0px 0px 4px;
     position: relative;
 }
 .wm-header-three .wm-search-btn:before {
     content: '';
-    float: left;
+    float: right;
     background-color: #f4f4f4;
     width: 69px;
     height: 2px;
     margin: 8px 19px 0px 0px;
 }
-.left-modalbox .modal-content                   { float: left; }
+.left-modalbox .modal-content                   { float: right; }
 .wm-header-three .wm-logo                       { margin: 20px 0px 22px; }
-.wm-header-three .navbar                        { padding-right: 47px; }
+.wm-header-three .navbar                        { padding-left: 47px; }
 .wm-header-three .navbar-nav > li               { padding: 0px 20px; }
 .wm-header-three .wm-topstrip                   { background-color: #ffffff; }
 .wm-header-three .navbar-nav > li > a {
@@ -719,7 +719,7 @@ address { font-style: italic; }
 .wm-header-three .navbar-nav > li > a:before {
     content: '';
     position: absolute;
-    left: 0px;
+    right: 0px;
     bottom: 10px;
     width: 100%;
     height: 6px;
@@ -730,7 +730,7 @@ address { font-style: italic; }
     bottom: 0px;
 }
 .wm-header-number {
-    float: right;
+    float: left;
     padding: 30px 33px 29px 33px;
     font-weight: 500;
     color: #ffffff;
@@ -739,7 +739,7 @@ address { font-style: italic; }
 .wm-header-number:before {
     content: '';
     position: absolute;
-    left: 1px;
+    right: 1px;
     top: 50%;
     width: 19px;
     height: 1px;
@@ -747,7 +747,7 @@ address { font-style: italic; }
 .wm-header-number:after {
     content: '';
     position: absolute;
-    left: -43px;
+    right: -43px;
     top: 50%;
     width: 43px;
     height: 1px;
@@ -755,7 +755,7 @@ address { font-style: italic; }
 /* Header Four */
 .hidden-area {
     overflow: hidden;
-    float: left;
+    float: right;
     width: 100%;
     margin-top: -20px;
 }
@@ -765,14 +765,14 @@ address { font-style: italic; }
     z-index: 2;
 }
 .wm-main-strip {
-    float: left;
+    float: right;
     width: 100%;
     position: relative;
 }
 .wm-main-strip:before {
     content: '';
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 0px;
     background-color: #303030;
     height: 62px;
@@ -789,7 +789,7 @@ address { font-style: italic; }
 .wm-main-strip .wm-logo:before {
     content: '';
     position: absolute;
-    right: 0px;
+    left: 0px;
     top: 0px;
     width: 999em;
     background-color: #47d3a0;
@@ -803,26 +803,26 @@ address { font-style: italic; }
     font-weight: 500;
 }
 .wm-audition-btn {
-    float: left;
+    right: left;
     font-size: 13px;
     font-weight: 600;
     text-transform: uppercase;
     padding: 23px 27px 20px 27px;
     color: #ffffff;
     background-color: #404040;
-    margin-left: 15px;
+    margin-right: 15px;
 }
 .wm-audition-btn i {
-    float: left;
+    float: right;
     font-size: 11px;
     margin: 5px 8px 0px 0px;
 }
 .wm-login-search {
-    float: left;
-    padding-left: 13px;
+    float: right;
+    padding-right: 13px;
 }
 .wm-login-search li {
-    float: left;
+    float: right;
     list-style: none;
     padding: 18px 0px 14px 23px;
 }
@@ -832,7 +832,7 @@ address { font-style: italic; }
 }
 .wm-header-four .navbar-nav > li:hover > a { color: #ffffff; }
 .wm-header-infolist {
-    float: right;
+    float: left;
     background-color: #f1f1f1;
     position: relative;
     padding: 21px 0px 20px 4px;
@@ -840,40 +840,40 @@ address { font-style: italic; }
 .wm-header-infolist:before {
     content: '';
     position: absolute;
-    left: 100%;
+    right: 100%;
     top: 0px;
     width: 999em;
     height: 100%;
     background-color: #f1f1f1;
 }
 .wm-header-infolist li {
-    float: left;
+    float: right;
     list-style: none;
     font-size: 14px;
     color: #303030;
-    margin-left: 22px;
+    margin-right: 22px;
 }
 .wm-header-infolist li i {
-    float: left;
+    float: right;
     font-size: 11px;
     margin: 10px 8px 0px 0px;
 }
 /* Banner */
 .wm-main-banner,.wm-banner-one,.wm-banner-one-for-layer,
 .wm-banner-one-nav-layer,.wm-banner-one-for-layer img {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-banner-one-for {
-    float: left;
+    float: right;
     width: 54%;
 }
 .wm-banner-one-nav {
-    float: left;
+    float: right;
     width: 46%;
 }
 .wm-banner-one                                  { position: relative; }
-.wm-banner-one-nav-layer.slick-current          { border-left: 4px solid #13491e; }
+.wm-banner-one-nav-layer.slick-current          { border-right: 4px solid #13491e; }
 .wm-banner-one-nav-layer.slick-current h1       { color: #ffffff; }
 .wm-banner-one-nav-layer.slick-current p        { color: #c3c8e2; }
 .wm-banner-one-nav-layer.banner-bgcolor         { background-color: #efefef; }
@@ -907,7 +907,8 @@ address { font-style: italic; }
     bottom: 0px;
 }
 .wm-banner-one .slick-arrow.slick-arrow-left {
-    left: 27px;
+    left: auto;
+    right: 30px;
     bottom: 89px;
     -webkit-transform: rotate(90deg);
        -moz-transform: rotate(90deg);
@@ -916,8 +917,8 @@ address { font-style: italic; }
             transform: rotate(90deg);
 }
 .wm-banner-one .slick-arrow.slick-arrow-right {
-    right: auto;
-    left: 30px;
+    left: auto;
+    right: 30px;
     bottom: 30px;
 }
 .wm-banner-one .slick-arrow.slick-arrow-right i {
@@ -930,13 +931,13 @@ address { font-style: italic; }
 }
 /* BannerTwo */
 .wm-banner-two-layer {
-    float: left;
+    float: right;
     width: 100%;
     position: relative;
 }
 .wm-bannertwo-transparent {
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 0px;
     width: 100%;
     height: 100%;
@@ -944,13 +945,13 @@ address { font-style: italic; }
 }
 .wm-caption-two {
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 50%;
     width: 100%;
     margin-top: -140px;
 }
 .wm-caption-two-inner {
-    float: left;
+    float: right;
     width: 60%;
 }
 .wm-caption-two h1 {
@@ -964,7 +965,7 @@ address { font-style: italic; }
 .wm-caption-two h1:before {
     content: '';
     position: absolute;
-    left: 0px;
+    right: 0px;
     bottom: 0px;
     width: 136px;
     height: 3px;
@@ -990,7 +991,7 @@ address { font-style: italic; }
 }
 .wm-banner-adds {
     position: absolute;
-    right: 0px;
+    left: 0px;
     bottom: 0px;
     width: 50%;
 }
@@ -998,14 +999,14 @@ address { font-style: italic; }
 .wm-banner-adds-inner       { padding: 0px 48px 0px 48px; }
 .wm-banner-adds ul li {
     list-style: none;
-    float: left;
+    float: right;
     width: 50%;
     padding: 0px 0px 0px 10px;
     margin-bottom: 10px;
 }
 .wm-banner-adds-inner,.wm-banner-addswrap,.wm-banner-addswrap time,
 .wm-banner-addswrap span,.wm-banner-adds ul {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-banner-addswrap time {
@@ -1015,7 +1016,7 @@ address { font-style: italic; }
     margin-bottom: 18px;
 }
 .wm-banner-addswrap time i {
-    float: left;
+    float: right;
     margin: 7px 8px 0px 0px;
     color: #b5b5b5;
     font-size: 13px;
@@ -1048,20 +1049,20 @@ address { font-style: italic; }
     border-radius: 4px;
 }
 .wm-classic-button i {
-    float: left;
+    float: right;
     margin: 1px 8px 0px 0px;
     font-size: 11px;
 }
 /* Banner Three */
 .wm-banner-three,.wm-banner-three-layer {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-banner-three-layer,.wm-caption-three .container,.wm-banner-three          { position: relative; }
 .wm-caption-three .container { height: 100%; }
 .wm-caption-three {
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 0px;
     width: 100%;
     height: 100%;
@@ -1070,7 +1071,7 @@ address { font-style: italic; }
 .wm-caption-three:before {
     content: '';
     position: absolute;
-    left: -4%;
+    right: -4%;
     top: -30%;
     width: 50%;
     height: 150%;
@@ -1088,10 +1089,10 @@ address { font-style: italic; }
     filter: blur(2px);
 }
 .wm-caption-three-inner {
-    float: left;
+    float: right;
     width: 40%;
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 50%;
     z-index: 3;
     margin-top: -150px;
@@ -1107,7 +1108,7 @@ address { font-style: italic; }
 .wm-caption-three h1:before {
     content: '';
     position: absolute;
-    left: 0px;
+    right: 0px;
     bottom: 0px;
     width: 121px;
     height: 2px;
@@ -1130,19 +1131,19 @@ address { font-style: italic; }
 }
 /* Banner Four */
 .wm-banner-four-layer {
-    float: left;
+    float: right;
     width: 100%;
     position: relative;
 }
 .wm-caption-four {
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 50%;
     width: 100%;
     margin-top: -150px;
 }
 .wm-caption-four-inner {
-    float: right;
+    float: left;
     width: 65%;
 }
 .wm-caption-four h1 {
@@ -1192,11 +1193,11 @@ span.wm-blue-transparent {
     height: 100%;
     width: 100%;
     position: absolute;
-    left: 0;
+    right: 0;
     top:0;
 }
 .wm-mini-title,.wm-mini-title h1,.wm-mini-header,.wm-breadcrumb {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-mini-title h1 {
@@ -1212,8 +1213,9 @@ span.wm-blue-transparent {
     list-style: none;
 }
 .wm-breadcrumb ul li:before {
+    display: inherit;
     color: #ededef;
-    content: "\f105";
+    content: "\f104";
     font-family:FontAwesome ;
     font-size: 12px;
     padding: 10px;
@@ -1226,14 +1228,14 @@ span.wm-blue-transparent {
 /* mini header */
 /* Search Courses */
 .wm-search-course {
-    float: left;
+    float: right;
     width: 100%;
     background-color: #f7f7f7;
     padding: 36px 36px 35px 36px;
     margin-bottom: 30px;
 }
 .wm-short-title {
-    float: left;
+    float: right;
     width: 100%;
     padding-bottom: 6px;
     position: relative;
@@ -1242,7 +1244,7 @@ span.wm-blue-transparent {
 .wm-short-title:before {
     content: '';
     position: absolute;
-    left: 0px;
+    right: 0px;
     bottom: 0px;
     width: 80px;
     height: 2px;
@@ -1252,7 +1254,7 @@ span.wm-blue-transparent {
     display: inline-block;
     cursor: pointer;
     position: relative;
-    padding-left: 21px;
+    padding-right: 21px;
     color: #424242;
     margin-bottom: 0px;
 }
@@ -1263,7 +1265,7 @@ span.wm-blue-transparent {
     width: 13px;
     height: 13px;
     position: absolute;
-    left: 0;
+    right: 0;
     bottom: 0px;
     border: 1px solid #13491e;
 }
@@ -1273,12 +1275,12 @@ span.wm-blue-transparent {
     box-shadow: 0px 0px 0px 1px #f7f7f7 inset;
 }
 .wm-radio-partition {
-    float: left;
-    margin-right: 30px;
+    float: right;
+    margin-left: 30px;
     margin: 0px 19px 15px 0px;
 }
 .wm-apply-select {
-    float: left;
+    float: right;
     width: 100%;
     position: relative;
 }
@@ -1300,7 +1302,7 @@ span.wm-blue-transparent {
     content: "\f107";
     font-family: FontAwesome;
     color:#b7b7b7;
-    right: 16px;
+    left: 16px;
     top: 15px;
     padding:0 0 2px;
     position:absolute;
@@ -1309,7 +1311,7 @@ span.wm-blue-transparent {
 .wm-search-course p             { margin-bottom: 10px; }
 .wm-search-course ul,.wm-search-course ul li,.wm-radio,
 .wm-search-course ul li input[type="text"] {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-search-course ul li {
@@ -1329,7 +1331,7 @@ span.wm-blue-transparent {
 }
 .wm-search-course ul li i {
     position: absolute;
-    right: 19px;
+    left: 19px;
     top: 15px;
     font-size: 11px;
     color: #bababa;
@@ -1376,12 +1378,12 @@ span.wm-blue-transparent {
 }
 .wm-slash-btn {
     position: relative;
-    float: left;
+    float: right;
     margin-bottom: 0px;
 }
 /* Service */
 .wm-service,.wm-box-service-wrap {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-service ul li           { list-style: none; }
@@ -1442,7 +1444,7 @@ ul li:hover .wm-modren-service-wrap                 { border-color: #3ec694; }
 .wm-service.wm-modren-service > ul > li             { margin-bottom: 30px; }
 .wm-modren-service-wrap,.wm-modren-service-wrap small,
 .wm-modren-service-wrap span {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-modren-service-wrap small {
@@ -1460,7 +1462,7 @@ ul li:hover .wm-modren-service-wrap                 { border-color: #3ec694; }
 }
 /* Fancy Title */
 .wm-fancy-title {
-    float: left;
+    float: right;
     width: 100%;
     text-align: center;
     margin-bottom: 60px;
@@ -1475,12 +1477,12 @@ ul li:hover .wm-modren-service-wrap                 { border-color: #3ec694; }
 .wm-fancy-title h2:before {
     content: '';
     position: absolute;
-    left: 50%;
+    right: 50%;
     bottom: 0px;
     width: 102px;
     height: 2px;
     background: url(images/title-line.png);
-    margin-left: -50px;
+    margin-right: -50px;
 }
 .wm-fancy-title p {
     display: inline-block;
@@ -1491,7 +1493,7 @@ ul li:hover .wm-modren-service-wrap                 { border-color: #3ec694; }
 .wm-courses,.wm-courses-popular-wrap,.wm-courses-popular-wrap figure,
 .wm-courses-popular-wrap > figure > a,.wm-courses-popular-wrap > figure > a img,
 .wm-courses-popular figcaption,.wm-popular-courses-text,.wm-popular-courses-text ul {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-courses.wm-modren-courses > ul > li         { margin-bottom: 0px; }
@@ -1505,14 +1507,14 @@ ul li:hover .wm-modren-service-wrap                 { border-color: #3ec694; }
 ul li:hover .wm-popular-hover small             { top: 50%; }
 ul li:hover .wm-popular-hover                   { opacity: 1; top: 0px; }
 .wm-courses-popular figcaption img {
-    float: left;
+    float: right;
     border-radius: 100%;
     margin: -39px 13px 0px 0px;
 }
 .wm-popular-courses-text { padding: 25px 27px 16px 27px; }
 .wm-popular-hover {
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: -100%;
     width: 100%;
     height: 100%;
@@ -1527,7 +1529,7 @@ ul li:hover .wm-popular-hover                   { opacity: 1; top: 0px; }
     text-transform: uppercase;
     line-height: 1;
     position: absolute;
-    left: 50%;
+    right: 50%;
     top: 200%;
     margin: -20px 0px 0px -60px;
 }
@@ -1537,11 +1539,11 @@ ul li:hover .wm-popular-hover                   { opacity: 1; top: 0px; }
     padding: 0px 5px;
 }
 .wm-courses-price {
-    float: left;
+    float: right;
     width: 100%;
     margin-bottom: -5px;
     overflow: hidden;
-    text-align: right;
+    text-align: left;
 }
 .wm-courses-price span {
     color: #13491e;
@@ -1557,23 +1559,23 @@ ul li:hover .wm-popular-hover                   { opacity: 1; top: 0px; }
     border-bottom: 1px solid #eaeaea;
     position: absolute;
     top: 8px;
-    right: 100%;
-    margin-right: 13px;
+    left: 100%;
+    margin-left: 13px;
 }
 .wm-popular-courses-text ul { margin: 0px; }
 .wm-popular-courses-text ul li {
-    float: left;
+    float: right;
     margin: 0px 16px 8px 0px;
 }
 .wm-popular-courses-text ul li i {
-    float: left;
+    float: right;
     color: #dfdfdf;
     font-size: 16px;
     margin: 9px 9px 0px 0px;
 }
 /* Courses Medium */
 .wm-courses-mediumsec .wm-courses-popular-wrap > figure {
-    float: left;
+    float: right;
     width: 265px;
 }
 .wm-courses-mediumsec figure ~ .wm-popular-courses-text { margin-left: 265px; }
@@ -1583,7 +1585,7 @@ ul li:hover .wm-popular-hover                   { opacity: 1; top: 0px; }
     padding: 35px 30px 16px 30px;
 }
 .wm-courses-mediumsec .wm-popular-courses-text h6 {
-    text-align: left;
+    text-align: right;
     margin-bottom: 13px;
     font-size: 18px;
 }
@@ -1593,13 +1595,13 @@ ul li:hover .wm-popular-hover                   { opacity: 1; top: 0px; }
 .wm-coursespopular-list figure,.wm-coursespopular-list figure > a,
 .wm-coursespopular-list figure img,.coursespopular-list-text,
 .list-courses-thumb,.coursespopular-list-text h6,.wm-list-options {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-coursespopular-list figcaption,
 .wm-coursespopular-list figcaption:before {
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 0px;
     width: 100%;
     height: 100%;
@@ -1617,7 +1619,7 @@ ul li:hover .wm-popular-hover                   { opacity: 1; top: 0px; }
 .coursespopular-list-text h6 a                              { color: #003c5a; }
 .wm-coursespopular-list figcaption a {
     position: absolute;
-    left: 50%;
+    richness: 50%;
     top: 0%;
     padding: 10px 24px 12px 24px;
     color: #fff;
@@ -1634,10 +1636,10 @@ ul li:hover .wm-popular-hover                   { opacity: 1; top: 0px; }
     padding: 20px 25px 14px 25px;
 }
 .list-courses-thumb img {
-    float: left;
+    float: right;
     border-radius: 100%;
     width: 49px;
-    margin-right: 17px;
+    margin-left: 17px;
 }
 .list-courses-thumb a {
     display: block;
@@ -1651,17 +1653,17 @@ ul li:hover .wm-popular-hover                   { opacity: 1; top: 0px; }
 }
 .wm-list-options { padding: 0px 0px 0px 35px; }
 .wm-list-options a {
-    float: left;
+    float: right;
     color: #ffffff;
     margin: 12px 15px 0px 0px;
 }
 .wm-list-options a i {
-    float: left;
+    float: right;
     margin: 7px 8px 0px 0px;
     color: #ffc8a2;
 }
 .wm-list-price {
-    float: right;
+    float: left;
     font-size: 20px;
     color: #ffffff;
     background-color: #003c5a;
@@ -1671,23 +1673,23 @@ ul li:hover .wm-popular-hover                   { opacity: 1; top: 0px; }
 .wm-list-price:before {
     content: '';
     position: absolute;
-    left: -13px;
+    right: -13px;
     top: 0px;
     border-top: 27px solid #003c5a;
-    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
 }
 .wm-list-price:after {
     content: '';
     position: absolute;
-    left: -13px;
+    right: -13px;
     bottom: 0px;
     border-bottom: 27px solid #003c5a;
-    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
 }
 /* Modren Courses */
 .wm-modren-courses figure,.wm-modren-courses figure > a,
 .wm-modren-courses figure img {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-modren-courses ul li                    { padding: 0px; }
@@ -1697,7 +1699,7 @@ ul li:hover .wm-popular-hover                   { opacity: 1; top: 0px; }
 .wm-modren-courses figure:before {
     content: '';
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 0px;
     width: 100%;
     height: 100%;
@@ -1706,7 +1708,7 @@ ul li:hover .wm-popular-hover                   { opacity: 1; top: 0px; }
 }
 .wm-course-captiontitle {
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 50%;
     width: 100%;
     text-align: center;
@@ -1716,7 +1718,7 @@ ul li:hover .wm-popular-hover                   { opacity: 1; top: 0px; }
 }
 .wm-modren-courses figcaption {
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 0px;
     width: 100%;
     height: 100%;
@@ -1727,7 +1729,7 @@ ul li:hover .wm-popular-hover                   { opacity: 1; top: 0px; }
 .wm-modren-courses figcaption:before {
     content: '';
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 0px;
     width: 100%;
     height: 100%;
@@ -1767,12 +1769,12 @@ ul li:hover .wm-popular-hover                   { opacity: 1; top: 0px; }
 .wm-modren-courses figcaption h3:before {
     content: '';
     position: absolute;
-    left: 50%;
+    right: 50%;
     bottom: 0px;
     width: 48px;
     height: 2px;
     background-color: #ffffff;
-    margin-left: -18px;
+    margin-right: -18px;
 }
 .wm-modren-courses figcaption p {
     font-size: 16px;
@@ -1820,17 +1822,17 @@ ul li:hover .wm-popular-hover                   { opacity: 1; top: 0px; }
 }
 /* Courses Medium */
 .wm-courses-medium figure a,.wm-courses-medium figure img {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-courses-medium figure {
-    float: left;
+    float: right;
     width: 246px;
     margin-bottom: 0px;
 }
 .wm-courses-medium figure span {
     position: absolute;
-    right: 0px;
+    left: 0px;
     bottom: 0px;
     padding: 17px 17px 21px 17px;
     color: #ffffff;
@@ -1856,7 +1858,7 @@ ul li:hover .wm-popular-hover                   { opacity: 1; top: 0px; }
     border-top: 2px solid;
 }
 .courses-options li {
-    float: left;
+    float: right;
     list-style: none;
     line-height: 1;
     padding: 20px 10px 0px 10px;
@@ -1865,7 +1867,7 @@ ul li:hover .wm-popular-hover                   { opacity: 1; top: 0px; }
     color: #6c6c6c;
 }
 .courses-options li i {
-    float: left;
+    float: right;
     font-size: 16px;
     margin: 0px 8px 0px 0px;
     color: #d7d7d7;
@@ -1873,7 +1875,7 @@ ul li:hover .wm-popular-hover                   { opacity: 1; top: 0px; }
 /* Courses Grid */
 .wm-courses-grid figure > a,.wm-courses-grid figure img,.wm-courses-grid figure,
 .wm-courses-grid-text {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-courses-grid-text {
@@ -1898,7 +1900,7 @@ ul li:hover .wm-popular-hover                   { opacity: 1; top: 0px; }
 .wm-courses-grid figure figcaption,
 .wm-courses-grid figure figcaption:before {
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 0px;
     width: 100%;
     height: 100%;
@@ -1912,7 +1914,7 @@ ul li:hover .wm-coursemodren-btn                            { top: 50%; }
 .wm-courses-grid .courses-options li                        { padding: 20px 6px 0px; }
 .wm-coursemodren-btn {
     position: absolute;
-    left: 50%;
+    right: 50%;
     top: 0%;
     background-color: #ffffff;
     border-radius: 40px;
@@ -1925,12 +1927,12 @@ ul li:hover .wm-coursemodren-btn                            { top: 50%; }
 }
 /* PopularCourses Grid */
 .wm-fancy-title-four {
-    float: left;
+    float: right;
     width: 100%;
     text-align: center;
     margin-bottom: 46px;
 }
-.wm-fancy-title-four.wm-fancy-title-left { text-align: left; }
+.wm-fancy-title-four.wm-fancy-title-left { text-align: right; }
 .wm-fancy-title-four h2 {
     font-size: 30px;
     color: #303030;
@@ -1948,7 +1950,7 @@ ul li:hover .wm-coursemodren-btn                            { top: 50%; }
 .wm-fancy-title-four h2:before {
     content: '';
     position: absolute;
-    left: -19px;
+    right: -19px;
     top: 19px;
     width: 47px;
     height: 2px;
@@ -1957,7 +1959,7 @@ ul li:hover .wm-coursemodren-btn                            { top: 50%; }
 .wm-fancy-title-four h2:after {
     content: '';
     position: absolute;
-    right: -19px;
+    left: -19px;
     top: 19px;
     width: 47px;
     height: 2px;
@@ -1971,14 +1973,14 @@ ul li:hover .wm-coursemodren-btn                            { top: 50%; }
 .wm-popcourses-grid figure img,.wm-popcourses-grid-text,
 .wm-popcourses-thumb,.wm-popcourses-grid-text h6,
 .wm-popcourses-options {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-popcourses-grid figure { margin-bottom: 0px; }
 .wm-popcourses-grid figure figcaption,
 .wm-popcourses-grid figure figcaption:before {
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 0px;
     width: 100%;
     height: 100%;
@@ -1990,7 +1992,7 @@ ul li:hover .wm-coursemodren-btn                            { top: 50%; }
 .wm-popcourses-grid ul li:hover figure figcaption a             { top: 50%; }
 .wm-popcourses-grid figure figcaption a {
     position: absolute;
-    left: 50%;
+    right: 50%;
     top: 0%;
     padding: 17px 32px 17px 27px;
     font-size: 13px;
@@ -2010,7 +2012,7 @@ ul li:hover .wm-coursemodren-btn                            { top: 50%; }
 .wm-popcourses-grid-text:before {
     content: '';
     position: absolute;
-    right: -1px;
+    left: -1px;
     bottom: -1px;
     background-color: #ffffff;
     width: 70px;
@@ -2019,7 +2021,7 @@ ul li:hover .wm-coursemodren-btn                            { top: 50%; }
 .wm-popcourses-grid-text:after {
     content: '';
     position: absolute;
-    right: -5px;
+    left: -5px;
     bottom: 16px;
     background-color: #eaeaea;
     height: 1px;
@@ -2036,7 +2038,7 @@ ul li:hover .wm-coursemodren-btn                            { top: 50%; }
     margin-bottom: 22px;
 }
 .wm-popcourses-thumb img {
-    float: left;
+    float: right;
     margin: -40px 20px 0px 0px;
 }
 .wm-popcourses-thumb a {
@@ -2050,25 +2052,25 @@ ul li:hover .wm-coursemodren-btn                            { top: 50%; }
     margin-bottom: 19px;
 }
 .wm-popcourses-options span {
-    float: left;
+    float: right;
     color: #ffffff;
     font-size: 18px;
     padding: 14px 15px 16px 15px;
 }
 .wm-popcourses-options a {
-    float: left;
+    float: right;
     color: #303030;
     font-size: 15px;
     margin: 16px 0px 0px 16px;
 }
 .wm-popcourses-options a i {
-    float: left;
+    float: right;
     margin: 8px 9px 0px 0px;
     color: #dfdfdf;
 }
 /* WhyChooseus List */
 .whychooseus-list {
-    float: left;
+    float: right;
     width: 100%;
     margin: 33px 0px 0px 0px;
 }
@@ -2088,7 +2090,7 @@ ul li:hover .wm-coursemodren-btn                            { top: 50%; }
 .whychooseus-list p     { margin-bottom: 0px; }
 /* Questions Studying */
 .wm-questions-studying {
-    float: left;
+    float: right;
     width: 100%;
     background-color: #ffffff;
     border: 16px solid #ffffff;
@@ -2100,7 +2102,7 @@ ul li:hover .wm-coursemodren-btn                            { top: 50%; }
 }
 .wm-questions-studying img {
     position: absolute;
-    left: 100%;
+    right: 100%;
     top: -24px;
 }
 .wm-questions-studying h3                   { margin-bottom: 21px; }
@@ -2109,7 +2111,7 @@ ul li:hover .wm-coursemodren-btn                            { top: 50%; }
 /* Learn Listing */
 .wm-learn-listing,.wm-learn-listing figure,
 .wm-learn-listing figure > a,.wm-learn-listing figure img {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-learn-listing ul li {
@@ -2119,7 +2121,7 @@ ul li:hover .wm-coursemodren-btn                            { top: 50%; }
 .wm-learn-listing figure:before {
     content: '';
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 0px;
     width: 100%;
     height: 100%;
@@ -2127,7 +2129,7 @@ ul li:hover .wm-coursemodren-btn                            { top: 50%; }
 }
 .wm-learn-listing figcaption {
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 50%;
     width: 100%;
     text-align: center;
@@ -2147,7 +2149,7 @@ ul li:hover .wm-coursemodren-btn                            { top: 50%; }
 .wm-learn-listing figure                                        { margin-bottom: 0px; }
 /* Latest Event */
 .wm-simple-title {
-    float: left;
+    float: right;
     width: 100%;
     font-size: 50px;
     color: #c8c8c8;
@@ -2155,7 +2157,7 @@ ul li:hover .wm-coursemodren-btn                            { top: 50%; }
 }
 .wm-event-latest-slider { position: relative; }
 .wm-event-latest-slider,.wm-event-latest-layer {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-event-latest-slider { padding-bottom: 40px; }
@@ -2175,19 +2177,19 @@ ul li:hover .wm-coursemodren-btn                            { top: 50%; }
     bottom: 0px;
 }
 .wm-event-latest-slider .slick-arrow.slick-arrow-left {
-    left: 50%;
-    margin-left: -22px;
+    right: 50%;
+    margin-right: -22px;
 }
 .wm-event-latest-slider .slick-arrow.slick-arrow-right {
-    right: 50%;
-    margin-right: -26px;
+    left: 50%;
+    margin-left: -26px;
     bottom: 1px;
 }
 /* Event */
 .wm-event,.wm-latest-event figure,.wm-latest-event figure a,
 .wm-latest-event figure img,.wm-latest-event .wm-latest-event-text,
 .wm-latest-event-text time {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-event ul li {
@@ -2207,7 +2209,7 @@ ul li:hover .wm-coursemodren-btn                            { top: 50%; }
     border-bottom: 2px solid #eeeeee;
 }
 .wm-latest-event-text time span {
-    margin-left: 16px;
+    margin-right: 16px;
 }
 .wm-latest-event-text p {
     margin-bottom: 25px;
@@ -2215,7 +2217,7 @@ ul li:hover .wm-coursemodren-btn                            { top: 50%; }
 }
 .wm-event-transparent-hover {
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 0px;
     width: 100%;
     height: 100%;
@@ -2224,7 +2226,7 @@ ul li:hover .wm-coursemodren-btn                            { top: 50%; }
 ul li:hover .wm-event-transparent-hover { opacity: 0.80; }
 /* Filterable Link */
 .wm-filterable-link {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-filterable-link {
@@ -2237,10 +2239,10 @@ ul li:hover .wm-event-transparent-hover { opacity: 0.80; }
 }
 .wm-filterable-link ul li {
     list-style: none;
-    float: left;
+    float: right;
     margin: 0px 0px 1px 38px;
 }
-.wm-filterable-link ul li:first-child { margin-left: 0px; }
+.wm-filterable-link ul li:first-child { margin-right: 0px; }
 .wm-filterable-link ul li a {
     font-size: 18px;
     color: #424242;
@@ -2252,7 +2254,7 @@ ul li:hover .wm-event-transparent-hover { opacity: 0.80; }
 .wm-filterable-link ul li a.active:before {
     content: '';
     position: absolute;
-    left: 0px;
+    right: 0px;
     bottom: -5px;
     background-color: #13491e;
     width: 100%;
@@ -2260,7 +2262,7 @@ ul li:hover .wm-event-transparent-hover { opacity: 0.80; }
 }
 /* Event Medium */
 .wm-event-medium figure > a,.wm-event-medium figure img {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-event-medium figure ~ .wm-eventmedium-text          { padding: 0px 100px 0px 219px; margin-top: -2px; }
@@ -2268,7 +2270,7 @@ ul li:hover .wm-event-transparent-hover { opacity: 0.80; }
 .wm-linkhover:before                                    { content: ''; }
 ul li:hover .wm-linkhover:before                        { opacity: 0.95; }
 ul li:hover .wm-linkhover                               { opacity: 1; }
-ul li:hover .wm-icon-link                               { left: 50%; }
+ul li:hover .wm-icon-link                               { right: 50%; }
 .wm-eventmedium-text h5 a                               { color: #6c6c6c; }
 .wm-eventmedium-text time                               { font-size: 14px; }
 .wm-event-medium-wrap {
@@ -2281,13 +2283,13 @@ ul li:last-child .wm-event-medium-wrap {
     padding-bottom: 0px;
 }
 .wm-event-medium figure {
-    float: left;
+    float: right;
     width: 194px;
     margin-bottom: 0px;
 }
 .wm-linkhover,.wm-linkhover:before {
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 0px;
     width: 100%;
     height: 100%;
@@ -2295,7 +2297,7 @@ ul li:last-child .wm-event-medium-wrap {
 }
 .wm-icon-link {
     position: absolute;
-    left: 0%;
+    right: 0%;
     top: 50%;
     width: 62px;
     height: 62px;
@@ -2320,7 +2322,7 @@ ul li:last-child .wm-event-medium-wrap {
     font-size: 16px;
 }
 .wm-eventmedium-text time i {
-    float: left;
+    float: right;
     margin: 3px 8px 0px 0px;
     font-size: 11px;
 }
@@ -2337,7 +2339,7 @@ ul li:last-child .wm-event-medium-wrap {
     border-radius: 4px;
 }
 .wm-event-time span {
-    float: left;
+    float: right;
     width: 100%;
     padding: 8px 0px 12px 0px;
     background-color: #ffffff;
@@ -2347,11 +2349,11 @@ ul li:last-child .wm-event-medium-wrap {
     border-radius: 0px 0px 4px 4px;
     margin-top: 10px;
 }
-.wm-left-spacer { padding-left: 30px; }
+.wm-left-spacer { padding-right: 30px; }
 /* Event Featured */
 .wm-event-featured figure,.wm-event-featured figure > a,
 .wm-event-featured figure img,.wm-event-featured-text {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-event-featured figure { margin-bottom: 0px; }
@@ -2362,7 +2364,7 @@ ul li:last-child .wm-event-medium-wrap {
 }
 .wm-featured-label {
     position: absolute;
-    left: -20px;
+    right: -20px;
     top: 0px;
     color: #ffffff;
     background: url(images/event-label-1.png);
@@ -2397,12 +2399,12 @@ ul li:last-child .wm-event-medium-wrap {
     margin-bottom: 14px;
 }
 .wm-event-featured-text time i {
-    float: left;
+    float: right;
     margin: 4px 8px 0px 0px;
     font-size: 11px;
 }
 .wm-allevents-view {
-    float: left;
+    float: right;
     width: 100%;
     text-align: center;
     padding: 42px 0px 0px 0px;
@@ -2422,7 +2424,7 @@ ul li:last-child .wm-event-medium-wrap {
 /* Event List */
 .wm-event-list figure a,.wm-event-list figure img,
 .wm-event-list-wrap {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-event-list-wrap {
@@ -2448,7 +2450,7 @@ ul li:last-child .wm-event-medium-wrap {
 .wm-event-list-wrap:after {
     content: '';
     position: absolute;
-    right: 30.55%;
+    left: 30.55%;
     top: 0px;
     width: 8px;
     height: 100%;
@@ -2460,11 +2462,11 @@ ul li:last-child .wm-event-medium-wrap {
             transform: skewX(-34deg);
 }
 .wm-event-list figure {
-    float: left;
+    float: right;
     width: 267px;
     margin-bottom: 0px;
 }
-.wm-event-list figure ~ .wm-event-list-text { margin-left: 267px; }
+.wm-event-list figure ~ .wm-event-list-text { margin-right: 267px; }
 .wm-event-list-text {
     padding: 52px 52px 52px 52px;
     position: relative;
@@ -2484,7 +2486,7 @@ ul li:last-child .wm-event-medium-wrap {
 }
 .wm-event-list-text ul li {
     margin: 0px 0px 12px 0px;
-    padding-left: 92px;
+    padding-right: 92px;
     font-size: 16px;
     color: #303030;
     position: relative;
@@ -2493,7 +2495,7 @@ ul li:last-child .wm-event-medium-wrap {
 .wm-event-list-text ul li span {
     font-weight: 500;
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 0px;
     margin: 0px 22px 0px 0px;
 }
@@ -2522,7 +2524,7 @@ ul li:last-child .wm-event-medium-wrap {
 .wm-event-details:hover { background-color: #303030; }
 .wm-featured-event {
     position: absolute;
-    right: -24px;
+    left: -24px;
     top: 0px;
     font-size: 16px;
     width: 226px;
@@ -2550,7 +2552,7 @@ ul li:last-child .wm-event-medium-wrap {
 .event-normal-list .wm-event-list-text ul li                    { margin-bottom: 9px; }
 .event-normal-list .wm-event-list-text .wm-right-section        { padding-top: 8px; }
 .wm-eventdetail-btn {
-    float: left;
+    float: right;
     width: 100%;
     text-align: center;
     overflow: hidden;
@@ -2573,8 +2575,8 @@ ul li:last-child .wm-event-medium-wrap {
     border-bottom: 2px solid #f0f0f0;
     position: absolute;
     top: 18px;
-    left: 100%;
-    margin-left: 23px;
+    right: 100%;
+    margin-right: 23px;
 }
 .wm-eventdetail-btn span:after {
     content: '';
@@ -2583,12 +2585,12 @@ ul li:last-child .wm-event-medium-wrap {
     border-bottom: 2px solid #f0f0f0;
     position: absolute;
     top: 18px;
-    right: 100%;
-    margin-right: 23px;
+    left: 100%;
+    margin-left: 23px;
 }
 /* Counter */
 .wm-counter,.wm-counter-simple {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-counter ul li           { list-style: none; }
@@ -2602,10 +2604,10 @@ ul li:last-child .wm-event-medium-wrap {
 .wm-counter-simple:before {
     content: '';
     position: absolute;
-    right: -18px;
+    left: -18px;
     top: 0px;
     border-bottom: 20px solid #505777;
-    border-right: 18px solid transparent;
+    border-left: 18px solid transparent;
 }
 .wm-counter-simple span {
     font-size: 70px;
@@ -2624,16 +2626,16 @@ ul li:last-child .wm-event-medium-wrap {
 /* Testimonial Slider */
 .wm-testimonial-slider,.wm-testimonial-slider-wrap,
 .wm-testimonial-slider-wrap p,.wm-testimonial-slider-wrap figure {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-testimonial-slider-wrap p:before {
     content: '';
     position: absolute;
-    left: 70px;
+    right: 70px;
     bottom: -14px;
-    border-left: 9px solid transparent;
     border-right: 9px solid transparent;
+    border-left: 9px solid transparent;
     border-top: 14px solid;
 }
 .wm-testimonial-slider-wrap p {
@@ -2649,7 +2651,7 @@ ul li:last-child .wm-event-medium-wrap {
     padding: 0px 38px;
 }
 .wm-testimonial-thumb {
-    float: left;
+    float: right;
     width: 77px;
     margin: 0px 16px 0px 0px;
 }
@@ -2658,18 +2660,18 @@ ul li:last-child .wm-event-medium-wrap {
 .wm-testimonial-slider-wrap figure figcaption                       { padding: 12px 0px 0px 0px; }
 .wm-testimonial-slider-wrap:nth-child(even)                         { margin: 21px 33px 0px -33px; }
 .wm-testimonial-slider-wrap:nth-child(even) p                       { background-color: rgba(185,150,99,0.80); }
-.wm-testimonial-slider-wrap:nth-child(even) figure figcaption       { text-align: right; }
+.wm-testimonial-slider-wrap:nth-child(even) figure figcaption       { text-align: left; }
 .wm-testimonial-slider-wrap figure figcaption h5 {
     margin-bottom: 0px;
     font-weight: 400;
 }
 .wm-testimonial-slider-wrap:nth-child(even) p:before {
     border-top-color: #ceb591;
-    left: auto;
-    right: 70px;
+    right: auto;
+    left: 70px;
 }
 .wm-testimonial-slider-wrap:nth-child(even) .wm-testimonial-thumb {
-    float: right;
+    float: left;
     margin: 0px 0px 0px 16px;
 }
 .wm-testimonial-slider .slick-arrow {
@@ -2677,12 +2679,12 @@ ul li:last-child .wm-event-medium-wrap {
     top: 50%;
     margin-top: -60px;
 }
-.wm-testimonial-slider .slick-arrow.slick-arrow-left    { left: -74px; }
-.wm-testimonial-slider .slick-arrow.slick-arrow-right   { right: -50px; }
+.wm-testimonial-slider .slick-arrow.slick-arrow-left    { right: -74px; }
+.wm-testimonial-slider .slick-arrow.slick-arrow-right   { left: -50px; }
 /* OurHistory */
 .wm-light-transparent {
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 0px;
     width: 100%;
     height: 100%;
@@ -2710,16 +2712,16 @@ ul li:last-child .wm-event-medium-wrap {
 }
 .wm-history-list,.wm-history-list ul li,.wm-history-list ul,
 .wm-history-defoult ul li,.wm-history-defoult ul,.wm-history-defoult {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-history-list,.wm-history-list-color {
     height: 350px;
-    padding-left: 39px;
+    padding-right: 39px;
 }
 .wm-history-list ul li,.wm-history-defoult ul li {
     list-style: none;
-    padding-left: 55px;
+    padding-right: 55px;
     position: relative;
     line-height: 24px;
     margin-bottom: 28px;
@@ -2732,7 +2734,7 @@ ul li:last-child .wm-event-medium-wrap {
 }
 .wm-history-list ul li time,.wm-history-defoult ul li time {
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 0px;
     font-size: 16px;
     color: #c2c8e2;
@@ -2741,7 +2743,7 @@ ul li:last-child .wm-event-medium-wrap {
 .wm-history-list ul li span,.wm-history-defoult ul li span          { color: #ffffff; }
 .wm-subscribe-color.wm-subscribe-form h2:before                     { bottom: 11px; }
 .wm-subscribe-color.wm-subscribe-form p                             { color: #a6a6a6; }
-.wm-subscribe-color.wm-subscribe-form form input[type="email"]      { border-right: none; width: 45%; }
+.wm-subscribe-color.wm-subscribe-form form input[type="email"]      { border-left: none; width: 45%; }
 .wm-subscribe-color.wm-subscribe-form form input[type="text"],
 .wm-subscribe-color.wm-subscribe-form form input[type="email"] {
     color: #6c6c6c;
@@ -2755,7 +2757,7 @@ ul li:last-child .wm-event-medium-wrap {
 .wm-subscribe-color.wm-subscribe-form form input[type="submit"] {
     padding: 24px 40px 24px 36px;
     border-radius: 0px 40px 40px 0px;
-    margin-right: -2px;
+    margin-left: -2px;
     font-size: 16px;
 }
 .wm-subscribe-color.wm-subscribe-form form {
@@ -2764,7 +2766,7 @@ ul li:last-child .wm-event-medium-wrap {
 }
 /* SubscribeForm */
 .wm-subscribe-form {
-    float: left;
+    float: right;
     width: 100%;
     text-align: center;
     padding-top: 50px;
@@ -2780,7 +2782,7 @@ ul li:last-child .wm-event-medium-wrap {
 .wm-subscribe-form h2:before {
     content: '';
     position: absolute;
-    right: 0px;
+    left: 0px;
     bottom: 0px;
     width: 295px;
     height: 2px;
@@ -2797,13 +2799,13 @@ ul li:last-child .wm-event-medium-wrap {
     padding: 12px 8px;
 }
 .wm-subscribe-form input[type="text"] {
-    float: left;
+    float: right;
     width: 28%;
     font-size: 18px;
     color: #c2c8e2;
-    padding: 0px 0px 0px 18px;
+    padding: 0px 18px 0px 0px;
     height: 46px;
-    border-right: 2px solid #c2c8e2;
+    border-left: 2px solid #c2c8e2;
     background-color: transparent;
 }
 .wm-subscribe-formxt p {
@@ -2812,7 +2814,7 @@ ul li:last-child .wm-event-medium-wrap {
 }
 /* NewsMedium */
 .wm-news-medium figure {
-    float: left;
+    float: right;
     width: 365px;
     margin: 0px 0px 0px 0px;
 }
@@ -2828,14 +2830,14 @@ ul li:last-child .wm-event-medium-wrap {
 
 .wm-news-medium .wm-newsgrid-text {
     border: 1px solid #f0f0f0;
-    border-left: none;
+    border-right: none;
     padding: 18px 25px 30px 33px;
 }
-.wm-news-medium figure ~ .wm-newsgrid-text { margin-left: 365px; }
+.wm-news-medium figure ~ .wm-newsgrid-text { margin-right: 365px; }
 .wm-news figure > a { position: relative; }
 .wm-transparent-hover {
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 0px;
     width: 100%;
     height: 100%;
@@ -2844,7 +2846,7 @@ ul li:last-child .wm-event-medium-wrap {
 ul li:hover .wm-transparent-hover { opacity: 0.70; }
 /* Latest News */
 .wm-latest-news figure > a, .bg-form {
-    float: left;
+    float: right;
     width: 80%;
     background-color: #ffffff;
     padding: 14px 0px 13px 0px;
@@ -2857,7 +2859,7 @@ ul li:hover .wm-transparent-hover { opacity: 0.70; }
 }
 .wm-subscribe-modren.wm-subscribe-form form input[type="submit"] {
     position: absolute;
-    right: -2px;
+    left: -2px;
     top: -1px;
     padding: 24px 44px;
     background: url(images/bg.png);
@@ -2866,7 +2868,7 @@ ul li:hover .wm-transparent-hover { opacity: 0.70; }
 .wm-news,.wm-news figure > a,.wm-news figure > a > img,
 .wm-news-grid figure,.wm-news figure figcaption,.wm-news-grid .wm-newsgrid-text,
 .wm-post-options {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-news > ul > li {
@@ -2877,7 +2879,7 @@ ul li:hover .wm-transparent-hover { opacity: 0.70; }
 .wm-news-grid > ul > li {
     float: none;
     display: inline-block;
-    margin-right: -4px;
+    margin-left: -4px;
     vertical-align: top;
 }
 /* NewsGrid */
@@ -2888,7 +2890,7 @@ ul li:hover .wm-transparent-hover { opacity: 0.70; }
 .wm-newsgrid-text h5                        { margin-bottom: 12px; }
 .wm-post-options li:last-child              { margin-right: 0px; }
 .wm-news figure figcaption img {
-    float: left;
+    float: right;
     border-radius: 100%;
     margin: -39px 19px 0px 0px;
 }
@@ -2908,15 +2910,15 @@ ul li:hover .wm-transparent-hover { opacity: 0.70; }
     border-bottom: 2px solid #eeeeee;
 }
 .wm-post-options li {
-    float: left;
+    float: right;
     list-style: none;
     font-size: 14px;
-    margin-right: 20px;
+    margin-left: 20px;
     padding-bottom: 11px;
 }
 .wm-post-options li a i {
     color: #afafaf;
-    float: left;
+    float: right;
     margin: 7px 5px 0px 0px;
 }
 .wm-newsgrid-text p {
@@ -2925,20 +2927,20 @@ ul li:hover .wm-transparent-hover { opacity: 0.70; }
 }
 /* NewsMedium */
 .wm-news-medium figure {
-    float: left;
+    float: right;
     width: 365px;
     margin: 0px 0px 0px 0px;
 }
 .wm-news-medium .wm-newsgrid-text {
     border: 1px solid #f0f0f0;
-    border-left: none;
+    border-right: none;
     padding: 18px 25px 30px 33px;
 }
-.wm-news-medium figure ~ .wm-newsgrid-text { margin-left: 365px; }
+.wm-news-medium figure ~ .wm-newsgrid-text { margin-right: 365px; }
 .wm-news figure > a { position: relative; }
 .wm-transparent-hover {
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 0px;
     width: 100%;
     height: 100%;
@@ -2948,11 +2950,11 @@ ul li:hover .wm-transparent-hover { opacity: 0.70; }
 /* Latest News */
 .wm-latest-news figure > a, .wm-latest-news figure a img,
 .wm-latest-news-wrap {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-latest-news figure {
-    float: left;
+    float: right;
     width: 86px;
     margin-bottom: 0px;
 }
@@ -2961,11 +2963,11 @@ ul li:hover .wm-transparent-hover { opacity: 0.70; }
 .wm-latest-news ul li                                           { margin-bottom: 0px; }
 .wm-latest-news ul li:hover figure figcaption:before            { opacity: 0.80; }
 .wm-latest-news ul li:hover figure figcaption                   { opacity: 1; }
-.wm-latest-news ul li:hover figure figcaption a                 { left: 50%; }
+.wm-latest-news ul li:hover figure figcaption a                 { right: 50%; }
 .wm-latest-news figure figcaption,
 .wm-latest-news figure figcaption:before {
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 0px;
     width: 100%;
     height: 100%;
@@ -2977,7 +2979,7 @@ ul li:hover .wm-transparent-hover { opacity: 0.70; }
 }
 .wm-latest-news figure figcaption a {
     position: absolute;
-    left: 0%;
+    right: 0%;
     top: 50%;
     color: #ffffff;
     font-size: 11px;
@@ -2994,7 +2996,7 @@ ul li:hover .wm-transparent-hover { opacity: 0.70; }
             transform: scale(-1);
 }
 .wm-latestnews-text time {
-    float: left;
+    float: right;
     font-size: 50px;
     color: #003c5a;
     text-transform: uppercase;
@@ -3024,13 +3026,13 @@ ul li:last-child .wm-latest-news-wrap {
 .wm-news-modren figure,.wm-news-modren figure > a,
 .wm-news-modren figure img,.wm-news-modren-text,
 .wm-category-list {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-news-modren figure figcaption,
 .wm-news-modren figure figcaption:before {
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 0px;
     width: 100%;
     height: 100%;
@@ -3041,7 +3043,7 @@ ul li:last-child .wm-latest-news-wrap {
 .wm-news-modren ul li:hover figure figcaption:before    { opacity: 0.80; }
 .wm-news-modren figure figcaption a {
     position: absolute;
-    left: 50%;
+    right: 50%;
     top: 0%;
     width: 63px;
     height: 63px;
@@ -3084,7 +3086,7 @@ ul li:last-child .wm-latest-news-wrap {
     margin: 0px 0px 11px 0px;
 }
 .wm-news-modren-option li {
-    float: left;
+    float: right;
     list-style: none;
     color: #303030;
     margin: 0px 0px 0px 19px;
@@ -3111,11 +3113,11 @@ ul li:last-child .wm-latest-news-wrap {
 .wm-simple-section-title.wm-partners-title-two h2                                                  { font-size: 24px; }
 .wm-simple-section-title.wm-partners-title-two h2:before                                           { top: 18px; }
 .wm-simple-section-title {
-    float: left;
+    float: right;
     width: 100%;
     margin-bottom: 32px;
     overflow: hidden;
-    text-align: left;
+    text-align: right;
 }
 .wm-simple-section-title h2 {
     display: inline-block;
@@ -3131,11 +3133,11 @@ ul li:last-child .wm-latest-news-wrap {
     border-bottom: 2px solid #eeeeee;
     position: absolute;
     top: 20px;
-    left: 100%;
-    margin-left: 22px;
+    right: 100%;
+    margin-right: 22px;
 }
 .wm-partners-slider,.wm-partners-slider a {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-partners-slider             { margin-bottom: 86px; }
@@ -3155,18 +3157,18 @@ ul li:last-child .wm-latest-news-wrap {
     filter: grayscale(0%);
 }
 .wm-partners-slider .slick-arrow {
-    left: auto;
-    right: 34px;
+    right: auto;
+    left: 34px;
     top: 11px;
 }
 .wm-partners-slider .slick-arrow.slick-arrow-right {
-    right: 0px;
-    left: auto;
+    left: 0px;
+    right: auto;
     top: 10px;
 }
 /* Partners Slider Two */
 .wm-partners-slider-two {
-    float: left;
+    float: right;
     width: 100%;
     margin: 10px 0px 30px 0px;
 }
@@ -3178,11 +3180,11 @@ ul li:last-child .wm-latest-news-wrap {
     text-align: center;
     padding-top: 9px;
 }
-.wm-partners-slider-two .slick-arrow.slick-arrow-left        { left: auto; right: 44px; }
-.wm-partners-slider-two .slick-arrow.slick-arrow-right       { right: 0%; }
+.wm-partners-slider-two .slick-arrow.slick-arrow-left        { right: auto; left: 44px; }
+.wm-partners-slider-two .slick-arrow.slick-arrow-right       { left: 0%; }
 /* Contact Tab */
 .wm-contact-tab {
-    float: left;
+    float: right;
     width: 100%;
     text-align: center;
 }
@@ -3202,19 +3204,19 @@ ul li:last-child .wm-latest-news-wrap {
 .wm-contact-tab .nav-tabs li.active a:before {
     content: '';
     position: absolute;
-    left: 0px;
+    right: 0px;
     bottom: -2px;
     width: 100%;
     height: 2px;
 }
-.wm-contact-tab .nav-tabs li:first-child              { padding-left: 0px; }
-.wm-contact-tab .nav-tabs li:last-child               { padding-right: 0px; }
+.wm-contact-tab .nav-tabs li:first-child              { padding-right: 0px; }
+.wm-contact-tab .nav-tabs li:last-child               { padding-left: 0px; }
 .wm-contact-tab .tab-content {
     display: inline-block;
     width: 100%;
 }
 .wm-map {
-    float: left;
+    float: right;
     width: 100%;
     border: 3px solid #f1f1f1;
 }
@@ -3224,7 +3226,7 @@ ul li:last-child .wm-latest-news-wrap {
 .wm-contact-form,.wm-contact-form ul,
 .wm-contact-form ul li,.wm-contact-form input[type="text"],
 .wm-contact-form textarea {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-contact-form { text-align: center; }
@@ -3241,18 +3243,18 @@ ul li:last-child .wm-latest-news-wrap {
 }
 .wm-contact-form i {
     position: absolute;
-    left: 20px;
+    right: 0px;
     top: 8px;
     font-size: 14px;
     color: #e5e5e5;
-    border-right: 2px solid #f3f3f3;
-    padding-right: 18px;
-    padding: 8px 18px 8px 0px;
+    border-left: 2px solid #f3f3f3;
+    padding-left: 18px;
+    padding: 8px 18px 8px 20px;
 }
 .wm-contact-form input[type="text"] {
     font-size: 15px;
     color: #bdbcbc;
-    padding: 7px 20px 7px 74px;
+    padding: 7px 74px 7px 20px;
     background-color: #ffffff;
     border-bottom: 2px solid #efefef;
     height: 48px;
@@ -3260,7 +3262,7 @@ ul li:last-child .wm-latest-news-wrap {
 .wm-contact-form textarea {
     font-size: 15px;
     color: #777;
-    padding: 12px 20px 7px 74px;
+    padding: 12px 74px 7px 20px;
     background-color: #ffffff;
     border-bottom: 2px solid #efefef;
     height: 175px;
@@ -3278,7 +3280,7 @@ ul li:last-child .wm-latest-news-wrap {
 .wm-contact-form input[type="submit"]:hover { color: #ffffff; }
 /* Contact Title */
 .wm-contact-title {
-    float: left;
+    float: right;
     width: 100%;
     font-size: 50px;
     color: #a4a4a4;
@@ -3287,7 +3289,7 @@ ul li:last-child .wm-latest-news-wrap {
 }
 /* Contact Service */
 .wm-contact-service {
-    float: left;
+    float: right;
     width: 100%;
     background: url(images/contact-service-bg.png);
     background-repeat: no-repeat;
@@ -3312,7 +3314,7 @@ ul li:last-child .wm-latest-news-wrap {
 .wm-service-icon:before {
     content: '';
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 0px;
     width: 100%;
     height: 100%;
@@ -3339,18 +3341,18 @@ ul li:last-child .wm-latest-news-wrap {
     margin-bottom: 70px;
 }
 .contact-social-icon li {
-    float: left;
+    float: right;
     list-style: none;
-    margin-left: 30px;
+    margin-right: 30px;
 }
 .contact-social-icon li:first-child { margin-left: 0px; }
 .contact-social-icon li i {
-    float: left;
+    float: right;
     margin: 7px 6px 0px 0px;
 }
 /* Service Slider */
 .wm-service-slider,.wm-service-layer,.wm-service-heading {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-service-slider ul li {
@@ -3402,19 +3404,19 @@ ul li:last-child .wm-latest-news-wrap {
             transform: scale(-1);
 }
 .wm-service-slider .slick-arrow {
-    left: 25%;
+    right: 25%;
     top: 16px;
     font-size: 10px;
     color: #cbcbcb;
 }
 .wm-service-slider .slick-arrow.slick-arrow-right {
-    left: 27%;
-    right: auto;
+    right: 27%;
+    left: auto;
     top: 17px;
 }
 /* FancyTitle Two */
 .wm-fancytitle-two {
-    float: left;
+    float: right;
     width: 100%;
     text-align: center;
     margin-bottom: 60px;
@@ -3429,15 +3431,15 @@ ul li:last-child .wm-latest-news-wrap {
 .wm-fancytitle-two h2:before {
     content: '';
     position: absolute;
-    left: 50%;
+    right: 50%;
     bottom: 0px;
     width: 48px;
     height: 2px;
-    margin-left: -24px;
+    margin-right: -24px;
 }
 /* Parallex */
 .wm-parallex,.wm-parallex span {
-    float: left;
+    float: right;
     width: 100%;
     text-align: center;
 }
@@ -3452,11 +3454,11 @@ ul li:last-child .wm-latest-news-wrap {
 .wm-parallex h2:before {
     content: '';
     position: absolute;
-    left: 50%;
+    right: 50%;
     bottom: 0px;
     width: 48px;
     height: 2px;
-    margin-left: -22px;
+    margin-right: -22px;
 }
 .wm-more-light          { opacity: 0.80; }
 .wm-parallex > span {
@@ -3476,7 +3478,7 @@ ul li:last-child .wm-latest-news-wrap {
 }
 /* UpcomingEvent Slider */
 .wm-upcoming-event-slider,.wm-upcoming-event-layer {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-upcoming-event-slider {
@@ -3525,7 +3527,7 @@ ul li:last-child .wm-latest-news-wrap {
 }
 /* ApplyInfo */
 .wm-apply-info {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-apply-info ul li {
@@ -3546,7 +3548,7 @@ ul li:last-child .wm-latest-news-wrap {
 .wm-apply-info-color .applyinfo-btn { border-radius: 0px; }
 .wm-apply-info ul li i {
     position: absolute;
-    left: 30px;
+    right: 30px;
     top: 30px;
     font-size: 104px;
     color: #31637c;
@@ -3575,27 +3577,27 @@ ul li:last-child .wm-latest-news-wrap {
     margin-bottom: 0px;
     line-height: 44px;
 }
-.wm-align-left                                  { text-align: left; margin-bottom: 54px; }
-.wm-align-left.wm-fancytitle-two h2:before      { left: 0px; margin-left: 0px; }
+.wm-align-left                                  { text-align: right; margin-bottom: 54px; }
+.wm-align-left.wm-fancytitle-two h2:before      { right: 0px; margin-right: 0px; }
 /* Thumb Testimonial */
 .wm-thumb-testimonial,.wm-thumb-testimonial figure a,
 .wm-thumb-testimonial figure img,.thumb-testimonial-text span {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-thumb-testimonial { margin-bottom: 30px; }
 .wm-thumb-testimonial figure {
-    float: left;
+    float: right;
     width: 265px;
     margin-bottom: 0px;
 }
 .wm-thumb-testimonial figure ~ .thumb-testimonial-text {
-    margin-left: 265px;
+    margin-right: 265px;
     float: none;
     width: auto;
 }
 .thumb-testimonial-text {
-    float: left;
+    float: right;
     width: 100%;
     padding: 47px 36px 74px 36px;
     background-color: #f6f6f6;
@@ -3605,7 +3607,7 @@ ul li:last-child .wm-latest-news-wrap {
     content: '';
     background: url(images/testimonial-qoutes.png);
     position: absolute;
-    right: 30px;
+    left: 30px;
     bottom: 28px;
     width: 35px;
     height: 35px;
@@ -3647,23 +3649,23 @@ ul li:last-child .wm-latest-news-wrap {
     top: 11px;
 }
 .wm-thumb-testimonial .slick-arrow.slick-arrow-left {
-    left: auto;
-    right: 45px;
+    right: auto;
+    left: 45px;
 }
 .wm-thumb-testimonial .slick-arrow.slick-arrow-right {
-    right: 15px;
+    left: 15px;
     top: 12px;
 }
 /* Contact Service */
 .wm-contact-service-two {
-    float: left;
+    float: right;
     width: 100%;
     margin-bottom: 10px;
 }
 .wm-contact-service-two ul li:before {
     content: '';
     position: absolute;
-    right: -25%;
+    left: -25%;
     top: 28%;
     width: 50%;
     height: 2px;
@@ -3706,22 +3708,22 @@ ul li:hover .wm-ctservice-icon {
     margin-bottom: 70px;
 }
 .contact-social-icon li {
-    float: left;
+    float: right;
     list-style: none;
-    margin-left: 30px;
+    margin-right: 30px;
 }
 .contact-social-icon li i {
-    float: left;
-    margin: 7px 6px 0px 0px;
+    float: right;
+    margin: 7px 0px 0px 6px;
 }
 .wm-contact-service-two ul li:last-child:before                 { display: none; }
-.contact-social-icon li:first-child                             { margin-left: 0px; }
+.contact-social-icon li:first-child                             { margin-right: 0px; }
 .wm-contact-service-two ul li h5                                { margin-bottom: 9px; }
 .wm-contact-main                                                { text-align: center; }
 .wm-contact-main .contact-social-icon                           { margin-bottom: 0px; }
 /* NewsLatter */
 .wm-newslatter-section {
-    float: left;
+    float: right;
     width: 100%;
     background-color: #3e9ddc;
     padding: 26px 0px;
@@ -3730,30 +3732,30 @@ ul li:hover .wm-ctservice-icon {
     font-size: 30px;
     color: #ffffff;
     margin: 0px 75px 0px 0px;
-    float: left;
+    float: right;
 }
 .wm-newslatter-section h2 i {
     font-size: 47px;
-    margin-right: 3px;
+    margin-left: 3px;
     display: inline-block;
     vertical-align: middle;
 }
 .wm-newslatter-section p {
-    float: left;
+    float: right;
     width: 25%;
     margin-bottom: 0px;
     font-size: 17px;
     color: #ffffff;
     line-height: 24px;
-    padding-left: 32px;
-    border-left: 2px solid #5aafe7;
+    padding-right: 32px;
+    border-right: 2px solid #5aafe7;
 }
 .wm-newslatter-section form {
-    float: right;
+    float: left;
     padding: 8px 0px 0px 0px;
 }
 .wm-newslatter-section form input[type="text"] {
-    float: left;
+    float: right;
     width: 332px;
     background-color: #ffffff;
     border-radius: 40px;
@@ -3763,7 +3765,7 @@ ul li:hover .wm-ctservice-icon {
     padding: 6px 25px;
 }
 .wm-newslatter-section form input[type="submit"] {
-    float: left;
+    float: right;
     padding: 12px 36px;
     color: #ffffff;
     border: 2px solid #ffffff;
@@ -3777,12 +3779,12 @@ ul li:hover .wm-ctservice-icon {
 }
 /* Fancy Title Three */
 .wm-fancy-title-three {
-    float: left;
+    float: right;
     width: 100%;
     margin-bottom: 50px;
 }
 .wm-align-center            { text-align: center; }
-.wm-fancy-title-inner       { display: inline-block; text-align: left; }
+.wm-fancy-title-inner       { display: inline-block; text-align: right; }
 .wm-fancy-title-three small {
     font-size: 12px;
     text-transform: uppercase;
@@ -3801,20 +3803,20 @@ ul li:hover .wm-ctservice-icon {
 .wm-fancy-title-three span:before {
     content: '';
     position: absolute;
-    left: 0px;
+    right: 0px;
     bottom: 0px;
     width: 49px;
     height: 2px;
 }
 /* Widget's */
 .wm-main-content .widget {
-    float: left;
+    float: right;
     width: 100%;
     margin-bottom: 40px;
 }
 .wm_widget_navlist ul,.wm_widget_navlist ul li,
 .wm_widget_navlist ul li a {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm_widget_navlist ul {
@@ -3844,25 +3846,25 @@ ul li:hover .wm-ctservice-icon {
     content: "\e921";
     font-family: icon;
     position: absolute;
-    right: 30px;
+    left: 30px;
     top: 4px;
     font-size: 11px;
     opacity: 0;
 }
 .wm_widget_navlist ul li:hover a:before {
-    right: 0px;
+    left: 0px;
     opacity: 1;
 }
 /* Search Courses */
 .wm-search-courses {
-    float: left;
+    float: right;
     width: 100%;
     background-color: #f6f6f6;
     padding: 26px 40px 32px 40px;
     margin-bottom: 26px;
 }
 .wm-search-courses form {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-search-courses h5                           { margin-bottom: 10px; }
@@ -3870,14 +3872,14 @@ ul li:hover .wm-ctservice-icon {
 .wm-search-courses ul li:last-child             { width: 10%; }
 .wm-search-courses ul li {
     list-style: none;
-    float: left;
+    float: right;
     width: 45%;
     padding: 0px 5px;
     line-height: 1;
     position: relative;
 }
 .wm-search-courses input[type="text"] {
-    float: left;
+    float: right;
     width: 100%;
     height: 43px;
     background-color: #ffffff;
@@ -3888,13 +3890,13 @@ ul li:hover .wm-ctservice-icon {
     border-bottom: 2px solid #eaeaea;
 }
 .wm-search-courses ul li label {
-    float: left;
+    float: right;
     width: 100%;
     margin: 0px 0px 0px 9px;
     position: relative;
 }
 .wm-search-courses input[type="submit"] {
-    float: left;
+    float: right;
     width: 41px;
     height: 41px;
     border: none;
@@ -3910,25 +3912,25 @@ ul li:hover .wm-ctservice-icon {
 }
 /* Recent ListLayer */
 .wm-recent-list-slider {
-    float: left;
+    float: right;
     width: 100%;
     margin-bottom: 40px;
     padding-bottom: 30px;
     position: relative;
 }
 .wm-recent-list-layer {
-    float: left;
+    float: right;
     width: 100%;
     border-bottom: 1px solid #f3f3f3;
     padding-bottom: 21px;
     margin-bottom: 23px;
 }
 .wm-recent-list-layer figure {
-    float: left;
+    float: right;
     width: 73px;
     margin-bottom: 0px;
 }
-.wm-recent-list-layer figure ~ .wm-recent-list-text { padding-left: 101px; margin-top: -4px; }
+.wm-recent-list-layer figure ~ .wm-recent-list-text { padding-right: 101px; margin-top: -4px; }
 .wm-recent-list-text p {
     line-height: 24px;
     color: #6c6c6c;
@@ -3946,12 +3948,12 @@ ul li:hover .wm-ctservice-icon {
     text-align: center;
     padding-top: 9px;
 }
-.wm-recent-list-slider .slick-arrow.slick-arrow-left        { left: 50%; margin-left: -35px; }
-.wm-recent-list-slider .slick-arrow.slick-arrow-right       { right: 50%; margin-right: -40px; }
+.wm-recent-list-slider .slick-arrow.slick-arrow-left        { right: 50%; margin-right: -35px; }
+.wm-recent-list-slider .slick-arrow.slick-arrow-right       { left: 50%; margin-left: -40px; }
 /* Blog */
 .wm-blog,.wm-blog-grid figure,.wm-blog-grid figure > a,
 .wm-blog-grid figure img,.wm-blog-grid .wm-blog-grid-text {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-blog ul li              { list-style: none; }
@@ -3960,7 +3962,7 @@ ul li:hover .wm-ctservice-icon {
 .wm-blog-grid figure figcaption,
 .wm-blog-grid figure figcaption:before {
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 0px;
     width: 100%;
     height: 100%;
@@ -3969,7 +3971,7 @@ ul li:hover .wm-ctservice-icon {
 }
 .wm-grid-caption {
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 50%;
     width: 100%;
     margin-top: -30px;
@@ -3983,7 +3985,7 @@ ul li:hover .wm-ctservice-icon {
     border-radius: 40px;
     font-size: 18px;
     padding-top: 17px;
-    margin-left: 7px;
+    margin-right: 7px;
 }
 .wm-grid-caption a:hover {
     background-color: transparent;
@@ -3996,7 +3998,7 @@ ul li:hover .wm-ctservice-icon {
 .wm-grid-caption .tooltip.top .tooltip-arrow                                    { border-top-color: #ffffff; }
 .wm-blog-grid ul li:hover .wm-grid-caption a:nth-child(1)                       { top: 0px; }
 .wm-blog-grid ul li:hover .wm-grid-caption a:nth-child(2)                       { bottom: 0px; }
-.wm-grid-caption a:first-child                                                  { margin-left: 0px; }
+.wm-grid-caption a:first-child                                                  { margin-right: 0px; }
 .wm-blog-grid figure figcaption:before                                          { content: ''; }
 .wm-blog-grid ul li:hover figure figcaption                                     { opacity: 1; }
 .wm-blog-grid ul li:hover figure figcaption:before                              { opacity: 0.95; }
@@ -4020,14 +4022,14 @@ ul li:hover .wm-ctservice-icon {
     width: 100%;
 }
 .blogpost-options li {
-    float: left;
+    float: right;
     list-style: none;
     color: #6c6c6c;
     font-size: 16px;
     margin: 0px 18px 2px 0px;
 }
 .blogpost-options li i {
-    float: left;
+    float: right;
     font-size: 13px;
     margin: 9px 7px 0px 0px;
 }
@@ -4049,7 +4051,7 @@ ul li:hover .wm-ctservice-icon {
 /* Testimonial NavSlider */
 .wm-testimonial-navslider,.wm-testimonial-navlayer,
 .wm-testimonial-image {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-testimonial-navslider {
@@ -4081,13 +4083,13 @@ ul li:hover .wm-ctservice-icon {
     margin-bottom: 0px;
 }
 .wm-testimonial-navslider figure img {
-    float: left;
+    float: right;
     border-radius: 100%;
     border: 3px solid #ffffff;
 }
 .wm-testimonial-navslider figure figcaption {
     padding: 16px 0px 0px 85px;
-    text-align: left;
+    text-align: right;
 }
 .wm-testimonial-navslider figure figcaption small {
     display: block;
@@ -4109,16 +4111,16 @@ ul li:hover .wm-ctservice-icon {
     text-align: center;
     padding-top: 9px;
 }
-.wm-testimonial-navslider .slick-arrow.slick-arrow-left        { left: 50%; margin-left: -190px; }
-.wm-testimonial-navslider .slick-arrow.slick-arrow-right       { right: 50%; margin-right: -195px; }
+.wm-testimonial-navslider .slick-arrow.slick-arrow-left        { right: 50%; margin-right: -190px; }
+.wm-testimonial-navslider .slick-arrow.slick-arrow-right       { left: 50%; margin-left: -195px; }
 .wm-maptwo#map {
-    float: left;
+    float: right;
     width: 100%;
     height: 336px;
 }
 /* ParallexTwo */
 .wm-parallex-two {
-    float: left; 
+    float: right; 
     width: 55%;
 }
 .wm-parallex-two h4 {
@@ -4135,7 +4137,7 @@ ul li:hover .wm-ctservice-icon {
 .wm-parallex-two h2 span:before {
     content: '';
     position: absolute;
-    left: 0px;
+    right: 0px;
     bottom: 6px;
     width: 100%;
     height: 2px;
@@ -4151,7 +4153,7 @@ ul li:hover .wm-ctservice-icon {
     color: #ffffff;
     text-transform: uppercase;
     border: 2px solid #585a5d;
-    border-right: none;
+    border-left: none;
     border-bottom: none;
     padding: 15px 43px 17px 33px;
     line-height: 1;
@@ -4166,7 +4168,7 @@ ul li:hover .wm-ctservice-icon {
 .wm-ourprofessors-slider,.wm-ourprofessors-slider-layer,
 .wm-ourprofessors-slider-layer figure,.wm-ourprofessors-slider-layer figure > a,
 .wm-ourprofessors-slider-layer figure img,.wm-ourprofessors-text {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-ourprofessors-slider .slick-list { margin: 0px -12px; }
@@ -4174,7 +4176,7 @@ ul li:hover .wm-ctservice-icon {
 .wm-ourprofessors-slider-layer figure figcaption,
 .wm-ourprofessors-slider-layer figure figcaption:before {
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 0px;
     width: 100%;
     height: 100%;
@@ -4186,7 +4188,7 @@ ul li:hover .wm-ctservice-icon {
 .wm-ourprofessors-slider-layer:hover figure figcaption a             { top: 50%; }
 .wm-ourprofessors-slider-layer figure figcaption a {
     position: absolute;
-    left: 50%;
+    right: 50%;
     top: 0%;
     padding: 17px 32px 17px 27px;
     font-size: 13px;
@@ -4216,14 +4218,14 @@ ul li:hover .wm-ctservice-icon {
     top: 3px;
 }
 .wm-ourprofessors-slider .slick-arrow.slick-arrow-left {
-    left: auto;
-    right: 60px;
+    right: auto;
+    left: 60px;
 }
-.wm-ourprofessors-slider .slick-arrow.slick-arrow-right { right: 15px; }
+.wm-ourprofessors-slider .slick-arrow.slick-arrow-right { left: 15px; }
 /* Learn Grid */
 .wm-learn-grid,.wm-learn-grid figure,
 .wm-learn-grid figure > a,.wm-learn-grid figure img {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-learn-grid ul li            { list-style: none; }
@@ -4232,7 +4234,7 @@ ul li:hover .wm-ctservice-icon {
 .wm-learn-grid figure figcaption,
 .wm-learn-grid figure figcaption:before {
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 0px;
     width: 100%;
     height: 100%;
@@ -4243,7 +4245,7 @@ ul li:hover .wm-ctservice-icon {
 }
 .wm-learn-grid figure figcaption h4 {
     position: absolute;
-    left: 0px;
+    right: 0px;
     bottom: 0px;
     padding: 0px 0px 15px 29px;
 }
@@ -4260,7 +4262,7 @@ ul li:hover .wm-ctservice-icon {
 .wm-learn-grid figure figcaption:after {
     content: '';
     position: absolute;
-    left: 0px;
+    right: 0px;
     bottom: 0px;
     width: 50%;
     height: 6px;
@@ -4273,11 +4275,11 @@ ul li:hover .wm-ctservice-icon {
 /* Testimonial Slider */
 .wm-modren-testimonial-slider,.wm-modren-testimonial-layer,
 .wm-modren-testimonial-layer figure a,.wm-modren-testimonial-layer figure img {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-modren-testimonial-layer figure {
-    float: left;
+    float: right;
     width: 145px;
     margin: 20px 0px 0px 0px;
     z-index: 1;
@@ -4285,7 +4287,7 @@ ul li:hover .wm-ctservice-icon {
 .wm-modren-testimonial-slider .slick-list { margin: 0px -12px; }
 .wm-modren-testimonial-layer { padding: 0px 12px; }
 .wm-modren-testimonial-layer figure img { border-radius: 100%; }
-.wm-modren-testimonial-layer figure ~ .wm-modren-testimonial-text { margin-left: 73px; }
+.wm-modren-testimonial-layer figure ~ .wm-modren-testimonial-text { margin-right: 73px; }
 .wm-modren-testimonial-text {
     background-color: #f9f9f9;
     padding: 39px 35px 36px 100px;
@@ -4295,7 +4297,7 @@ ul li:hover .wm-ctservice-icon {
     content: '';
     background: url(images/testimonial-qoutes-2.png);
     position: absolute;
-    left: 13%;
+    right: 13%;
     top: 20px;
     width: 23px;
     height: 19px;
@@ -4318,10 +4320,10 @@ ul li:hover .wm-ctservice-icon {
     top: 8px;
 }
 .wm-modren-testimonial-slider .slick-arrow.slick-arrow-left {
-    left: auto;
-    right: 60px;
+    right: auto;
+    left: 60px;
 }
-.wm-modren-testimonial-slider .slick-arrow.slick-arrow-right { right: 15px; }
+.wm-modren-testimonial-slider .slick-arrow.slick-arrow-right { left: 15px; }
 /* Partner */
 .wm-partners-title-three.wm-simple-section-title h2 {
     color: #303030;
@@ -4331,7 +4333,7 @@ ul li:hover .wm-ctservice-icon {
 .wm-partners-title-three.wm-simple-section-title h2:after {
     content: '';
     position: absolute;
-    left: 0px;
+    right: 0px;
     bottom: 7px;
     width: 100%;
     height: 2px;
@@ -4352,7 +4354,7 @@ ul li:hover .wm-ctservice-icon {
     filter: grayscale(0%);
 }
 .wm-partners-slider-classic {
-    float: left;
+    float: right;
     width: 100%;
     margin: 10px 0px 30px 0px;
 }
@@ -4362,20 +4364,20 @@ ul li:hover .wm-ctservice-icon {
     top: -4px;
 }
 .wm-partners-slider-classic .slick-arrow.slick-arrow-left {
-    left: auto;
-    right: 60px;
+    right: auto;
+    left: 60px;
 }
-.wm-partners-slider-classic .slick-arrow.slick-arrow-right { right: 15px; }
+.wm-partners-slider-classic .slick-arrow.slick-arrow-right { left: 15px; }
 /* Question Inner */
 .wm-question-wrap {
-    float: left;
+    float: right;
     width: 100%;
     background: url(extra-images/gotquestion-1.jpg);
     background-repeat: no-repeat;
     padding: 200px 0px 168px 0px;
 }
 .wm-question-inner {
-    float: right;
+    float: left;
     width: 50%;
     text-align: center;
 }
@@ -4392,7 +4394,7 @@ ul li:hover .wm-ctservice-icon {
 .wm-question-inner h2 span:before {
     content: '';
     position: absolute;
-    left: 0px;
+    right: 0px;
     bottom: 1px;
     width: 100%;
     height: 2px;
@@ -4404,7 +4406,7 @@ ul li:hover .wm-ctservice-icon {
     margin-bottom: 16px;
 }
 .wm-question-btn {
-    float: left;
+    float: right;
     width: 100%;
     border-top: 2px solid #f4f4f4;
     margin-top: 20px;
@@ -4422,7 +4424,7 @@ ul li:hover .wm-ctservice-icon {
     width: 168px;
     height: 47px;
     text-align: center;
-    margin-right: 26px;
+    margin-left: 26px;
 }
 .wm-question-btn a:hover {
     background-position: 0px 100%;
@@ -4438,7 +4440,7 @@ ul li:hover .wm-ctservice-icon {
     padding: 16px 14px 15px 15px;
     margin: 20px 0px 40px 0px;
     text-align: center;
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-pagination ul {
@@ -4463,7 +4465,7 @@ ul li:hover .wm-ctservice-icon {
 .wm-pagination ul li a:before {
     bottom: -2px;
     position: absolute;
-    left: 0px;
+    right: 0px;
     height: 2px;
     content: '';
     width: 0%;
@@ -4475,7 +4477,7 @@ ul li:hover .wm-ctservice-icon {
 }
 .wm-pagination ul li a {
     background-color: #ffffff;
-    float: left;
+    float: right;
     position: relative;
     border-bottom: 2px solid #eaeaea;
     font-size: 15px;
@@ -4489,16 +4491,16 @@ ul li:hover .wm-ctservice-icon {
          -o-transition: all 0.4s ease-in-out;
             transition: all 0.4s ease-in-out;
 }
-.wm-pagination ul li:first-child                {float: left;}
+.wm-pagination ul li:first-child                {float: right;}
 .wm-pagination ul li:first-child i {
-    float: left;
+    float: right;
     font-size: 8px;
     padding: 6px 0px 11px 8px;
     transform: scale(-1);
 }
-.wm-pagination ul li:last-child                 {float: right;}
+.wm-pagination ul li:last-child                 {float: left;}
 .wm-pagination ul li:last-child i {
-    float: right;
+    float: left;
     font-size: 8px;
     padding: 11px 0px 0px 10px;
 }
@@ -4513,23 +4515,23 @@ ul li:hover .wm-ctservice-icon {
 }
 /* Filter Box */
 .wm-filter-box {
-    float: left;
+    float: right;
     width: 100%;
     background-color: #f7f7f7;
     margin-bottom: 50px;
     padding: 16px 31px 16px 16px;
 }
 .wm-filter-box .wm-apply-select {
-    float: left;
+    float: right;
     width: 200px;
     margin-right: 10px;
 }
 .wm-normal-btn {
-    float: left;
-    margin-left: 20px;
+    float: right;
+    margin-right: 20px;
 }
 .wm-normal-btn a {
-    float: left;
+    float: right;
     padding: 14px 22px;
     background-color: #c6c6c6;
     color: #ffffff;
@@ -4547,7 +4549,7 @@ ul li:hover .wm-ctservice-icon {
     color: #ffffff;
     font-size: 9px;
     position: absolute;
-    left: -10px;
+    right: -10px;
     top: 10px;
     text-align: center;
     padding-top: 6px;
@@ -4555,7 +4557,7 @@ ul li:hover .wm-ctservice-icon {
 }
 .wm-normal-btn a:hover:before,.wm-normal-btn a.active:before { opacity: 1; }
 .wm-view-btn {
-    float: right;
+    float: left;
 }
 .wm-view-btn a.wmicon-squares {
     font-size: 14px;
@@ -4564,18 +4566,18 @@ ul li:hover .wm-ctservice-icon {
 .wm-view-btn a {
     font-size: 17px;
     color: #d6d6d6;
-    float: left;
+    float: right;
     margin: 15px 0px 0px 19px;
 }
 /* Figure Thumb */
 .wm-figure-thumb {
-    float: left;
+    float: right;
     width: 100%;
     margin-bottom: 24px;
 }
 .wm-left-border {
-    padding-left: 22px;
-    border-left: 2px solid #13491e;
+    padding-right: 22px;
+    border-right: 2px solid #13491e;
     margin-bottom: 30px;
 }
 .wm-editore-text p {
@@ -4591,7 +4593,7 @@ ul li:hover .wm-ctservice-icon {
 }
 .wm-editore-text ul li i {
     font-size: 11px;
-    float: left;
+    float: right;
     color: #13491e;
     margin: 11px 13px 0px 0px;
 }
@@ -4605,13 +4607,13 @@ ul li:hover .wm-ctservice-icon {
 .wm-parallex-three.wm-parallex h2:before { background-color: #13491e; }
 /* Event Detail */
 .wm-event-countdown {
-    float: left;
+    float: right;
     width: 100%;
     margin-bottom: 37px;
 }
 .wm-event-countdown figcaption {
     position: absolute;
-    left: 0px;
+    right: 0px;
     bottom: 0px;
     width: 100%;
     background-color: rgba(34,40,69,0.70);
@@ -4630,7 +4632,7 @@ ul li:hover .wm-ctservice-icon {
     vertical-align: middle;
 }
 .wm-event-countdown .countdown-section {
-    float: left;
+    float: right;
     width: 33.333%;
     padding: 0px 60px;
     position: relative;
@@ -4638,7 +4640,7 @@ ul li:hover .wm-ctservice-icon {
 .wm-event-countdown .countdown-section:before {
     content: '/';
     position: absolute;
-    left: -10px;
+    right: -10px;
     top: 14px;
     color: #ffffff;
     font-size: 60px;
@@ -4671,7 +4673,7 @@ ul li:hover .wm-ctservice-icon {
 .wm-detail-editore p { margin-bottom: 24px; }
 .wm-list-style-icon {
     margin-bottom: 19px;
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-detail-editore .wm-list-style-icon { padding-top: 13px; }
@@ -4683,12 +4685,12 @@ ul li:hover .wm-ctservice-icon {
     font-size: 4px;
     display: inline-block;
     vertical-align: middle;
-    margin-right: 14px;
+    margin-left: 14px;
 }
 /* Lesson List */
 .wm-lesson-tabs,.wm-lesson-list,.tabs-nav,
 .wm-lesson-tabnav {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-lesson-tabs { margin-bottom: 51px; }
@@ -4699,12 +4701,12 @@ ul li:hover .wm-ctservice-icon {
     display: inline-block;
 }
 .tabs-nav li {
-    float: left;
+    float: right;
     list-style: none;
     margin-right: 16px;
 }
 .tabs-nav li a {
-    float: left;
+    float: right;
     font-size: 14px;
     color: #252525;
     padding: 7px 39px;
@@ -4727,12 +4729,12 @@ ul li:hover .wm-ctservice-icon {
     margin-bottom: 28px;
 }
 .wm-lesson-tabnav li {
-    float: left;
+    float: right;
     list-style: none;
     padding: 0px 30px 0px 30px;
 }
 .wm-lesson-tabnav li a {
-    float: left;
+    float: right;
     padding: 0px 0px 10px 0px;
     color: #a6a6a6;
     font-size: 18px;
@@ -4743,17 +4745,17 @@ ul li:hover .wm-ctservice-icon {
 .wm-lesson-tabnav li.active a:before {
     content: '';
     position: absolute;
-    left: 0px;
+    right: 0px;
     bottom: -2px;
     width: 100%;
     height: 2px;
 }
-.wm-lesson-tabnav li:first-child { padding-left: 0px; }
+.wm-lesson-tabnav li:first-child { padding-right: 0px; }
 .wm-lesson-list figure {
-    float: left;
+    float: right;
     padding: 0px 29px 0px 0px;
     text-align: center;
-    border-right: 1px solid #efeae7;
+    border-left: 1px solid #efeae7;
     margin-bottom: 0px;
 }
 .wm-lesson-list figure img {
@@ -4781,7 +4783,7 @@ ul li:hover .wm-ctservice-icon {
     display: inline-block;
 }
 .wm-lesson-text time i {
-    margin-right: 6px;
+    margin-left: 6px;
 }
 .wm-lesson-text p {
     margin-bottom: 11px;
@@ -4791,21 +4793,21 @@ ul li:hover .wm-ctservice-icon {
     vertical-align: middle;
 }
 .wm-lesson-text span i {
-    margin-right: 6px;
+    margin-left: 6px;
 }
 .wm-lesson-tabnav {
     border-bottom: 2px solid #f6f6f6;
     margin-bottom: 28px;
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-lesson-tabnav li {
-    float: left;
+    float: right;
     list-style: none;
     padding: 0px 30px 0px 30px;
 }
 .wm-lesson-tabnav li a {
-    float: left;
+    float: right;
     padding: 0px 0px 10px 0px;
     color: #a6a6a6;
     font-size: 18px;
@@ -4816,17 +4818,17 @@ ul li:hover .wm-ctservice-icon {
 .wm-lesson-tabnav li.active a:before {
     content: '';
     position: absolute;
-    left: 0px;
+    right: 0px;
     bottom: -2px;
     width: 100%;
     height: 2px;
 }
-.wm-lesson-tabnav li:first-child { padding-left: 0px; }
+.wm-lesson-tabnav li:first-child { padding-right: 0px; }
 /* Event Register List */
 .wm-event-register-list,.wm-register-title,.wm-title-list,
 .event-register-wrap,.wm-simple-list,.event-register-inner,
 .wm-section-title-two {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-section-title-two {
@@ -4840,15 +4842,15 @@ ul li:hover .wm-ctservice-icon {
     padding: 12px 15px 12px 28px;
 }
 .wm-register-title h6 {
-    float: left;
+    float: right;
     margin-bottom: 0px;
     font-weight: 400;
     color: #0a1350;
 }
 .wm-register-title span {
-    float: right;
+    float: left;
 }
-.wm-register-title span img { margin-left: 4px; }
+.wm-register-title span img { margin-right: 4px; }
 .event-register-wrap {
     padding: 28px;
     border: 1px solid #eeeeee;
@@ -4860,7 +4862,7 @@ ul li:hover .wm-ctservice-icon {
     margin-bottom: 22px;
 }
 .wm-title-list li {
-    float: left;
+    float: right;
     list-style: none;
     width: 20%;
     color: #0a1350;
@@ -4870,14 +4872,14 @@ ul li:hover .wm-ctservice-icon {
     margin-bottom: 11px;
 }
 .wm-simple-list li {
-    float: left;
+    float: right;
     width: 20%;
     list-style: none;
     color: #979797;
     font-size: 15px;
 }
 .wm-simple-list li input {
-    float: left;
+    float: right;
     width: 43px;
     height: 33px;
     border: none;
@@ -4889,7 +4891,7 @@ ul li:hover .wm-ctservice-icon {
     background-color: #ffffff;
 }
 .wm-simple-list li button {
-    float: left;
+    float: right;
     border: 1px solid #d9d9d9;
     width: 21px;
     height: 33px;
@@ -4898,14 +4900,14 @@ ul li:hover .wm-ctservice-icon {
     background-color: #fff;
 }
 .wm-event-cardlist {
-    float: right;
+    float: left;
 }
 .wm-events-cards {
-    float: left;
+    float: right;
     margin: 2px 30px 0px 0px;
 }
 .wm-events-cards li {
-    float: left;
+    float: right;
     list-style: none;
     margin-right: 10px;
 }
@@ -4918,13 +4920,13 @@ ul li:hover .wm-ctservice-icon {
     line-height: 1;
 }
 .wm-plain-btn-style i {
-    float: left;
+    float: right;
     margin: 0px 5px 0px 0px;
     font-size: 14px;
 }
 /* Event Options */
 .wm-event-options {
-    float: left;
+    float: right;
     width: 100%;
     background-color: #ffffff;
     border: 2px solid #f4f4f4;
@@ -4932,7 +4934,7 @@ ul li:hover .wm-ctservice-icon {
     margin-bottom: 50px;
 }
 .wm-event-options ul li {
-    float: left;
+    float: right;
     width: 100%;
     list-style: none;
     position: relative;
@@ -4950,7 +4952,7 @@ ul li:hover .wm-ctservice-icon {
     font-weight: normal;
     font-size: 13px;
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 8px;
 }
 .wm-event-options ul li p {
@@ -4959,7 +4961,7 @@ ul li:hover .wm-ctservice-icon {
 }
 .wm-buyticket-section,.wm-buyticket-section ul li,
 .wm-buyticket-section ul {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-buyticket-section h2 {
@@ -4978,7 +4980,7 @@ ul li:hover .wm-ctservice-icon {
     color: #424242;
 }
 .wm-buyticket-section ul li i {
-    float: left;
+    float: right;
     font-size: 16px;
     margin: 0px 8px 0px 0px;
 }
@@ -4987,7 +4989,7 @@ ul li:hover .wm-ctservice-icon {
 }
 .wm-buyticket-section ul li span i {
     font-size: 24px;
-    margin-right: 10px;
+    margin-left: 10px;
 }
 .wm-buyticket-section img { margin-bottom: 30px; }
 .wm-buyticket-section ul { margin-bottom: 35px; }
@@ -4997,17 +4999,17 @@ ul li:hover .wm-ctservice-icon {
 }
 /* Blog Single Post */
 aside .widget {
-    float: left;
+    float: right;
     margin-bottom: 43px;
     width: 100%;
 }
 .widget_articles,.widget_articles ul {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-widget-title {
     border-bottom: 2px solid #f2f2f2;
-    float: left;
+    float: right;
     position: relative;
     margin-bottom: 28px;
     width: 100%;
@@ -5018,7 +5020,7 @@ aside .widget {
     font-family: 'icon';
     color: #c4c4c4;
     font-size: 8px;
-    right: 4px;
+    left: 4px;
     top: 7px;
     -webkit-transform: rotate(90deg);
        -moz-transform: rotate(90deg);
@@ -5027,7 +5029,7 @@ aside .widget {
             transform: rotate(90deg);
 }
 .wm-widget-title h2 {
-    float: left;
+    float: right;
     font-size: 18px;
     margin: 0px 0px 6px 0px;
 }
@@ -5038,30 +5040,30 @@ aside .widget {
 }
 .widget_articles ul li {
     border-bottom: 1px solid #f2f2f2;
-    float: left;
+    float: right;
     list-style: outside none none;
     margin-bottom: 19px;
     padding: 0px 0px 15px 0px;
     width: 100%;
 }
 .widget_articles figure {
-    float: left;
+    float: right;
     margin: 0px;
 }
 .widget_articles figure a, .widget_articles figure img {
-    float: left;
+    float: right;
     width: 100%;
 }
-.widget_articles figure ~ .wm-Article               {margin-left: 74px;}
+.widget_articles figure ~ .wm-Article               {margin-right: 74px;}
 .wm-Article                                         {padding: 0px 0px 0px 18px;}
 .wm-Article h6 a {
-    float: left;
+    float: right;
     font-size: 16px;
     line-height: 25px;
     padding: 0px;
 }
 .wm-Article h6 {
-    float: left;
+    float: right;
     margin: 0px;
     width: 100%;
 }
@@ -5073,24 +5075,24 @@ aside .widget {
             transition: all 0.4s ease-in-out;
 }
 .wm-Article time {
-    float: left;
+    float: right;
     font-size: 14px;
     line-height: 23px;
 }
 .wm-Article a {
-    float: left;
+    float: right;
     font-size: 14px;
     line-height: 1.8;
     padding: 0px 0px 0px 13px;
 }
 .wm-Article a i {
-    float: left;
+    float: right;
     color: #afafaf;
     font-size: 14px;
     padding: 7px 5px 0px 0px;
 }
 .widget_categories, .widget_categories ul {
-    float: left;
+    float: right;
     width: 100%;
 }
 .widget_categories ul { height: 295px; }
@@ -5100,20 +5102,20 @@ aside .widget {
 }
 .widget_categories ul li:last-child         {padding:6px 0px 0px 0px;}
 .widget_categories ul li {
-    float: left;
+    float: right;
     padding: 6px 0px 6px 0px;
     list-style: none;
     width: 100%;
 }
 .widget_categories ul li a {
-    float: left;
+    float: right;
     font-size: 15px;
     width: 100%;
     color: #424242;
 }
 .widget_archive .wm-select-two {    
     border-bottom: 2px solid #eaeaea;
-    float: left;
+    float: right;
     position: relative;
     width: 100%;
 }
@@ -5137,7 +5139,7 @@ aside .widget {
     font-size: 7px;
     position: absolute;
     pointer-events: none;
-    right: 20px;
+    left: 20px;
     top: 16px;
     color: #c2c2c2;
     -webkit-transform: rotate(90deg);
@@ -5146,11 +5148,11 @@ aside .widget {
          -o-transform: rotate(90deg);
             transform: rotate(90deg);
 }
-.tags                           {float: left;}
+.tags                           {float: right;}
 .tags a:hover                   {color: #ffffff;}
 .tags a {
     border: 1px solid;
-    float: left;
+    float: right;
     font-size: 15px;
     margin: 0px 9px 9px 0px;
     padding: 2px 13px 3px;
@@ -5161,7 +5163,7 @@ aside .widget {
             transition: all 0.4s ease-in-out;
 }
 .widget_add figure, .widget_add figure a, .widget_add, .widget_latestnews ul, .widget_latestnews figure a, .widget_latestnews figure img {
-    float: left;
+    float: right;
     width: 100%;
 }
 .widget_add figure                                                               {margin: 0px;}
@@ -5171,16 +5173,16 @@ aside .widget {
     margin: 0px;
 }
 .widget_latestnews ul li {
-    float: left;
+    float: right;
     list-style: outside none none;
     margin-bottom: 27px;
     width: 100%;
 }
 .widget_latestnews figure {
-    float: left;
+    float: right;
     margin: 0px;
 }
-.widget_latestnews figure ~ .wm-latestnews               {margin-left: 74px;}
+.widget_latestnews figure ~ .wm-latestnews               {margin-right: 74px;}
 .wm-latestnews                                           {padding: 0px 0px 0px 18px;}
 .wm-latestnews h5 a {
     line-height: 1.6;
@@ -5188,7 +5190,7 @@ aside .widget {
     padding: 0;
 }
 .wm-latestnews h5 {
-    float: left;
+    float: right;
     margin: 0px 0px 8px 0px;
     width: 99%;
 }
@@ -5202,45 +5204,45 @@ aside .widget {
     width: 100%;
 }
 .wm-latestnews time {
-    float: left;
+    float: right;
     font-size: 14px;
     line-height: 1.8;
 }
 .wm-latestnews a {
-    float: left;
+    float: right;
     font-size: 14px;
     line-height: 1.8;
     padding: 0px 0px 0px 13px;
 }
 .wm-latestnews a i {
-    float: left;
+    float: right;
     color: #afafaf;
     font-size: 14px;
     padding: 7px 5px 0px 0px;
 }
 .wm-blog-single                            {margin-bottom: 31px;}
 .wm-blog-single,.wm-blog-author{
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-blog-author                        {margin-bottom: 3px;}
 .wm-detail-thumb {
-    float: left;
+    float: right;
     margin: 0px;
 }
 .wm-detail-thumb img {
-    float: left;
+    float: right;
     width: 100%;
 }
-.wm-blogauthor-left                                         {float: left;}
+.wm-blogauthor-left                                         {float: right;}
 .wm-blogauthor-left img {
     border-radius: 100%;
-    float: left;
+    float: right;
     position: relative;
     margin: -25px 18px 0px 25px;
 }
 .wm-blogauthor-left .wm-authorpost {
-    float: left;
+    float: right;
     color: #c3c8e2;
     padding: 15px 0px ;
     font-size: 15px;
@@ -5250,7 +5252,7 @@ aside .widget {
     font-size: 15px;
 }
 .wm-blogauthor-right {
-    float:right;
+    float:left;
     padding: 17px 35px 15px 0;
 }
 .wm-blogauthor-right a {
@@ -5274,7 +5276,7 @@ aside .widget {
     font-family: FontAwesome;
     font-size: 13px;
     margin:-3px 0px 0px;
-    left: 0px;
+    right: 0px;
     letter-spacing: 4px;
     position: absolute;
     top: 4px;
@@ -5284,7 +5286,7 @@ aside .widget {
     content: "\f006 \f006 \f006 \f006 \f006";
     font-family: FontAwesome;
     font-size: 13px;
-    left: 0px;
+    right: 0px;
     margin:-3px 0px 0px;
     letter-spacing: 4px;
     position: absolute;
@@ -5303,12 +5305,12 @@ aside .widget {
 }
 .wm-blog-single .wm-blog-post-option{
     border-bottom: 2px solid #eeeeee;
-    float: left;
+    float: right;
     padding: 14px 0px 15px;
     width: 100%;
 }
 .wm-blog-single .wm-blog-post-option li {
-    float: left;
+    float: right;
     list-style: none;
     font-size: 14px;
     padding: 0px 39px 0px 0px;
@@ -5321,7 +5323,7 @@ aside .widget {
 .wm-blog-single .wm-blog-post-option li time 
 .wm-blog-single .wm-blog-post-option li a, .wm-blog-single .wm-blog-post-option li time     {font-size: 14px;}
 .wm-detail-editore,.wm-detail-editore h2,.wm-detail-editore p,.wm-detail-editore blockquote,.wm-detail-editore h3 {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-detail-editore h2 {
@@ -5338,18 +5340,18 @@ aside .widget {
     content: "“";
      font-size: 50px;
     font-weight: 300;
-    left: -39px;
+    right: -39px;
     font-style: normal;
     position: absolute;
     top: -11px;
 }
 .wm-detail-editore .wm-blockquote {
-    float: left;
+    float: right;
     width: 100%;
     margin-bottom: 60px;
 }
 .wm-detail-editore blockquote {
-    border-left: 2px solid #e8e8e8;
+    border-right: 2px solid #e8e8e8;
     font-size: 20px;
     margin: 0 0 32px 34px;
     padding: 0px 18px 10px 18px;
@@ -5365,16 +5367,16 @@ aside .widget {
     margin-bottom: 24px;
 }
 .wm-author-detail, .wm-author-detail a,.wm-author-detail img,.wm-author-text h5,.wm-author-text p {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-author-detail             {margin-bottom: 55px;}
 .wm-author-detail figure {
-    float: left;
+    float: right;
     margin: 0px;
 }
-.wm-author-detail figure ~ .wm-author-text       {margin-left: 169px;}
-.wm-courses-authorinfo figure ~ .wm-author-text       {margin-left: 138px;}
+.wm-author-detail figure ~ .wm-author-text       {margin-right: 169px;}
+.wm-courses-authorinfo figure ~ .wm-author-text       {margin-right: 138px;}
 .wm-author-text{
     border-top: 2px solid #f6f6f6;
     padding: 15px 0px 0px 0px;
@@ -5390,11 +5392,11 @@ aside .widget {
     margin-bottom: 11px;
 }
 .wm-social-icon, .wm-postreviews,.wm-social-icon li a,.wm-reviews-thums a,.wm-reviews-thums img, .wm-post-reviews h4,.wm-social-icon li a, .wm-widgettitle{
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-social-icon li {
-    float: left;
+    float: right;
     list-style: none;
     padding: 0 3px 0 2px;
 }
@@ -5407,38 +5409,38 @@ aside .widget {
     margin-bottom: 30px;
 }
 .wm-widgettitle h2 {
-    float: left;
+    float: right;
     font-size: 22px;
     margin: 0px 0px 5px;
 }
 .wm-postreviews {margin: 0px 0px 23px 0px;}
 .wm-postreviews,.wm-postreviews ul {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-postreviews > ul > li {
     border: 1px solid #f1f1f1;
-    float: left;
+    float: right;
     margin: 0px 0px 19px 0px;
     list-style: none;
     width: 100%;
 }
 .wm-postreviews .thumblist {
-    float: left;
+    float: right;
     padding: 19px 26px 13px 25px;
     width: 100%;
 }
 .wm-postreviews .thumblist > ul                      {margin: 0px;}
 .wm-postreviews .thumblist > ul > li                 {list-style: none;}
 .wm-postreviews .thumblist > ul > li figure {
-    float: left;
+    float: right;
     margin: 0px;
 }
 .wm-postreviews .thumblist > ul > li > a,.wm-postreviews .thumblist > ul > li > img {
-    float: left;
+    float: right;
     width: 100%;
 }
-.wm-postreviews .thumblist > ul > li figure ~ .wm-reviews-text       {margin-left: 82px;}
+.wm-postreviews .thumblist > ul > li figure ~ .wm-reviews-text       {margin-right: 82px;}
 .wm-reviews-text p {
     line-height: 1.5;
     color: #3d4158;
@@ -5462,7 +5464,7 @@ aside .widget {
     content: "\f006 \f006 \f006 \f006 \f006";
     font-family: FontAwesome;
     font-size: 12px;
-    left: 0px;
+    right: 0px;
     letter-spacing: 3px;
     position: absolute;
     top: 3px;
@@ -5471,7 +5473,7 @@ aside .widget {
     content: "\f006 \f006 \f006 \f006 \f006";
     font-family: FontAwesome;
     font-size: 12px;
-    left: 0px;
+    right: 0px;
     letter-spacing: 3px;
     position: absolute;
     top: 3px;
@@ -5482,13 +5484,13 @@ aside .widget {
 }
 .wm-reviews-text .rating-box {
     height: 16px;
-    left: 0px;
+    right: 0px;
     overflow: hidden;
     position: absolute;
     top: 0px;
 }
 .wm-form,.wm-form form ul li input[type="text"] {
-    float: left;
+    float: right;
     width: 100%;    
 }
 .wm-form                  {margin-bottom: 40px}
@@ -5499,7 +5501,7 @@ aside .widget {
 }
 .wm-form form ul li.wm-full-form:last-child       {margin: 0px;}
 .wm-form form ul li {
-    float: left;
+    float: right;
     list-style-type: none;
     margin-bottom: 14px;
     padding: 0px 9px 0px 9px;
@@ -5514,7 +5516,7 @@ aside .widget {
     background: #f7f7f7;
     margin: 0px;
     color: #a9a9a9;
-    padding-left: 18px;
+    padding-right: 18px;
 }
 .wm-form form ul li textarea{
     height: 156px;
@@ -5533,11 +5535,11 @@ aside .widget {
     text-transform: uppercase;
     padding: 5px 33px 5px 33px;
     font-weight: 500;
-    float: left;
+    float: right;
 }
 .wm-form form .wm-select-two {  
     border-bottom: 2px solid #eaeaea;
-    float: left;
+    float: right;
     position: relative;
     width: 100%;
 }
@@ -5562,7 +5564,7 @@ aside .widget {
     font-family: "FontAwesome";
     font-size: 14px;
     position: absolute;
-    right: 20px;
+    left: 20px;
     top: 7px;
     color: #c2c2c2;
 }
@@ -5578,7 +5580,7 @@ aside .widget {
     display: inline-block;
 }
 .wm-filterable ul li {
-   float: left;
+   float: right;
    list-style: none;
    padding: 0px 5px 0px 4px;
 }
@@ -5596,23 +5598,23 @@ aside .widget {
 }
 .wm-our-professors { 
     margin-bottom: 20px;
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-our-professors ul                        {margin: 0px -12px 0px -12px;}
 .wm-our-professors li {
-    float: left;
+    float: right;
     padding: 0px 12px 0px 12px;
     list-style: none;
 }
 .wm-our-professors figure { 
     margin: 0px 0px 15px 0px;
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-our-professors > a,.wm-our-professors img {
     overflow: hidden;
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-our-professors ul li:hover figure figcaption:before { opacity: 0.86; }
@@ -5620,7 +5622,7 @@ aside .widget {
     content: '';
     position: absolute;
     top: 0;
-    left: 0px;
+    right: 0px;
     opacity: 0;
     height: 100%;
     width: 100%;
@@ -5633,7 +5635,7 @@ aside .widget {
 .wm-our-professors figure figcaption {
     position: absolute;
     top: 0;
-    left: 0px;
+    right: 0px;
     opacity: 1;
     height: 100%;
     width: 100%;
@@ -5646,7 +5648,7 @@ aside .widget {
 .wm-our-professors figcaption > a {
     border: 1px solid ;
     font-size: 12px;
-    left: 50%;
+    right: 50%;
     opacity: 0;
     z-index: 2;
     text-transform: uppercase;
@@ -5665,12 +5667,12 @@ aside .widget {
     top: 50%;
 }
 .wm-team-info,.wm-filterable ul li a,.wm-team-info span {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-team-info                                                           {margin: 0px 0px 36px 0px;}
 .wm-team-info h5 {
-    float: left;
+    float: right;
     margin: 0px;
     font-size: 18px;
     color: #303030;
@@ -5684,12 +5686,12 @@ aside .widget {
     color: #303030;
 }
 .wm-team-info .wm-icon {
-    float: right;
+    float: left;
     margin: 7px 0px 0px 0px;
 }
 .wm-team-info .wm-icon a {
     color: #d3d3d3;
-    float: left;
+    float: right;
     padding: 0px 3px 0px 2px;
     font-size: 17px;
 }
@@ -5697,13 +5699,13 @@ aside .widget {
 
 /* gallery */
 .wm-gallery,.wm-gallery figure,.wm-gallery figure > a,.wm-gallery img {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-gallery { margin-bottom: 26px;}
 .wm-gallery ul                        {margin: 0px -12px 0px -12px;}
 .wm-gallery ul li {
-    float: left;
+    float: right;
     padding: 0px 12px 0px 12px;
     list-style: none;
 }
@@ -5723,7 +5725,7 @@ aside .widget {
 .wm-gallery figure figcaption {
     position: absolute;
     top: 0;
-    left: 0px;
+    right: 0px;
     opacity: 0;
     z-index: 1;
     height: 100%;
@@ -5735,7 +5737,7 @@ aside .widget {
             transition: all 0.4s ease-in-out;
 }
 .wm-gallery figure figcaption .wm-gallery-text h6 {
-    left: 0px;
+    right: 0px;
     padding: 0px 0px 0px 58px;
     opacity: 0;
     margin: 0px 0px -1px 0px ;
@@ -5774,7 +5776,7 @@ aside .widget {
     border-radius: 100%;
     height: 61px;
     padding: 23px 21px 17px 22px;
-    right: 18px;
+    left: 18px;
     top: 18px;
     font-size: 18px;
     width: 61px;
@@ -5790,7 +5792,7 @@ aside .widget {
             transition: all 0.4s ease-in-out;
 }
 .wm-gallery-text h6 {
-    float: left;
+    float: right;
     line-height: 1.4;
     color: #ffffff;
     font-size: 18px;
@@ -5800,11 +5802,11 @@ aside .widget {
 /* Typography & Elements */
 .wm-heading                {padding: 0px 0px 40px 0px}
 .wm-typo-heading {
-    float: left;
+    float: right;
     margin-bottom: 43px;
 }
 .wm-typo-title, .wm-typo-title h2, .wm-typo-heading p{
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-typo-title {
@@ -5835,7 +5837,7 @@ aside .widget {
     line-height: 30px;
 }
 .wm-typo-columns,.wm-title-typoelements,.wm-typo-columns p, .wm-classic-heading,.wm-accordion,.wm-toggle-element,.wm-accordion .panel-default .panel-heading a,.wm-toggle-element .panel-default .panel-heading a {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-typo-columns                                        {margin-bottom: 35px;}
@@ -5905,7 +5907,7 @@ aside .widget {
     height: 22px;
     padding: 0px 7px 1px;
     position: absolute;
-    right: 3px;
+    left: 3px;
     top: -1px;
     width: 22px;
 }
@@ -5931,23 +5933,23 @@ aside .widget {
     padding:15px 15px 15px 20px;
 }
 .wm-tabs-typo, .wm-tabs-listing {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-classic-typo{
-    float: left;
+    float: right;
     margin-bottom: 51px;
     width: 100%;
 }
 .wm-tabs-typo .nav-tabs > li {
-    float: left;
+    float: right;
     margin-bottom: 0px;
     margin-right: 5px;
 }
 .wm-tabs-typo .tab-content a {
-    float: left;
+    float: right;
     padding-bottom: 30px;
-    padding-left: 9px;
+    padding-right: 9px;
     width: 50%;
 }
 .wm-tabs-typo .nav-tabs > li > a {
@@ -5955,13 +5957,13 @@ aside .widget {
     border-bottom: none;
 }
 .wm-tabs-typo .tab-content a {
-    float: left;
+    float: right;
     padding: 0px 19px 0px 19px;
     width: 50%;
 }
 .wm-tabs-typo .tab-content {
     border: 1px solid #dddddd;
-    float: left;
+    float: right;
     padding: 17px 0px 17px 0px;
     width: 100%;
 }
@@ -5973,15 +5975,15 @@ aside .widget {
     width: 96%;
 }
 .wm-tabs-listing .nav-tabs > li {
-    float: left;
+    float: right;
     margin: 0px 0px 5px 5px;
 } 
 .wm-tabs-typo .nav-tabs, .wm-tabs-typo .nav-tabs > li a:hover,.wm-tabs-listing .nav-tabs                        {border-bottom: none;}  
-.wm-tabs-typo .nav, .wm-tabs-typo                                       {float: left;} 
+.wm-tabs-typo .nav, .wm-tabs-typo                                       {float: right;} 
 .wm-tabs-typo .nav-tabs > li > a                                        {padding: 8px 17px 8px 17px;}   
 .wm-tabs-listing .nav-tabs > li > a                                     {border:1px solid #dddddd;}
 .wm-tabs-listing .nav-tabs{
-    float: left;
+    float: right;
     width: 31%;
 }
 .wm-tabs-typo .nav-tabs > li > a,.nav-tabs > li > a                                     {border-radius: 0px;}
@@ -5989,20 +5991,20 @@ aside .widget {
 .wm-tabs-typo .nav-tabs > li.active > a, .wm-tabs-typo .nav-tabs > li.active > a:hover, .wm-tabs-typo .nav-tabs > li.active > a:focus,
 .wm-tabs-listing .nav-tabs > li.active > a, .wm-tabs-listing .nav-tabs > li.active > a:hover, .wm-tabs-listing .nav-tabs > li.active > a:focus            {color: #ffffff;}
 .wm-tabs-listing .nav li a {
-    float: left;    
+    float: right;    
     margin: 0px 2px 5px 2px;
     padding: 7px 0 9px 29px;
     width: 166px;
 }
 .wm-tabs-listing .tab-content padding                   {margin-bottom: 17px;}
 .wm-tabs-listing .tab-content{
-    float: right;
+    float: left;
     padding: 23px 41px 15px 41px;
     width: 69%;
     border: 1px solid #dddddd;
 }
 .wm-list-wrap .wm-icon-list-style li {
-    float: left;
+    float: right;
     font-size: 15px;
     list-style: none;
 }
@@ -6021,9 +6023,9 @@ aside .widget {
     border-bottom:none; 
 }
 .wm-table .wm-table-head li {
-    border-left: 1px solid #eaeaea;
+    border-right: 1px solid #eaeaea;
     color: #424242;
-    float: left;
+    float: right;
     font-size: 14px;
     font-weight: bold;
     list-style: none;
@@ -6039,18 +6041,18 @@ aside .widget {
 }
 .wm-table-content ul li {
     border-bottom: 1px solid #eaeaea;
-    border-left: 1px solid #eaeaea;
+    border-right: 1px solid #eaeaea;
     display: table-cell;
     list-style: none;
     font-size: 15px;
     padding: 10px 19px 11px;
     width: 33.333%;
 }
-.wm-table-head li:first-child, .wm-table-content ul li:first-child                        {border-left: none;}
+.wm-table-head li:first-child, .wm-table-content ul li:first-child                        {border-right: none;}
 .wm-table-horizontal .wm-table-head {
-    float: left;
+    float: right;
     border: 1px solid #eaeaea;
-    border-right: none;
+    border-left: none;
     text-transform: uppercase;
     background-color: #f9f9f9;
     padding: 0px;
@@ -6067,22 +6069,22 @@ aside .widget {
 }
 .wm-table-horizontal .wm-table-content ul li {
     border-bottom: 1px solid #eaeaea;
-    border-left: none;
+    border-right: none;
 }
 .wm-table-horizontal .wm-table-content {
-    border-left: none;
-    float: left;
+    border-right: none;
+    float: right;
     border: 1px solid #eaeaea;
     padding: 0px 13px;
     width: 70%;
 }
 .wm-typography-element                                                               {margin-bottom: 50px;}
 .wm-pricesplan,.wm-price-plans,.wm-price-plans ul li,.wm-price-plans ul, .wm-pricesplan > ul > ul, .wm-price-plans h2,.wm-price-plans span,.wm-typography-element,.wm-table-horizontal .wm-table-content ul li,.wm-table-horizontal .wm-table-head li {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-pricesplan ul li {
-    float: left;
+    float: right;
     padding: 0px 12px;
     list-style: none;
 }
@@ -6113,13 +6115,13 @@ aside .widget {
      border-bottom: 1px solid #ededed;
     list-style: none;
     padding: 10px 0px 12px 0px;
-    float: left;
+    float: right;
     color: #424242;
     font-size: 15px;
 }
 .wm-price-plans ul li:last-child              {border-bottom:none;}
 .wm-price-plans ul li i {
-    float: left;
+    float: right;
     font-size: 12px;
     padding: 9px 12px 0px 8px;
 }
@@ -6138,7 +6140,7 @@ aside .widget {
             transition: all 0.4s ease-in-out;
 }
 .wm-buyplan i {
-   float: left;
+   float: right;
    padding: 9px 8px 0px 0px;
 }
 .wm-buyplan:hover                           {color: #ffffff;}
@@ -6146,16 +6148,16 @@ aside .widget {
     border: 2px dashed #dedede;
     padding: 36px 37px;
 }
-.wm-promo-box-text                            {float: left;}
+.wm-promo-box-text                            {float: right;}
 .wm-promo-box-text h2 {
     font-size: 28px;
-    float: left;
+    float: right;
     width: 70%;
     margin-bottom: 4px;
 }
 .wm-promo-box-text > .wm-save {
     color: #ffffff;
-    float: right;
+    float: left;
     width: 30%;
     font-size: 16px;
     margin: 0px ;
@@ -6163,14 +6165,14 @@ aside .widget {
 }
 .wm-promo-box-text > .wm-save > i                    { font-size: 14px;}
 .wm-promo-box-text span {
-    float: left;
+    float: right;
     font-size: 24px;
     margin-bottom: 13px;
     width: 100%;
 }
 .wm-promo-box-text span small {
     color: #bfbfbf;
-    float: left;
+    float: right;
     font-size: 18px;
     padding: 4px 0px 0px;
 }
@@ -6181,36 +6183,36 @@ aside .widget {
 }
 .wm-promo-box .read-more {
     border:1px solid; 
-    float: left;
+    float: right;
     font-size: 12px;
     text-transform: uppercase;
     padding: 9px 27px 9px 24px;
 }
 .wm-message,.wm-promo-box,.wm-promo-box p,.wm-message .message,.wm-message .alert {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-message .message{
     margin-bottom: 16px;
     border-radius: 31px;
-    padding: 6px 27px 6px 24px;;
+    padding: 6px 27px 6px 24px;
 }
 .wm-message .error-message {
     border-radius: 31px;
-    float: left;
+    float: right;
     position: relative;
 }
 .wm-message .error-message .close {
     color: #ffffff;
-    float: left;
+    float: right;
     font-size: 16px;
-    left: 26px;
+    right: 26px;
     opacity: 1;
     position: absolute;
     top: 12px;
 }
 .wm-message .alert-dismissable .close span{
-    right: 0px;
+    left: 0px;
     top: 0px;
 }
 .wm-message .alert {
@@ -6229,12 +6231,12 @@ aside .widget {
 .wm-message .success-message i, .caution-message i, .information-message i {
     color: #ffffff;
     font-size: 18px;
-    float: left;
+    float: right;
     padding: 9px 22px 0px 3px;
 }
 .wm-message .success-message p, .caution-message p, .information-message p {
     color: #ffffff;
-    float: left;
+    float: right;
     font-size: 18px;
 }
 .wm-message .information-message                    {background-color: #83c6e4;}
@@ -6243,7 +6245,7 @@ aside .widget {
 .wm-callaction-two-typo {
     background-image: url("extra-images/typo-callaction.jpg");
     background-repeat: no-repeat;
-    float: left;
+    float: right;
     width: 100%;
     z-index: 1;
     padding: 39px 42px 33px 70px;
@@ -6254,17 +6256,17 @@ aside .widget {
     background-color: rgba(17, 22, 44, 0.66);
     width: 100%;
     position: absolute;
-    left: 0;
+    right: 0;
     top: 0;
 }
 .wm-callaction-typo-text {
-    float: left;
+    float: right;
     z-index: 2;
     position: relative;
     width: 100%;
 }
 .wm-callaction-typo-text h2 {
-    float: left;
+    float: right;
     width: 81%;
     font-size: 24px;
     margin: 0px;
@@ -6280,7 +6282,7 @@ aside .widget {
 .wm-callaction-typo {
     background-image: url("extra-images/typo-callaction.jpg");
     background-repeat: no-repeat;
-    float: left;
+    float: right;
     width: 100%;
     z-index: 1;
     height: 100%;
@@ -6293,16 +6295,16 @@ aside .widget {
     width: 100%;
     z-index: 5;
     position: absolute;
-    left: 0;
+    right: 0;
     top: 0;
 }
 .wm-callaction-typo-text {
-    float: left;
+    float: right;
     z-index: 5;
     width: 100%;
 }
 .wm-callaction-typo-text h2 {
-    float: left;
+    float: right;
     width: 81%;
     font-size: 24px;
     margin: 0px;
@@ -6310,13 +6312,13 @@ aside .widget {
 }
 .wm-callaction-typo-text a {
     border: 1px solid;
-    float: left;
+    float: right;
     font-size: 12px;
     padding: 8px 26px 10px 25px;
     text-transform: uppercase;
 }
 .wm-button-bg {
-    float: left;
+    float: right;
     height: 100%;  
     padding: 46px 0px 0px 0px ;
     position: relative;
@@ -6327,7 +6329,7 @@ aside .widget {
 .wm-button                         {margin-bottom: 35px;}
 .wm-button, .wm-button-left, .wm-title-typo-button, .wm-button-typo,.wm-plan-background,.wm-button-right,.wm-plan-button-typo,.wm-plan-typo    {
     width: 100%;
-    float: left;
+    float: right;
 }
 .wm-button-left {
     margin-bottom: 60px;
@@ -6338,7 +6340,7 @@ aside .widget {
 .wm-button-left .wm-read-button  {
     border: 1px solid;   
     padding: 8px 19px;
-    float: left;
+    float: right;
     margin: 0px 12px 0px 0px;
     font-size: 12px;  
     -webkit-transition: all 0.4s ease-in-out;
@@ -6349,7 +6351,7 @@ aside .widget {
 }
 .wm-button-left .wm-search-button  {
     border: 1px solid;   
-    float: left;
+    float: right;
     margin: 0px 13px 0px 0px;
     padding: 10px 21px 10px 21px;
     font-size: 12px;  
@@ -6360,13 +6362,13 @@ aside .widget {
             transition: all 0.4s ease-in-out;
 }
 .wm-buttonapply {
-    float: left;
+    float: right;
     text-transform: uppercase;
 }
 .wm-buttonapply .wm-apply-button {
     border:1px solid #ffffff;
     color: #ffffff;
-    float: left;
+    float: right;
     font-size: 12px;
     margin: 0px 19px 0px 0px;
      padding: 9px 33px;
@@ -6390,12 +6392,12 @@ aside .widget {
     margin: 0px;
     padding: 0px 0px 3px;
 }
-.wm-button-typo                        {margin-left: 100px;}
+.wm-button-typo                        {margin-right: 100px;}
 .wm-button-right                       {text-transform: uppercase;}
 .wm-button-right .wm-read-more-button:hover {color: #ffffff;}
 .wm-button-right .wm-read-more-button {
     border: 1px solid;   
-    float: left;
+    float: right;
     margin: 0px 18px 35px 0px;
     padding: 10px 24px;
     font-size: 12px;  
@@ -6407,7 +6409,7 @@ aside .widget {
 }
 .wm-button-right .wm-subscribe-button {
     border: 1px solid #ffffff;   
-    float: left;
+    float: right;
     color: #ffffff;
     margin: 0px 37px 11px 0px;
     padding: 10px 25px 10px 26px;
@@ -6430,7 +6432,7 @@ aside .widget {
 }
 .wm-plan-button-typo .wm-see-event-button {
     border: 1px solid;   
-    float: left;
+    float: right;
     background-color:#fc822e; 
     color: #ffffff;
     border-radius: 5px;
@@ -6450,7 +6452,7 @@ aside .widget {
 .wm-get-started-button {
     border: 1px solid #cfcfcf;
     color: #424242;
-    float: left;
+    float: right;
     font-size: 15px;
     font-weight: 500;
     margin:-8px 5px 0px 20px;
@@ -6464,7 +6466,7 @@ aside .widget {
 .wm-arrow-right:hover,.wm-arrow-left:hover                         {border:2px solid;}
 .wm-plan-typo                                                           { margin: 15px 0px ;}
 .wm-arrow-right,.wm-arrow-left {   
-    float: left;
+    float: right;
     border: 2px solid #ffffff; 
     padding: 10px;
     font-size: 12px; 
@@ -6487,7 +6489,7 @@ aside .widget {
                     transform: scale(-1);
 }
 .wm-iconarrow-right,.wm-iconarrow-left  {
-    float: left;
+    float: right;
     padding: 10px 0px;
     margin: 0px 0px 0px 18px;
     font-size: 14px;
@@ -6507,7 +6509,7 @@ aside .widget {
     border: 2px solid #efefef;
     border-radius: 100%;
     color: #cbcbcb;
-    float: left;
+    float: right;
     font-size: 10px;
     height: 59px;
     margin: -8px 0px 0px 24px;;
@@ -6522,7 +6524,7 @@ aside .widget {
 .wm-arrow-without-left:hover,.wm-arrow-without-right:hover         {color: #003c5a;}
 .wm-arrow-without-left,.wm-arrow-without-right {
     color: #cbcbcb;
-    float: left;
+    float: right;
     font-size: 10px;
     margin: -6px -6px 0px 27px;
     padding: 19px 0px ;
@@ -6540,7 +6542,7 @@ aside .widget {
     border: 2px solid #3498db;
     border-radius: 25px;
     color: #3498db;
-    float: left;
+    float: right;
     font-size: 12px;
     font-weight: 600;
     margin: 0px  19px 10px 0px;
@@ -6556,7 +6558,7 @@ aside .widget {
     background-color: #303030; 
 }
 .wm-more-details {  
-    float: left; 
+    float: right; 
     color: #ffffff;
     background-color: #47d3a0;
     margin: 0px 19px 10px 0px ;
@@ -6572,7 +6574,7 @@ aside .widget {
 .wm-icon-right:hover,.wm-icon-left:hover              {color: #47d3a0;}
 .wm-icon-right,.wm-icon-left  {
    color: #efefef;
-    float: left;
+    float: right;
     font-size: 36px;
     font-weight: 600;
     margin: 0px 0px 0px 9px;
@@ -6592,7 +6594,7 @@ aside .widget {
     padding: 0px 8px 0px 0px;
 }
 .wm-tweet-us {  
-    float: left; 
+    float: right; 
     color: #3fbdf2;
     border: 2px solid #3fbdf2; 
     margin: 0px  19px 10px 0px ;
@@ -6606,22 +6608,22 @@ aside .widget {
 }
 .wm-form-wrap {
     border: 1px solid #eaeaea;   
-    float: left;
+    float: right;
     padding: 14px;
     width: 100%;
 }
 .wm-form-listing {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-form-wrap .wm-form-listing li {
-    float: left;
+    float: right;
     list-style: outside none none;
     margin-bottom: 10px;
     width: 70%;
 }
 .wm-form-wrap .wm-form-listing .wm-label-sec {
-    float: left;
+    float: right;
     width: 30%;
     font-size: 15px;
     color: #424242;
@@ -6630,7 +6632,7 @@ aside .widget {
     background-color: rgba(0, 0, 0, 0);
     border: 1px solid #eaeaea;
     color: #aaa9a9;
-    float: left;
+    float: right;
     font-size: 13px;
     height: 40px;
     padding: 9px 8px 9px 19px;
@@ -6640,20 +6642,20 @@ aside .widget {
     background-color: rgba(0, 0, 0, 0);
     border: 1px solid #eaeaea;
     color: #aaa9a9;
-    float: left;
+    float: right;
     font-size: 13px;
     height: 40px;
     padding: 9px 8px 9px 19px;
     width: 100%;
 }
 .wm-form-wrap .wm-select-checkbox {
-    margin-right: 25px;
+    margin-left: 25px;
     width: auto;
 }
-.wm-form-wrap .wm-select-checkbox             {float: left;}
+.wm-form-wrap .wm-select-checkbox             {float: right;}
 .wm-select-checkbox input[type="checkbox"]     {display: none;}
 .wm-select-radio {
-    float: left;
+    float: right;
     margin: 0px 16px 9px 1px;
     position: relative;
     width: auto;
@@ -6666,7 +6668,7 @@ aside .widget {
     font-size: 7px;
     font-weight: 300;
     height: 7px;
-    left: 0;
+    right: 0;
     margin: 0px 0px 0px 2px;
     position: absolute;
     top: 2px;
@@ -6710,14 +6712,14 @@ aside .widget {
     font-size: 8px;
     font-weight: 300;
     height: 7px;
-    left: -3px;
+    right: -3px;
     margin: 0px 0px 0px 2px;
     position: absolute;
     top: -11px;
     width: 7px;
 }
 .wm-form-wrap .wm-select-checkbox input[type="radio"], input[type="checkbox"] {
-    float: left;
+    float: right;
     line-height: normal;
     margin: 4px 13px 4px 3px;
     position: relative;
@@ -6726,11 +6728,11 @@ aside .widget {
     color: #00000b;
     font-size: 14px;
     font-weight: 400;
-    float: left;
+    float: right;
     margin-bottom: 10px;
 }
 .wm-form-wrap .wm-select {  
-    float: left;
+    float: right;
     position: relative;
     width: 100%;
 }
@@ -6753,7 +6755,7 @@ aside .widget {
     font-size: 9px;
     position: absolute;
     pointer-events: none;
-    right: 20px;
+    left: 20px;
     top: 7px;
     color: #c2c2c2;
     -webkit-transform: rotate(90deg);
@@ -6765,7 +6767,7 @@ aside .widget {
 .wm-form-wrap li textarea {
     background-color: #ffffff;
     border: 1px solid #eaeaea;
-    float: left;
+    float: right;
     height: 40px;
     height: 208px;
     padding: 7px 20px;
@@ -6774,7 +6776,7 @@ aside .widget {
 .wm-form-wrap li .wm-form-listing-section .wm-2column  input[type="text"] {
     background-color: #ffffff;
     border: 1px solid #eaeaea;
-    float: left;
+    float: right;
     height: 40px;
      width: 208px;
     padding: 7px 20px;
@@ -6802,27 +6804,27 @@ aside .widget {
 .wm-form-listing-section li.wm-2column input[type="text"], .wm-form-wrap .wm-form-listing-section li, .wm-form-listing-section li input[type="text"]                          {width: 100%;}
 .wm-form-listing-section li.wm-2column {
     width: 50%;
-    padding: 0px 12px 12px;;
+    padding: 0px 12px 12px;
 }
 /* Typography & Elements */
 
 /* Our Courses */
 .wm-courses-reviewes {
-    float: left;
+    float: right;
     width: 100%;
     margin: 0px 0px 30px 0px;
 }
 .wm-our-courses {
-    float: right;
+    float: left;
     padding: 13px 0;
 }
-.wm-our-courses ul li a,.wm-ourcourses-left,.wm-courses .wm-blog-author               {float: left;}
+.wm-our-courses ul li a,.wm-ourcourses-left,.wm-courses .wm-blog-author               {float: right;}
 .wm-our-courses ul  {
-    float: right;
+    float: left;
     padding: 0px 31px 0px 31px;
 }
 .wm-our-courses ul li {
-    float: left;
+    float: right;
     padding: 0px 0px 0px 30px;
     list-style: none;
 }
@@ -6836,7 +6838,7 @@ aside .widget {
 }
 .wm-ourcourses-left h6 {
     color: #424242;
-    float: left;
+    float: right;
     font-size: 18px;
     line-height: 1.1;
     margin: 0px;
@@ -6862,7 +6864,7 @@ aside .widget {
     font-family: FontAwesome;
     font-size: 13px;
     margin:-3px 0px 0px 0px;
-    left: 0px;
+    right: 0px;
     letter-spacing: 4px;
     position: absolute;
     top: 4px;
@@ -6871,7 +6873,7 @@ aside .widget {
     content: "\f006 \f006 \f006 \f006 \f006";
     font-family: FontAwesome;
     font-size: 13px;
-    left: 0px;
+    right: 0px;
     margin:-3px 0px  0px 0px;
     letter-spacing: 4px;
     position: absolute;
@@ -6883,19 +6885,19 @@ aside .widget {
 }
 .wm-ourcourses-left .rating-box {
     height: 16px;
-    left: 0px;
+    right: 0px;
     overflow: hidden;
     position: absolute;
     top: 0px;
 }
-.wm-ourcourses-right                                   {float: right;}
+.wm-ourcourses-right                                   {float: left;}
 .wm-ourcourses-right .wm-previous-icon:hover,.wm-ourcourses-right .wm-Next-icon:hover {
     border:1px solid ;
     color: #ffffff; 
 }
 .wm-ourcourses-right .wm-previous-icon, .wm-ourcourses-right .wm-Next-icon {
     border: 1px solid ;
-    float: left;
+    float: right;
     font-size: 12px;
     margin: 0px 0px 0px 9px;
     padding: 9px 22px 6px;
@@ -6907,42 +6909,42 @@ aside .widget {
             transition: all 0.4s ease-in-out;
 }
 .wm-ourcourses-right .wm-previous-icon i {
-    float: left;
+    float: right;
     font-size: 14px;
     padding: 2px 12px 5px 0px;
 }
 .wm-ourcourses-right .wm-Next-icon i {
-    float: right;
+    float: left;
     font-size: 14px;
     padding: 2px 0px 5px 13px;  
 }
 .wm-title-full {
     border-bottom: 2px solid #f2f2f2;
-    float: left;
+    float: right;
     margin-bottom: 21px;
     width: 100%;
 }
 .wm-title-full h2 {
-    float: left;
+    float: right;
     font-size: 24px;
     margin: 0px;
     padding: 0px 0px 3px 0px;
     width: 100%;
 }
 .wm-our-course-detail,.wm-course-blockquote-two span {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-our-course-detail p:last-child                     {margin: 0;}
 .wm-our-course-detail .wm-text {
-    float: left;
+    float: right;
     font-size: 15px;
     margin-bottom: 25px;
     line-height: 1.6;
     width: 100%;
 }
 .wm-our-course-detail p {
-    float: left;
+    float: right;
     font-size: 15px;
     margin-bottom: 45px;
     line-height: 1.6;
@@ -6950,7 +6952,7 @@ aside .widget {
 }
 .wm-course-blockquote-two {
     background-color: #f5f5f5;
-    float: left;
+    float: right;
     margin-bottom: 44px;
     padding: 31px 25px 32px 32px;;
     width: 100%;
@@ -6960,7 +6962,7 @@ aside .widget {
     content: "“";
     font-size: 40px;
     font-weight: 400;
-    left: -25px;
+    right: -25px;
     position: absolute;
     top: -6px;
 }
@@ -6982,7 +6984,7 @@ aside .widget {
 }
 .wm-courses-info                            {margin-bottom: 29px;}
 .wm-courses-info,.wm-courses-started,.wm-courses-info ul,.wm-courses-info ul li,.wm-certification-listing ul li,.wm-certification-listing,.wm-certification-listing p,.wm-courses-started > span,.wm-courses-started-listing,.wm-courses-getting-started {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-courses-getting-started                 {margin-bottom: 7px; }
@@ -7005,13 +7007,13 @@ aside .widget {
     padding:0px 13px 0px 10px;
 }
 .wm-courses-getting-started, .wm-courses-getting-started ul {
-    float: left;
+    float: right;
     width: 100%;
 }               
 .wm-courses-getting-started li {
     list-style: none;
     margin-bottom: 9px;
-    float: left;
+    float: right;
     width: 100%;
     border: 1px solid #f1f1f1;
     padding: 17px 26px 17px 20px;
@@ -7023,14 +7025,14 @@ aside .widget {
     margin: 0px 0px 13px;
 }
 .wm-courses-started-listing a {
-    float: left;
+    float: right;
     color: #cecece;
     font-size: 19px;
     padding: 15px 22px 4px 7px;
 }
 .wm-courses-started-text {
-    border-left: 1px solid #e8e8e8;
-    float: left;
+    border-right: 1px solid #e8e8e8;
+    float: right;
     padding: 0px 0px 0px 27px;
 }
 .wm-courses-started-text h6 {
@@ -7042,28 +7044,28 @@ aside .widget {
     width: 100%;
 }
 .wm-courses-started-text span {
-    float: left;
+    float: right;
     padding: 0px 15px 0px 0px;
 }
 .wm-courses-started-text span a {
-    float: left;
+    float: right;
     font-size: 14px;
     color: #cecece;
     padding: 8px 7px 4px 0px;
 }
 .wm-courses-started-text span time {
     color: #424242;
-    float: left;
+    float: right;
     font-size: 15px;
 }
 .wm-courses-preview {
-    float: right;
+    float: left;
     padding: 20px 0px 0px;
 }
 .wm-courses-preview > a {
     background-color: #69ca87;
     color: #ffffff;
-    float: right;
+    float: left;
     font-size: 14px;
     padding: 2px 19px 4px 18px;
     -webkit-transition: all 0.4s ease-in-out;
@@ -7074,11 +7076,11 @@ aside .widget {
 }
 .wm-courses-author-info,.wm-courses-authorinfo,.wm-courses-authorinfo .wm-author-text span,.wm-courses-authorinfo .wm-author-text h5,.wm-courses-authorinfo .wm-author-text p,.wm-courses-author-info ul,
 .wm-student-dashboard-favorite {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-courses-author-info ul li {
-    float: left;
+    float: right;
     width: 100%;
     padding: 0px 0px 14px 0px;
     border-bottom: 1px solid #f2f2f2;
@@ -7111,17 +7113,17 @@ aside .widget {
     border:none;
 }
 .widget_professor-info,.widget_professor-info figure a,.widget_professor-info figure img {
-    float: left;
+    float: right;
     width: 100%;
 }
 .widget_professor-info figure {
-    float: left;
+    float: right;
     margin: 0px 0px 15px 0px;
 }
-.widget_professor-info figure ~ .wm-Professor-info                         {margin-left: 80px;}
+.widget_professor-info figure ~ .wm-Professor-info                         {margin-right: 80px;}
 .wm-Professor-info h6 a                                                 {color: #3d4158;}
 .wm-Professor-info h6 {  
-    float: left;
+    float: right;
     font-size: 18px;
     font-weight: 500;
     line-height: 1.5;
@@ -7130,7 +7132,7 @@ aside .widget {
 }
 .wm-Professor-info span {
     color: #3d4158;
-    float: left;
+    float: right;
     font-size: 16px;
     font-style: italic;
     line-height: 1.1;
@@ -7138,7 +7140,7 @@ aside .widget {
 }
 .widget_professor-info p {
     color: #424242;
-    float: left;
+    float: right;
     font-size: 15px;
     line-height: 1.6;
     padding: 0px 0px 10px 0px;
@@ -7151,7 +7153,7 @@ aside .widget {
 .widget_professor-info > .wm-read-more {
     border: 1px solid ;
     color: #424242;
-    float: left;
+    float: right;
     font-size: 12px;
     padding: 8px 32px 11px;
     text-transform: uppercase;
@@ -7162,23 +7164,23 @@ aside .widget {
             transition: all 0.4s ease-in-out;
 }
 .widget_courses-program,.widget_courses-program ul,.widget_course-price {
-    float: left;
+    float: right;
     width: 100%;
 }
 .widget_courses-program ul li:last-child                            {padding: 0;}
 .widget_courses-program ul li {
     list-style: outside none none;
     padding: 0px 0px 8px 0px;
-    float: left;
+    float: right;
     width: 100%;
 }
 .widget_courses-program a {
-    float: left;
+    float: right;
     font-size: 16px;
     color: #3d4158;
 }
 .widget_courses-program span {
-    float: right;
+    float: left;
     font-size: 16px;
 }
 .widget_course-price small {
@@ -7186,18 +7188,18 @@ aside .widget {
     color: #999999;
 }
 .widget_course-price span {
-    float: left;
+    float: right;
     font-size: 30px;
     margin: 0px 0px 40px 0px;
 }
 .wm-widget-heading {
-    float: left;
+    float: right;
     border-bottom: 2px solid #f2f2f2;
     margin-bottom: 8px;
     width: 100%;
 }
 .wm-widget-heading h4 {
-    float: left;
+    float: right;
     margin: 0px 0px 6px 0px;
     width: 100%;
     font-size: 18px;    
@@ -7208,7 +7210,7 @@ aside .widget {
 }
 .widget_course-price > a {
     border: 1px solid;
-    float: left;
+    float: right;
     font-size: 18px;
     font-weight: 500;
     padding: 13px 0px 18px 0px;
@@ -7224,7 +7226,7 @@ aside .widget {
 }
 .widget_course-price ul {
     background-color: #f7f7f7;
-    float: left;
+    float: right;
     padding: 19px 23px;
     width: 100%;
 }
@@ -7234,14 +7236,14 @@ aside .widget {
 }
 .widget_course-price ul li {
     border-bottom: 2px solid #eeeeee;
-    float: left;
+    float: right;
     list-style: none;
     padding: 15px 0px 11px 0px;
     width: 100%;
 }
 .widget_course-price > ul > li > a {
     color: #424242;
-    float: left;
+    float: right;
     font-size: 15px;
     padding: 0px 13px;
     width: 100%;
@@ -7252,7 +7254,7 @@ aside .widget {
 }
 .widget_course-price .wm-levelrating {
     display: inline-block;
-    float: left;
+    float: right;
     height: 16px;
     line-height: 15px;
     margin: 2px 12px 1px 0px;
@@ -7265,7 +7267,7 @@ aside .widget {
     font-family: FontAwesome;
     font-size: 11px;
     margin:-3px 0px 0px 0px; 
-    left: 1px;
+    right: 1px;
     letter-spacing: 3px;
     position: absolute;
     top: 10px;
@@ -7275,7 +7277,7 @@ aside .widget {
     content: "\f111 \f111 \f111";
     font-family: FontAwesome;
     font-size: 11px;
-    left: 1px;
+    right: 1px;
     margin:-3px 0px 0px 0px; 
     letter-spacing: 3px;
     position: absolute;
@@ -7287,14 +7289,14 @@ aside .widget {
 }
 .widget_course-price .rating-box {
     height: 20px;
-    left: 0px;
+    right: 0px;
     overflow: hidden;
     position: absolute;
     top: 0px;
 }
 .widget_futurecourse {
     width: 100%;
-    float: left;
+    float: right;
 }
 .widget_futurecourse ul ul {
     list-style: none;
@@ -7307,22 +7309,22 @@ aside .widget {
 .widget_futurecourse ul li:last-child { margin-bottom: 0px; }
 .widget_futurecourse .wm-futurecourse ul li { margin-bottom: 0px; } 
 .widget_futurecourse figure {
-    float: left;
+    float: right;
     margin: 0px;
 }
 .widget_futurecourse figure ~ .wm-futurecourse {
-    margin-left: 74px;
+    margin-right: 74px;
 }
 .widget_futurecourse i {
     color: #dfdfdf;
     font-size: 16px;
-    left: -24px;
+    right: -24px;
     position: absolute;
     top: 1px;
 }
 .wm-futurecourse                                           {padding: 0 0 0 18px;}
 .wm-futurecourse h4 {
-    float: left;
+    float: right;
     font-size: 16px;
     color: #0a1350;
     display: block;
@@ -7334,7 +7336,7 @@ aside .widget {
     color: #a4a4a4;
     margin: 3px 5px 0px 0px;
     display: block;
-    float: left;
+    float: right;
 }
 .wm-futurecourse span                                     {font-size: 20px;}
 .wm-futurecourse-info {
@@ -7343,11 +7345,11 @@ aside .widget {
     margin-bottom: 7px;
     position: relative;
 }
-.wm-futurecourse li                                        {margin-right: 14px;}
+.wm-futurecourse li                                        {margin-left: 14px;}
 .wm-futurecourse li a {
     color: #0a1350;
     font-size: 15px;
-    margin-left: 24px;
+    margin-right: 24px;
     position: relative;
     -webkit-transition: all 0.4s ease-in-out;
        -moz-transition: all 0.4s ease-in-out;
@@ -7393,7 +7395,7 @@ aside .widget {
     content: "\f006 \f006 \f006 \f006 \f006";
     font-family: FontAwesome;
     font-size: 15px;
-    left: 3px;
+    right: 3px;
     letter-spacing: 5px;
     margin: -4px 0px 0px 0px;
     position: absolute;
@@ -7403,7 +7405,7 @@ aside .widget {
     content: "\f006 \f006 \f006 \f006 \f006";
     font-family: FontAwesome;
     font-size: 15px;
-    left: 3px;
+    right: 3px;
     letter-spacing: 5px;
     margin: -3px 0px 0px;
     position: absolute;
@@ -7415,43 +7417,43 @@ aside .widget {
 }
 .wm-courses-average-rating .rating-box {
     height: 16px;
-    left: 0px;
+    right: 0px;
     overflow: hidden;
     position: absolute;
     top: 0px;
 }
 .wm-courses-rating {
-    float: left;
+    float: right;
     margin-bottom: 30px;
     width: 100%;
 }
 .wm-courses-detail-rating {
-    float: left;
+    float: right;
     line-height: 1;
 }
 .wm-detailed-rating,.wm-average-rating {
-    float: left;
+    float: right;
     width: 65%;
 }
 .wm-average-rating {
-    float: left;
+    float: right;
     width: 35%;
 }
 .wm-detailed-rating > span, .wm-average-rating > span {
     color: #424242;
     display: block;
     font-size: 16px;
-    float: left;
+    float: right;
     font-weight: bold;
     width: 100%;
     padding: 0px 0 14px;
 }
 .wm-courses-detail-rating ul {
-    float: left;
+    float: right;
     width: 300px;
 }
 .wm-courses-detail-rating ul li {
-    float: left;
+    float: right;
     list-style: none;
     padding: 0 0 3px;
     width: 100%;
@@ -7470,7 +7472,7 @@ aside .widget {
     content: "";
     font-size: 15px;
     height: 22px;
-    left: 0;
+    right: 0;
     position: absolute;
     top: 0;
     width: 217px;
@@ -7479,28 +7481,28 @@ aside .widget {
     content: "";
     font-size: 15px;
     height: 22px;
-    left: 0;
+    right: 0;
     position: absolute;
     top: 0;
     width: 217px;
 }
 .wm-courses-detail-rating ul li .wm-rating-box {
     height: 22px;
-    left: 0px;
+    right: 0px;
     overflow: hidden;
     position: absolute;
     top: 0px;
 }
 .wm-courses-detail-rating > ul > li > span {
     color: #424242;
-    float: left;
+    float: right;
     font-size: 15px;
     padding: 0;
     padding: 4px 0;
     font-weight: 400;
 }
 .wm-courses-detail-rating > ul > li > small {
-    float: right;
+    float: left;
     color: #424242;    
     font-size: 15px;
     padding: 4px 0;
@@ -7510,13 +7512,13 @@ aside .widget {
 
 /* Student Dashboard-Settings */
 .wm-student-dashboard-settings,.wm-student-dashboard-settings form,.wm-student-dashboard-form,.wm-full-title,.wm-full-title h2  {
-    float: left;
+    float: right;
     width: 100%;    
 }
 .wm-student-dashboard-settings form                                                                 {margin-bottom: 29px;}
 .wm-student-dashboard-settings form ul                                                      {margin: 0px -7px }
 .wm-student-dashboard-settings form ul li {
-    float: left;
+    float: right;
     list-style: none;
     padding: 0px 7px 14px;
     width: 50%;
@@ -7536,7 +7538,7 @@ aside .widget {
 .wm-student-dashboard-settings form .wm-student-select                             {width: 33.33%;}
 .wm-student-dashboard-settings form .wm-select-two {    
     border-bottom: 2px solid #eaeaea;
-    float: left;
+    float: right;
     position: relative;
     width: 100%;
 }
@@ -7561,7 +7563,7 @@ aside .widget {
     font-family: "FontAwesome";
     font-size: 14px;
     position: absolute;
-    right: 20px;
+    left: 20px;
     top: 7px;
     color: #c2c2c2;
 }
@@ -7576,7 +7578,7 @@ aside .widget {
     margin: 0px;
 }
 .wm-student-dashboard-form form  {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-student-dashboard-form form  ul li {
@@ -7598,7 +7600,7 @@ aside .widget {
 }
 .wm-student-dashboard-form form input[type="submit"] {
     border: 1px solid;
-    float: left;
+    float: right;
     background-color: rgba(0,0,0,0);
     font-size: 12px;
     margin:26px 0px 0px 0px ; 
@@ -7609,21 +7611,21 @@ aside .widget {
 
 /* Student Dashboard-favorite */
 .wm-student-dashboard-favorite,.wm-student-dashboard-favorite ul,.wm-student-favorite-text,.wm-rating-favorite {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-student-dashboard-favorite ul li {
-    float: left;
+    float: right;
     list-style: none;
     padding: 0px 0px 19px 0px;
     width: 100%;
 }
 .wm-student-dashboard-favorite .wm-thum figure {
-    float: left;
+    float: right;
     margin: 0px;
 }
 .wm-student-dashboard-favorite .wm-thum figure a,.wm-student-dashboard-favorite .wm-thum figure img {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-student-favorite {   
@@ -7632,31 +7634,31 @@ aside .widget {
 }
 .wm-student-favorite-text img {
     border-radius: 100%;
-    float: left;
+    float: right;
     margin: -26px 0px 0px 13px;
     position: relative;
 }
 .wm-student-favorite-text a {
     color: #c3c8e2;
-    float: left;
+    float: right;
     font-size: 14px;
     font-weight: 500;
     line-height: 1.3;
     padding: 7px 0px 8px 18px;
     width: 50%;
 }
-.wm-thum                                                    {float: left;}
-.wm-thum ~ .wm-favorite-text                                {margin-left: 172px;}
+.wm-thum                                                    {float: right;}
+.wm-thum ~ .wm-favorite-text                                {margin-right: 172px;}
 .wm-favorite {
     border-top: 1px solid #eaeaea;
     border-bottom: 1px solid #eaeaea;
     border-right: 1px solid #eaeaea;
-    float: left;
+    float: right;
     padding: 24px 37px 30px 37px;
     width: 100%;
 }
 .wm-favorite h2 {
-    float: left;
+    float: right;
     font-size: 18px;
     margin: 0px;
     width: 100%;
@@ -7670,7 +7672,7 @@ aside .widget {
     border: 1px solid;
     font-weight: 500;
     color: #424242;
-    float: left;
+    float: right;
     font-size: 12px;
     padding: 3px 20px 5px 20px;
     text-align: center;
@@ -7691,7 +7693,7 @@ aside .widget {
     font-size: 13px;
     color: #cecece;
     margin:-3px 0px 0px 0px;
-    left: 0px;
+    right: 0px;
     letter-spacing: 4px;
     position: absolute;
     top: 4px;
@@ -7700,7 +7702,7 @@ aside .widget {
     content: "\f005";
     font-family: FontAwesome;
     font-size: 13px;
-    left: 0px;
+    right: 0px;
     color: #cecece;
     margin:-3px 0px  0px 0px;
     letter-spacing: 4px;
@@ -7713,7 +7715,7 @@ aside .widget {
 }
 .wm-favorite .wm-rating-favorite .rating-box {
     height: 16px;
-    left: 0px;
+    right: 0px;
     overflow: hidden;
     position: absolute;
     top: 0px;
@@ -7724,11 +7726,11 @@ aside .widget {
 .wm-student-dashboard-statement,.wm-dashboard-statement, .wm-plane-title h2,.wm-plane-title,.wm-student-settings-info,.wm-student-dashboard-courses,
 .wm-student-profile-info,.wm-student-nav,.wm-student-nav-text h6 
 .wm-student-nav ul,.wm-student-nav ul li > a {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-student-dashboard-nav {
-    float:  left;
+    float:  right;
     width: 100%;
     padding-right: 32px;
 }
@@ -7737,11 +7739,11 @@ aside .widget {
     padding: 38px 42px;
 }
 .wm-student-nav figure {
-    float: left;
+    float: right;
     margin: 0;
 }
 .wm-student-nav > a,.wm-student-nav img {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-student-nav figure ~ .wm-student-nav-text                              {padding: 0 0 0 100px;}
@@ -7750,7 +7752,7 @@ aside .widget {
     bottom: -9px;
     content: "";
     height: 2px;
-    left: 0;
+    right: 0;
     position: absolute;
     width: 80px;
 }
@@ -7762,7 +7764,7 @@ aside .widget {
 }
 .wm-student-nav-text a {
     border: 1px solid;
-    float: left;
+    float: right;
     font-size: 12px;
     font-weight: 500;
     margin-bottom: 38px;
@@ -7798,8 +7800,8 @@ aside .widget {
     opacity:0 ;
     position: absolute;
     font-size: 8px;
-    right: 12px;
-    text-align: right;
+    left: 12px;
+    text-align: left;
     top:1px;
     -webkit-transition: all 0.4s ease-in-out;
        -moz-transition: all 0.4s ease-in-out;
@@ -7833,21 +7835,21 @@ aside .widget {
 .wm-plane-title                         {margin-bottom: 14px;}
 .wm-plane-title h2                      {font-size: 26px;}
 .wm-dashboard-statement .wm-article li.wm-student {
-    border-left: medium none;
+    border-right: medium none;
     padding: 8px 28px 11px 39px;
     width: 19%;
 }
 .wm-dashboard-statement .wm-article li > span,.wm-dashboard-courses .wm-article li > span {
     font-size: 16px;
     font-weight: bold;
-    float: left;
+    float: right;
 }
 .wm-student-dashboard-statement .wm-article {
-    float: left;
+    float: right;
     width: 100%;
     border-top: 1px solid #eaeaea;
-    border-left: 1px solid #eaeaea;
     border-right: 1px solid #eaeaea;
+    border-left: 1px solid #eaeaea;
 }
 .wm-student-dashboard-statement .wm-article ul {
     float: left;
@@ -7858,13 +7860,13 @@ aside .widget {
     padding: 15px 10px 12px 10px;
     list-style: none;
     width: 19%;
-    border-left: 1px solid #eaeaea;
-    float: left;
+    border-right: 1px solid #eaeaea;
+    float: right;
 }
 .wm-student-dashboard-statement .wm-article:last-child               {border-bottom:1px solid #eaeaea;}
-.wm-student-dashboard-statement .wm-article ul li:first-child               {border-left:none;}
+.wm-student-dashboard-statement .wm-article ul li:first-child               {border-right:none;}
 .wm-student-dashboard-statement .wm-article ul li small {
-    float: left;
+    float: right;
     padding: 10px 41px;
     font-size: 15px;
     color:#424242;
@@ -7872,7 +7874,7 @@ aside .widget {
 .wm-student-dashboard-statement .wm-article ul li .wm-dowmload {
     background-color: #69ca87;
     color: #ffffff;
-    float: right;
+    float: left;
     font-size: 14px;
     margin: 9px 8px 10px 0;
     padding: 0 12px 1px 10px;
@@ -7894,8 +7896,8 @@ aside .widget {
     text-align: center;
 }
 .wm-statement-started-text {
-    border-left: 1px solid #e8e8e8;
-    float: left;
+    border-right: 1px solid #e8e8e8;
+    float: right;
     padding: 0px 0px 0px 26px;
 }
 .wm-statement-started-text h6 {
@@ -7908,50 +7910,50 @@ aside .widget {
 }
 .wm-dashboard-courses .wm-statement-started-text span a          {font-size: 15px;}
 .wm-statement-started-text span  {
-    float: left;
+    float: right;
     padding: 0px 19px 0px 0px;
 }
 .wm-statement-started-text span a {
-    float: left;
+    float: right;
     font-size: 15px;
     color: #cecece;
     padding: 8px 6px 0px 0px;
 }
 .wm-statement-started-text span time {
     color: #424242;
-    float: left;
+    float: right;
     font-size: 15px;
 }
 /* Student Dashboard-Statement */
 
 /* Student Dashboard my-courses */
 .wm-student-dashboard-courses,.wm-dashboard-courses {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-dashboard-courses .wm-article li.wm-student {
-    border-left: medium none;
+    border-right: medium none;
     padding: 8px 49px 11px 39px;
     width: 17.5%;
 }
 .wm-student-dashboard-courses .wm-article ul {
-    float: left;
+    float: right;
     text-align: center;
     width: 100%;
 }
 .wm-student-dashboard-courses .wm-article ul li.wm-courses-start {
     width: 65%;
-    border-left: 1px solid #eaeaea;
-}
-.wm-student-dashboard-courses .wm-article {
-    float: left;
-    width: 100%;
-    border-top: 1px solid #eaeaea;  
     border-right: 1px solid #eaeaea;
 }
-.wm-student-dashboard-courses .wm-article ul li {
+.wm-student-dashboard-courses .wm-article {
+    float: right;
+    width: 100%;
+    border-top: 1px solid #eaeaea;  
     border-left: 1px solid #eaeaea;
-    float: left;
+}
+.wm-student-dashboard-courses .wm-article ul li {
+    border-right: 1px solid #eaeaea;
+    float: right;
     list-style: outside none none;
     padding: 15px 10px 12px;
     width: 17.5%;
@@ -7966,7 +7968,7 @@ aside .widget {
     text-align: center;
 }
 .wm-statement-started-text                     {border:none;}
-.wm-statement-started-text h6 a                {float: left;}
+.wm-statement-started-text h6 a                {float: right;}
 .wm-status-courses {
     color: #ffffff;
     display: inline-block;
@@ -7984,19 +7986,19 @@ aside .widget {
 /* Student Dashboard profile */
 .wm-profile-info .wm-title-full                {margin:0px 0px 34px 0px;}    
 .wm-student-dashboard-profile {
-    float: left;
+    float: right;
     margin-bottom: 35px;
     width: 100%;
 }
 .wm-student-dashboard-profile ul                            {margin: 0px -9px 24px;}
 .wm-student-dashboard-profile ul li:last-child              {padding: 0px 0px 0px 9px;}
 .wm-student-dashboard-profile ul li  {
-    float: left;
+    float: right;
     padding: 0px 9px;
     list-style: none;
 }
 .wm-student-profile {
-    float: left;
+    float: right;
     width: 100%;
     padding: 17px 17px;
     border:2px solid #f1f1f1;
@@ -8004,7 +8006,7 @@ aside .widget {
 .wm-student-profile > .wm-circle-icon {
     border: 2px solid #f2f2f2;
     border-radius: 100%;
-    float: left;
+    float: right;
     font-size: 17px;
     height: 47px;
     margin: 0px 13px 0px 0px;
@@ -8013,7 +8015,7 @@ aside .widget {
 }
 .wm-student-profile > .wm-circle-icon ~ .wm-student-profile-text                             { padding: 0px 0px 0px 61px; }
 .wm-student-profile-text > a {
-    float: left;
+    float: right;
     font-size: 15px;
     font-weight: 400;
     line-height: 1;
@@ -8025,51 +8027,51 @@ aside .widget {
             transition: all 0.4s ease-in-out;
 }
 .wm-profile-info,.wm-profile-info .wm-article ul,.wm-profile-detail-info {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-profile-info .wm-article:last-child                             {border-bottom: 1px solid #f1f1f1;}
 .wm-profile-info .wm-article {
     border-right: 1px solid #f1f1f1; 
     border-top: 1px solid #f1f1f1; 
-    border-left: 1px solid #f1f1f1; 
-    float: left;
+    border-right: 1px solid #f1f1f1; 
+    float: right;
     width: 100%;
 }
 .wm-student-profile-text span {
-    float: left;
+    float: right;
     width: 100%;
     font-size: 16px;
     font-weight: 500;
 }
 .wm-profile-info .wm-article ul li {
-    float: left;
+    float: right;
     list-style: none;
-    border-left: 1px solid #f1f1f1; 
+    border-right: 1px solid #f1f1f1; 
     padding: 11px 35px;
     width: 20%;
 }
 .wm-profile-info .wm-article ul li.wm-profile-info-right {
-    float: right;
+    float: left;
     width: 100%;
 }
 .wm-profile-info-right span {
     color: #424242;
-    float: right;
+    float: left;
     font-size: 16px;
     font-weight: 500;
 }
-.wm-profile-info .wm-article ul li:first-child                          {border-left: none;}
+.wm-profile-info .wm-article ul li:first-child                          {border-right: none;}
 .wm-profile-info .wm-article ul li.wm-profile-start                     {width: 60%;}
 .wm-profile-detail-info h6 {
-    float: left;
+    float: right;
     font-size: 16px;
     line-height: 1;
     margin: 0px;
     width: 100%;
 }
 .wm-profile-detail-info h6 a {
-    float: left;
+    float: right;
     width: 100%;
     -webkit-transition: all 0.4s ease-in-out;
        -moz-transition: all 0.4s ease-in-out;
@@ -8078,7 +8080,7 @@ aside .widget {
             transition: all 0.4s ease-in-out;
 }
 .wm-profile-detail-info span {
-    float: left;
+    float: right;
     font-size: 15px;
     color: #424242;
     width: 100%;
@@ -8088,7 +8090,7 @@ aside .widget {
     padding: 0px 7px 0px 0px;
 }
 .wm-profile-info .wm-edit-icon {
-    float: left;
+    float: right;
     font-size: 15px;
     text-align: center;
     padding: 9px 0px 7px;
@@ -8117,21 +8119,21 @@ aside .widget {
     border-radius: none;
     font-weight: 300;
     height: 9px;
-    left: -1px;
+    right: -1px;
     margin: 0px 0px 0px 2px;
     position: absolute;
     top: 1px;
     width: 9px;
 }
 .wm-profile-info .wm-article ul li .wm-select-checkbox input[type="radio"], input[type="checkbox"] {
-    float: left;
+    float: right;
     line-height: normal;
     margin: 4px 13px 4px 3px;
     position: relative;
 }
 .wm-profile-info .wm-article ul li .wm-select-checkbox label {
     color: #00000b;
-    float: left;
+    float: right;
     font-size: 14px;
     font-weight: 400;
     margin: 0px;
@@ -8140,7 +8142,7 @@ aside .widget {
     width: 100%;
 }
 .wm-profile-info-search {
-    float: left;
+    float: right;
     margin: 0px 0px 17px;
     text-align: center;
     width: 100%;
@@ -8162,7 +8164,7 @@ aside .widget {
 /* 404 page */
 .wm-404page-bg {
     width: 100%;
-    float: left;
+    float: right;
     background-image: url('extra-images/404-image.jpg');
     background-repeat: no-repeat;
     background-position: 3%;
@@ -8170,7 +8172,7 @@ aside .widget {
     padding: 85px 0 186px;
 }
 .wm-404page-bg .col-md-7 {
-    float: right;
+    float: left;
 } 
 .wm-404page {
     margin: 0 0 0 49px;
@@ -8194,7 +8196,7 @@ aside .widget {
 .wm-404page-text h3 {
     font-size: 22px;
     width: 100%;
-    float:left;
+    float:right;
     padding-bottom: 4px;
     margin-bottom: 24px;
     border-bottom: 2px solid #f2f2f2;
@@ -8227,7 +8229,7 @@ aside .widget {
     color: #d0d0d0;
     font-size: 13px;
     position: absolute;
-    right: 25px;
+    left: 25px;
     top: 15px;
 }
 .wm-404page-text input[type="submit"] {
@@ -8236,26 +8238,26 @@ aside .widget {
     background-color: transparent;
     width: 60px;
     height: 43px;
-    right:0;
+    left:0;
     top: 0;
 }
 .wm-404page-button {
     width: 100%;
-    float: left;
+    float: right;
 }
 .wm-404page-button ul {
     list-style: none;
 }
 .wm-404page-button li {
     display: inline-block;
-    margin-right: 6px;
+    margin-left: 6px;
 }
 .wm-404page-button a {
     font-size: 12px;
     border: 1px solid #13491e;
     text-transform: uppercase;
     padding: 5px 44px 6px;
-    float: left;
+    float: right;
     position: relative;
     -webkit-transition: all 0.4s ease-in-out;
        -moz-transition: all 0.4s ease-in-out;
@@ -8274,7 +8276,7 @@ aside .widget {
 .wm-404page-button a:before {
     content: "";
     height: 0;
-    left: 0;
+    right: 0;
     opacity: 0;
     position: absolute;
     top: 0;
@@ -8289,7 +8291,7 @@ aside .widget {
 .wm-404page-button a:after {
     content: "";
     height: 0;
-    left: 0;
+    right: 0;
     opacity: 0;
     position: absolute;
     bottom: 0;
@@ -8308,7 +8310,7 @@ aside .widget {
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    float: left;
+    float: right;
     text-align: center;
     padding: 94px 0px 75px;
     position: relative;
@@ -8318,12 +8320,12 @@ aside .widget {
 }
 .wm-faq-page {
     width: 100%;
-    float: left;
+    float: right;
 }
 .wm-sidebar {
     background-color: #f6f6f6;
     width: 100%;
-    float: left;
+    float: right;
     padding: 21px 23px 2px 42px;
     margin-bottom: 30px;
 }
@@ -8349,7 +8351,7 @@ aside .widget {
     font-family: 'icon';
     font-size: 12px;
     position: absolute;
-    right: 5px;
+    left: 5px;
     -webkit-transition: all 0.4s ease-in-out;
        -moz-transition: all 0.4s ease-in-out;
         -ms-transition: all 0.4s ease-in-out;
@@ -8363,7 +8365,7 @@ aside .widget {
     border: 1px solid #e9e9e9;
     padding: 34px 0 39px 43px;
     width: 100%;
-    float:left;
+    float:right;
 }
 .wm-submit-question h6 {
     font-size: 18px;
@@ -8381,7 +8383,7 @@ aside .widget {
     border: 1px solid #13491e;
     text-transform: uppercase;
     padding: 9px 30px;
-    float: left;
+    float: right;
     -webkit-transition: all 0.4s ease-in-out;
        -moz-transition: all 0.4s ease-in-out;
         -ms-transition: all 0.4s ease-in-out;
@@ -8393,11 +8395,11 @@ aside .widget {
 }
 .wm-faq-sec {
     width: 100%;
-    float: left;
+    float: right;
 }
 .wm-faq {
     width: 100%;
-    float: left;
+    float: right;
     padding-bottom: 43px;
 }
 .wm-faq h2 {
@@ -8412,7 +8414,7 @@ aside .widget {
     box-shadow: none;
     border-bottom: 1px solid #f2f2f2;
     width: 100%;
-    float: left;
+    float: right;
     margin-bottom: 6px;
     padding-bottom: 11px;
     position: relative;
@@ -8447,7 +8449,7 @@ aside .widget {
 }
 .wm-faq-search {
     width: 100%;
-    float: left;
+    float: right;
     position: relative;
     padding-bottom: 43px;
 }
@@ -8467,14 +8469,14 @@ aside .widget {
     font-size: 13px;
     line-height: 43px;
     position: absolute;
-    right: 25px;
+    left: 25px;
 }
 .wm-faq-search input[type="submit"] {
     background-color: transparent;
     border: medium none;
     height: 43px;
     position: absolute;
-    right: 0;
+    left: 0;
     top: 0;
     width: 60px;
 }
@@ -8483,11 +8485,11 @@ aside .widget {
 }
 .wm-faq-form {
     width: 100%;
-    float: left;
+    float: right;
 }
 .wm-faq-form form {
     width: 100%;
-    float: left;
+    float: right;
 }
 .wm-faq-form h2 {
     border-bottom: 2px solid #f2f2f2;
@@ -8507,11 +8509,11 @@ aside .widget {
     width: 100%;
 }
 .wm-faq-form ul {
-    float: left;
+    float: right;
     margin: 0 -9px;
 }
 .wm-faq-form li {
-    float: left;
+    float: right;
     list-style: outside none none;
     padding: 0 9px 18px;
     width: 50%;
@@ -8533,7 +8535,7 @@ aside .widget {
 }
 .wm-faq-form input[type="submit"] {
     border: 1px solid #13491e;
-    float: left;
+    float: right;
     line-height: 1;
     font-size: 12px;
     padding: 12px 29px;
@@ -8558,7 +8560,7 @@ aside .widget {
     font-size: 12px;
     position: absolute;
     pointer-events: none;
-    right: 20px;
+    left: 20px;
     line-height: 43px;
 
 }
@@ -8581,7 +8583,7 @@ aside .widget {
 }
 .widget_check-box {
     width: 100%;
-    float: left;
+    float: right;
     position: relative;
 }
 .widget_check-box h5 {
@@ -8594,7 +8596,7 @@ aside .widget {
 .widget_check-box li {
     list-style: none;
     padding-bottom: 12px;
-    float: left;
+    float: right;
     width: 100%;
 }
 .widget_check-box li:last-child {
@@ -8606,7 +8608,7 @@ aside .widget {
     font-family: fontawesome;
     font-size: 12px;
     position: absolute;
-    right: 5px;
+    left: 5px;
     top: 5px;
 }
 .widget_check-box input[type="checkbox"] + label {
@@ -8632,7 +8634,7 @@ aside .widget {
 }
 .widget_check-box input[type="checkbox"]:checked + label span:before {
     content: "\f04d";
-    float: left;
+    float: right;
     color: #13491e;
     font-family: FontAwesome;
     font-size: 7px;
@@ -8640,7 +8642,7 @@ aside .widget {
     height: 7px;
     font-weight: 300;
     position: absolute;
-    left: 2px;
+    right: 2px;
     top: -9px;
 }
 .widget_check-box .wm-levelrating {
@@ -8650,7 +8652,7 @@ aside .widget {
  line-height: 15px;
  position: relative;
  width: 14%;
- float: right;
+ float: left;
 }
 .widget_check-box .wm-levelrating:before {
  color: #ebebeb;
@@ -8658,7 +8660,7 @@ aside .widget {
  font-family: FontAwesome;
  font-size: 11px;
  margin:-3px 0 0;
- left: 1px;
+ right: 1px;
  letter-spacing: 3px;
  position: absolute;
  top: 10px;
@@ -8667,7 +8669,7 @@ aside .widget {
  content: "\f111 \f111 \f111";
  font-family: FontAwesome;
  font-size: 11px;
- left: 1px;
+ right: 1px;
  margin:-3px 0 0;
  letter-spacing: 3px;
  position: absolute;
@@ -8678,29 +8680,29 @@ aside .widget {
 }
 .widget_check-box .rating-box {
  height: 20px;
- left: 0px;
+ right: 0px;
  overflow: hidden;
  position: absolute;
  top: 0px;
 }
 .wm-level-checkbox {
     width: 86%;
-    float: left;
+    float: right;
 }
 .wm-range-slider {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-range-slider form {
     width: 100%;
-    float: left;
+    float: right;
     padding-bottom: 7px;
 }
 .wm-range-slider form input[type="text"] {
     background-color: transparent;
     border: medium none;
     color: #424242;
-    float: left;
+    float: right;
     font-size: 15px;
     font-weight: 300;
     height: 38px;
@@ -8713,7 +8715,7 @@ aside .widget {
     font-size: 12px;
     font-weight: 300;
     padding: 9px 26px;
-    float: right;
+    float: left;
     text-transform: uppercase;
     -webkit-transition: all 0.4s ease-in-out;
        -moz-transition: all 0.4s ease-in-out;
@@ -8731,7 +8733,7 @@ aside .widget {
     background-color: #f5f5f5;
     margin: 3px 0px 24px;
     position: relative;
-    text-align: left;
+    text-align: right;
     border-radius: 5px;
 }
 .widget_check-box .ui-slider-horizontal .ui-slider-range {
@@ -8757,7 +8759,7 @@ aside .widget {
 .widget_check-box .ui-slider .ui-slider-handle:before {
     border: 1px solid #13491e;
     content: "";
-    left: -2px;
+    right: -2px;
     padding: 6px 5px 5px 6px;
     position: absolute;
     top: -2px;
@@ -8766,7 +8768,7 @@ aside .widget {
     background-image: url("extra-images/categories-miniheader.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    float: left;
+    float: right;
     padding: 94px 0 74px;
     position: relative;
     text-align: center;
@@ -8774,17 +8776,17 @@ aside .widget {
 }
 .wm-shopgrid-sec {
     width: 100%;
-    float: left;
+    float: right;
 }
 .wm-shopgrid-sec ul li {
     list-style: none;
-    float: left;
+    float: right;
     margin-bottom: 30px;
 }
 .wm-shop-grid {
     border: 1px solid #eaeaea;
     width: 100%;
-    float: left;
+    float: right;
 }
 .wm-shop-grid > figure > img {
     width: 100%;
@@ -8795,7 +8797,7 @@ aside .widget {
     background-color: rgba(185,150,99,0.7);
     width: 0%;
     height: 100%;
-    left: 0;
+    right: 0;
     top: 0;
     position: absolute;
     opacity: 0;  
@@ -8814,7 +8816,7 @@ aside .widget {
     background-color: rgba(185,150,99,0.7);
     width: 0%;
     height: 100%;
-    right: 0;
+    left: 0;
     top: 0;
     position: absolute;
     opacity: 0;  
@@ -8830,12 +8832,12 @@ aside .widget {
 }
 .wm-shop-grid figure,.wm-shop-grid figure > a,.wm-shop-grid figure > a > img {
     margin: 0;
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-grid-tittle {
     width: 100%;
-    float: left;
+    float: right;
     padding: 12px 12px 12px 91px;
     margin-bottom: 26px;
     position: relative;
@@ -8843,17 +8845,17 @@ aside .widget {
 .wm-grid-tittle img {
     position: absolute;
     border-radius: 100%;
-    left: 18px;
+    right: 18px;
     top: -26px;
 }
 .wm-grid-tittle a {
     color: #c3c8e2;
-    float: left;
+    float: right;
 }
 .wm-grid-info {
     text-align: center;
     width: 100%;
-    float: left;
+    float: right;
 }
 .wm-grid-info span {
     display: block;
@@ -8862,7 +8864,7 @@ aside .widget {
 }
 .wm-cart-button {
     width: 100%;
-    float: left;
+    float: right;
     padding-bottom: 31px;
 }
 .wm-cart-button a {
@@ -8892,7 +8894,7 @@ aside .widget {
     content: "";
     height: 0%;
     width: 100%;
-    left: 0;
+    right: 0;
     top: 0;
     opacity: 0;
     position: absolute;
@@ -8911,7 +8913,7 @@ aside .widget {
     content: "";
     height: 0%;
     width: 100%;
-    left: 0;
+    right: 0;
     bottom: 0;
     opacity: 0;
     z-index: 50;
@@ -8932,7 +8934,7 @@ aside .widget {
 } 
 .wm-cart-button i {
     font-size: 14px;
-    left: 17px;
+    right: 17px;
     position: absolute;
     top: 11px;
     z-index: 100;
@@ -8947,7 +8949,7 @@ aside .widget {
     background-image: url("extra-images/our-professors-mini-header.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    float: left;
+    float: right;
     padding: 94px 0 74px;
     position: relative;
     text-align: center;
@@ -8955,7 +8957,7 @@ aside .widget {
 }
 .widget_our-professors {
     width: 100%;
-    float: left;
+    float: right;
 }
 .widget_our-professors figcaption {
     padding: 15px 0 10px;
@@ -8994,7 +8996,7 @@ aside .widget {
 }
 .widget_contact-form {
     width: 100%;
-    float: left;
+    float: right;
     border: 1px solid #e9e9e9;
     padding: 31px 30px 31px 25px;
 }
@@ -9036,7 +9038,7 @@ aside .widget {
 .widget_contact-form input[type="submit"] {
     background-color: transparent;
     border: 1px solid #13491e;
-    float: left;
+    float: right;
     font-size: 12px;
     line-height: 1;
     padding: 12px 29px;
@@ -9048,7 +9050,7 @@ aside .widget {
 }
 .widget_twittwe-feed {
     width: 100%;
-    float: left;
+    float: right;
 }
 .widget_twittwe-feed h5 {
     color: #424242;
@@ -9073,7 +9075,7 @@ aside .widget {
     font-size: 15px;
     color: #424242;
     width: 100%;
-    float: left;
+    float: right;
     font-weight: 500;
     webkit-transition: all 0.4s ease-in-out;
        -moz-transition: all 0.4s ease-in-out;
@@ -9086,7 +9088,7 @@ aside .widget {
     font-family: 'icon';
     font-size: 15px;
     position: absolute;
-    left: 3px;
+    right: 3px;
     top: 0;
 }
 .widget_twittwe-feed li span {
@@ -9097,7 +9099,7 @@ aside .widget {
 }
 .wm-professor-info {
     width: 100%;
-    float: left;
+    float: right;
     margin-bottom: 24px;
 }
 .wm-professor-info h2 {
@@ -9113,10 +9115,10 @@ aside .widget {
 }
 .wm-professor-contact {
     border: 2px solid #f1f1f1;
-    float: left;
+    float: right;
     padding: 0;
     width: 100%;
-    padding: 14px 0px 15px 17px;
+    padding: 14px 17px 15px 17px;
 }
 .wm-professor-contact i {
     font-size: 17px;
@@ -9146,7 +9148,7 @@ aside .widget {
     width: 1px;
     height: 1px;
     position: absolute;
-    left: 18px;
+    right: 18px;
     top: 18px;
     border-radius: 100%;
     webkit-transition: all 0.4s ease-in-out;
@@ -9156,7 +9158,7 @@ aside .widget {
             transition: all 0.4s ease-in-out;        
 }
 .wm-professor-contact a:hover:before {
-    left: 0px;
+    right: 0px;
     top: 0px;
     opacity: 1;
     width: 100%;
@@ -9175,12 +9177,12 @@ aside .widget {
 }
 .wm-professor-icon {
     width: 62px;
-    float: left;
+    float: right;
     padding: 12px 0;
 }
 .wm-rich-aditor {
     width: 100%;
-    float: left;
+    float: right;
     margin-bottom: 14px;
 }
 .wm-rich-aditor h3 {
@@ -9212,11 +9214,11 @@ aside .widget {
 }
 .wm-shop-list .wm-shop-grid figure  {
     width: 265px;
-    float: left;
+    float: right;
 }
 .wm-shop-list .wm-grid-info {
     width: auto;
-    text-align: left;
+    text-align: right;
     float: none;
     padding: 42px 40px 0px 303px;
 }
@@ -9231,12 +9233,12 @@ aside .widget {
     padding-bottom: 9px;   
 }
 .wm-shop-list .wm-cart-button > span {
-    float: left;
+    float: right;
     padding: 0;
     font-size: 24px;
     position: absolute;
     top: 5px;
-    left: 0;
+    right: 0;
 }
 .wm-shop-list .wm-cart-button {
     float: none;
@@ -9244,7 +9246,7 @@ aside .widget {
     position: relative;
 }
 .wm-shop-list .wm-cart-button a {
-    margin-left: 101px;
+    margin-right: 101px;
 }
 .wm-shop-list .wm-grid-tittle {
     margin: 0;
@@ -9254,7 +9256,7 @@ aside .widget {
     background-image: url("extra-images/singleshop-miniheader.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    float: left;
+    float: right;
     padding: 94px 0 74px;
     position: relative;
     text-align: center;
@@ -9262,21 +9264,21 @@ aside .widget {
 }
 .wm-images {
     width: 45%;
-    float: left;
+    float: right;
     padding-bottom: 51px;
 }
 .wm-images ul {
     margin: 0 0 0 -15px;
 }
 .wm-images ul li {
-    float: left;
+    float: right;
     list-style: outside none none;
     padding: 0 0 12px 15px;
     width: 25%;
     position: relative;
 }
 .wm-images ul li > a,.wm-images ul li > a img {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-images .wm-shop-grid {
@@ -9292,8 +9294,8 @@ aside .widget {
     margin: 0;
 }
 .wm-summary {
-    float: left;
-    padding-left: 27px;
+    float: right;
+    padding-right: 27px;
     width: 55%;
 }
 .wm-summary h2 {
@@ -9309,13 +9311,13 @@ aside .widget {
     padding-bottom: 0;
     position: relative;
     width: 77px;
-    float: left;
+    float: right;
 }
 .wm-summary .wm-levelrating:before, .wm-summary .rating-box:before {
     content: "";
     font-family: FontAwesome;
     font-size: 11px;
-    left: 0;
+    right: 0;
     letter-spacing: 4px;
     position: absolute;
     top: 0;
@@ -9325,7 +9327,7 @@ aside .widget {
 }
 .wm-summary .rating-box {
     height: 16px;
-    left: 0;
+    right: 0;
     overflow: hidden;
     position: absolute;
     top: 0;
@@ -9334,7 +9336,7 @@ aside .widget {
     font-size: 15px;
     font-weight: 300;
     font-style: italic;
-    float: left;
+    float: right;
     line-height: 1;
 }
 .wm-summary small {
@@ -9347,7 +9349,7 @@ aside .widget {
 }
 .wm-rating-quality {
     width: 100%;
-    float: left;
+    float: right;
     padding-bottom: 26px;
 }
 .wm-summary p {
@@ -9358,12 +9360,12 @@ aside .widget {
 }
 .wm-amount {
     width: 100%;
-    float: left;
+    float: right;
     padding-bottom: 23px;
 }
 .wm-simple-checklist {
     width: 100%;
-    float: left;
+    float: right;
     border-bottom: 2px solid #f6f6f6;
     padding-bottom: 50px;
     margin-bottom: 9px;
@@ -9371,7 +9373,7 @@ aside .widget {
 .wm-simple-checklist li {
     list-style: none;
     display: inline-block;
-    margin-right: 10px;
+    margin-left: 10px;
     width: auto;
 }
 .wm-simple-checklist li input {
@@ -9379,16 +9381,16 @@ aside .widget {
     background-color: transparent;
     border-image: none;
     border-style: solid none;
-    border-left: 1px solid #dbdad8;
+    border-right: 1px solid #dbdad8;
     border-width: 1px;
     color: #b2b2b2;
-    float: left;
+    float: right;
     font-size: 14px;
     height: 38px;
     width: 137px;
-    float: left;
+    float: right;
     padding: 0 19px;
-    text-align: left;
+    text-align: right;
 }
 .wm-count-list {
     position: relative;
@@ -9397,26 +9399,26 @@ aside .widget {
     font-size: 10px;
     position: absolute;
     top: 14px;
-    right: 19px;
+    left: 19px;
 }
 .wm-simple-checklist li button {
     background-color: transparent;
-    border-right: 1px solid #dbdad8;
+    border-left: 1px solid #dbdad8;
     color: #b2b2b2;
-    float: left;
+    float: right;
     height: 38px;
     text-align: center;
     width: 40px;
     position: absolute;
     top: 0;
-    right: 0;
+    left: 0;
 }
 .wm-simple-checklist .wm-cart-button {
     padding: 0;
 }
 .wm-shop-icon {
     width: 100%;
-    float: left;
+    float: right;
 }
 .wm-shop-icon p {
     font-size: 15px;
@@ -9427,11 +9429,11 @@ aside .widget {
     font-size: 15px;
 }
 .wm-shop-icon a {
-    margin-right: 15px;
+    margin-left: 15px;
 }
 .singleshop-tab {
     width: 100%;
-    float: left;
+    float: right;
     margin-bottom: 16px;
 }
 .singleshop-tab .nav > li > a {
@@ -9465,7 +9467,7 @@ aside .widget {
     font-size: 18px;
 }
 .wm-reviews-thums{
-    float: left;
+    float: right;
     margin: 0px;
 }
 .wm-reviews-thums ~ .wm-reviews-text {margin-left: 82px;}
@@ -9481,7 +9483,7 @@ aside .widget {
     content: "\f006 \f006 \f006 \f006 \f006";
     font-family: FontAwesome;
     font-size: 12px;
-    left: 0px;
+    right: 0px;
     letter-spacing: 4px;
     position: absolute;
     top: 4px;
@@ -9490,7 +9492,7 @@ aside .widget {
     content: "\f006 \f006 \f006 \f006 \f006";
     font-family: FontAwesome;
     font-size: 12px;
-    left: 0px;
+    right: 0px;
     letter-spacing: 4px;
     position: absolute;
     top: 4px;
@@ -9501,7 +9503,7 @@ aside .widget {
 }
 .wm-reviews-text .rating-box {
     height: 16px;
-    left: 0px;
+    right: 0px;
     overflow: hidden;
     position: absolute;
     top: 0px;
@@ -9522,7 +9524,7 @@ aside .widget {
     font-size: 22px;
     border-bottom: 2px solid #f2f2f2;
     width: 100%;
-    float: left;
+    float: right;
     padding-bottom: 4px;
     margin-bottom: 33px;
 }
@@ -9536,12 +9538,12 @@ aside .widget {
 }
 /* List Partner */
 .wm-list-partner,.wm-list-partner a {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-list-partner { margin-bottom: 20px; }
 .wm-list-partner ul li {
-    float: left;
+    float: right;
     width: 20%;
     list-style: none;
     margin-bottom: 30px;
@@ -9564,7 +9566,7 @@ aside .widget {
 
 /* Footer One */
 #wm-footer,.wm-footer-newslatter,.wm-footer-newslatter,.wm-footer-widget {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-footer-newslatter {
@@ -9572,13 +9574,13 @@ aside .widget {
     padding: 17px 0px;
 }
 .wm-footer-newslatter i {
-    float: left;
+    float: right;
     font-size: 25px;
     color: #ffffff;
-    margin: 7px 21px 0px 0px;
+    margin: 7px 0px 0px 21px;
 }
 .wm-footer-newslatter input[type="text"] {
-    float: left;
+    float: right;
     background-color: transparent;
     border: none;
     font-size: 15px;
@@ -9587,7 +9589,7 @@ aside .widget {
     margin-top: 6px;
 }
 .wm-footer-newslatter input[type="submit"] {
-    float: right;
+    float: left;
     background-color: transparent;
     font-size: 12px;
     text-transform: uppercase;
@@ -9596,7 +9598,7 @@ aside .widget {
     padding: 8px 26px 11px 26px;
 }
 .wm-footer-newslatter a {
-    float: right;
+    float: left;
     background-color: transparent;
     font-size: 12px;
     text-transform: uppercase;
@@ -9607,7 +9609,7 @@ aside .widget {
 .wm-footer-widget               { padding: 90px 0px 30px 0px; }
 .wm-footer-widget .widget       { margin-bottom: 40px; }
 .wm-footer-logo {
-    float: left;
+    float: right;
     width: 100%;
     margin-bottom: 32px;
 }
@@ -9615,12 +9617,12 @@ aside .widget {
 .widget_contact_info ul,.widget_contact_info ul li,.wm-footer-icons,
 .wm-footer-widget-title,.widget_archive ul,.widget_archive ul li,
 .widget_twitter ul,.widget_twitter ul li,.widget_gallery ul li img {
-    float: left;
+    float: right;
     width: 100%;
 }
 .widget_contact_info ul li {
     list-style: none;
-    padding-left: 28px;
+    padding-right: 28px;
     position: relative;
     line-height: 1.5;
     color: #424242;
@@ -9629,7 +9631,7 @@ aside .widget {
 }
 .widget_contact_info ul li i {
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 6px;
     font-size: 17px;
 }
@@ -9645,7 +9647,7 @@ aside .widget {
     color: #3c4057;
     margin: 0px 0px 7px 7px;
 }
-.wm-footer-icons a:first-child      { margin-left: 0px; }
+.wm-footer-icons a:first-child      { margin-right: 0px; }
 .wm-footer-icons a:hover            { color: #13491e; }
 /* Footer Widget Title */
 .wm-footer-widget-title h5 {
@@ -9653,8 +9655,8 @@ aside .widget {
     font-weight: 500;
 }
 .wm-footer-widget-title h5 i {
-    float: left;
-    margin: 7px 5px 0px 0px;
+    float: right;
+    margin: 7px 0px 0px 5px;
 }
 /* Widget Archive */
 .widget_archive ul li {
@@ -9667,8 +9669,8 @@ aside .widget {
     background-color: #e5e5e5;
     width: 19px;
     height: 2px;
-    float: left;
-    margin: 14px 15px 0px 0px;
+    float: right;
+    margin: 14px 0px 0px 15px;
 }
 /* Widget Twitter */
 .widget_twitter ul li p {
@@ -9688,7 +9690,7 @@ aside .widget {
 /* Widget Gallery */
 .widget_gallery ul                                      {margin: 0 0 0 -10px;}
 .widget_gallery ul li {
-    float: left;
+    float: right;
     list-style: none;
     padding: 0 0 10px 10px;
     width: 33.333%;
@@ -9696,13 +9698,13 @@ aside .widget {
 .widget_gallery a {
     width: 100%;
     position: relative;
-    float: left;
+    float: right;
 }
 .widget_gallery ul li a:before {
     content: "";
     position: absolute;
     top: 0px;
-    left: 0px;
+    right: 0px;
     width: 0%;
     height: 100%;
     background-color: #13491e;
@@ -9716,7 +9718,7 @@ aside .widget {
     content: "";
     position: absolute;
     top: 0px;
-    right: 0px;
+    left: 0px;
     width: 0%;
     height: 100%;
     background-color: #13491e;
@@ -9732,7 +9734,7 @@ aside .widget {
 }
 /* CopyRight Section */
 .wm-copyright {
-    float: left;
+    float: right;
     width: 100%;
     background-color: #f6f6f6;
     padding: 35px 0px 32px 0px;
@@ -9742,20 +9744,20 @@ aside .widget {
     font-size: 15px;
 }
 .wm-copyright span i {
-    float: left;
+    float: right;
     margin: 4px 8px 0px 0px;
     font-size: 17px;
 }
 .wm-copyright p {
     margin-bottom: 0px;
-    float: right;
+    float: left;
     color: #a4a4a4;
     font-size: 14px;
 }
 .wm-copyright p a { color: #13491e; }
 /* FooterTwo */
 .wm-footer-two {
-    float: left;
+    float: right;
     width: 100%;
     background-color: #003c5a;
 }
@@ -9771,7 +9773,7 @@ aside .widget {
 .wm_latest_courses ul li,.wm_latest_courses ul,
 .wm_latest_courses figure a,.wm_latest_courses figure img,
 .wm-course-title {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm_working_hours ul li {
@@ -9788,7 +9790,7 @@ aside .widget {
 .wm_working_hours ul li:first-child { padding-top: 0px; }
 .wm_working_hours ul li span {
     color: #a1b4bf;
-    float: right;
+    float: left;
 }
 /* Latest Courses */
 .wm_latest_courses ul li {
@@ -9797,13 +9799,13 @@ aside .widget {
     margin-bottom: 30px;
 }
 .wm_latest_courses figure {
-    float: left;
+    float: right;
     width: 75px;
     margin-bottom: 0px;
 }
 .wm_latest_courses ul li:last-child                     { margin-bottom: 0px; }
 .wm_latest_courses figure img                           { border-radius: 100%; }
-.wm_latest_courses figure ~ .wm_latest_courses_text     { padding-left: 93px; }
+.wm_latest_courses figure ~ .wm_latest_courses_text     { padding-right: 93px; }
 .wm-course-title {
     font-size: 16px;
     color: #ffffff;
@@ -9823,7 +9825,7 @@ aside .widget {
 }
 /* WidgetArchive */
 .wm-footer-two .widget_archive ul li {
-    padding-left: 27px;
+    padding-right: 27px;
     position: relative;
 }
 .wm-footer-two .widget_archive ul li a              { color: #a8bbc5; }
@@ -9837,7 +9839,7 @@ aside .widget {
     width: auto;
     height: auto;
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 2px;
     margin: 0px;
     -webkit-transform: scale(-1);
@@ -9849,26 +9851,26 @@ aside .widget {
 /* WidgetGallery Two */
 .widget_gallery_two ul                                      { margin: 0 0 0 -10px; }
 .widget_gallery_two ul li {
-    float: left;
+    float: right;
     list-style: none;
     padding: 0 0 10px 10px;
     width: 33.333%;
 }
 .widget_gallery_two a img {
-    float: left;
+    float: right;
     width: 100%;
 }
 .widget_gallery_two a {
     width: 100%;
     position: relative;
-    float: left;
+    float: right;
     overflow: hidden;
 }
 .widget_gallery_two ul li a:before {
     content: "";
     position: absolute;
     top: 0px;
-    left: 0px;
+    right: 0px;
     width: 0%;
     height: 100%;
     -webkit-transition: all 0.4s ease-in-out;
@@ -9881,7 +9883,7 @@ aside .widget {
     content: "";
     position: absolute;
     top: 0px;
-    right: 0px;
+    left: 0px;
     width: 0%;
     height: 100%;
     -webkit-transition: all 0.4s ease-in-out;
@@ -9900,7 +9902,7 @@ aside .widget {
 }
 .widget_gallery_two span {
     position: absolute;
-    left: 50%;
+    right: 50%;
     top: 0%;
     width: 46px;
     height: 46px;
@@ -9924,7 +9926,7 @@ aside .widget {
 }
 /* Footer Partner */
 .wm-footer-partner {
-    float: left;
+    float: right;
     width: 100%;
     border-top: 1px solid #1f4c62;
     border-bottom: 1px solid #1f4c62;
@@ -9935,14 +9937,14 @@ aside .widget {
     margin-bottom: 32px;
 }
 .wm-footer-partner ul li a {
-    float: left;
+    float: right;
     width: 100%;
     opacity: 0.14;
 }
 .wm-footer-partner ul li:hover a { opacity: 1; }
 /* CopyRight Section */
 .wm-copyright-two {
-    float: left;
+    float: right;
     width: 100%;
     padding: 33px 0px 30px 0px;
 }
@@ -9951,7 +9953,7 @@ aside .widget {
     font-size: 14px;
 }
 .wm-copyright-two span i {
-    float: left;
+    float: right;
     margin: 4px 8px 0px 0px;
     font-size: 17px;
     color: #a5b9c3;
@@ -9966,13 +9968,13 @@ aside .widget {
 }
 /* Footer Three */
 .wm-footer-three {
-    float: left;
+    float: right;
     width: 100%;
     background-color: #ffffff;
 }
 .wm-footer-three .wm-footer-widget { padding: 84px 0px 0px 0px; }
 .wm-footer-three .wm-footer-widget-title h2 {
-    float: left;
+    float: right;
     margin-bottom: 30px;
     font-size: 18px;
     position: relative;
@@ -9980,7 +9982,7 @@ aside .widget {
 .wm-footer-three .wm-footer-widget-title h2:before {
     content: '';
     position: absolute;
-    right: 0px;
+    left: 0px;
     bottom: 0px;
     width: 83px;
     height: 2px;
@@ -9988,12 +9990,12 @@ aside .widget {
 /* Widget BlogPost */
 .widget_blogpost figure,.widget_blogpost figure > a,
 .widget_blogpost figure img,.widget-blogpost-text {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-hover-link,.wm-hover-link:before {
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 0px;
     width: 100%;
     height: 100%;
@@ -10010,7 +10012,7 @@ figure:hover .wm-hover-link i           { top: 50%; }
 .widget-blogpost-text h6                { margin-bottom: 7px; }
 .wm-hover-link i {
     position: absolute;
-    left: 50%;
+    right: 50%;
     top: 0%;
     font-size: 18px;
     width: 63px;
@@ -10023,12 +10025,12 @@ figure:hover .wm-hover-link i           { top: 50%; }
 }
 /* Widget Contact List */
 .widget_contact_list ul,.widget_contact_list ul li {
-    float: left;
+    float: right;
     width: 100%;
 }
 .widget_contact_list ul li {
     list-style: none;
-    padding-left: 26px;
+    padding-right: 26px;
     position: relative;
     line-height: 1;
     color: #6c6c6c;
@@ -10037,7 +10039,7 @@ figure:hover .wm-hover-link i           { top: 50%; }
 }
 .widget_contact_list ul li i {
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 7px;
     font-size: 13px;
 }
@@ -10050,12 +10052,12 @@ figure:hover .wm-hover-link i           { top: 50%; }
 /* Contact Form */
 .widget_contact_form form,.widget_contact_form form input[type="text"],
 .widget_contact_form form textarea {
-    float: left;
+    float: right;
     width: 100%;
 }
 .widget_contact_form form ul { margin: 0px -5px; }
 .widget_contact_form form ul li {
-    float: left;
+    float: right;
     width: 33.333%;
     padding: 0px 5px 11px 5px;
     list-style: none;
@@ -10080,7 +10082,7 @@ figure:hover .wm-hover-link i           { top: 50%; }
     padding: 7px 21px;
 }
 .widget_contact_form form input[type="submit"] {
-    float: left;
+    float: right;
     padding: 13px 28px 14px 28px;
     border: 2px solid;
     border-radius: 40px;
@@ -10093,7 +10095,7 @@ figure:hover .wm-hover-link i           { top: 50%; }
 }
 /* CopyRight Three */
 .wm-copyright-three {
-    float: left;
+    float: right;
     width: 100%;
     border-top: 1px solid #ededed;
     padding: 30px 0px 17px 0px;
@@ -10103,18 +10105,18 @@ figure:hover .wm-hover-link i           { top: 50%; }
     font-size: 14px;
 }
 .wm-copyright-three span i {
-    float: left;
+    float: right;
     margin: 4px 10px 0px 0px;
     font-size: 17px;
 }
 .wm-copyright-three p {
-    float: right;
+    float: left;
     font-size: 14px;
     color: #aaaaaa;
 }
 /* Footer Four */
 .wm-footer-four,.wm-subscribe-newsletter,.wm-connected-people {
-    float: left;
+    float: right;
     width: 100%;
 }
 .wm-footer-four             { background-color: #303030; }
@@ -10127,7 +10129,7 @@ figure:hover .wm-hover-link i           { top: 50%; }
     content: '';
     background-color: #363636;
     position: absolute;
-    right: 0px;
+    left: 0px;
     top: 0px;
     width: 999em;
     height: 100%;
@@ -10140,7 +10142,7 @@ figure:hover .wm-hover-link i           { top: 50%; }
 .wm-connected-people:after {
     content: '';
     position: absolute;
-    right: -14px;
+    left: -14px;
     top: 0px;
     background-color: #363636;
     width: 8px;
@@ -10152,16 +10154,16 @@ figure:hover .wm-hover-link i           { top: 50%; }
             transform: skewX(-30deg);
 }
 .wm-connected-people li {
-    float: left;
+    float: right;
     list-style: none;
     position: relative;
-    margin-left: 10px;
+    margin-right: 10px;
 }
-.wm-connected-people li:first-child { margin-left: 0px; }
+.wm-connected-people li:first-child { margin-right: 0px; }
 .wm-connected-people li span {
     font-size: 16px;
     text-transform: uppercase;
-    float: left;
+    float: right;
     margin-right: 10px;
     color: #ffffff;
 }
@@ -10170,7 +10172,7 @@ figure:hover .wm-hover-link i           { top: 50%; }
     color: #5b5b5b;
 }
 .wm-subscribe-newsletter form {
-    float: right;
+    float: left;
     position: relative;
     padding: 50px 0px 0px 0px;
 }
@@ -10194,7 +10196,7 @@ figure:hover .wm-hover-link i           { top: 50%; }
 }
 .wm-subscribe-newsletter form input[type="submit"] {
     position: absolute;
-    right: 10px;
+    left: 10px;
     bottom: 0px;
     width: 43px;
     height: 43px;
@@ -10204,7 +10206,7 @@ figure:hover .wm-hover-link i           { top: 50%; }
 }
 .wm-subscribe-newsletter form i {
     position: absolute;
-    right: 22px;
+    left: 22px;
     bottom: 15px;
     z-index: 0;
     color: #8e8e8e;
@@ -10220,7 +10222,7 @@ figure:hover .wm-hover-link i           { top: 50%; }
 .wm-footer-four .wm-footer-widget [class*="col-md-"] { padding: 0px 30px; }
 .wm-footer-four .wm-footer-widget-title h5 { color: #ffffff; }
 .widget_archive_two ul,.widget_archive_two ul li {
-    float: left;
+    float: right;
     width: 100%;
 }
 .widget_archive_two ul li {
@@ -10239,7 +10241,7 @@ figure:hover .wm-hover-link i           { top: 50%; }
     font-size: 15px;
     color: #919192;
     position: absolute;
-    left: 4px;
+    right: 4px;
     top: 10px;
 }
 .widget_archive_two ul li a,.wm-footer-four .widget_twitter ul li p,.wm-footer-four .widget_contact_list ul li,
@@ -10249,7 +10251,7 @@ figure:hover .wm-hover-link i           { top: 50%; }
 .wm-footer-four .widget_twitter ul li time          { color: #ffffff; }
 /* CopyRight */
 .wm-copyright-four {
-    float: left;
+    float: right;
     width: 100%;
     background-color: #ffffff;
     padding: 14px 0px 16px 0px;
@@ -10269,7 +10271,7 @@ figure:hover .wm-hover-link i           { top: 50%; }
 .wm-copyright-four .wm-footer-logo:before {
     content: '';
     position: absolute;
-    right: 60px;
+    left: 60px;
     top: 0px;
     width: 999em;
     background-color: #47d3a0;
