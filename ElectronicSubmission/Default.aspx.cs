@@ -160,33 +160,8 @@ namespace ElectronicSubmission
             string Treatment_Per_Mounth_Function = "Pie_ChartColumn(" + Total + "," + categories + ");";
             /* End Treatment Per mounth Chart */
 
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", Pie_Function + " " + lineChartfun + " " + Treatment_Per_Mounth_Function + " "+ SocialChart(), true);
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", Pie_Function + " " + lineChartfun + " " + Treatment_Per_Mounth_Function, true);
         }
-
-        public string SocialChart()
-        {
-            string Labels = "[";
-            string Data = "[";
-            List<Resource> List_Resource = db.Resources.ToList();
-
-            for (int i = 0; i < List_Resource.Count; i++)
-            {
-                Labels += "'" + List_Resource[i].Resource_Name_En + "'";
-                Data += List_Resource[i].Students.Count;
-                if (i < List_Resource.Count - 1)
-                {
-                    Labels += ",";
-                    Data += ",";
-                }
-            }
-            Labels += "]";
-            Data += "]";
-
-            string PieChartSocial = "PieChartSocial(" + Labels + "," + Data + ");";
-
-            return PieChartSocial;
-        }
-
 
 
         private string ArabicDate(string DateName)

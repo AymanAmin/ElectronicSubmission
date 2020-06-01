@@ -102,7 +102,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -2587,7 +2586,6 @@
     <Compile Include="Classes\Enums.cs" />
     <Compile Include="Classes\FieldNames.cs" />
     <Compile Include="Classes\LogFileModule.cs" />
-    <Compile Include="Classes\Payment.cs" />
     <Compile Include="Classes\SendEmail.cs" />
     <Compile Include="Classes\SessionWrapper.cs" />
     <Compile Include="Classes\SpecializationDTO.cs" />
