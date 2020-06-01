@@ -19,7 +19,7 @@ namespace ElectronicSubmission
 
         LogFileModule logFileModule = new LogFileModule();
         String LogData = "";
-        int langId = 0;
+        public int langId = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

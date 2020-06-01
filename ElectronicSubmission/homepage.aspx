@@ -1,7 +1,13 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" EnableEventValidation="false" CodeBehind="homepage.aspx.cs" Inherits="ElectronicSubmission.homepage" %>
 
 <!DOCTYPE html>
-<html lang="en">
+<% if(langId != 2) { %>
+<html lang="ar" dir="rtl">
+<% } %>
+<% else
+   { %>
+<html lang="en" dir="ltr">
+<% } %>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +24,6 @@
     <link href="Template/css/slick-slider.css" rel="stylesheet">
     <link href="Template/css/prettyphoto.css" rel="stylesheet">
     <link href="Template/build/mediaelementplayer.css" rel="stylesheet">
-    <link href="Template/style.css" rel="stylesheet">
     <link href="Template/css/color.css" rel="stylesheet">
     <link href="Template/css/color-two.css" rel="stylesheet">
     <link href="Template/css/color-three.css" rel="stylesheet">
@@ -27,6 +32,19 @@
 
     <!-- sweet alert framework -->
     <link rel="stylesheet" type="text/css" href="Theme\files\bower_components\sweetalert\css\sweetalert.css">
+
+    <% if(langId != 2) { %>
+    <!-- Arabic Right To Left Css-->
+    <link href="Template/style-rtl.css" rel="stylesheet">
+    <link href="Template/css/font-awesome-rtl.min.css" rel="stylesheet">
+    <link href="Template/css/AdminLTE-rtl.min.css" rel="stylesheet">
+    <link href="Template/css/bootstrap-rtl.min.css" rel="stylesheet">
+    <link href="Template/css/rtl.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:400,700" rel="stylesheet">
+    <% } %>
+    <% else { %>
+    <link href="Template/style.css" rel="stylesheet">
+     <% } %>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -61,8 +79,8 @@
                             <div class="col-md-12">
                                 <div class="wm-language">
                                     <ul>
-                                        <li><a href="#">English</a></li>
-                                        <li><a href="#" style="font-size: 130%; font-weight: bold;">عربي</a></li>
+                                        <li><a href="homepage.aspx">English</a></li>
+                                        <li><a href="homepage.aspx?lang=1" style="font-size: 130%; font-weight: bold;">عربي</a></li>
                                     </ul>
                                 </div>
                                 <ul class="wm-stripinfo">
