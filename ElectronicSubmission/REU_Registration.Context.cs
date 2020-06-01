@@ -37,6 +37,8 @@ namespace ElectronicSubmission
         public DbSet<Notification_Employee> Notification_Employee { get; set; }
         public DbSet<Notification_Master> Notification_Master { get; set; }
         public DbSet<Notification_Show> Notification_Show { get; set; }
+        public DbSet<Payment_Process> Payment_Process { get; set; }
+        public DbSet<Payment_Type> Payment_Type { get; set; }
         public DbSet<Permission> Permissions { get; set; }
         public DbSet<Permission_Group> Permission_Group { get; set; }
         public DbSet<Resource> Resources { get; set; }

@@ -17,6 +17,7 @@ namespace ElectronicSubmission
         public Student()
         {
             this.Files = new HashSet<File>();
+            this.Payment_Process = new HashSet<Payment_Process>();
             this.Sequences = new HashSet<Sequence>();
         }
     
@@ -45,6 +46,7 @@ namespace ElectronicSubmission
         public virtual Employee Employee { get; set; }
         public virtual ICollection<File> Files { get; set; }
         public virtual Nationality Nationality { get; set; }
+        public virtual ICollection<Payment_Process> Payment_Process { get; set; }
         public virtual Resource Resource { get; set; }
         public virtual ICollection<Sequence> Sequences { get; set; }
         public virtual Specialization Specialization { get; set; }

@@ -382,7 +382,7 @@
                         <div class="col-md-12">
                             <form>
                                 <i class="wmicon-pen"></i>
-                                <input type="text" readonly="readonly" style="width: 50%;" value="Please Fill the application Form" onblur="if(this.value == 'Please click on the button to start the application Form') { this.value ='Please click on the button to start the application Form'; }" onfocus="if(this.value =='Please click on the button to start the application Form') { this.value = 'Please click on the button to start the application Form'; }">
+                                <input type="text" readonly="readonly" style="width: 50%;" value="Please fill the application Form" onblur="if(this.value == 'Please click on the button to start the application Form') { this.value ='Please click on the button to start the application Form'; }" onfocus="if(this.value =='Please click on the button to start the application Form') { this.value = 'Please click on the button to start the application Form'; }">
                             </form>
                         </div>
                     </div>
