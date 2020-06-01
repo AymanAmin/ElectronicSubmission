@@ -24,7 +24,7 @@
                 }]
             };
 
-            var chart = new ApexCharts(document.querySelector("#chart"), options);
+            var chart = new ApexCharts(document.querySelector("#chart-Pie2"), options);
             setTimeout(function () { chart.render(); }, 1000);
         }
 
@@ -152,6 +152,32 @@
             var chart = new ApexCharts(document.querySelector("#chart_Column"), options);
             setTimeout(function () { chart.render(); }, 1000);
 
+        }
+
+        function PieChartSocial(Label,Data)
+        {
+            var options = {
+                series: Data,
+                chart: {
+                    width: 380,
+                    type: 'pie',
+                },
+                labels: Label,
+                responsive: [{
+                    breakpoint: 480,
+                    options: {
+                        chart: {
+                            width: 200
+                        },
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }]
+            };
+
+            var chart = new ApexCharts(document.querySelector("#chart-Social"), options);
+            setTimeout(function () { chart.render(); }, 1000);
         }
 
         setTimeout(function () { document.getElementById("header-div").style.display = "none"; }, 1000);
@@ -302,7 +328,7 @@
             </div>
         </div>
 
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
                     <h5><% = ElectronicSubmission.FieldNames.getFieldName("Default-RecordsPerStatus", "Records Per Status") %></h5>
@@ -313,7 +339,24 @@
                     </div>
                 </div>
                 <div class="card-block">
-                    <div id="chart" style="width: 100%;"></div>
+                    <div id="chart-Pie2" style="width: 100%;"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5><% = ElectronicSubmission.FieldNames.getFieldName("Default-TheSourceoftheInformation", "The Source of the Information") %></h5>
+                    <div class="card-header-right">
+                        <ul class="list-unstyled card-option">
+                            <li><i class="feather icon-maximize full-card"></i></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-block">
+                    <div id="chart-Social" style="width: 100%;"></div>
                 </div>
 
             </div>
