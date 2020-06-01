@@ -149,6 +149,16 @@
     <Content Include="Pages\UserManagment\PermissionGroups.aspx" />
     <Content Include="Pages\UserManagment\Permissions.aspx" />
     <Content Include="Pages\UserManagment\Profile.aspx" />
+    <Content Include="REU_Registration.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>REU_Registration.edmx</DependentUpon>
+      <LastGenOutput>REU_Registration.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="REU_Registration.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>REU_Registration.edmx</DependentUpon>
+      <LastGenOutput>REU_Registration.cs</LastGenOutput>
+    </Content>
     <Content Include="StudentSubmitting.aspx" />
     <Content Include="Template\404-page.html" />
     <Content Include="Template\about-us.html" />
@@ -2955,18 +2965,8 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>REU_Registration.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="REU_Registration.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>REU_Registration.edmx</DependentUpon>
-      <LastGenOutput>REU_Registration.Context.cs</LastGenOutput>
-    </Content>
     <Content Include="REU_Registration.edmx.diagram">
       <DependentUpon>REU_Registration.edmx</DependentUpon>
-    </Content>
-    <Content Include="REU_Registration.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>REU_Registration.edmx</DependentUpon>
-      <LastGenOutput>REU_Registration.cs</LastGenOutput>
     </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

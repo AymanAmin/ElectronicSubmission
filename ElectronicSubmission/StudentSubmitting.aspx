@@ -110,7 +110,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3">
-                            <a href="index-2.html" class="wm-logo">
+                            <a href="homepage.aspx" class="wm-logo">
                                 <img src="Template/images/logo-5.png" alt="" style="height: 62px;"></a>
                         </div>
                         <div class="col-md-9">
@@ -136,7 +136,6 @@
                                 </div>
                             </nav>
                             <!--// Navigation \\-->
-                            <a href="StudentSubmitting.aspx" class="wm-header-btn">Submission</a>
                         </div>
                     </div>
                 </div>
@@ -383,8 +382,7 @@
                         <div class="col-md-12">
                             <form>
                                 <i class="wmicon-pen"></i>
-                                <input type="text" readonly="readonly" style="width: 50%;" value="Please click on the button to start the application Form" onblur="if(this.value == 'Please click on the button to start the application Form') { this.value ='Please click on the button to start the application Form'; }" onfocus="if(this.value =='Please click on the button to start the application Form') { this.value = 'Please click on the button to start the application Form'; }">
-                                <input type="submit" value="Submission Form Request">
+                                <input type="text" readonly="readonly" style="width: 50%;" value="Please Fill the application Form" onblur="if(this.value == 'Please click on the button to start the application Form') { this.value ='Please click on the button to start the application Form'; }" onfocus="if(this.value =='Please click on the button to start the application Form') { this.value = 'Please click on the button to start the application Form'; }">
                             </form>
                         </div>
                     </div>
@@ -397,7 +395,7 @@
                 <div class="container">
                     <div class="row">
                         <aside class="widget widget_contact_info col-md-3">
-                            <a href="index-2.html" class="wm-footer-logo">
+                            <a href="homepage.aspx" class="wm-footer-logo">
                                 <img src="Template/images/logo-5.png" alt="" style="height: 77px;"></a>
                             <ul>
                                 <li><i class="wm-color wmicon-pin"></i><a href="https://www.google.com.sa/maps/place/Riyadh+Elm+University/@24.7595734,46.4668287,11z/data=!4m8!1m2!2m1!1sriyadh+colleges+of+dentistry+and+pharmacy!3m4!1s0x3e2efc51ecffffff:0x654f534d5c948f2e!8m2!3d24.6580528!4d46.7005641">
