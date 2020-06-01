@@ -103,10 +103,10 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 txtThirdPercentage.Text = CalcPercentage(double.Parse(approved), double.Parse(total)) + "%";
                 txtFourPercentage.Text = CalcPercentage(double.Parse(rejected), double.Parse(total)) + "%";
 
-                txtFirstPercentageCss.Text = "<div class='progress-bar bg-c-green' style='width: " + CalcPercentage(double.Parse(total), double.Parse(total)) + "%'></div>";
-                txtSecondPercentageCss.Text = "<div class='progress-bar bg-c-lite-green' style='width: " + CalcPercentage(double.Parse(current), double.Parse(total)) + "%'></div>";
-                txtThirdPercentageCss.Text = "<div class='progress-bar bg-c-pink' style='width: " + CalcPercentage(double.Parse(approved), double.Parse(total)) + "%'></div>";
-                txtFourPercentageCss.Text = "<div class='progress-bar bg-c-yellow' style='width: " + CalcPercentage(double.Parse(rejected), double.Parse(total)) + "%'></div>";
+                txtFirstPercentageCss.Text = "<div class='progress-bar bg-c-lite-green' style='width: " + CalcPercentage(double.Parse(total), double.Parse(total)) + "%'></div>";
+                txtSecondPercentageCss.Text = "<div class='progress-bar bg-c-yellow' style='width: " + CalcPercentage(double.Parse(current), double.Parse(total)) + "%'></div>";
+                txtThirdPercentageCss.Text = "<div class='progress-bar bg-c-green' style='width: " + CalcPercentage(double.Parse(approved), double.Parse(total)) + "%'></div>";
+                txtFourPercentageCss.Text = "<div class='progress-bar bg-c-pink' style='width: " + CalcPercentage(double.Parse(rejected), double.Parse(total)) + "%'></div>";
 
                 //End Statistic
 
