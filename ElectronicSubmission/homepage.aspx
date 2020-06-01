@@ -30,9 +30,6 @@
     <link href="Template/css/color-four.css" rel="stylesheet">
     <link href="Template/css/responsive.css" rel="stylesheet">
 
-    <!-- sweet alert framework -->
-    <link rel="stylesheet" type="text/css" href="Theme\files\bower_components\sweetalert\css\sweetalert.css">
-
     <% if(langId != 2) { %>
     <!-- Arabic Right To Left Css-->
     <link href="Template/style-rtl.css" rel="stylesheet">
@@ -42,6 +39,7 @@
     <link href="https://fonts.googleapis.com/css?family=Cairo:400,700" rel="stylesheet">
     <style>
         .nicescroll-rails-vr {right:100px}
+        .modal-content{float:left}
         </style>
     <% } %>
     <% else { %>
@@ -81,7 +79,7 @@
                             <div class="col-md-12">
                                 <div class="wm-language">
                                     <ul>
-                                        <li><a href="homepage.aspx">English</a></li>
+                                        <li><a href="homepage.aspx?lang=2">English</a></li>
                                         <li><a href="homepage.aspx?lang=1" style="font-size: 130%; font-weight: bold;">عربي</a></li>
                                     </ul>
                                 </div>
@@ -254,7 +252,7 @@
                                     <img src="Template/extra-images/ask-questoin-bg.png" alt="">
                                     <h3 class="wm-color"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-QuestionsHead", "Questions about studying with us?") %></h3>
                                     <p><% = ElectronicSubmission.FieldNames.getFieldName("homepage-QuestionsDetail", "We have a team of student advisers & officers to answer any questions:") %></p>
-                                    <a class="wm-banner-btn" href="#"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-QuestionsButton", "Ask us now") %></a>
+                                    <a class="wm-banner-btn" href="#contactas"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-QuestionsButton", "Ask us now") %></a>
                                 </div>
                             </div>
 
@@ -563,7 +561,7 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <div class="wm-modallogin-form">
-                            <span class="wm-color"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-homepage-FindYourBachelors", "Find Your Bachelors") %></span>
+                            <span class="wm-color"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-FindYourBachelors", "Find Your Bachelors") %></span>
                             <ul>
                                 <li><input type="text" placeholder="Bachelors..." id="keywordBachelors" runat="server" /></li> 
                                 <li><asp:Button ID="SearchkeyWord" runat="server" Text="Button" OnClick="SearchkeyWord_Click1"/></li>

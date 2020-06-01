@@ -308,9 +308,9 @@ address { font-style: italic; }
 .wm-adminuser-section li a.wm-search-btn:before {
     content: '';
     position: absolute;
-    left: 0px;
+    right: 0px;
     top: 4px;
-    border-left: 1px solid #474d6b;
+    border-right: 1px solid #474d6b;
     width: 1px;
     height: 22px;
 }
@@ -351,7 +351,7 @@ address { font-style: italic; }
     color: #8a8fa7;
     font-size: 14px;
     position: relative;
-    padding: 3px 0px 0px 30px;
+    padding: 3px 30px 0px 0px;
 }
 .wm-adminuser-section li a.wm-search-btn:before { top: 0px; }
 /* Logo */
@@ -907,7 +907,8 @@ address { font-style: italic; }
     bottom: 0px;
 }
 .wm-banner-one .slick-arrow.slick-arrow-left {
-    right: 27px;
+    left: auto;
+    right: 30px;
     bottom: 89px;
     -webkit-transform: rotate(90deg);
        -moz-transform: rotate(90deg);
@@ -1212,8 +1213,9 @@ span.wm-blue-transparent {
     list-style: none;
 }
 .wm-breadcrumb ul li:before {
+    display: inherit;
     color: #ededef;
-    content: "\f105";
+    content: "\f104";
     font-family:FontAwesome ;
     font-size: 12px;
     padding: 10px;
@@ -9116,7 +9118,7 @@ aside .widget {
     float: right;
     padding: 0;
     width: 100%;
-    padding: 14px 0px 15px 17px;
+    padding: 14px 17px 15px 17px;
 }
 .wm-professor-contact i {
     font-size: 17px;

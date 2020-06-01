@@ -26,16 +26,21 @@ namespace ElectronicSubmission
             {
                 if (int.TryParse(Request["lang"], out langId) && langId > 0)
                 {
-                    langId = 1;
+                    Session["lang"] = langId;
                 }
-                else 
+                else
                 {
-                    langId = 2;
+                    if (Session["lang"] == null)
+                    {
+                        langId = 2;
+                        Session["lang"] = langId;
+                    }
+                    else
+                    {
+                        langId = int.Parse(Session["lang"].ToString());
+                    }
                 }
-                // Selecet Language Based on User language and set in session
-                //SessionWrapper.LoggedUser.Language_id = langId;
                 SessionWrapper.Language = db.Lanuage_Detials.Where(x => x.Language_Master_Id == langId).ToList();
-
                 loadFillDrop();
                 loadSpecialization();
             }
