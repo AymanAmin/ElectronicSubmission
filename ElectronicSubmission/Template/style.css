@@ -380,14 +380,14 @@ address { font-style: italic; }
     padding-bottom: 5px;
     margin-bottom: 25px;
 }
-.wm-modallogin-form,.wm-modallogin-form form ul li,.wm-modallogin-form form,
-.wm-modallogin-form form ul,.wm-modallogin-form input[type="text"],
+.wm-modallogin-form,.wm-modallogin-form ul li,.wm-modallogin-form,
+.wm-modallogin-form ul,.wm-modallogin-form input[type="text"],
 .wm-modallogin-form input[type="password"],.wm-modallogin-form p {
     float: left;
     width: 100%;
 }
 .wm-modallogin-form ul li       { list-style: none; }
-.wm-modallogin-form form        { margin-bottom: 22px; }
+.wm-modallogin-form        { margin-bottom: 22px; }
 .wm-modallogin-form input[type="text"],.wm-modallogin-form input[type="password"] {
     height: 43px;
     padding: 6px 21px;
@@ -396,7 +396,7 @@ address { font-style: italic; }
     color: #a9a9a9;
     font-style: italic;
 }
-.wm-modallogin-form form ul li { margin-bottom: 10px; }
+.wm-modallogin-form ul li { margin-bottom: 10px; }
 .wm-forgot-btn {
     float: right;
     font-size: 14px;

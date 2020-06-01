@@ -37,10 +37,12 @@
     <!-- Arabic Right To Left Css-->
     <link href="Template/style-rtl.css" rel="stylesheet">
     <link href="Template/css/font-awesome-rtl.min.css" rel="stylesheet">
-    <link href="Template/css/AdminLTE-rtl.min.css" rel="stylesheet">
     <link href="Template/css/bootstrap-rtl.min.css" rel="stylesheet">
     <link href="Template/css/rtl.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cairo:400,700" rel="stylesheet">
+    <style>
+        .nicescroll-rails-vr {right:100px}
+        </style>
     <% } %>
     <% else { %>
     <link href="Template/style.css" rel="stylesheet">
@@ -302,7 +304,7 @@
                                 <div class="wm-subscribe-form">
                                     <h2><% = ElectronicSubmission.FieldNames.getFieldName("homepage-StillNotConvincedHead", "Still not convinced? We can help you!") %></h2>
                                     <p><% = ElectronicSubmission.FieldNames.getFieldName("homepage-StillNotConvincedDetail", "Fill out the form below and we will contact you.") %></p>
-                                    <div style="float: left; width: 100%; border: 2px solid #ffffff; padding: 12px 8px;">
+                                    <div style="border: 2px solid #ffffff; padding: 12px 8px 25px 0px;">
                                         <input type="text" value="Name:" />
                                         <input type="text" value="E-mail:" />
                                         <input type="submit" value="Get Advice">
@@ -342,7 +344,7 @@
                                                 <div class="col-md-8">
                                                     <div class="wm-contact-form">
                                                         <span><% = ElectronicSubmission.FieldNames.getFieldName("homepage-TalkToday", "Talk To Us Today") %></span>
-                                                            <ul style="float: left;width: 100%;">
+                                                            <ul>
                                                                 <li>
                                                                     <i class="wmicon-black"></i>
                                                                     <input type="text" value="Name" onblur="if(this.value == '') { this.value ='Name'; }" onfocus="if(this.value =='Name') { this.value = ''; }">
@@ -533,15 +535,15 @@
                     <div class="modal-body">
 
                         <div class="wm-modallogin-form wm-login-popup">
-                            <span class="wm-color">Login to Your Account</span>
-                            <ul style="margin-bottom: 22px; float: left; width: 100%;">
-                                <li style="margin-bottom: 5%; float: left; width: 100%;">
+                            <span class="wm-color"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-login", "Login") %></span>
+                            <ul>
+                                <li>
                                     <asp:TextBox ID="txtEmail" runat="server" class="form-control" placeholder="Your Email"></asp:TextBox>
                                 </li>
-                                <li style="margin-bottom: 5%; float: left; width: 100%;">
+                                <li>
                                     <asp:TextBox ID="txtPassword" runat="server" class="form-control" placeholder="Your Password" TextMode="Password"></asp:TextBox>
                                 </li>
-                                <li><a href="Pages/Auth/ResetPassword.aspx" class="wm-forgot-btn">Forgot Password?</a> </li>
+                                <li><a href="Pages/Auth/ResetPassword.aspx" class="wm-forgot-btn"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-ForgotPassword", "Forgot Password?") %></a> </li>
                                 <li>
                                     <asp:Button ID="LoginAcc" runat="server" Text="LogIn" OnClick="LoginAcc_Click"/>
                                 </li>
@@ -561,9 +563,9 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <div class="wm-modallogin-form">
-                            <span class="wm-color">Search Your Bachelors:</span>
-                            <ul style="margin-bottom: 22px; float: left; width: 100%;">
-                                <li style="margin-bottom: 5%; float: left; width: 100%;"><input type="text" placeholder="Bachelors..." id="keywordBachelors" runat="server" /></li> 
+                            <span class="wm-color"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-homepage-FindYourBachelors", "Find Your Bachelors") %></span>
+                            <ul>
+                                <li><input type="text" placeholder="Bachelors..." id="keywordBachelors" runat="server" /></li> 
                                 <li><asp:Button ID="SearchkeyWord" runat="server" Text="Button" OnClick="SearchkeyWord_Click1"/></li>
                             </ul>
                         </div>

@@ -333,7 +333,7 @@ address { font-style: italic; }
 .wm-stripinfo li i {
     float: right;
     color: #8a8fa7;
-    margin: 9px 5px 0px 0px;
+    margin: 9px 0px 0px 5px;
 }
 .wm-adminuser-section {
     float: left;
@@ -380,14 +380,14 @@ address { font-style: italic; }
     padding-bottom: 5px;
     margin-bottom: 25px;
 }
-.wm-modallogin-form,.wm-modallogin-form form ul li,.wm-modallogin-form form,
-.wm-modallogin-form form ul,.wm-modallogin-form input[type="text"],
+.wm-modallogin-form,.wm-modallogin-form ul li,.wm-modallogin-form,
+.wm-modallogin-form ul,.wm-modallogin-form input[type="text"],
 .wm-modallogin-form input[type="password"],.wm-modallogin-form p {
     float: right;
     width: 100%;
 }
 .wm-modallogin-form ul li       { list-style: none; }
-.wm-modallogin-form form        { margin-bottom: 22px; }
+.wm-modallogin-form        { margin-bottom: 22px; }
 .wm-modallogin-form input[type="text"],.wm-modallogin-form input[type="password"] {
     height: 43px;
     padding: 6px 21px;
@@ -396,7 +396,7 @@ address { font-style: italic; }
     color: #a9a9a9;
     font-style: italic;
 }
-.wm-modallogin-form form ul li { margin-bottom: 10px; }
+.wm-modallogin-form ul li { margin-bottom: 10px; }
 .wm-forgot-btn {
     float: left;
     font-size: 14px;
@@ -2801,9 +2801,9 @@ ul li:last-child .wm-event-medium-wrap {
     width: 28%;
     font-size: 18px;
     color: #c2c8e2;
-    padding: 0px 0px 0px 18px;
+    padding: 0px 18px 0px 0px;
     height: 46px;
-    border-right: 2px solid #c2c8e2;
+    border-left: 2px solid #c2c8e2;
     background-color: transparent;
 }
 .wm-subscribe-formxt p {
@@ -3241,18 +3241,18 @@ ul li:last-child .wm-latest-news-wrap {
 }
 .wm-contact-form i {
     position: absolute;
-    right: 20px;
+    right: 0px;
     top: 8px;
     font-size: 14px;
     color: #e5e5e5;
     border-left: 2px solid #f3f3f3;
     padding-left: 18px;
-    padding: 8px 18px 8px 0px;
+    padding: 8px 18px 8px 20px;
 }
 .wm-contact-form input[type="text"] {
     font-size: 15px;
     color: #bdbcbc;
-    padding: 7px 20px 7px 74px;
+    padding: 7px 74px 7px 20px;
     background-color: #ffffff;
     border-bottom: 2px solid #efefef;
     height: 48px;
@@ -3260,7 +3260,7 @@ ul li:last-child .wm-latest-news-wrap {
 .wm-contact-form textarea {
     font-size: 15px;
     color: #777;
-    padding: 12px 20px 7px 74px;
+    padding: 12px 74px 7px 20px;
     background-color: #ffffff;
     border-bottom: 2px solid #efefef;
     height: 175px;
@@ -3712,7 +3712,7 @@ ul li:hover .wm-ctservice-icon {
 }
 .contact-social-icon li i {
     float: right;
-    margin: 7px 6px 0px 0px;
+    margin: 7px 0px 0px 6px;
 }
 .wm-contact-service-two ul li:last-child:before                 { display: none; }
 .contact-social-icon li:first-child                             { margin-right: 0px; }
@@ -9575,7 +9575,7 @@ aside .widget {
     float: right;
     font-size: 25px;
     color: #ffffff;
-    margin: 7px 21px 0px 0px;
+    margin: 7px 0px 0px 21px;
 }
 .wm-footer-newslatter input[type="text"] {
     float: right;
@@ -9654,7 +9654,7 @@ aside .widget {
 }
 .wm-footer-widget-title h5 i {
     float: right;
-    margin: 7px 5px 0px 0px;
+    margin: 7px 0px 0px 5px;
 }
 /* Widget Archive */
 .widget_archive ul li {
@@ -9668,7 +9668,7 @@ aside .widget {
     width: 19px;
     height: 2px;
     float: right;
-    margin: 14px 15px 0px 0px;
+    margin: 14px 0px 0px 15px;
 }
 /* Widget Twitter */
 .widget_twitter ul li p {
