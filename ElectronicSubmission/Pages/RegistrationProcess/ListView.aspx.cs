@@ -157,6 +157,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             catch { Response.Redirect("~/Pages/RegistrationProcess/ListView.aspx"); }
         }
 
+       
         private double CalcPercentage(double sub, double Total)
             {
             double result = 0;
