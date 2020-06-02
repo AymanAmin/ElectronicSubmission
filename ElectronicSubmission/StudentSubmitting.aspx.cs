@@ -27,10 +27,28 @@ namespace ElectronicSubmission
         float HighSchoolTotal = 150;
         float CapabilitiesTotal = 150;
         float MyAchievementTotal = 150;
+        public int langId = 0;
 
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (int.TryParse(Request["lang"], out langId) && langId > 0)
+            {
+                Session["lang"] = langId;
+            }
+            else
+            {
+                if (Session["lang"] == null)
+                {
+                    langId = 2;
+                    Session["lang"] = langId;
+                }
+                else
+                {
+                    langId = int.Parse(Session["lang"].ToString());
+                }
+            }
+            SessionWrapper.Language = db.Lanuage_Detials.Where(x => x.Language_Master_Id == langId).ToList();
             if (!IsPostBack)
             {
                 FillDropDownLists();

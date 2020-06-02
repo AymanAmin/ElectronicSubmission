@@ -30,10 +30,14 @@ namespace ElectronicSubmission
                 }
             }
 
-            if (int.TryParse(Request["SpecializationId"], out SpecializationId) && SpecializationId > 0)
+            if (int.TryParse(Request["SpecializationId"], out SpecializationId) && SpecializationId > 0 || Session["SpecializationId"] != null)
             {
                 using (REU_RegistrationEntities db = new REU_RegistrationEntities())
                 {
+                    if (Session["SpecializationId"] != null && SpecializationId == 0)
+                        SpecializationId = (int)Session["SpecializationId"]; 
+                    Session["SpecializationId"] = SpecializationId;
+                    SessionWrapper.Language = db.Lanuage_Detials.Where(x => x.Language_Master_Id == langId).ToList();
                     Specialization oneSpecialization = db.Specializations.FirstOrDefault(x => x.Specialization_Id == SpecializationId);
                     if (oneSpecialization != null)
                     {

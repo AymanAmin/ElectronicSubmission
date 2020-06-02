@@ -38,14 +38,14 @@
     <link href="Template/css/rtl.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cairo:400,700" rel="stylesheet">
     <style>
-        .nicescroll-rails-vr {right:100px}
-        .modal-content{float:left}
+        .nicescroll-rails-vr {right:100px;}
+        .modal-content{float:left;}
         </style>
     <% } %>
     <% else { %>
     <link href="Template/style.css" rel="stylesheet">
      <% } %>
-
+    
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -85,7 +85,7 @@
                                 </div>
                                 <ul class="wm-stripinfo">
                                     <li><i class="wmicon-location"></i><a href="https://www.google.com.sa/maps/place/Riyadh+Elm+University/@24.7595734,46.4668287,11z/data=!4m8!1m2!2m1!1sriyadh+colleges+of+dentistry+and+pharmacy!3m4!1s0x3e2efc51ecffffff:0x654f534d5c948f2e!8m2!3d24.6580528!4d46.7005641" style="color: white;"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-Address", "King Fahd Branch Road, An Namudhajiyah, Riyadh 12734, Saudi Arabia") %></a></li>
-                                    <li><i class="wmicon-technology4"></i>+920-000-842</li>
+                                    <li><i class="wmicon-technology4"></i>920-000-842</li>
                                     <li><i class="wmicon-clock2"></i><% = ElectronicSubmission.FieldNames.getFieldName("homepage-work", "sat - fri: 7:00am - 6:00pm") %></li>
                                 </ul>
                                 <ul class="wm-adminuser-section">
@@ -381,7 +381,7 @@
                                                     <li class="col-md-4">
                                                         <span class="wm-service-icon"><i class="wmicon-phone"></i></span>
                                                         <h5 class="wm-color"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-Phone", "Phone") %></h5>
-                                                        <p>+920-000-842</p>
+                                                        <p>920-000-842</p>
                                                     </li>
                                                     <li class="col-md-4">
                                                         <span class="wm-service-icon"><i class="wmicon-letter"></i></span>
@@ -441,7 +441,7 @@
                                     <li><i class="wm-color wmicon-pin"></i><a href="https://www.google.com.sa/maps/place/Riyadh+Elm+University/@24.7595734,46.4668287,11z/data=!4m8!1m2!2m1!1sriyadh+colleges+of+dentistry+and+pharmacy!3m4!1s0x3e2efc51ecffffff:0x654f534d5c948f2e!8m2!3d24.6580528!4d46.7005641">
                                         <p><% = ElectronicSubmission.FieldNames.getFieldName("homepage-Address", "King Fahd Branch Road, An Namudhajiyah, Riyadh 12734, Saudi Arabia") %></p>
                                     </a></li>
-                                    <li><i class="wm-color wmicon-phone"></i>+920-000-842</li>
+                                    <li><i class="wm-color wmicon-phone"></i>920-000-842</li>
                                     <li><i class="wm-color wmicon-letter"></i><a href="mailto:info@riyadh.edu.sa">info@riyadh.edu.sa</a></li>
                                 </ul>
                                 <div class="wm-footer-icons">
