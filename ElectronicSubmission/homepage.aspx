@@ -30,6 +30,12 @@
     <link href="Template/css/color-four.css" rel="stylesheet">
     <link href="Template/css/responsive.css" rel="stylesheet">
 
+    <link href="Template/css/icofont/css/icofont.css" rel="stylesheet">
+    <!-- ico font -->
+
+    <!-- sweet alert framework -->
+    <link rel="stylesheet" type="text/css" href="Theme\files\bower_components\sweetalert\css\sweetalert.css">
+
     <% if(langId != 2) { %>
     <!-- Arabic Right To Left Css-->
     <link href="Template/style-rtl.css" rel="stylesheet">
@@ -45,6 +51,12 @@
     <% else { %>
     <link href="Template/style.css" rel="stylesheet">
      <% } %>
+
+    <style>
+        .sweet-alert input {
+            display: none !important;
+        }
+        </style>
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -62,6 +74,31 @@
                 window.scrollTo(0, target);
             }, 1);
         }
+    </script>
+
+    <script>
+
+        /* Close Model */
+        function SuccessAr() {
+            setTimeout(function () { document.getElementById("Success-btn-Ar").click(); }, 1000);
+            // Click on the checkbox
+        }
+
+        function SuccessEn() {
+            setTimeout(function () { document.getElementById("Success-btn-En").click(); }, 1000);
+            // Click on the checkbox
+        }
+
+        function WarningAr() {
+            setTimeout(function () { document.getElementById("Warning-btn-Ar").click(); }, 1000);
+            // Click on the checkbox
+        }
+
+        function WarningEn() {
+            setTimeout(function () { document.getElementById("Warning-btn-En").click(); }, 1000);
+            // Click on the checkbox
+        }
+        /*--------------------------------------*/
     </script>
 </head>
 <body>
@@ -341,31 +378,44 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="wm-contact-form">
-                                                        <span><% = ElectronicSubmission.FieldNames.getFieldName("homepage-TalkToday", "Talk To Us Today") %></span>
-                                                            <ul>
-                                                                <li>
-                                                                    <i class="wmicon-black"></i>
-                                                                    <input type="text" value="Name" onblur="if(this.value == '') { this.value ='Name'; }" onfocus="if(this.value =='Name') { this.value = ''; }">
-                                                                </li>
-                                                                <li>
-                                                                    <i class="wmicon-symbol3"></i>
-                                                                    <input type="text" value="E-mail" onblur="if(this.value == '') { this.value ='E-mail'; }" onfocus="if(this.value =='E-mail') { this.value = ''; }">
-                                                                </li>
-                                                                <li>
-                                                                    <i class="wmicon-technology4"></i>
-                                                                    <input type="text" value="Phone" onblur="if(this.value == '') { this.value ='Phone'; }" onfocus="if(this.value =='Phone') { this.value = ''; }">
-                                                                </li>
-                                                                <li>
-                                                                    <i class="wmicon-web2"></i>
-                                                                    <textarea placeholder="Message"></textarea>
-                                                                </li>
-                                                                <li>
-                                                                    <input type="submit" value="Send Message">
-                                                                </li>
-                                                            </ul>
+                                                        <p class="wm-contact-form-header"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-TalkToday", "Talk To Us Today") %></p>
+                                                        <ul>
+                                                            <li>
+                                                                <i class="wmicon-black"></i>
+                                                                <asp:TextBox ID="StudentName" runat="server" placeholder="Name"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="valStudentName" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Name" ValidationGroup="valFormGroup" ControlToValidate="StudentName" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
+                                                            </li>
+                                                            <li>
+                                                                <i class="wmicon-symbol3"></i>
+                                                                <asp:TextBox ID="StudentEmail" runat="server" placeholder="E-mail"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="valStudentEmail" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter E-mail" ValidationGroup="valFormGroup" ControlToValidate="StudentEmail" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
+                                                            </li>
+                                                            <li>
+                                                                <i class="wmicon-technology4"></i>
+                                                                <asp:TextBox ID="StudentPhone" runat="server" placeholder="Phone"></asp:TextBox>
+                                                            </li>
+                                                            <asp:RequiredFieldValidator ID="valStudentPhone" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Phone" ValidationGroup="valFormGroup" ControlToValidate="StudentPhone" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
+                                                            <li>
+                                                                <i class="wmicon-web2"></i>
+                                                                <asp:TextBox ID="StudentMessage" runat="server" placeholder="Message" TextMode="MultiLine" Rows="10"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="valStudentMessage" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Message" ValidationGroup="valFormGroup" ControlToValidate="StudentMessage" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
+                                                            </li>
+                                                            <li>
+                                                                <asp:Button ID="SubmitMessage" runat="server" Text="Send Message" ValidationGroup="valFormGroup" OnClick="SubmitMessage_Click"/>
+                                                            </li>
+                                                        </ul>
                                                     </div>
                                                 </div>
+
+                                                <!-- Start Show Alert -->
+                                                <button type="button" style="display: none;" id="Warning-btn-Ar" class="btn btn-primary Warning-Ar m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'Warning-Ar']);">Basic</button>
+                                                <button type="button" style="display: none;" id="Warning-btn-En" class="btn btn-primary Warning-En m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'Warning-En']);">Basic</button>
+
+                                                <button type="button" style="display: none;" id="Success-btn-Ar" class="btn btn-success success-Ar m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'success-Ar']);">Success</button>
+                                                <button type="button" style="display: none;" id="Success-btn-En" class="btn btn-success success-En m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'success-En']);">Success</button>
+                                                <!-- End Show Alert -->
                                             </div>
+
                                         </div>
                                         <div class="tab-pane" id="profile">
                                             <span class="wm-contact-title"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-ContactInfo", "Contact Info") %></span>
@@ -592,6 +642,12 @@
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
     <script type="text/javascript" src="Template/script/functions.js"></script>
 
+    <!-- sweet alert js -->
+    <script type="text/javascript" src="Theme\files\bower_components\sweetalert\js\sweetalert.min.js"></script>
+    <script type="text/javascript" src="Theme\files\assets\js\modal.js"></script>
+    <!-- sweet alert modal.js intialize js -->
+    <!-- Custom js -->
+    <script type="text/javascript" src="Theme\files\assets\js\script.js"></script>
 </body>
 
 <!-- index18:22  -->

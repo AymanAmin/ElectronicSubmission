@@ -3229,10 +3229,19 @@ ul li:last-child .wm-latest-news-wrap {
 }
 .wm-contact-form { text-align: center; }
 .wm-contact-form span {
+    color: #a4a4a4;
+    margin-bottom: 7px;
+    margin-top: 8px;
+    line-height: 0.9;
+    text-align: left;
+}
+.wm-contact-form-header 
+{
     font-size: 50px;
     color: #a4a4a4;
     margin-bottom: 46px;
     line-height: 0.9;
+    text-align: center;
 }
 .wm-contact-form ul li {
     list-style: none;
@@ -3275,7 +3284,7 @@ ul li:last-child .wm-latest-news-wrap {
     font-size: 12px;
     margin-top: 22px;
 }
-.wm-contact-form input[type="submit"]:hover { color: #ffffff; }
+.wm-contact-form input[type="submit"]:hover { color: #0a1350; }
 /* Contact Title */
 .wm-contact-title {
     float: left;
