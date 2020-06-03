@@ -4,8 +4,9 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title><% = ElectronicSubmission.FieldNames.getFieldName("Language-Title", "ECMS - Language") %></title>
+    <title><% = ElectronicSubmission.FieldNames.getFieldName("Language-Title", "Admission - Language") %></title>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="Body_Holder" runat="server">
     <div class="box-list" style="background-color: white;">
         <div class="row">

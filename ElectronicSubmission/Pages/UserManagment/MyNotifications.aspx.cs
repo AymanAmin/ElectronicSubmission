@@ -14,9 +14,9 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment
         string[] Color = { "blue", "purple", "green", "black", "red", "orange", "maroon", "teal", "deepskyblue", "gray", "yellow", "hotpink", "blueviolet", "violet", "deepskyblue", "cyan", "olivedrab", "coral", "salmon" };
         protected void Page_PreInit(object sender, EventArgs e)
         {
-            if (Session["IsECMS"] != null)
+           /* if (Session["IsECMS"] != null)
                 if (!(bool)Session["IsECMS"])
-                    this.MasterPageFile = "~/EminutesMaster.Master";
+                    this.MasterPageFile = "~/EminutesMaster.Master";*/
         }
 
         protected void Page_Load(object sender, EventArgs e)

@@ -18,13 +18,16 @@ namespace ElectronicSubmission.Pages.Admin
 
         protected void Page_PreInit(object sender, EventArgs e)
         {
-            if (Session["IsECMS"] != null)
+           /* if (Session["IsECMS"] != null)
                 if (!(bool)Session["IsECMS"])
-                    this.MasterPageFile = "~/EminutesMaster.Master";
+                    this.MasterPageFile = "~/EminutesMaster.Master";*/
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (SessionWrapper.LoggedUser == null)
+                Response.Redirect("~/Pages/Auth/Login.aspx");
+
             if (!IsPostBack)
             {
                 Change_LablesName_BasedOn_Language();
