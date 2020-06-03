@@ -10285,3 +10285,14 @@ figure:hover .wm-hover-link i           { top: 50%; }
     height: 62px;
     z-index: 0;
 }
+::-webkit-input-placeholder { /* Edge */
+  color: #e5e5e9;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #e5e5e9;
+}
+
+::placeholder {
+  color: #e5e5e9;
+}

@@ -208,9 +208,9 @@ namespace ElectronicSubmission
             if (SaveStudentMessage(StudentName.Text, StudentPhone.Text, StudentEmail.Text, StudentMessage.Text))
             {
                 if (langId == 2)
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "WarningEn();", true);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "SuccessEn();", true);
                 else
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "WarningEn();", true);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "SuccessAr();", true);
             }
             else
             {
@@ -243,6 +243,25 @@ namespace ElectronicSubmission
                 {
                     return false;
                 }
+            }
+        }
+
+        protected void SubmitStep_Click(object sender, EventArgs e)
+        {
+            if (SaveStudentMessage(StudentName.Text, StudentPhone.Text, StudentEmail.Text, StudentMessage.Text))
+            {
+                if (langId == 2)
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "SuccessEn();", true);
+                else
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "SuccessAr();", true);
+            }
+            else
+            {
+                if (langId == 2)
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "WarningEn();", true);
+                else
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "WarningAr();", true);
+
             }
         }
     }
