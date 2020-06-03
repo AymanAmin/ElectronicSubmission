@@ -108,14 +108,7 @@
                                         </button>
                                     </div>
                                     <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                                        <ul class="nav navbar-nav">
-                                            <li class="active"><a href="#home"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-home", "Home") %></a></li>
-                                            <li><a href="#colleges"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-Colleges", "Colleges") %></a></li>
-                                            <li><a href="#steps"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-Steps", "Steps") %></a></li>
-                                            <li><a href="#contactas"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-Contact", "Contact") %></a></li>
-                                            <li><a href="#aboutas"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-About", "About") %></a></li>
 
-                                        </ul>
                                     </div>
                                 </nav>
                                 <!--// Navigation \\-->
@@ -135,7 +128,7 @@
 
                 <div class="container">
                     <hr>
-                    <div class="row">
+                    <div id="Div_payment" runat="server" class="row" visible="false">
                         <aside class="col-sm-3"></aside>
                         <aside class="col-sm-6">
                             <!--<p>Payment form1</p>-->
@@ -223,6 +216,22 @@
                         </aside>
                         <aside class="col-sm-3"></aside>
                         <!-- col.// -->
+                    </div>
+
+                    <div id="Div_invalid" runat="server" class="row" visible="false">
+                        <aside class="col-sm-3"></aside>
+                        <aside class="col-sm-6">
+                            <asp:Image ID="image" runat="server" style="width:100%" ImageUrl="~/Template/images/notfound.png" /></aside>
+                        <aside class="col-sm-3"></aside>
+                    </div>
+
+                     <div id="Div_Sucess" runat="server" class="row" visible="false">
+                         
+                        <aside class="col-sm-4"></aside>
+                        <aside class="col-sm-4" style="text-align:center">
+                            <asp:Image ID="image1" runat="server" style="width:70%" ImageUrl="~/Template/images/paymentdone.png" /></aside>
+                        <aside class="col-sm-4"></aside>
+                         <aside class="col-sm-12" style="text-align:center;color:#4fa7a0"><h1>The Process was Successfully</h1></aside>
                     </div>
                     <!-- row.// -->
 

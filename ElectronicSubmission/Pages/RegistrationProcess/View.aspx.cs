@@ -380,8 +380,9 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 db.Sequences.Add(seq);
                 db.SaveChanges();
 
-                //Send Email
-                sendEamil(std);
+                //Ready to apay
+                if(std.Student_Status_Id == 6)
+                    ReadyToPay(std);
 
                 db.Configuration.LazyLoadingEnabled = false;
                 /* Add it to log file */
@@ -404,6 +405,17 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             string Text = " <Strong>You have new student file  </Strong><br /><Strong>TrackId : </Strong> " + std.Student_Id + " <br /> <Strong>Current Status:</Strong> " + std.Status.Status_Name_En+ " <br /> <Strong>Note:</Strong> " + txtNote.Text;
             //bool result = send.TextEmail("Student File : #"+ std.Student_Id,SessionWrapper.LoggedUser.Employee_Email, Text, sever_name);
             return false;
+        }
+
+        public bool sendEamil_ReadyToPay(Student std,Payment_Process payment)
+        {
+            string sever_name = Request.Url.Authority.ToString();
+            string URL = sever_name + "/PaymentProcess.aspx?Trackingkey=" + payment.Payment_Trackingkey;
+            string StudentEmail = "ayman@softwarecornerit.com";//std.Student_Email;
+            SendEmail send = new SendEmail();
+            string Text = " <Strong style='font-size:24px;'>Dear " + std.Student_Name_En + "</Strong><br /><Strong>You can start the payment process: </Strong> " + URL + " <br /> <Strong>Current Status:</Strong> " + std.Status.Status_Name_En + " <br /> <Strong>Date:</Strong> " + DateTime.Now.ToShortDateString();
+            bool result = send.TextEmail("Ready To Pay", StudentEmail, Text, sever_name);
+            return result;
         }
 
         private string GetApproveStatusName(int CurrentStatus_Id)
@@ -488,6 +500,33 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
 
                 Response.Redirect("~/Pages/RegistrationProcess/view.aspx?StudentID=" + (int)seq.Student_Id);
             }
+        }
+
+        private void ReadyToPay(Student std)
+        {
+            int student_id = std.Student_Id;
+            string entityId = "8a8294174d0595bb014d05d82e5b01d2";
+            string amount = "92.00";
+            string currency = "RS";
+            string paymentType = "DB";
+
+            Payment_Process payment = db.Payment_Process.Create();
+            payment.Student_Id = student_id;
+            payment.Send_Amount = float.Parse(amount);
+            payment.Send_Currency = currency;
+            payment.Send_EntityId = entityId;
+            payment.Send_PaymentType = paymentType;
+            payment.Payment_IsPaid = false;
+            payment.Payment_Type_Id = 1;
+            payment.DateCreation = DateTime.Now;
+            payment.Comment = "No Comment";
+            payment.Payment_Trackingkey = StringCipher.RandomString(5) + student_id + StringCipher.RandomString(3) + DateTime.Now.GetHashCode();
+            payment.Payment_URL_IsValid = true;
+            db.Payment_Process.Add(payment);
+            db.SaveChanges();
+
+            //Send Email
+            sendEamil_ReadyToPay(std, payment);
         }
 
         private string GetRejectStatusName(int CurrentStatus_Id)

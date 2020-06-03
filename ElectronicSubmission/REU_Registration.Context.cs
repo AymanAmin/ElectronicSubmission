@@ -32,6 +32,7 @@ namespace ElectronicSubmission
         public DbSet<Group_Status> Group_Status { get; set; }
         public DbSet<LanguageMaster> LanguageMasters { get; set; }
         public DbSet<Lanuage_Detials> Lanuage_Detials { get; set; }
+        public DbSet<LastUpdate> LastUpdates { get; set; }
         public DbSet<Log_File> Log_File { get; set; }
         public DbSet<Nationality> Nationalities { get; set; }
         public DbSet<Notification_Employee> Notification_Employee { get; set; }

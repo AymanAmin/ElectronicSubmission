@@ -14,14 +14,15 @@ namespace ElectronicSubmission
     
     public partial class Payment_Process
     {
-        public int Study_Payment_Id { get; set; }
-        public Nullable<double> Study_Amount { get; set; }
+        public int Payment_Id { get; set; }
         public Nullable<int> Student_Id { get; set; }
-        public Nullable<bool> Study_IsPaid { get; set; }
-        public Nullable<System.DateTime> DateCreation { get; set; }
+        public Nullable<bool> Payment_IsPaid { get; set; }
         public string Comment { get; set; }
-        public string Currency { get; set; }
-        public string PaymentType { get; set; }
+        public Nullable<System.DateTime> DateCreation { get; set; }
+        public string Send_EntityId { get; set; }
+        public Nullable<double> Send_Amount { get; set; }
+        public string Send_Currency { get; set; }
+        public string Send_PaymentType { get; set; }
         public string Result_Code { get; set; }
         public string Result_Description { get; set; }
         public string Result_BuildNumber { get; set; }
@@ -29,9 +30,11 @@ namespace ElectronicSubmission
         public string Result_Ndc { get; set; }
         public string Result_Id { get; set; }
         public Nullable<System.DateTime> Payment_Date { get; set; }
-        public Nullable<int> Payment_Type { get; set; }
+        public Nullable<int> Payment_Type_Id { get; set; }
+        public string Payment_Trackingkey { get; set; }
+        public Nullable<bool> Payment_URL_IsValid { get; set; }
     
-        public virtual Payment_Type Payment_Type1 { get; set; }
+        public virtual Payment_Type Payment_Type { get; set; }
         public virtual Student Student { get; set; }
     }
 }

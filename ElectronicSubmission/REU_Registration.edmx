@@ -71,6 +71,14 @@
           <Property Name="Language_Detial_FieldName" Type="nvarchar" MaxLength="150" />
           <Property Name="Language_Detial_Value" Type="nvarchar" MaxLength="150" />
         </EntityType>
+        <EntityType Name="LastUpdate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Counter" Type="int" />
+          <Property Name="CreationDate" Type="datetime" />
+        </EntityType>
         <EntityType Name="Log_File">
           <Key>
             <PropertyRef Name="Log_Id" />
@@ -127,16 +135,17 @@
         </EntityType>
         <EntityType Name="Payment_Process">
           <Key>
-            <PropertyRef Name="Study_Payment_Id" />
+            <PropertyRef Name="Payment_Id" />
           </Key>
-          <Property Name="Study_Payment_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Study_Amount" Type="float" />
+          <Property Name="Payment_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Student_Id" Type="int" />
-          <Property Name="Study_IsPaid" Type="bit" />
-          <Property Name="DateCreation" Type="datetime" />
+          <Property Name="Payment_IsPaid" Type="bit" />
           <Property Name="Comment" Type="nvarchar(max)" />
-          <Property Name="Currency" Type="nvarchar(max)" />
-          <Property Name="PaymentType" Type="nvarchar(max)" />
+          <Property Name="DateCreation" Type="datetime" />
+          <Property Name="Send_EntityId" Type="nvarchar(max)" />
+          <Property Name="Send_Amount" Type="float" />
+          <Property Name="Send_Currency" Type="nvarchar(max)" />
+          <Property Name="Send_PaymentType" Type="nvarchar(max)" />
           <Property Name="Result_Code" Type="nvarchar(max)" />
           <Property Name="Result_Description" Type="nvarchar(max)" />
           <Property Name="Result_BuildNumber" Type="nvarchar(max)" />
@@ -144,7 +153,9 @@
           <Property Name="Result_Ndc" Type="nvarchar(max)" />
           <Property Name="Result_Id" Type="nvarchar(max)" />
           <Property Name="Payment_Date" Type="datetime" />
-          <Property Name="Payment_Type" Type="int" />
+          <Property Name="Payment_Type_Id" Type="int" />
+          <Property Name="Payment_Trackingkey" Type="nvarchar(max)" />
+          <Property Name="Payment_URL_IsValid" Type="bit" />
         </EntityType>
         <EntityType Name="Payment_Type">
           <Key>
@@ -401,7 +412,7 @@
               <PropertyRef Name="Payment_Type_Id" />
             </Principal>
             <Dependent Role="Payment_Process">
-              <PropertyRef Name="Payment_Type" />
+              <PropertyRef Name="Payment_Type_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -557,6 +568,7 @@
           <EntitySet Name="Group_Status" EntityType="Self.Group_Status" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LanguageMaster" EntityType="Self.LanguageMaster" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Lanuage_Detials" EntityType="Self.Lanuage_Detials" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LastUpdate" EntityType="Self.LastUpdate" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Log_File" EntityType="Self.Log_File" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Nationality" EntityType="Self.Nationality" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Notification_Employee" EntityType="Self.Notification_Employee" Schema="dbo" store:Type="Tables" />
@@ -684,6 +696,7 @@
           <EntitySet Name="Group_Status" EntityType="REU_RegistrationModel.Group_Status" />
           <EntitySet Name="LanguageMasters" EntityType="REU_RegistrationModel.LanguageMaster" />
           <EntitySet Name="Lanuage_Detials" EntityType="REU_RegistrationModel.Lanuage_Detials" />
+          <EntitySet Name="LastUpdates" EntityType="REU_RegistrationModel.LastUpdate" />
           <EntitySet Name="Log_File" EntityType="REU_RegistrationModel.Log_File" />
           <EntitySet Name="Nationalities" EntityType="REU_RegistrationModel.Nationality" />
           <EntitySet Name="Notification_Employee" EntityType="REU_RegistrationModel.Notification_Employee" />
@@ -881,6 +894,14 @@
           <Property Name="Language_Detial_Value" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="LanguageMaster" Relationship="REU_RegistrationModel.FK_Lanuage_Detials_LanguageMaster" FromRole="Lanuage_Detials" ToRole="LanguageMaster" />
         </EntityType>
+        <EntityType Name="LastUpdate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Counter" Type="Int32" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+        </EntityType>
         <EntityType Name="Log_File">
           <Key>
             <PropertyRef Name="Log_Id" />
@@ -947,16 +968,17 @@
         </EntityType>
         <EntityType Name="Payment_Process">
           <Key>
-            <PropertyRef Name="Study_Payment_Id" />
+            <PropertyRef Name="Payment_Id" />
           </Key>
-          <Property Name="Study_Payment_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Study_Amount" Type="Double" />
+          <Property Name="Payment_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Student_Id" Type="Int32" />
-          <Property Name="Study_IsPaid" Type="Boolean" />
-          <Property Name="DateCreation" Type="DateTime" Precision="3" />
+          <Property Name="Payment_IsPaid" Type="Boolean" />
           <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Currency" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="PaymentType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreation" Type="DateTime" Precision="3" />
+          <Property Name="Send_EntityId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Send_Amount" Type="Double" />
+          <Property Name="Send_Currency" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Send_PaymentType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Result_Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Result_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Result_BuildNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -964,8 +986,10 @@
           <Property Name="Result_Ndc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Result_Id" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Payment_Date" Type="DateTime" Precision="3" />
-          <Property Name="Payment_Type" Type="Int32" />
-          <NavigationProperty Name="Payment_Type1" Relationship="REU_RegistrationModel.FK_Payment_Process_Payment_Type" FromRole="Payment_Process" ToRole="Payment_Type" />
+          <Property Name="Payment_Type_Id" Type="Int32" />
+          <Property Name="Payment_Trackingkey" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Payment_URL_IsValid" Type="Boolean" />
+          <NavigationProperty Name="Payment_Type" Relationship="REU_RegistrationModel.FK_Payment_Process_Payment_Type" FromRole="Payment_Process" ToRole="Payment_Type" />
           <NavigationProperty Name="Student" Relationship="REU_RegistrationModel.FK_Payment_Study_Student" FromRole="Payment_Process" ToRole="Student" />
         </EntityType>
         <EntityType Name="Payment_Type">
@@ -1305,7 +1329,7 @@
               <PropertyRef Name="Payment_Type_Id" />
             </Principal>
             <Dependent Role="Payment_Process">
-              <PropertyRef Name="Payment_Type" />
+              <PropertyRef Name="Payment_Type_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1393,7 +1417,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -1472,6 +1496,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="LastUpdates">
+            <EntityTypeMapping TypeName="REU_RegistrationModel.LastUpdate">
+              <MappingFragment StoreEntitySet="LastUpdate">
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="Counter" ColumnName="Counter" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Log_File">
             <EntityTypeMapping TypeName="REU_RegistrationModel.Log_File">
               <MappingFragment StoreEntitySet="Log_File">
@@ -1534,7 +1567,9 @@
           <EntitySetMapping Name="Payment_Process">
             <EntityTypeMapping TypeName="REU_RegistrationModel.Payment_Process">
               <MappingFragment StoreEntitySet="Payment_Process">
-                <ScalarProperty Name="Payment_Type" ColumnName="Payment_Type" />
+                <ScalarProperty Name="Payment_URL_IsValid" ColumnName="Payment_URL_IsValid" />
+                <ScalarProperty Name="Payment_Trackingkey" ColumnName="Payment_Trackingkey" />
+                <ScalarProperty Name="Payment_Type_Id" ColumnName="Payment_Type_Id" />
                 <ScalarProperty Name="Payment_Date" ColumnName="Payment_Date" />
                 <ScalarProperty Name="Result_Id" ColumnName="Result_Id" />
                 <ScalarProperty Name="Result_Ndc" ColumnName="Result_Ndc" />
@@ -1542,14 +1577,15 @@
                 <ScalarProperty Name="Result_BuildNumber" ColumnName="Result_BuildNumber" />
                 <ScalarProperty Name="Result_Description" ColumnName="Result_Description" />
                 <ScalarProperty Name="Result_Code" ColumnName="Result_Code" />
-                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
-                <ScalarProperty Name="Currency" ColumnName="Currency" />
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Send_PaymentType" ColumnName="Send_PaymentType" />
+                <ScalarProperty Name="Send_Currency" ColumnName="Send_Currency" />
+                <ScalarProperty Name="Send_Amount" ColumnName="Send_Amount" />
+                <ScalarProperty Name="Send_EntityId" ColumnName="Send_EntityId" />
                 <ScalarProperty Name="DateCreation" ColumnName="DateCreation" />
-                <ScalarProperty Name="Study_IsPaid" ColumnName="Study_IsPaid" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Payment_IsPaid" ColumnName="Payment_IsPaid" />
                 <ScalarProperty Name="Student_Id" ColumnName="Student_Id" />
-                <ScalarProperty Name="Study_Amount" ColumnName="Study_Amount" />
-                <ScalarProperty Name="Study_Payment_Id" ColumnName="Study_Payment_Id" />
+                <ScalarProperty Name="Payment_Id" ColumnName="Payment_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

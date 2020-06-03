@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" EnableEventValidation="false" CodeBehind="homepage.aspx.cs" Inherits="ElectronicSubmission.homepage" %>
 
 <!DOCTYPE html>
-<% if(langId != 2) { %>
+<% if(2 != 2) { %>
 <html lang="ar" dir="rtl">
 <% } %>
 <% else
@@ -30,7 +30,7 @@
     <link href="Template/css/color-four.css" rel="stylesheet">
     <link href="Template/css/responsive.css" rel="stylesheet">
 
-    <% if(langId != 2) { %>
+    <% if(2 != 2) { %>
     <!-- Arabic Right To Left Css-->
     <link href="Template/style-rtl.css" rel="stylesheet">
     <link href="Template/css/font-awesome-rtl.min.css" rel="stylesheet">
