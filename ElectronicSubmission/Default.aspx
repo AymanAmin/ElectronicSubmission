@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterEn.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="ElectronicSubmission.Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title><% = ElectronicSubmission.FieldNames.getFieldName("Default-Title", "ECMS - DashBoard") %></title>
+    <title><% = ElectronicSubmission.FieldNames.getFieldName("Default-Title", "E-Admission - DashBoard") %></title>
     <script>
         function Pie_Chart(Data, Names) {
             var options = {
@@ -49,7 +49,7 @@
                         curve: 'straight'
                     },
                     title: {
-                        text: '<% = ElectronicSubmission.FieldNames.getFieldName("Default-DelayPerStatus", "Delay Per Status") %>',
+                        text: '',
                     align: 'left'
                 },
                     grid: {
@@ -299,7 +299,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-
+                     <h5><% = ElectronicSubmission.FieldNames.getFieldName("Default-DelayPerStatus", "Delay Per Status") %></h5>
                     <div class="card-header-right">
                         <ul class="list-unstyled card-option">
                             <li><i class="feather icon-maximize full-card"></i></li>
@@ -307,7 +307,7 @@
                     </div>
                 </div>
                 <div class="card-block">
-                    <div id="Linechart" style="width: 100%;"></div>
+                    <div id="Linechart" style="width: 100%;direction: ltr;"></div>
                 </div>
             </div>
         </div>

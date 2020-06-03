@@ -35,6 +35,8 @@ namespace ElectronicSubmission
             if (SessionWrapper.LoggedUser.Language_id != null)
                 if (SessionWrapper.LoggedUser.Language_id == 1)
                 {
+                    Style.Text = FieldNames.getSTyleRTL();
+                    Script.Text = FieldNames.getJavaScriptRTL();
                     //this.html.Attributes.Add("dir", "ltr");
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "RTL_Layout();", true);
                 }

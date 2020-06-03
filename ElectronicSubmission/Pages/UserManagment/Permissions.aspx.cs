@@ -15,9 +15,9 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment
 
         protected void Page_PreInit(object sender, EventArgs e)
         {
-            if (Session["IsECMS"] != null)
+           /* if (Session["IsECMS"] != null)
                 if (!(bool)Session["IsECMS"])
-                    this.MasterPageFile = "~/EminutesMaster.Master";
+                    this.MasterPageFile = "~/EminutesMaster.Master";*/
         }
 
         //LogFile Data

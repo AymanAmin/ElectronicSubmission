@@ -44,5 +44,14 @@ namespace ElectronicSubmission
             else
                 return string.Empty;
         }
+
+        public static string getSTyleRTL()
+        {
+            if (SessionWrapper.LoggedUser.Language_id == 1)
+                return " <link rel='stylesheet' type='text/css' href='../../../../Theme/files/assets/css/styleRTL.css' />";
+            else
+                return string.Empty;
+        }
+        
     }
 }

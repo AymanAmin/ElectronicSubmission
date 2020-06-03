@@ -90,11 +90,18 @@ namespace ElectronicSubmission
                 if (double.Parse(StatusList[i].Status_Icon) != 0)
                     delay = double.Parse(StatusList[i].Status_Color) / double.Parse(StatusList[i].Status_Icon);
 
-                Status += "'" + StatusList[i].Status_Name_En + "'";
+                if(SessionWrapper.LoggedUser.Language_id == 1)
+                    Status += "' " + StatusList[i].Status_Name_Ar + " '";
+                else
+                    Status += "'" + StatusList[i].Status_Name_En + "'";
 
                 if (students.Count != 0)
                 {
-                    StatusPie += "'" + StatusList[i].Status_Name_En + "'";
+                    if (SessionWrapper.LoggedUser.Language_id == 1)
+                        StatusPie += "' " + StatusList[i].Status_Name_Ar + " '";
+                    else
+                        StatusPie += "'" + StatusList[i].Status_Name_En + "'";
+
                     Data += students.Count.ToString();
                 }
 
@@ -143,12 +150,12 @@ namespace ElectronicSubmission
             {
                 Total += StudentList.Where(x => x.Student_CreationDate > DateList[i].AddDays(-1) && x.Student_CreationDate <= DateList[i]).Count().ToString();
 
-                string mounth = DateList[i].Day+" / " +DateList[i].ToString("MMM", CultureInfo.InvariantCulture);
+                string mounth = DateList[i].ToString("MMM", CultureInfo.InvariantCulture);
 
                 if (SessionWrapper.LoggedUser.Language_id == 1)
-                    mounth = DateList[i].Day + " / " + ArabicDate(mounth);
+                    mounth =  ArabicDate(mounth);
 
-                categories += "'" + mounth + "'";
+                categories += "'"+DateList[i].Day + " / " + mounth + "'";
                 if (i > 0)
                 {
                     Total += ",";
@@ -171,7 +178,10 @@ namespace ElectronicSubmission
 
             for (int i = 0; i < List_Resource.Count; i++)
             {
-                Labels += "'" + List_Resource[i].Resource_Name_En + "'";
+                if(SessionWrapper.LoggedUser.Language_id ==1)
+                Labels += "' " + List_Resource[i].Resource_Name_Ar + " '";
+                else
+                    Labels += "'" + List_Resource[i].Resource_Name_En + "'";
                 Data += List_Resource[i].Students.Count;
                 if (i < List_Resource.Count - 1)
                 {

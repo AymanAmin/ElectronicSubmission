@@ -305,7 +305,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 if (sequence[i].Note != null && sequence[i].Note != "")
                     str += "<p class='text-muted m-b-0'>" + "<span style='color:" + Color[index] + "'>" + sequence[i].Note + "</span></p>";
 
-                str += "<p class='text-muted m-b-0'> <i class='feather icon-clock m-r-10'></i>" + Date_Different((DateTime)sequence[i].DateCreation) + "</p>" +
+                str += "<p class='text-muted m-b-0'> <i class='feather icon-clock m-r-10'></i> " + Date_Different((DateTime)sequence[i].DateCreation) + "</p>" +
                 "</div>" +
             "</div>";
             }

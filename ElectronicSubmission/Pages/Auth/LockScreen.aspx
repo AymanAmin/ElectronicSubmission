@@ -105,7 +105,7 @@
                                             <p class="text-inverse text-left m-b-0">Thank you.</p>
                                         </div>
                                         <div class="col-md-4">
-                                            <img src="..\..\..\..\Theme\files\assets\images\Logo.png" alt="small-logo.png" />
+                                            <img src="..\..\..\..\Theme\files\assets\images\favicon.ico" alt="small-logo.png" />
                                         </div>
                                     </div>
                                 </div>
