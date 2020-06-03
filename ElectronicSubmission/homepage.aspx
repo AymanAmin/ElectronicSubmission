@@ -341,12 +341,12 @@
                                     <p><% = ElectronicSubmission.FieldNames.getFieldName("homepage-StillNotConvincedDetail", "Fill out the form below and we will contact you.") %></p>
                                     <div style="border: 2px solid #ffffff; padding: 12px 8px 25px 0px;">
                                         <asp:TextBox ID="StepStudentName" runat="server" placeholder="Name"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="valStepStudentName" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Name" ValidationGroup="valFormGroup" ControlToValidate="StepStudentName" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ID="valStepStudentName" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Name" ValidationGroup="valFormGroup1" ControlToValidate="StepStudentName" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
                                         <asp:TextBox ID="StepStudentPhone" runat="server" placeholder="Phone"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="valStepStudentPhone" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Phone" ValidationGroup="valFormGroup" ControlToValidate="StepStudentPhone" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ID="valStepStudentPhone" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Phone" ValidationGroup="valFormGroup1" ControlToValidate="StepStudentPhone" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
                                         <asp:TextBox ID="StepStudentEmail" runat="server" placeholder="E-mail"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="valStepStudentEmail" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter E-mail" ValidationGroup="valFormGroup" ControlToValidate="StepStudentEmail" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
-                                        <asp:Button ID="SubmitStep" runat="server" Text="Send" ValidationGroup="valFormGroup" OnClick="SubmitStep_Click" />
+                                        <asp:RequiredFieldValidator ID="valStepStudentEmail" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter E-mail" ValidationGroup="valFormGroup1" ControlToValidate="StepStudentEmail" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
+                                        <asp:Button ID="SubmitStep" runat="server" Text="Send" ValidationGroup="valFormGroup1" OnClick="SubmitStep_Click" />
                                     </div>
                                 </div>
                             </div>

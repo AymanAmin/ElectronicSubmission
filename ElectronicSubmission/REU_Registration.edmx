@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="REU_RegistrationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="REU_RegistrationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Collage">
           <Key>
             <PropertyRef Name="Collage_ID" />
@@ -260,6 +260,17 @@
           <Property Name="Suspended" Type="int" />
           <Property Name="Notes" Type="nvarchar(max)" />
         </EntityType>
+        <EntityType Name="Student_Concat">
+          <Key>
+            <PropertyRef Name="Student_Concat_Id" />
+          </Key>
+          <Property Name="Student_Concat_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Student_Concat_Name" Type="nvarchar(max)" />
+          <Property Name="Student_Concat_Phone" Type="nvarchar(max)" />
+          <Property Name="Student_Concat_Email" Type="nvarchar(max)" />
+          <Property Name="Student_Concat_Message" Type="nvarchar(max)" />
+          <Property Name="Student_Concat_Status" Type="int" />
+        </EntityType>
         <Association Name="FK_Employee_Group">
           <End Role="Group" Type="Self.Group" Multiplicity="0..1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
@@ -500,6 +511,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Student_Concat_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Student_Concat" Type="Self.Student_Concat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Status_Id" />
+            </Principal>
+            <Dependent Role="Student_Concat">
+              <PropertyRef Name="Student_Concat_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Student_Employee">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="Student" Type="Self.Student" Multiplicity="*" />
@@ -583,6 +606,7 @@
           <EntitySet Name="Specialization" EntityType="Self.Specialization" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student_Concat" EntityType="Self.Student_Concat" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Employee_Group" Association="Self.FK_Employee_Group">
             <End Role="Group" EntitySet="Group" />
             <End Role="Employee" EntitySet="Employee" />
@@ -662,6 +686,10 @@
           <AssociationSet Name="FK_Specialization_Collage" Association="Self.FK_Specialization_Collage">
             <End Role="Collage" EntitySet="Collage" />
             <End Role="Specialization" EntitySet="Specialization" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Concat_Status" Association="Self.FK_Student_Concat_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Student_Concat" EntitySet="Student_Concat" />
           </AssociationSet>
           <AssociationSet Name="FK_Student_Employee" Association="Self.FK_Student_Employee">
             <End Role="Employee" EntitySet="Employee" />
@@ -810,6 +838,11 @@
           <AssociationSet Name="FK_Student_Status" Association="REU_RegistrationModel.FK_Student_Status">
             <End Role="Status" EntitySet="Status" />
             <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <EntitySet Name="Student_Concat" EntityType="REU_RegistrationModel.Student_Concat" />
+          <AssociationSet Name="FK_Student_Concat_Status" Association="REU_RegistrationModel.FK_Student_Concat_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Student_Concat" EntitySet="Student_Concat" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Collage">
@@ -1082,6 +1115,7 @@
           <NavigationProperty Name="Group_Status" Relationship="REU_RegistrationModel.FK_Group_Status_Status" FromRole="Status" ToRole="Group_Status" />
           <NavigationProperty Name="Sequences" Relationship="REU_RegistrationModel.FK_Sequence_Status" FromRole="Status" ToRole="Sequence" />
           <NavigationProperty Name="Students" Relationship="REU_RegistrationModel.FK_Student_Status" FromRole="Status" ToRole="Student" />
+          <NavigationProperty Name="Student_Concat" Relationship="REU_RegistrationModel.FK_Student_Concat_Status" FromRole="Status" ToRole="Student_Concat" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -1417,6 +1451,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Student_Concat">
+          <Key>
+            <PropertyRef Name="Student_Concat_Id" />
+          </Key>
+          <Property Name="Student_Concat_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Student_Concat_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Student_Concat_Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Student_Concat_Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Student_Concat_Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Student_Concat_Status" Type="Int32" />
+          <NavigationProperty Name="Status" Relationship="REU_RegistrationModel.FK_Student_Concat_Status" FromRole="Student_Concat" ToRole="Status" />
+        </EntityType>
+        <Association Name="FK_Student_Concat_Status">
+          <End Type="REU_RegistrationModel.Status" Role="Status" Multiplicity="0..1" />
+          <End Type="REU_RegistrationModel.Student_Concat" Role="Student_Concat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Status_Id" />
+            </Principal>
+            <Dependent Role="Student_Concat">
+              <PropertyRef Name="Student_Concat_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1697,6 +1755,18 @@
                 <ScalarProperty Name="Student_Name_En" ColumnName="Student_Name_En" />
                 <ScalarProperty Name="Student_SSN" ColumnName="Student_SSN" />
                 <ScalarProperty Name="Student_Id" ColumnName="Student_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student_Concat">
+            <EntityTypeMapping TypeName="REU_RegistrationModel.Student_Concat">
+              <MappingFragment StoreEntitySet="Student_Concat">
+                <ScalarProperty Name="Student_Concat_Status" ColumnName="Student_Concat_Status" />
+                <ScalarProperty Name="Student_Concat_Message" ColumnName="Student_Concat_Message" />
+                <ScalarProperty Name="Student_Concat_Email" ColumnName="Student_Concat_Email" />
+                <ScalarProperty Name="Student_Concat_Phone" ColumnName="Student_Concat_Phone" />
+                <ScalarProperty Name="Student_Concat_Name" ColumnName="Student_Concat_Name" />
+                <ScalarProperty Name="Student_Concat_Id" ColumnName="Student_Concat_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
