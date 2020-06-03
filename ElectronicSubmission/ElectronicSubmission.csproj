@@ -2915,6 +2915,9 @@
     <Compile Include="StudentSubmitting.aspx.designer.cs">
       <DependentUpon>StudentSubmitting.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Student_Concat.cs">
+      <DependentUpon>REU_Registration.tt</DependentUpon>
+    </Compile>
     <Compile Include="Web References\CheckPaymentRef\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

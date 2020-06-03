@@ -52,6 +52,8 @@
         <AssociationConnector Association="REU_RegistrationModel.FK_Sequence_Student" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Student_Specialization" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Student_Status" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.Student_Concat" Width="1.5" PointX="10.5" PointY="23.375" />
+        <AssociationConnector Association="REU_RegistrationModel.FK_Student_Concat_Status" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

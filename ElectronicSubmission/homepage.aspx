@@ -340,9 +340,13 @@
                                     <h2><% = ElectronicSubmission.FieldNames.getFieldName("homepage-StillNotConvincedHead", "Still not convinced? We can help you!") %></h2>
                                     <p><% = ElectronicSubmission.FieldNames.getFieldName("homepage-StillNotConvincedDetail", "Fill out the form below and we will contact you.") %></p>
                                     <div style="border: 2px solid #ffffff; padding: 12px 8px 25px 0px;">
-                                        <input type="text" value="Name:" />
-                                        <input type="text" value="E-mail:" />
-                                        <input type="submit" value="Get Advice">
+                                        <asp:TextBox ID="StepStudentName" runat="server" placeholder="Name"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="valStepStudentName" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Name" ValidationGroup="valFormGroup1" ControlToValidate="StepStudentName" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
+                                        <asp:TextBox ID="StepStudentPhone" runat="server" placeholder="Phone"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="valStepStudentPhone" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Phone" ValidationGroup="valFormGroup1" ControlToValidate="StepStudentPhone" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
+                                        <asp:TextBox ID="StepStudentEmail" runat="server" placeholder="E-mail"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="valStepStudentEmail" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter E-mail" ValidationGroup="valFormGroup1" ControlToValidate="StepStudentEmail" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
+                                        <asp:Button ID="SubmitStep" runat="server" Text="Send" ValidationGroup="valFormGroup1" OnClick="SubmitStep_Click" />
                                     </div>
                                 </div>
                             </div>

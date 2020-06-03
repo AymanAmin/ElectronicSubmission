@@ -208,9 +208,9 @@ namespace ElectronicSubmission
             if (SaveStudentMessage(StudentName.Text, StudentPhone.Text, StudentEmail.Text, StudentMessage.Text))
             {
                 if (langId == 2)
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "WarningEn();", true);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "SuccessEn();", true);
                 else
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "WarningEn();", true);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "SuccessAr();", true);
             }
             else
             {
@@ -228,15 +228,17 @@ namespace ElectronicSubmission
             {
                 try
                 {
-                    Specialization Specl = new Specialization();
-                    Specl.Condition_Ar = stdName;
-                    Specl.Condition_En = stdPhone;
-                    Specl.Condition_Ar = stdEmail;
-                    Specl.Condition_En = stdMessage;
-                    db.Specializations.Add(Specl);
+                    Student_Concat StudentConcat = new Student_Concat();
+                    StudentConcat.Student_Concat_Name = stdName;
+                    StudentConcat.Student_Concat_Phone = stdPhone;
+                    StudentConcat.Student_Concat_Email = stdEmail;
+                    StudentConcat.Student_Concat_Message = stdMessage;
+                    StudentConcat.Student_Concat_Status = 1;
+                    db.Student_Concat.Add(StudentConcat);
                     db.SaveChanges();
-                    LogData = "data:" + JsonConvert.SerializeObject(Specl, logFileModule.settings);
+                    LogData = "data:" + JsonConvert.SerializeObject(StudentConcat, logFileModule.settings);
                     logFileModule.logfile(10, "الاتصال", "Contact As", LogData);
+                    clearForm();
                     return true;
                 }
                 catch (Exception eee)
@@ -244,6 +246,37 @@ namespace ElectronicSubmission
                     return false;
                 }
             }
+        }
+
+        protected void SubmitStep_Click(object sender, EventArgs e)
+        {
+            string strMessage = "لم اتمكن من التقديم الرجاء المساعدة";
+            if (SaveStudentMessage(StepStudentName.Text, StepStudentPhone.Text, StepStudentEmail.Text, strMessage))
+            {
+                if (langId == 2)
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "SuccessEn();", true);
+                else
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "SuccessAr();", true);
+            }
+            else
+            {
+                if (langId == 2)
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "WarningEn();", true);
+                else
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "WarningAr();", true);
+
+            }
+        }
+
+        private void clearForm()
+        {
+            StepStudentName.Text = "";
+            StepStudentPhone.Text = "";
+            StepStudentEmail.Text = "";
+            StudentName.Text = "";
+            StudentPhone.Text = "";
+            StudentEmail.Text = "";
+            StudentMessage.Text = "";
         }
     }
 }

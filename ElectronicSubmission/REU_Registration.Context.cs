@@ -47,5 +47,6 @@ namespace ElectronicSubmission
         public DbSet<Specialization> Specializations { get; set; }
         public DbSet<Status> Status { get; set; }
         public DbSet<Student> Students { get; set; }
+        public DbSet<Student_Concat> Student_Concat { get; set; }
     }
 }
