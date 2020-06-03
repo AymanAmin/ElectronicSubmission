@@ -44,6 +44,18 @@ namespace ElectronicSubmission
                 loadFillDrop();
                 loadSpecialization();
             }
+            else
+            {
+                if (Session["lang"] == null)
+                {
+                    langId = 2;
+                    Session["lang"] = langId;
+                }
+                else
+                {
+                    langId = int.Parse(Session["lang"].ToString());
+                }
+            }
         }
 
         private void loadFillDrop()
@@ -189,6 +201,49 @@ namespace ElectronicSubmission
                 return false;
             }
             catch (Exception er) { Session.Abandon(); return false; }
-        }       
+        }
+
+        protected void SubmitMessage_Click(object sender, EventArgs e)
+        {
+            if (SaveStudentMessage(StudentName.Text, StudentPhone.Text, StudentEmail.Text, StudentMessage.Text))
+            {
+                if (langId == 2)
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "WarningEn();", true);
+                else
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "WarningEn();", true);
+            }
+            else
+            {
+                if (langId == 2)
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "WarningEn();", true);
+                else
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "WarningAr();", true);
+
+            }
+        }
+
+        private bool SaveStudentMessage(string stdName, string stdPhone, string stdEmail, string stdMessage)
+        {
+            using (REU_RegistrationEntities db = new REU_RegistrationEntities())
+            {
+                try
+                {
+                    Specialization Specl = new Specialization();
+                    Specl.Condition_Ar = stdName;
+                    Specl.Condition_En = stdPhone;
+                    Specl.Condition_Ar = stdEmail;
+                    Specl.Condition_En = stdMessage;
+                    db.Specializations.Add(Specl);
+                    db.SaveChanges();
+                    LogData = "data:" + JsonConvert.SerializeObject(Specl, logFileModule.settings);
+                    logFileModule.logfile(10, "الاتصال", "Contact As", LogData);
+                    return true;
+                }
+                catch (Exception eee)
+                {
+                    return false;
+                }
+            }
+        }
     }
 }

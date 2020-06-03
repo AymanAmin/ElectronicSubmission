@@ -39,8 +39,8 @@
     <link href="Template/css/rtl.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cairo:400,700" rel="stylesheet">
     <style>
-        .nicescroll-rails-vr {right:100px}
-        .modal-content{float:left}
+        .nicescroll-rails-vr {right:100px;}
+        .modal-content{float:left;}
         </style>
     <% } %>
     <% else { %>
@@ -68,13 +68,13 @@
                             <div class="col-md-12">
                                 <div class="wm-language">
                                     <ul>
-                                        <li><a href="homepage.aspx?lang=2">English</a></li>
-                                        <li><a href="homepage.aspx?lang=1" style="font-size: 130%; font-weight: bold;">عربي</a></li>
+                                        <li><a href="Bachelors.aspx?lang=2">English</a></li>
+                                        <li><a href="Bachelors.aspx?lang=1" style="font-size: 130%; font-weight: bold;">عربي</a></li>
                                     </ul>
                                 </div>
                                 <ul class="wm-stripinfo">
                                     <li><i class="wmicon-location"></i><a href="https://www.google.com.sa/maps/place/Riyadh+Elm+University/@24.7595734,46.4668287,11z/data=!4m8!1m2!2m1!1sriyadh+colleges+of+dentistry+and+pharmacy!3m4!1s0x3e2efc51ecffffff:0x654f534d5c948f2e!8m2!3d24.6580528!4d46.7005641" style="color: white;"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-Address", "King Fahd Branch Road, An Namudhajiyah, Riyadh 12734, Saudi Arabia") %></a></li>
-                                    <li><i class="wmicon-technology4"></i>+920-000-842</li>
+                                    <li><i class="wmicon-technology4"></i>920-000-842</li>
                                     <li><i class="wmicon-clock2"></i><% = ElectronicSubmission.FieldNames.getFieldName("homepage-work", "sat - fri: 7:00am - 6:00pm") %></li>
                                 </ul>
                             </div>
@@ -104,7 +104,7 @@
                                     </div>
                                     <div class="collapse navbar-collapse" id="navbar-collapse-1">
                                         <ul class="nav navbar-nav">
-                                            <li class="active"><a href="homepage.aspx#home"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-home", "Home") %></a></li>
+                                            <li class="active"><a href="homepage.aspx"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-home", "Home") %></a></li>
                                             <li><a href="homepage.aspx#colleges"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-Colleges", "Colleges") %></a></li>
                                             <li><a href="homepage.aspx#steps"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-Steps", "Steps") %></a></li>
                                             <li><a href="homepage.aspx#contactas"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-Contact", "Contact") %></a></li>
@@ -174,7 +174,7 @@
                                                             <a href="#" class="icon-hidden"><i class="wmicon-technology4" aria-hidden="true"></i></a>
                                                         </div>
                                                         <h6><% = ElectronicSubmission.FieldNames.getFieldName("homepage-Phone", "Phone") %>:</h6>
-                                                        <span>+920-000-842</span>
+                                                        <span>920-000-842</span>
                                                     </div>
                                                 </li>
                                                 <li class="col-md-4">
@@ -251,7 +251,7 @@
                                     <li><i class="wm-color wmicon-pin"></i><a href="https://www.google.com.sa/maps/place/Riyadh+Elm+University/@24.7595734,46.4668287,11z/data=!4m8!1m2!2m1!1sriyadh+colleges+of+dentistry+and+pharmacy!3m4!1s0x3e2efc51ecffffff:0x654f534d5c948f2e!8m2!3d24.6580528!4d46.7005641">
                                         <p><% = ElectronicSubmission.FieldNames.getFieldName("homepage-Address", "King Fahd Branch Road, An Namudhajiyah, Riyadh 12734, Saudi Arabia") %></p>
                                     </a></li>
-                                    <li><i class="wm-color wmicon-phone"></i>+920-000-842</li>
+                                    <li><i class="wm-color wmicon-phone"></i>920-000-842</li>
                                     <li><i class="wm-color wmicon-letter"></i><a href="mailto:info@riyadh.edu.sa">info@riyadh.edu.sa</a></li>
                                 </ul>
                                 <div class="wm-footer-icons">
@@ -268,7 +268,7 @@
                                     <h5><i class="fa fa-link"></i><% = ElectronicSubmission.FieldNames.getFieldName("homepage-QuickLinks", "Quick Links") %></h5>
                                 </div>
                                 <ul>
-                                    <li class="active"><a href="homepage.aspx#home"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-home", "Home") %></a></li>
+                                    <li class="active"><a href="homepage.aspx"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-home", "Home") %></a></li>
                                     <li><a href="homepage.aspx#colleges"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-Colleges", "Colleges") %></a></li>
                                     <li><a href="homepage.aspx#steps"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-Steps", "Steps") %></a></li>
                                     <li><a href="homepage.aspx#contactas"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-Contact", "Contact") %></a></li>
