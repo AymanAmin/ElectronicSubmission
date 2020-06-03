@@ -50,6 +50,7 @@ namespace ElectronicSubmission
                 }
             }
             SessionWrapper.Language = db.Lanuage_Detials.Where(x => x.Language_Master_Id == langId).ToList();
+            translateArabic();
             if (!IsPostBack)
             {
                 FillDropDownLists();
@@ -309,6 +310,18 @@ namespace ElectronicSubmission
             if (totalSum < WeightedRatioPercent) return false;
 
             return true;
+        }
+
+        private void translateArabic()
+        {
+            if (langId == 1)
+            {
+                AdmissionFormButton.Value = "الرجاء تعبئة إستمارة التقديم";
+            }
+            else
+            {
+                AdmissionFormButton.Value = "Please fill the application Form";
+            }
         }
     }
 }

@@ -406,7 +406,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <i class="wmicon-pen"></i>
-                                <input type="text" readonly="readonly" style="width: 50%;" value="Please fill the application Form">
+                                <input type="text" readonly="readonly" style="width: 50%;" id="AdmissionFormButton" runat="server">
                             </div>
                         </div>
                     </div>
