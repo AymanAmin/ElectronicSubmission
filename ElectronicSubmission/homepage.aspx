@@ -21,24 +21,24 @@
     <link href="Template/css/bootstrap.css" rel="stylesheet">
     <link href="Template/css/font-awesome.css" rel="stylesheet">
     <link href="Template/css/flaticon.css" rel="stylesheet">
-    <link href="Template/css/slick-slider.css" rel="stylesheet">
     <link href="Template/css/prettyphoto.css" rel="stylesheet">
     <link href="Template/build/mediaelementplayer.css" rel="stylesheet">
 
     <% if(langId != 2) { %>
     <!-- Arabic Right To Left Css-->
+    <link href="Template/css/slick-slider-rtl.css" rel="stylesheet">
     <link href="Template/style-rtl.css" rel="stylesheet">
     <link href="Template/css/bootstrap-rtl.min.css" rel="stylesheet">
+    <link href="Template/css/rtl.min.css" rel="stylesheet">
+    <link href="Template/css/font-awesome-rtl.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cairo:400,700" rel="stylesheet">
     <style>
         .nicescroll-rails-vr {right:100px;}
         .modal-content{float:left;}
-        .wm-banner-one-nav-layer{
-            padding: 76px 70px 50px 70px !important;
-        }
         </style>
     <% } %>
     <% else { %>
+    <link href="Template/css/slick-slider.css" rel="stylesheet">
     <link href="Template/style.css" rel="stylesheet">
      <% } %>
 
@@ -46,7 +46,12 @@
     <link href="Template/css/color-two.css" rel="stylesheet">
     <link href="Template/css/color-three.css" rel="stylesheet">
     <link href="Template/css/color-four.css" rel="stylesheet">
+    <% if(langId != 2) { %>
+    <link href="Template/css/responsive-rtl.css" rel="stylesheet">
+    <% } %>
+    <% else { %>
     <link href="Template/css/responsive.css" rel="stylesheet">
+     <% } %>
 
     <link href="Template/css/icofont/css/icofont.css" rel="stylesheet">
     <!-- ico font -->
@@ -648,7 +653,13 @@
     <script type="text/javascript" src="Template/script/isotope.min.js"></script>
     <script type="text/javascript" src="Template/script/jquery.nicescroll.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+    <% if(langId != 2) { %>
+    <script type="text/javascript" src="Template/script/functions-rtl.js"></script>
+    <% } %>
+    <% else { %>
     <script type="text/javascript" src="Template/script/functions.js"></script>
+     <% } %>
 
     <!-- sweet alert js -->
     <script type="text/javascript" src="Theme\files\bower_components\sweetalert\js\sweetalert.min.js"></script>
