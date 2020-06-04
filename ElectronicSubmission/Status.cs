@@ -18,6 +18,7 @@ namespace ElectronicSubmission
         {
             this.Group_Status = new HashSet<Group_Status>();
             this.Sequences = new HashSet<Sequence>();
+            this.Student_Concat = new HashSet<Student_Concat>();
             this.Students = new HashSet<Student>();
         }
     
@@ -30,6 +31,7 @@ namespace ElectronicSubmission
     
         public virtual ICollection<Group_Status> Group_Status { get; set; }
         public virtual ICollection<Sequence> Sequences { get; set; }
+        public virtual ICollection<Student_Concat> Student_Concat { get; set; }
         public virtual ICollection<Student> Students { get; set; }
     }
 }
