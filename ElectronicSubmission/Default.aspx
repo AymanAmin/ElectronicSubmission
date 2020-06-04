@@ -186,7 +186,6 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="Body_Holder" runat="server">
-
     <div class="row">
         <!-- treatment status, page counter  start -->
         <div class="col-xl-3 col-md-6">
