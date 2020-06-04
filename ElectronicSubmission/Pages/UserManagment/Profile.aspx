@@ -7,6 +7,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Body_Holder" runat="server">
 
+
     <div class="page-body">
         <!-- Article Editor card start -->
         <%--<div class="card" runat="server">--%>

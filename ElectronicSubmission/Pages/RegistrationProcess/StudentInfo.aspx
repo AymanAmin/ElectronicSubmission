@@ -193,6 +193,7 @@
                     </div>
                 </div> 
                 
+
                <div class="row">
                      <div class="form-group col-sm-6">
                         <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-MyAchievementDegree", "My Achievement Degree") %></label><i class="icofont icofont-star-alt-1 text-danger"></i>
