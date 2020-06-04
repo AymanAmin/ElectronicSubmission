@@ -89,13 +89,13 @@
 body {
     background-color: #ffffff;
     color: #424242;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Cairo';
     font-size: 15px;
     font-weight: normal;
 }
 body h1, body h2, body h3, body h4, body h5, body h6 {
     color: #6c8391;
-    font-family: 'Merriweather', serif;
+    font-family: 'Cairo';
     font-style: normal;
     font-weight: 500;
     line-height: 1.5;

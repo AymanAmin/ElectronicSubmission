@@ -25,17 +25,6 @@
     <link href="Template/css/slick-slider.css" rel="stylesheet">
     <link href="Template/css/prettyphoto.css" rel="stylesheet">
     <link href="Template/build/mediaelementplayer.css" rel="stylesheet">
-    <link href="Template/css/color.css" rel="stylesheet">
-    <link href="Template/css/color-two.css" rel="stylesheet">
-    <link href="Template/css/color-three.css" rel="stylesheet">
-    <link href="Template/css/color-four.css" rel="stylesheet">
-    <link href="Template/css/responsive.css" rel="stylesheet">
-
-    <link href="Template/css/icofont/css/icofont.css" rel="stylesheet">
-    <!-- ico font -->
-
-    <!-- sweet alert framework -->
-    <link rel="stylesheet" type="text/css" href="Theme\files\bower_components\sweetalert\css\sweetalert.css">
 
     <% if(langId != 2) { %>
     <!-- Arabic Right To Left Css-->
@@ -52,6 +41,18 @@
     <% else { %>
     <link href="Template/style.css" rel="stylesheet">
      <% } %>
+
+    <link href="Template/css/color.css" rel="stylesheet">
+    <link href="Template/css/color-two.css" rel="stylesheet">
+    <link href="Template/css/color-three.css" rel="stylesheet">
+    <link href="Template/css/color-four.css" rel="stylesheet">
+    <link href="Template/css/responsive.css" rel="stylesheet">
+
+    <link href="Template/css/icofont/css/icofont.css" rel="stylesheet">
+    <!-- ico font -->
+
+    <!-- sweet alert framework -->
+    <link rel="stylesheet" type="text/css" href="Theme\files\bower_components\sweetalert\css\sweetalert.css">
     <style>
         .sweet-alert input {
             display: none !important;

@@ -24,6 +24,24 @@
     <link href="Template/css/slick-slider.css" rel="stylesheet">
     <link href="Template/css/prettyphoto.css" rel="stylesheet">
     <link href="Template/build/mediaelementplayer.css" rel="stylesheet">
+
+    <% if(langId != 2) { %>
+    <!-- Arabic Right To Left Css-->
+    <link href="Template/style-rtl.css" rel="stylesheet">
+    <link href="Template/css/bootstrap-rtl.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:400,700" rel="stylesheet">
+    <style>
+        .nicescroll-rails-vr {right:100px;}
+        .modal-content{float:left;}
+        .wm-banner-one-nav-layer{
+            padding: 76px 70px 50px 70px !important;
+        }
+        </style>
+    <% } %>
+    <% else { %>
+    <link href="Template/style.css" rel="stylesheet">
+     <% } %>
+
     <link href="Template/css/color.css" rel="stylesheet">
     <link href="Template/css/color-two.css" rel="stylesheet">
     <link href="Template/css/color-three.css" rel="stylesheet">
@@ -36,21 +54,7 @@
     <!-- sweet alert framework -->
     <link rel="stylesheet" type="text/css" href="Theme\files\bower_components\sweetalert\css\sweetalert.css">
 
-    <% if(langId != 2) { %>
-    <!-- Arabic Right To Left Css-->
-    <link href="Template/style-rtl.css" rel="stylesheet">
-    <link href="Template/css/font-awesome-rtl.min.css" rel="stylesheet">
-    <link href="Template/css/bootstrap-rtl.min.css" rel="stylesheet">
-    <link href="Template/css/rtl.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cairo:400,700" rel="stylesheet">
-    <style>
-        .nicescroll-rails-vr {right:100px;}
-        .modal-content{float:left;}
-        </style>
-    <% } %>
-    <% else { %>
-    <link href="Template/style.css" rel="stylesheet">
-     <% } %>
+    
 
     <style>
         .sweet-alert input {

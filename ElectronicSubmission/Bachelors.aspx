@@ -25,11 +25,6 @@
     <link href="Template/css/slick-slider.css" rel="stylesheet">
     <link href="Template/css/prettyphoto.css" rel="stylesheet">
     <link href="Template/build/mediaelementplayer.css" rel="stylesheet">
-    <link href="Template/css/color.css" rel="stylesheet">
-    <link href="Template/css/color-two.css" rel="stylesheet">
-    <link href="Template/css/color-three.css" rel="stylesheet">
-    <link href="Template/css/color-four.css" rel="stylesheet">
-    <link href="Template/css/responsive.css" rel="stylesheet">
 
     <% if(langId != 2) { %>
     <!-- Arabic Right To Left Css-->
@@ -46,6 +41,12 @@
     <% else { %>
     <link href="Template/style.css" rel="stylesheet">
      <% } %>
+
+    <link href="Template/css/color.css" rel="stylesheet">
+    <link href="Template/css/color-two.css" rel="stylesheet">
+    <link href="Template/css/color-three.css" rel="stylesheet">
+    <link href="Template/css/color-four.css" rel="stylesheet">
+    <link href="Template/css/responsive.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

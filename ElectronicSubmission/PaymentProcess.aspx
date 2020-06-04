@@ -18,13 +18,13 @@
     <link href="Template/css/slick-slider.css" rel="stylesheet">
     <link href="Template/css/prettyphoto.css" rel="stylesheet">
     <link href="Template/build/mediaelementplayer.css" rel="stylesheet">
+
+    <link href="Template/style.css" rel="stylesheet">
     <link href="Template/css/color.css" rel="stylesheet">
     <link href="Template/css/color-two.css" rel="stylesheet">
     <link href="Template/css/color-three.css" rel="stylesheet">
     <link href="Template/css/color-four.css" rel="stylesheet">
     <link href="Template/css/responsive.css" rel="stylesheet">
-
-    <link href="Template/style.css" rel="stylesheet">
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
