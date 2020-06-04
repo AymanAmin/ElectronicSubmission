@@ -50,6 +50,8 @@ namespace ElectronicSubmission.Pages.Treatment
             if (SessionWrapper.LoggedUser.Language_id == 1)
             {
                 Groups.DataTextField = "Group_Name_Ar";
+                Save.Text = "حفظ";
+                AddEmp.InnerText = "إضافة موظف";
             }
         }
 

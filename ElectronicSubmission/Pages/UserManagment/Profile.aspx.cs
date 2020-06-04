@@ -32,27 +32,19 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment
 
             if (!IsPostBack)
             {
-                fillDropDown();
+                LoggedUser();
                 ViewEmpLoyeeData();
             }
         }
 
-        private void fillDropDown()
+        private void LoggedUser()
         {
-            /*List<Structure> ListDefaultStructure = new List<Structure>();
-            ListDefaultStructure = db.Structures.Where(x => x.Is_Job_Title == true).ToList();
-            ListDefaultStructure = (from s in ListDefaultStructure
-                                    join sl in db.Employee_Structure on s.Structure_Id equals sl.Structure_Id
-                                    where sl.Employee_Id == EmployeeId
-                                    select s).ToList();
+
             if (SessionWrapper.LoggedUser.Language_id == 1)
-            {
-                ddlFiller.dropDDL(DefaultStructure, "Structure_Id", "Structure_Name_Ar", ListDefaultStructure, "إختر");
-            }
-            else
-            {
-                ddlFiller.dropDDL(DefaultStructure, "Structure_Id", "Structure_Name_En", ListDefaultStructure, "Select Structure");
-            }*/
+                EmpUpdate.Text = "حفظ";
+               ChangeButton.Text = "حفظ";
+
+
         }
 
 
@@ -126,8 +118,20 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment
 
             if (result)
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','  The Update Info was Sucessfully saved in system ! ');", true);
+                if (SessionWrapper.LoggedUser.Language_id == 1)
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','  تم تحديث البيانات بنجاح ');", true);
+                else
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','  The Update Info was Sucessfully saved in system ! ');", true);
+
                 ViewEmpLoyeeData();
+            }
+            else
+            {
+                if (SessionWrapper.LoggedUser.Language_id == 1)
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','حدث خطأ');", true);
+                else
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','Error');", true);
+
             }
         }
 
@@ -197,17 +201,26 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment
                     /* Add it to log file */
                     LogData = "data:" + JsonConvert.SerializeObject(Emp, logFileModule.settings);
                     logFileModule.logfile(10, "تعديل كلمة المرور", "Change PassWord", LogData);
+                    if (SessionWrapper.LoggedUser.Language_id == 1)
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight',' تم تعديل كلمة المرور بنجاح ');", true);
+                    else
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','  The Change PassWord was Sucessfully saved in system ! ');", true);
 
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','  The Change PassWord was Sucessfully saved in system ! ');", true);
                 }
                 else
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','Try Agin New PassWord');", true);
+                    if (SessionWrapper.LoggedUser.Language_id == 1)
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','كلمة المرورة غير متطابقة');", true);
+                    else
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','Try Agin New PassWord');", true);
                 }
             }
             else
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','The Old PassWord is rong');", true);
+                if (SessionWrapper.LoggedUser.Language_id == 1)
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','كلمة المرور غير صحيحة');", true);
+                else
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','The Old PassWord is rong');", true);
             }
         }
 

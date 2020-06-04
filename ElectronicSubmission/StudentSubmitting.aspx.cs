@@ -65,6 +65,7 @@ namespace ElectronicSubmission
             }
         }
 
+
         protected void Save_Click(object sender, EventArgs e)
         {
             try
@@ -277,6 +278,9 @@ namespace ElectronicSubmission
                     ddlFiller.dropDDL(Nationality_ID, "Nationality_Id", "Nationality_Name_Ar", NationalityList, " - إختر الجنسية -");
                 else
                     ddlFiller.dropDDL(Nationality_ID, "Nationality_Id", "Nationality_Name_En", NationalityList, " - Select Nationality -");
+
+                if (langId == 1)
+                    Save.Text = "حفظ";
             }
             catch (Exception e) { }
 

@@ -81,12 +81,20 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
 
                 if (result)
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','  The  Employee was Sucessfully saved in system ! ');", true);
+                    if (SessionWrapper.LoggedUser.Language_id == 1)
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','  تم الحفظ بيانات الموظف بنجاح ');", true);
+                    else
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','  The  Employee was Sucessfully saved in system ! ');", true);
+
                     if (StudentID == 0) ClearForm();
                 }
                 else
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','Error');", true);
+                    if (SessionWrapper.LoggedUser.Language_id == 1)
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','حدث خطأ');", true);
+                    else
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','Error');", true);
+
                 }
             }
             catch (Exception x) { }
@@ -297,6 +305,9 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                     ddlFiller.dropDDL(Nationality_ID, "Nationality_Id", "Nationality_Name_Ar", NationalityList, " - إختر الجنسية -");
                 else
                     ddlFiller.dropDDL(Nationality_ID, "Nationality_Id", "Nationality_Name_En", NationalityList, " - Select Nationality -");
+
+                if (SessionWrapper.LoggedUser.Language_id == 1)
+                    Save.Text = "حفظ";
             }
             catch (Exception e) { }
 

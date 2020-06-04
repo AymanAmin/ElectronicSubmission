@@ -176,7 +176,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="wm-mini-title">
-                                <h1 id="headerBachelors" runat="server"><% = ElectronicSubmission.FieldNames.getFieldName("StudentSubmitting-Applicationform", "Application Form") %></h1>
+                                <h1 id="headerBachelors" runat="server"><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-Applicationform", "Application Form") %></h1>
 
                             </div>
 
@@ -222,7 +222,7 @@
 
                                 <div class="row">
                                     <div class="form-group col-sm-6">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentSubmitting-StudentName", "Student Arabic Name") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentArabicName", "Student Arabic Name") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
                                             <asp:TextBox ID="StudentNameAr" runat="server" class="form-control" placeholder="Enter Student Name"></asp:TextBox>
@@ -231,7 +231,7 @@
                                     </div>
 
                                     <div class="form-group col-sm-6">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentSubmitting-StudentName", "Student English Name") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentEnglishName", "Student English Name") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
                                             <asp:TextBox ID="StudentNameEn" runat="server" class="form-control" placeholder="Enter Student Name"></asp:TextBox>
@@ -242,7 +242,7 @@
 
                                 <div class="row">
                                     <div class="form-group col-sm-6">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentSubmitting-StudentPhone", "Student Phone") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentPhone", "Student Phone") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="icofont icofont-ui-call"></i></span>
                                             <asp:TextBox ID="StudentPhone" runat="server" class="form-control" placeholder="Enter Student Phone" TextMode="Phone"></asp:TextBox>
@@ -250,7 +250,7 @@
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student Phone" ValidationGroup="valFormGroup" ControlToValidate="StudentPhone" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                     </div>
                                     <div class="form-group col-sm-6">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentSubmitting-StudentEmail", "Student Email") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentEmail", "Student Email") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="icofont icofont-email"></i></span>
                                             <asp:TextBox ID="StudentEmail" runat="server" class="form-control" placeholder="Enter Student Email" TextMode="Email"></asp:TextBox>
@@ -261,7 +261,7 @@
 
                                 <div class="row">
                                     <div class="form-group col-sm-4">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentSubmitting-StudentSSN", "Student SSN") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentSSN", "Student SSN") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="icofont icofont-stamp"></i></span>
                                             <asp:TextBox ID="Student_SSN" runat="server" class="form-control" placeholder="Enter Student SSN"></asp:TextBox>
@@ -270,7 +270,7 @@
                                     </div>
 
                                     <div class="form-group col-sm-6">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentSubmitting-Add StudentSSNAttachments", "Add Student SSN Attachments") %></label>
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-AddStudentSSNAttachments", "Add Student SSN Attachments") %></label>
                                         <asp:FileUpload ID="StudentSSNFile" runat="server" class="form-control" AllowMultiple="True" />
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Add Student SSN Attachments" ValidationGroup="valFormGroup" ControlToValidate="StudentSSNFile" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                     </div>
@@ -278,7 +278,7 @@
 
                                 <div class="row">
                                     <div class="form-group col-sm-12">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentSubmitting-StudentAddress", "Student Address") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentAddress", "Student Address") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="icofont icofont-address-book"></i></span>
                                             <asp:TextBox ID="Address" runat="server" class="form-control" placeholder="Enter Student Address"></asp:TextBox>
@@ -290,7 +290,7 @@
                                 <div class="row">
 
                                     <div class="form-group col-sm-4">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentSubmitting-Specialization", "Specialization") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-Specialization", "Specialization") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="icofont icofont-safety"></i></span>
                                             <asp:DropDownList ID="Specialization_ID" class="form-control" runat="server">
@@ -300,7 +300,7 @@
                                     </div>
 
                                     <div class="form-group col-sm-4">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentSubmitting-Resource", "Resource") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-Resource", "Resource") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="icofont icofont-stock-mobile"></i></span>
                                             <asp:DropDownList ID="Resource_ID" class="form-control" runat="server">
@@ -310,7 +310,7 @@
                                     </div>
 
                                     <div class="form-group col-sm-4">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentSubmitting-Nationality", "Nationality") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-Nationality", "Nationality") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="icofont icofont-ui-tag"></i></span>
                                             <asp:DropDownList ID="Nationality_ID" class="form-control" runat="server">
@@ -323,7 +323,7 @@
 
                                 <div class="row">
                                     <div class="form-group col-sm-6">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentSubmitting-HighSchoolDegree", "High School Degree") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-HighSchoolDegree", "High School Degree") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="icofont icofont-numbered"></i></span>
                                             <asp:TextBox ID="HighSchoolDegree" runat="server" class="form-control" placeholder="Enter Student High School Degree"></asp:TextBox>
@@ -332,7 +332,7 @@
                                     </div>
 
                                     <div class="form-group col-sm-6">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentSubmitting-AddHighSchoolDegreeAttachments", "Add High School Degree Attachments") %></label>
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-AddHighSchoolDegreeAttachments", "Add High School Degree Attachments") %></label>
                                         <asp:FileUpload ID="HighSchoolDegreeFile" runat="server" class="form-control" AllowMultiple="True" />
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Add High School Degree Attachments" ValidationGroup="valFormGroup" ControlToValidate="HighSchoolDegreeFile" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                     </div>
@@ -340,7 +340,7 @@
 
                                 <div class="row">
                                     <div class="form-group col-sm-6">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentSubmitting-CapabilitiesDegree", "Capabilities Degree") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-CapabilitiesDegree", "Capabilities Degree") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="icofont icofont-numbered"></i></span>
                                             <asp:TextBox ID="CapabilitiesDegree" runat="server" class="form-control" placeholder="Enter Student Capabilities Degree"></asp:TextBox>
@@ -349,7 +349,7 @@
                                     </div>
 
                                     <div class="form-group col-sm-6">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentSubmitting-AddCapabilitiesDegreeFileAttachments", "Add Capabilities Degree File Attachments") %></label>
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-AddCapabilitiesDegreeAttachments", "Add Capabilities Degree Attachments") %></label>
                                         <asp:FileUpload ID="CapabilitiesDegreeFile" runat="server" class="form-control" AllowMultiple="True" />
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Add Capabilities Degree Attachments" ValidationGroup="valFormGroup" ControlToValidate="CapabilitiesDegreeFile" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                     </div>
@@ -357,7 +357,7 @@
 
                                 <div class="row">
                                     <div class="form-group col-sm-6">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentSubmitting-MyAchievementDegree", "My Achievement Degree") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-MyAchievementDegree", "My Achievement Degree") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="icofont icofont-numbered"></i></span>
                                             <asp:TextBox ID="MyAchievementDegree" runat="server" class="form-control" placeholder="Enter Student My Achievement Degree"></asp:TextBox>
@@ -366,7 +366,7 @@
                                     </div>
 
                                     <div class="form-group col-sm-6">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentSubmitting-AddMyAchievementDegreeAttachments", "Add My Achievement Degree Attachments") %></label>
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-AddMyAchievementDegreeAttachments", "Add My Achievement Degree Attachments") %></label>
                                         <asp:FileUpload ID="MyAchievementDegreeFile" runat="server" class="form-control" AllowMultiple="True" />
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Add My Achievement Degree Attachments" ValidationGroup="valFormGroup" ControlToValidate="MyAchievementDegree" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                     </div>
