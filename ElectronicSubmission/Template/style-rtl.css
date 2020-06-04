@@ -89,13 +89,13 @@
 body {
     background-color: #ffffff;
     color: #424242;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Cairo';
     font-size: 15px;
     font-weight: normal;
 }
 body h1, body h2, body h3, body h4, body h5, body h6 {
     color: #6c8391;
-    font-family: 'Merriweather', serif;
+    font-family: 'Cairo';
     font-style: normal;
     font-weight: 500;
     line-height: 1.5;
@@ -3236,6 +3236,14 @@ ul li:last-child .wm-latest-news-wrap {
     margin-top: 8px;
     line-height: 0.9;
     text-align: left;
+}
+.wm-contact-form-header 
+{
+    font-size: 50px;
+    color: #a4a4a4;
+    margin-bottom: 46px;
+    line-height: 0.9;
+    text-align: center;
 }
 .wm-contact-form ul li {
     list-style: none;

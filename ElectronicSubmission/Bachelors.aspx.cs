@@ -60,6 +60,7 @@ namespace ElectronicSubmission
                             bachelorsDescription.InnerHtml = oneSpecialization.Specialization_Description_Ar;
                             bachelorsImage.Src = "Template/extra-images/" + oneSpecialization.Specialization_Image;
                         }
+                        translateArabic();
                     }
                     else
                     {
@@ -70,6 +71,18 @@ namespace ElectronicSubmission
             else
             {
                 Response.Redirect("~/homepage.aspx");
+            }
+        }
+
+        private void translateArabic()
+        {
+            if (langId == 1)
+            {
+                AdmissionFormButton.Value = "الرجاء الضغط علي الزر لبدء عملية التقديم للقبول";
+            }
+            else
+            {
+                AdmissionFormButton.Value = "Please click on the button to start the application Form";
             }
         }
     }

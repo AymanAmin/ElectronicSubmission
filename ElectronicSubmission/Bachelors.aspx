@@ -25,11 +25,6 @@
     <link href="Template/css/slick-slider.css" rel="stylesheet">
     <link href="Template/css/prettyphoto.css" rel="stylesheet">
     <link href="Template/build/mediaelementplayer.css" rel="stylesheet">
-    <link href="Template/css/color.css" rel="stylesheet">
-    <link href="Template/css/color-two.css" rel="stylesheet">
-    <link href="Template/css/color-three.css" rel="stylesheet">
-    <link href="Template/css/color-four.css" rel="stylesheet">
-    <link href="Template/css/responsive.css" rel="stylesheet">
 
     <% if(langId != 2) { %>
     <!-- Arabic Right To Left Css-->
@@ -46,6 +41,12 @@
     <% else { %>
     <link href="Template/style.css" rel="stylesheet">
      <% } %>
+
+    <link href="Template/css/color.css" rel="stylesheet">
+    <link href="Template/css/color-two.css" rel="stylesheet">
+    <link href="Template/css/color-three.css" rel="stylesheet">
+    <link href="Template/css/color-four.css" rel="stylesheet">
+    <link href="Template/css/responsive.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -232,8 +233,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <i class="wmicon-pen"></i>
-                                <input type="text" readonly="readonly" style="width: 50%;" value="Please click on the button to start the application Form">
-                                <a href="StudentSubmitting.aspx">Submission Form Request</a>
+                                <input type="text" readonly="readonly" id="AdmissionFormButton" runat="server" style="width: 50%;" >
+                                <a href="StudentSubmitting.aspx"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-AdmissionFormRequest", "Admission Form Request") %></a>
                             </div>
                         </div>
                     </div>

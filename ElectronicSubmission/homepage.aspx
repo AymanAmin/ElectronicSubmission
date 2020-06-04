@@ -24,6 +24,24 @@
     <link href="Template/css/slick-slider.css" rel="stylesheet">
     <link href="Template/css/prettyphoto.css" rel="stylesheet">
     <link href="Template/build/mediaelementplayer.css" rel="stylesheet">
+
+    <% if(langId != 2) { %>
+    <!-- Arabic Right To Left Css-->
+    <link href="Template/style-rtl.css" rel="stylesheet">
+    <link href="Template/css/bootstrap-rtl.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cairo:400,700" rel="stylesheet">
+    <style>
+        .nicescroll-rails-vr {right:100px;}
+        .modal-content{float:left;}
+        .wm-banner-one-nav-layer{
+            padding: 76px 70px 50px 70px !important;
+        }
+        </style>
+    <% } %>
+    <% else { %>
+    <link href="Template/style.css" rel="stylesheet">
+     <% } %>
+
     <link href="Template/css/color.css" rel="stylesheet">
     <link href="Template/css/color-two.css" rel="stylesheet">
     <link href="Template/css/color-three.css" rel="stylesheet">
@@ -36,21 +54,7 @@
     <!-- sweet alert framework -->
     <link rel="stylesheet" type="text/css" href="Theme\files\bower_components\sweetalert\css\sweetalert.css">
 
-    <% if(langId != 2) { %>
-    <!-- Arabic Right To Left Css-->
-    <link href="Template/style-rtl.css" rel="stylesheet">
-    <link href="Template/css/font-awesome-rtl.min.css" rel="stylesheet">
-    <link href="Template/css/bootstrap-rtl.min.css" rel="stylesheet">
-    <link href="Template/css/rtl.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cairo:400,700" rel="stylesheet">
-    <style>
-        .nicescroll-rails-vr {right:100px;}
-        .modal-content{float:left;}
-        </style>
-    <% } %>
-    <% else { %>
-    <link href="Template/style.css" rel="stylesheet">
-     <% } %>
+    
 
     <style>
         .sweet-alert input {
@@ -234,7 +238,7 @@
                                     <p><% = ElectronicSubmission.FieldNames.getFieldName("homepage-FillBachelors", "Fill in the form below to find your Bachelors:") %></p>
                                     <ul>
                                         <li>
-                                            <input type="text" id="BachelorName" runat="server" placeholder="Bachelors Name" />
+                                            <input type="text" id="BachelorName" runat="server"/>
                                             <i class="wmicon-search"></i></li>
                                         <li>
                                             <div class="wm-apply-select">
@@ -242,7 +246,7 @@
                                             </div>
                                         </li>
                                         <li>
-                                            <asp:Button ID="SearchButton" AutoPackPost="true" runat="server" Text="Search Bachelors" OnClick="SearchButton_Click" />
+                                            <asp:Button ID="SearchButton" AutoPackPost="true" runat="server" OnClick="SearchButton_Click" />
                                         </li>
                                     </ul>
                                 </div>
@@ -340,12 +344,12 @@
                                     <h2><% = ElectronicSubmission.FieldNames.getFieldName("homepage-StillNotConvincedHead", "Still not convinced? We can help you!") %></h2>
                                     <p><% = ElectronicSubmission.FieldNames.getFieldName("homepage-StillNotConvincedDetail", "Fill out the form below and we will contact you.") %></p>
                                     <div style="border: 2px solid #ffffff; padding: 12px 8px 25px 0px;">
-                                        <asp:TextBox ID="StepStudentName" runat="server" placeholder="Name"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="valStepStudentName" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Name" ValidationGroup="valFormGroup1" ControlToValidate="StepStudentName" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
-                                        <asp:TextBox ID="StepStudentPhone" runat="server" placeholder="Phone"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="valStepStudentPhone" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Phone" ValidationGroup="valFormGroup1" ControlToValidate="StepStudentPhone" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
-                                        <asp:TextBox ID="StepStudentEmail" runat="server" placeholder="E-mail"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="valStepStudentEmail" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter E-mail" ValidationGroup="valFormGroup1" ControlToValidate="StepStudentEmail" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
+                                        <asp:TextBox ID="StepStudentName" runat="server"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="valStepStudentName" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" ValidationGroup="valFormGroup1" ControlToValidate="StepStudentName" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
+                                        <asp:TextBox ID="StepStudentPhone" runat="server"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="valStepStudentPhone" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" ValidationGroup="valFormGroup1" ControlToValidate="StepStudentPhone" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
+                                        <asp:TextBox ID="StepStudentEmail" runat="server"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="valStepStudentEmail" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" ValidationGroup="valFormGroup1" ControlToValidate="StepStudentEmail" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
                                         <asp:Button ID="SubmitStep" runat="server" Text="Send" ValidationGroup="valFormGroup1" OnClick="SubmitStep_Click" />
                                     </div>
                                 </div>
@@ -386,26 +390,26 @@
                                                         <ul>
                                                             <li>
                                                                 <i class="wmicon-black"></i>
-                                                                <asp:TextBox ID="StudentName" runat="server" placeholder="Name"></asp:TextBox>
-                                                                <asp:RequiredFieldValidator ID="valStudentName" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Name" ValidationGroup="valFormGroup" ControlToValidate="StudentName" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
+                                                                <asp:TextBox ID="StudentName" runat="server"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="valStudentName" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" ValidationGroup="valFormGroup" ControlToValidate="StudentName" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
                                                             </li>
                                                             <li>
                                                                 <i class="wmicon-symbol3"></i>
-                                                                <asp:TextBox ID="StudentEmail" runat="server" placeholder="E-mail"></asp:TextBox>
-                                                                <asp:RequiredFieldValidator ID="valStudentEmail" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter E-mail" ValidationGroup="valFormGroup" ControlToValidate="StudentEmail" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
+                                                                <asp:TextBox ID="StudentEmail" runat="server"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="valStudentEmail" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" ValidationGroup="valFormGroup" ControlToValidate="StudentEmail" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
                                                             </li>
                                                             <li>
                                                                 <i class="wmicon-technology4"></i>
-                                                                <asp:TextBox ID="StudentPhone" runat="server" placeholder="Phone"></asp:TextBox>
+                                                                <asp:TextBox ID="StudentPhone" runat="server"></asp:TextBox>
                                                             </li>
-                                                            <asp:RequiredFieldValidator ID="valStudentPhone" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Phone" ValidationGroup="valFormGroup" ControlToValidate="StudentPhone" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
+                                                            <asp:RequiredFieldValidator ID="valStudentPhone" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" ValidationGroup="valFormGroup" ControlToValidate="StudentPhone" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
                                                             <li>
                                                                 <i class="wmicon-web2"></i>
-                                                                <asp:TextBox ID="StudentMessage" runat="server" placeholder="Message" TextMode="MultiLine" Rows="10"></asp:TextBox>
-                                                                <asp:RequiredFieldValidator ID="valStudentMessage" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Message" ValidationGroup="valFormGroup" ControlToValidate="StudentMessage" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
+                                                                <asp:TextBox ID="StudentMessage" runat="server" TextMode="MultiLine" Rows="10"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="valStudentMessage" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" ValidationGroup="valFormGroup" ControlToValidate="StudentMessage" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
                                                             </li>
                                                             <li>
-                                                                <asp:Button ID="SubmitMessage" runat="server" Text="Send Message" ValidationGroup="valFormGroup" OnClick="SubmitMessage_Click"/>
+                                                                <asp:Button ID="SubmitMessage" runat="server" ValidationGroup="valFormGroup" OnClick="SubmitMessage_Click"/>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -476,8 +480,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <i class="wmicon-pen"></i>
-                                <input type="text" readonly="readonly" style="width: 50%;" value="Please click on the button to start the application Form">
-                                <a href="StudentSubmitting.aspx">Submission Form Request</a>
+                                <input type="text" readonly="readonly" id="AdmissionFormButton" runat="server" style="width: 50%;" >
+                                <a href="StudentSubmitting.aspx"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-AdmissionFormRequest", "Admission Form Request") %></a>
                             </div>
                         </div>
                     </div>
@@ -590,14 +594,14 @@
                             <span class="wm-color"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-login", "Login") %></span>
                             <ul>
                                 <li>
-                                    <asp:TextBox ID="txtEmail" runat="server" class="form-control" placeholder="Your Email"></asp:TextBox>
+                                    <asp:TextBox ID="txtEmail" runat="server" class="form-control"></asp:TextBox>
                                 </li>
                                 <li>
-                                    <asp:TextBox ID="txtPassword" runat="server" class="form-control" placeholder="Your Password" TextMode="Password"></asp:TextBox>
+                                    <asp:TextBox ID="txtPassword" runat="server" class="form-control" TextMode="Password"></asp:TextBox>
                                 </li>
                                 <li><a href="Pages/Auth/ResetPassword.aspx" class="wm-forgot-btn"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-ForgotPassword", "Forgot Password?") %></a> </li>
                                 <li>
-                                    <asp:Button ID="LoginAcc" runat="server" Text="LogIn" OnClick="LoginAcc_Click"/>
+                                    <asp:Button ID="LoginAcc" runat="server" OnClick="LoginAcc_Click"/>
                                 </li>
                             </ul>
                         </div>
@@ -617,8 +621,8 @@
                         <div class="wm-modallogin-form">
                             <span class="wm-color"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-FindYourBachelors", "Find Your Bachelors") %></span>
                             <ul>
-                                <li><input type="text" placeholder="Bachelors..." id="keywordBachelors" runat="server" /></li> 
-                                <li><asp:Button ID="SearchkeyWord" runat="server" Text="Button" OnClick="SearchkeyWord_Click1"/></li>
+                                <li><input type="text" id="keywordBachelors" runat="server" /></li> 
+                                <li><asp:Button ID="SearchkeyWord" runat="server" OnClick="SearchkeyWord_Click1"/></li>
                             </ul>
                         </div>
 

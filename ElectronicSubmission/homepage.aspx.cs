@@ -43,6 +43,7 @@ namespace ElectronicSubmission
                 SessionWrapper.Language = db.Lanuage_Detials.Where(x => x.Language_Master_Id == langId).ToList();
                 loadFillDrop();
                 loadSpecialization();
+                translateArabic();
             }
             else
             {
@@ -277,6 +278,74 @@ namespace ElectronicSubmission
             StudentPhone.Text = "";
             StudentEmail.Text = "";
             StudentMessage.Text = "";
+        }
+
+        private void translateArabic()
+        {
+            if (langId == 1)
+            {
+                BachelorName.Attributes["placeholder"] = "إسم البكالوريوس";
+                SearchButton.Text = "بحث";
+
+                StepStudentName.Attributes["placeholder"] = "الإسم";
+                valStepStudentName.Text = "أدخل الإسم";
+                StepStudentPhone.Attributes["placeholder"] = "رقم الهاتف";
+                valStepStudentPhone.Text = "أدخل رقم الهاتف";
+                StepStudentEmail.Attributes["placeholder"] = "البريد الإلكتروني";
+                valStepStudentEmail.Text = "أدخل البريد الإلكتروني";
+                SubmitStep.Text = "إرسال";
+
+                StudentName.Attributes["placeholder"] = "الإسم";
+                valStudentName.Text = "أدخل الإسم";
+                StudentPhone.Attributes["placeholder"] = "رقم الهاتف";
+                valStudentPhone.Text = "أدخل رقم الهاتف";
+                StudentEmail.Attributes["placeholder"] = "البريد الإلكتروني";
+                valStudentEmail.Text = "أدخل البريد الإلكتروني";
+                StudentMessage.Attributes["placeholder"] = "الرسالة";
+                valStudentMessage.Text = "أدخل الرسالة";
+                SubmitMessage.Text = "إرسال";
+
+                AdmissionFormButton.Value = "الرجاء الضغط علي الزر لبدء عملية التقديم للقبول";
+
+                txtEmail.Attributes["placeholder"] = "البريد الإلكتروني";
+                txtPassword.Attributes["placeholder"] = "كلمة المرور";
+                LoginAcc.Text = "تسجيل الدخول";
+
+                keywordBachelors.Attributes["placeholder"] = "البكالوريوس";
+                SearchkeyWord.Text = "بحث";
+            }
+            else
+            {
+                BachelorName.Attributes["placeholder"] = "Bachelor Name";
+                SearchButton.Text = "Search";
+
+                StepStudentName.Attributes["placeholder"] = "Name";
+                valStepStudentName.Text = "Enter Name";
+                StepStudentPhone.Attributes["placeholder"] = "Phone";
+                valStepStudentPhone.Text = "Enter Phone";
+                StepStudentEmail.Attributes["placeholder"] = "E-mail";
+                valStepStudentEmail.Text = "Enter E-mail";
+                SubmitStep.Text = "Send";
+
+                StudentName.Attributes["placeholder"] = "Name";
+                valStudentName.Text = "Enter Name";
+                StudentPhone.Attributes["placeholder"] = "Phone";
+                valStudentPhone.Text = "Enter Phone";
+                StudentEmail.Attributes["placeholder"] = "E-mail";
+                valStudentEmail.Text = "Enter E-mail";
+                StudentMessage.Attributes["placeholder"] = "Message";
+                valStudentMessage.Text = "Enter Message";
+                SubmitMessage.Text = "Send";
+
+                AdmissionFormButton.Value = "Please click on the button to start the application Form";
+
+                txtEmail.Attributes["placeholder"] = "Your E-mail";
+                txtPassword.Attributes["placeholder"] = "Password";
+                LoginAcc.Text = "LogIn";
+
+                keywordBachelors.Attributes["placeholder"] = "Bachelors...";
+                SearchkeyWord.Text = "Search";
+            }
         }
     }
 }
