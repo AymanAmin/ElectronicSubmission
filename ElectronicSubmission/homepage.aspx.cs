@@ -235,6 +235,7 @@ namespace ElectronicSubmission
                     StudentConcat.Student_Concat_Email = stdEmail;
                     StudentConcat.Student_Concat_Message = stdMessage;
                     StudentConcat.Student_Concat_Status = 1;
+                    StudentConcat.Student_Concat_CreationDate = DateTime.Now;
                     db.Student_Concat.Add(StudentConcat);
                     db.SaveChanges();
                     LogData = "data:" + JsonConvert.SerializeObject(StudentConcat, logFileModule.settings);

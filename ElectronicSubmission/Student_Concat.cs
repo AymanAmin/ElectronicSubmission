@@ -20,6 +20,7 @@ namespace ElectronicSubmission
         public string Student_Concat_Email { get; set; }
         public string Student_Concat_Message { get; set; }
         public Nullable<int> Student_Concat_Status { get; set; }
+        public Nullable<System.DateTime> Student_Concat_CreationDate { get; set; }
     
         public virtual Status Status { get; set; }
     }

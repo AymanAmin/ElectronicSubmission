@@ -270,6 +270,7 @@
           <Property Name="Student_Concat_Email" Type="nvarchar(max)" />
           <Property Name="Student_Concat_Message" Type="nvarchar(max)" />
           <Property Name="Student_Concat_Status" Type="int" />
+          <Property Name="Student_Concat_CreationDate" Type="datetime" />
         </EntityType>
         <Association Name="FK_Employee_Group">
           <End Role="Group" Type="Self.Group" Multiplicity="0..1" />
@@ -1462,6 +1463,7 @@
           <Property Name="Student_Concat_Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Student_Concat_Status" Type="Int32" />
           <NavigationProperty Name="Status" Relationship="REU_RegistrationModel.FK_Student_Concat_Status" FromRole="Student_Concat" ToRole="Status" />
+          <Property Name="Student_Concat_CreationDate" Type="DateTime" Precision="3" />
         </EntityType>
         <Association Name="FK_Student_Concat_Status">
           <End Type="REU_RegistrationModel.Status" Role="Status" Multiplicity="0..1" />
@@ -1761,6 +1763,7 @@
           <EntitySetMapping Name="Student_Concat">
             <EntityTypeMapping TypeName="REU_RegistrationModel.Student_Concat">
               <MappingFragment StoreEntitySet="Student_Concat">
+                <ScalarProperty Name="Student_Concat_CreationDate" ColumnName="Student_Concat_CreationDate" />
                 <ScalarProperty Name="Student_Concat_Status" ColumnName="Student_Concat_Status" />
                 <ScalarProperty Name="Student_Concat_Message" ColumnName="Student_Concat_Message" />
                 <ScalarProperty Name="Student_Concat_Email" ColumnName="Student_Concat_Email" />
