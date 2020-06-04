@@ -162,6 +162,7 @@
     <Content Include="media\StudentProfile\Profile.jpg" />
     <Content Include="Pages\Admin\Language.aspx" />
     <Content Include="Pages\Admin\LogFile.aspx" />
+    <Content Include="Pages\Contact\ListContact.aspx" />
     <Content Include="Pages\PaymentWebService\CheckPaymentService.asmx" />
     <Content Include="Pages\RegistrationProcess\AllRecords.aspx" />
     <Content Include="Pages\RegistrationProcess\ListView.aspx" />
@@ -189,22 +190,22 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>REU_Registration.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="REU_Registration.edmx.diagram">
-      <DependentUpon>REU_Registration.edmx</DependentUpon>
-    </Content>
-    <None Include="Service References\ServiceReferencePayment\CheckPaymentService.disco" />
-    <None Include="Service References\ServiceReferencePayment\configuration91.svcinfo" />
-    <None Include="Service References\ServiceReferencePayment\configuration.svcinfo" />
     <Content Include="REU_Registration.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>REU_Registration.edmx</DependentUpon>
       <LastGenOutput>REU_Registration.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="REU_Registration.edmx.diagram">
+      <DependentUpon>REU_Registration.edmx</DependentUpon>
     </Content>
     <Content Include="REU_Registration.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>REU_Registration.edmx</DependentUpon>
       <LastGenOutput>REU_Registration.cs</LastGenOutput>
     </Content>
+    <None Include="Service References\ServiceReferencePayment\CheckPaymentService.disco" />
+    <None Include="Service References\ServiceReferencePayment\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReferencePayment\configuration.svcinfo" />
     <Content Include="Service References\ServiceReferencePayment\ElectronicSubmission.ServiceReferencePayment.CheckPaymentResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -252,8 +253,10 @@
     <Content Include="Template\css\icofont\fonts\icofont.hxd" />
     <Content Include="Template\css\icofont\fonts\icofont.svg" />
     <Content Include="Template\css\prettyphoto.css" />
+    <Content Include="Template\css\responsive-rtl.css" />
     <Content Include="Template\css\responsive.css" />
     <Content Include="Template\css\rtl.css" />
+    <Content Include="Template\css\slick-slider-rtl.css" />
     <Content Include="Template\css\slick-slider.css" />
     <Content Include="Template\dashboard-courses.html" />
     <Content Include="Template\event-detail.html" />
@@ -655,6 +658,7 @@
     <Content Include="Template\ourprofessors.html" />
     <Content Include="Template\script\bootstrap.min.js" />
     <Content Include="Template\script\fitvideo.js" />
+    <Content Include="Template\script\functions-rtl.js" />
     <Content Include="Template\script\functions.js" />
     <Content Include="Template\script\isotope.min.js" />
     <Content Include="Template\script\jquery.countdown.min.js" />
@@ -2724,6 +2728,13 @@
     </Compile>
     <Compile Include="Pages\Admin\LogFile.aspx.designer.cs">
       <DependentUpon>LogFile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Contact\ListContact.aspx.cs">
+      <DependentUpon>ListContact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Contact\ListContact.aspx.designer.cs">
+      <DependentUpon>ListContact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\PaymentWebService\CheckPaymentService.asmx.cs">
       <DependentUpon>CheckPaymentService.asmx</DependentUpon>

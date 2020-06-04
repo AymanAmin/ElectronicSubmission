@@ -77,12 +77,12 @@ namespace ElectronicSubmission
             if (LocalPath == "default.aspx")
             {
                 isDashBoard = true;
-                return;
+                //return;
             }
 
             try
             {
-                Permission CurrentPage = CurrentPageNow =  ListPermission.Where(x => x.Url_Path == LocalPath).FirstOrDefault();
+                Permission CurrentPage = CurrentPageNow = ListPermission.Where(x => x.Url_Path == LocalPath).FirstOrDefault();
 
                 if (CurrentPage != null)
                 {
@@ -119,12 +119,22 @@ namespace ElectronicSubmission
                     }
                 }
                 else
-                Response.Redirect("~/default.aspx");
-                
+                    Response.Redirect("~/default.aspx");
+
                 PageName.Text = Current_PageName;
                 breadcrumb.Text = str;
             }
-            catch(Exception er) { breadcrumb.Text = str; PageName.Text = Current_PageName; }
+            catch (Exception er)
+            {
+                if (LocalPath == "default.aspx")
+                {
+                    Response.Redirect("~/Pages/RegistrationProcess/ListView.aspx");
+                }
+                else
+                {
+                    breadcrumb.Text = str; PageName.Text = Current_PageName;
+                }
+            }
         }
 
         private void LoadMenu(List<Permission> Permission_List)

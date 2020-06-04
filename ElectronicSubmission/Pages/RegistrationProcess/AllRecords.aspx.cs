@@ -77,30 +77,30 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                         index = 1;
 
                     str += "<tr>";
-                    str += "<td class='txt-primary'>Expand</td>";
-                    str += "<td>";
+                    str += "<td class='txt-primary' style='text-align:center'>" + FieldNames.getFieldName("ListView-Expand", "Expand") + "</td>";
+                    str += "<td style='text-align:center'>";
                     str += "<a href= '../../../../Pages/RegistrationProcess/view.aspx?StudentID=" + ListAllStudent[i].Student_Id + "' style='color:#00c3da;'>&nbsp;&nbsp; <i class='icofont icofont-eye-alt h5'></i>&nbsp;&nbsp;</a>";
                     //str += "<a href= '../../../../Pages/RegistrationProcess/StudentInfo.aspx?StudentID=" + ListAllStudent[i].Student_Id + "' style='color:green;'>&nbsp;&nbsp; <i class='icofont icofont-ui-edit h5'></i>&nbsp;&nbsp;</a>";
                     //str += "<a href= '../../../../Pages/RegistrationProcess/DeleteStudent.ashx?StudentID=" + ListAllStudent[i].Student_Id + "' style='color:red;'>&nbsp;&nbsp; <i class='icofont icofont-recycle-alt h5'></i>&nbsp;&nbsp;</a>";
                     str += "</td>";
                     if (SessionWrapper.LoggedUser.Language_id == 1)
                     {
-                        str += "<td><label class='label label-success' style='background:" + Color[index] + " !important;'>" + ListAllStudent[i].Status.Status_Name_Ar + "</label></td>";
+                        str += "<td style='text-align:center'><label class='label label-success' style='background:" + Color[index] + " !important;'>" + ListAllStudent[i].Status.Status_Name_Ar + "</label></td>";
                         if (ListAllStudent[i].Student_Employee_Id != null) str += "<td>" + ListAllStudent[i].Employee.Employee_Name_Ar + "</td>"; else str += "<td> - </td>";
                     }
                     else
                     {
-                        str += "<td><label class='label label-success' style='background:" + Color[index] + " !important;'>" + ListAllStudent[i].Status.Status_Name_En + "</label></td>";
+                        str += "<td style='text-align:center'><label class='label label-success' style='background:" + Color[index] + " !important;'>" + ListAllStudent[i].Status.Status_Name_En + "</label></td>";
                         if (ListAllStudent[i].Student_Employee_Id != null) str += "<td>" + ListAllStudent[i].Employee.Employee_Name_En + "</td>"; else str += "<td> - </td>";
                     }
 
 
-                    str += "<td>" + ListAllStudent[i].Student_Name_En + "</td>";
-                    str += "<td>" + ListAllStudent[i].Student_Name_Ar + "</td>";
-                    str += "<td>" + ListAllStudent[i].Student_Phone + "</td>";
-                    str += "<td>" + ListAllStudent[i].Student_Email + "</td>";
-                    str += "<td>" + ListAllStudent[i].Student_Address + "</td>";
-                    str += "<td>" + ListAllStudent[i].Student_CreationDate.ToString() + "</td>";
+                    str += "<td style='text-align:center'>" + ListAllStudent[i].Student_Name_En + "</td>";
+                    str += "<td style='text-align:center'>" + ListAllStudent[i].Student_Name_Ar + "</td>";
+                    str += "<td style='text-align:center'>" + ListAllStudent[i].Student_Phone + "</td>";
+                    str += "<td style='text-align:center'>" + ListAllStudent[i].Student_Email + "</td>";
+                    str += "<td style='text-align:center'>" + ListAllStudent[i].Student_Address + "</td>";
+                    str += "<td style='text-align:center'>" + ListAllStudent[i].Student_CreationDate.ToString() + "</td>";
                     str += "</tr>";
 
 

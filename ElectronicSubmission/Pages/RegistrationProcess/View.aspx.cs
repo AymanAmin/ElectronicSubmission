@@ -89,20 +89,46 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                     // load other data
                     txtStudent_Id.Text = std.Student_Id.ToString();
                     txtStudent_SSN.Text = std.Student_SSN;
-                    txtStudent_Name.Text = std.Student_Name_En;
+                    if (SessionWrapper.LoggedUser.Language_id == 1)
+                        txtStudent_Name.Text = std.Student_Name_Ar;
+                    else
+                        txtStudent_Name.Text = std.Student_Name_En;
                     txtStudent_Phone.Text = std.Student_Phone;
                     txtStudent_Email.Text = std.Student_Email;
                     txtStudent_Address.Text = std.Student_Address;
-                    txtSpecialization.Text = std.Specialization.Specialization_Name_En;
-
+                    if (SessionWrapper.LoggedUser.Language_id == 1)
+                        txtSpecialization.Text = std.Specialization.Specialization_Name_Ar;
+                    else
+                        txtSpecialization.Text = std.Specialization.Specialization_Name_En;
+                    if (SessionWrapper.LoggedUser.Language_id ==1)
+                        txtStatus.Text = "<span class='label label-warning' style='background:" + Color[index] + " !important;'>" + std.Status.Status_Name_Ar + "</span>";
+                    else
                     txtStatus.Text = "<span class='label label-warning' style='background:" + Color[index] + " !important;'>" + std.Status.Status_Name_En + "</span>";
-                    txtStudent_Nationality.Text = std.Nationality.Nationality_Name_En;
-                    txtStudent_Resource.Text = std.Resource.Resource_Name_En;
+                    if (SessionWrapper.LoggedUser.Language_id == 1)
+                        txtStudent_Nationality.Text = std.Nationality.Nationality_Name_Ar;
+                    else
+                        txtStudent_Nationality.Text = std.Nationality.Nationality_Name_En;
+
+                    if (SessionWrapper.LoggedUser.Language_id == 1)
+                        txtStudent_Resource.Text = std.Resource.Resource_Name_Ar;
+                    else
+                        txtStudent_Resource.Text = std.Resource.Resource_Name_En;
 
                     txtStudent_Capabilities_Degree.Text = " " + std.Student_Capabilities_Degree + "";
                     txtStudent_High_School_Degree.Text = " " + std.Student_High_School_Degree + "";
                     txtStudent_My_Achievement_Degree.Text = " " + std.Student_My_Achievement_Degree + "";
-                    txtStudent_Total.Text = " " + Math.Round(double.Parse(std.Student_Total),1) + "%";
+
+                    int str_index = (std.Student_Total.ToString()).IndexOf('.');
+                    if (str_index != -1)
+                        txtStudent_Total.Text = (std.Student_Total.ToString()).Substring(0, str_index + 2);
+                    else
+                    {
+                        str_index = (std.Student_Total.ToString()).IndexOf(',');
+                        if (str_index != -1)
+                            txtStudent_Total.Text = (std.Student_Total.ToString()).Substring(0, str_index + 2);
+                        else
+                            txtStudent_Total.Text = std.Student_Total + "%";
+                    }
 
                     DateTime date = DateTime.Parse(std.Student_CreationDate.ToString());
                     txtStudent_CreationDate.Text = date.ToShortDateString();
@@ -280,10 +306,11 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 string space = string.Empty, per_name = string.Empty;
                 string marginRight_RTL = string.Empty;
 
-                per_name = sequence[i].Employee.Employee_Name_En;
+                per_name = sequence[i].Employee.Employee_Name_Ar;
                 if (SessionWrapper.LoggedUser.Language_id != 1)
                 {
                     space = "&nbsp;";
+                    per_name = sequence[i].Employee.Employee_Name_En;
 
                 }
                 else
@@ -413,31 +440,59 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             string URL = sever_name + "/PaymentProcess.aspx?Trackingkey=" + payment.Payment_Trackingkey;
             string StudentEmail = "ayman@softwarecornerit.com";//std.Student_Email;
             SendEmail send = new SendEmail();
+            
             string Text = " <Strong style='font-size:24px;'>Dear " + std.Student_Name_En + "</Strong><br /><Strong>You can start the payment process: </Strong> " + URL + " <br /> <Strong>Current Status:</Strong> " + std.Status.Status_Name_En + " <br /> <Strong>Date:</Strong> " + DateTime.Now.ToShortDateString();
+            if (SessionWrapper.LoggedUser.Language_id == 1)
+                Text = " <Strong style='font-size:24px;'>Dear " + std.Student_Name_Ar + "</Strong><br /><Strong>You can start the payment process: </Strong> " + URL + " <br /> <Strong>Current Status:</Strong> " + std.Status.Status_Name_Ar + " <br /> <Strong>Date:</Strong> " + DateTime.Now.ToShortDateString();
             bool result = send.TextEmail("Ready To Pay", StudentEmail, Text, sever_name);
             return result;
         }
 
         private string GetApproveStatusName(int CurrentStatus_Id)
         {
-            switch (CurrentStatus_Id)
+            if (SessionWrapper.LoggedUser.Language_id != 1)
             {
-                case 1: return db.Status.Find(2).Status_Name_En;// 1- New
-                case 2: return db.Status.Find(3).Status_Name_En;// 2- Pending
-                case 3: return db.Status.Find(5).Status_Name_En;// 3- Assigned
-                case 4: return db.Status.Find(5).Status_Name_En;// 4- Not Complete
-                case 5: return db.Status.Find(6).Status_Name_En;// 5- Data Completed
-                case 6: return db.Status.Find(7).Status_Name_En;// 6- Pay the Registration Fees
-                case 7: return db.Status.Find(8).Status_Name_En;// 7- Registration Fee Paid
-                case 8: return db.Status.Find(10).Status_Name_En;// 8- Book a Test Date
-                case 9: return db.Status.Find(8).Status_Name_En;// 9- Failure in the Test
-                case 10: return db.Status.Find(11).Status_Name_En;// 10- Success in the Test
-                case 11: return db.Status.Find(12).Status_Name_En;// 11- Pay the Tuition Fees
-                case 12: return db.Status.Find(13).Status_Name_En;// 12- Tuition Fees Paid
-                case 13: return db.Status.Find(14).Status_Name_En;// 13- Issuance University ID
-                case 14: return db.Status.Find(15).Status_Name_En;// 14- File Completed Successfully
-                case 15: return "Restore the last Status";// 15- File Complete with Failure
-                default: return db.Status.Find(4).Status_Name_En;// Defalut Set To 4 Not Complate
+                switch (CurrentStatus_Id)
+                {
+                    case 1: return db.Status.Find(2).Status_Name_En;// 1- New
+                    case 2: return db.Status.Find(3).Status_Name_En;// 2- Pending
+                    case 3: return db.Status.Find(5).Status_Name_En;// 3- Assigned
+                    case 4: return db.Status.Find(5).Status_Name_En;// 4- Not Complete
+                    case 5: return db.Status.Find(6).Status_Name_En;// 5- Data Completed
+                    case 6: return db.Status.Find(7).Status_Name_En;// 6- Pay the Registration Fees
+                    case 7: return db.Status.Find(8).Status_Name_En;// 7- Registration Fee Paid
+                    case 8: return db.Status.Find(10).Status_Name_En;// 8- Book a Test Date
+                    case 9: return db.Status.Find(8).Status_Name_En;// 9- Failure in the Test
+                    case 10: return db.Status.Find(11).Status_Name_En;// 10- Success in the Test
+                    case 11: return db.Status.Find(12).Status_Name_En;// 11- Pay the Tuition Fees
+                    case 12: return db.Status.Find(13).Status_Name_En;// 12- Tuition Fees Paid
+                    case 13: return db.Status.Find(14).Status_Name_En;// 13- Issuance University ID
+                    case 14: return db.Status.Find(15).Status_Name_En;// 14- File Completed Successfully
+                    case 15: return "Restore the last Status";// 15- File Complete with Failure
+                    default: return db.Status.Find(4).Status_Name_En;// Defalut Set To 4 Not Complate
+                }
+            }
+            else
+            {
+                switch (CurrentStatus_Id)
+                {
+                    case 1: return db.Status.Find(2).Status_Name_Ar;// 1- New
+                    case 2: return db.Status.Find(3).Status_Name_Ar;// 2- Pending
+                    case 3: return db.Status.Find(5).Status_Name_Ar;// 3- Assigned
+                    case 4: return db.Status.Find(5).Status_Name_Ar;// 4- Not Complete
+                    case 5: return db.Status.Find(6).Status_Name_Ar;// 5- Data Completed
+                    case 6: return db.Status.Find(7).Status_Name_Ar;// 6- Pay the Registration Fees
+                    case 7: return db.Status.Find(8).Status_Name_Ar;// 7- Registration Fee Paid
+                    case 8: return db.Status.Find(10).Status_Name_Ar;// 8- Book a Test Date
+                    case 9: return db.Status.Find(8).Status_Name_Ar;// 9- Failure in the Test
+                    case 10: return db.Status.Find(11).Status_Name_Ar;// 10- Success in the Test
+                    case 11: return db.Status.Find(12).Status_Name_Ar;// 11- Pay the Tuition Fees
+                    case 12: return db.Status.Find(13).Status_Name_Ar;// 12- Tuition Fees Paid
+                    case 13: return db.Status.Find(14).Status_Name_Ar;// 13- Issuance University ID
+                    case 14: return db.Status.Find(15).Status_Name_Ar;// 14- File Completed Successfully
+                    case 15: return "Restore the last Status";// 15- File Complete with Failure
+                    default: return db.Status.Find(4).Status_Name_Ar;// Defalut Set To 4 Not Complate
+                }
             }
         }
 
@@ -531,24 +586,48 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
 
         private string GetRejectStatusName(int CurrentStatus_Id)
         {
-            switch (CurrentStatus_Id)
+            if (SessionWrapper.LoggedUser.Language_id != 1)
             {
-                case 1: return db.Status.Find(4).Status_Name_En;// 1- New
-                case 2: return db.Status.Find(4).Status_Name_En;// 2- Pending
-                case 3: return db.Status.Find(4).Status_Name_En;// 3- Assigned
-                case 4: return db.Status.Find(15).Status_Name_En;// 4- Not Complete
-                case 5: return db.Status.Find(4).Status_Name_En;// 5- Data Completed
-                case 6: return db.Status.Find(15).Status_Name_En;// 6- Pay the Registration Fees
-                case 7: return db.Status.Find(15).Status_Name_En;// 7- Registration Fee Paid
-                case 8: return db.Status.Find(9).Status_Name_En;// 8- Book a Test Date
-                case 9: return db.Status.Find(15).Status_Name_En;// 9- Failure in the Test
-                case 10: return db.Status.Find(15).Status_Name_En;// 10- Success in the Test
-                case 11: return db.Status.Find(15).Status_Name_En;// 11- Pay the Tuition Fees
-                case 12: return db.Status.Find(15).Status_Name_En;// 12- Tuition Fees Paid
-                case 13: return db.Status.Find(15).Status_Name_En;// 13- Issuance University ID
-                case 14: return db.Status.Find(15).Status_Name_En;// 14- File Completed Successfully
-                case 15: return db.Status.Find(15).Status_Name_En;// 15- File Complete with Failure
-                default: return db.Status.Find(15).Status_Name_En;// Defalut Set To 15 Not Complate
+                switch (CurrentStatus_Id)
+                {
+                    case 1: return db.Status.Find(4).Status_Name_En;// 1- New
+                    case 2: return db.Status.Find(4).Status_Name_En;// 2- Pending
+                    case 3: return db.Status.Find(4).Status_Name_En;// 3- Assigned
+                    case 4: return db.Status.Find(15).Status_Name_En;// 4- Not Complete
+                    case 5: return db.Status.Find(4).Status_Name_En;// 5- Data Completed
+                    case 6: return db.Status.Find(15).Status_Name_En;// 6- Pay the Registration Fees
+                    case 7: return db.Status.Find(15).Status_Name_En;// 7- Registration Fee Paid
+                    case 8: return db.Status.Find(9).Status_Name_En;// 8- Book a Test Date
+                    case 9: return db.Status.Find(15).Status_Name_En;// 9- Failure in the Test
+                    case 10: return db.Status.Find(15).Status_Name_En;// 10- Success in the Test
+                    case 11: return db.Status.Find(15).Status_Name_En;// 11- Pay the Tuition Fees
+                    case 12: return db.Status.Find(15).Status_Name_En;// 12- Tuition Fees Paid
+                    case 13: return db.Status.Find(15).Status_Name_En;// 13- Issuance University ID
+                    case 14: return db.Status.Find(15).Status_Name_En;// 14- File Completed Successfully
+                    case 15: return db.Status.Find(15).Status_Name_En;// 15- File Complete with Failure
+                    default: return db.Status.Find(15).Status_Name_En;// Defalut Set To 15 Not Complate
+                }
+            }else
+            {
+                switch (CurrentStatus_Id)
+                {
+                    case 1: return db.Status.Find(4).Status_Name_Ar;// 1- New
+                    case 2: return db.Status.Find(4).Status_Name_Ar;// 2- Pending
+                    case 3: return db.Status.Find(4).Status_Name_Ar;// 3- Assigned
+                    case 4: return db.Status.Find(15).Status_Name_Ar;// 4- Not Complete
+                    case 5: return db.Status.Find(4).Status_Name_Ar;// 5- Data Completed
+                    case 6: return db.Status.Find(15).Status_Name_Ar;// 6- Pay the Registration Fees
+                    case 7: return db.Status.Find(15).Status_Name_Ar;// 7- Registration Fee Paid
+                    case 8: return db.Status.Find(9).Status_Name_Ar;// 8- Book a Test Date
+                    case 9: return db.Status.Find(15).Status_Name_Ar;// 9- Failure in the Test
+                    case 10: return db.Status.Find(15).Status_Name_Ar;// 10- Success in the Test
+                    case 11: return db.Status.Find(15).Status_Name_Ar;// 11- Pay the Tuition Fees
+                    case 12: return db.Status.Find(15).Status_Name_Ar;// 12- Tuition Fees Paid
+                    case 13: return db.Status.Find(15).Status_Name_Ar;// 13- Issuance University ID
+                    case 14: return db.Status.Find(15).Status_Name_Ar;// 14- File Completed Successfully
+                    case 15: return db.Status.Find(15).Status_Name_Ar;// 15- File Complete with Failure
+                    default: return db.Status.Find(15).Status_Name_Ar;// Defalut Set To 15 Not Complate
+                }
             }
         }
 

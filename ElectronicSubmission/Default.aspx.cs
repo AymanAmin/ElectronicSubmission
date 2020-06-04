@@ -57,6 +57,7 @@ namespace ElectronicSubmission
             int student_id = 0;
             for (int i = 0; i < list_sequence.Count; i++)
             {
+                int trackEception = 0,index =0;
                 try
                 {
                     DateTime date_one = (DateTime)list_sequence[i].DateCreation;
@@ -73,61 +74,87 @@ namespace ElectronicSubmission
                     int status_id = (int)list_sequence[i].Status_Id;
 
                     // find the index
-                    int index = StatusList.FindIndex(x => x.Status_Id == status_id);
+                    index = StatusList.FindIndex(x => x.Status_Id == status_id);
                     // Set the delay in Status_Color 
-                    StatusList[index].Status_Color = (double.Parse(StatusList[index].Status_Color) + (date_two - date_one).TotalHours).ToString();
+                    trackEception = 1;
+                    string str = (double.Parse(StatusList[index].Status_Color) + (date_two - date_one).TotalHours).ToString();
+                    StatusList[index].Status_Color = str;
 
                     //Increase counter in Status_Icon 
-                    StatusList[index].Status_Icon = (int.Parse(StatusList[index].Status_Icon) + 1).ToString();
+                    trackEception = 2;
+                    str = (int.Parse(StatusList[index].Status_Icon) + 1).ToString();
+                    StatusList[index].Status_Icon = str;
                 }
-                catch { }
+                catch {
+                    if(trackEception == 1)
+                    {
+                        StatusList[index].Status_Color = StatusList[index].Status_Color;
+                        StatusList[index].Status_Icon = (int.Parse(StatusList[index].Status_Icon) + 1).ToString();
+                    } else if(trackEception == 2)
+                        StatusList[index].Status_Icon = (int.Parse(StatusList[index].Status_Icon) + 1).ToString();
+                }
             }
-
+            List<string> DelayList = new List<string>();
             for (int i = 0; i < StatusList.Count; i++)
             {
-                List<Student> students = StatusList[i].Students.ToList();
-                double delay = 0;
-                if (double.Parse(StatusList[i].Status_Icon) != 0)
-                    delay = double.Parse(StatusList[i].Status_Color) / double.Parse(StatusList[i].Status_Icon);
-
-                if(SessionWrapper.LoggedUser.Language_id == 1)
-                    Status += "' " + StatusList[i].Status_Name_Ar + " '";
-                else
-                    Status += "'" + StatusList[i].Status_Name_En + "'";
-
-                if (students.Count != 0)
+                try
                 {
-                    if (SessionWrapper.LoggedUser.Language_id == 1)
-                        StatusPie += "' " + StatusList[i].Status_Name_Ar + " '";
-                    else
-                        StatusPie += "'" + StatusList[i].Status_Name_En + "'";
-
-                    Data += students.Count.ToString();
-                }
-
-                AvgDelay += Math.Round(delay, 1);
-
-                if (i < StatusList.Count - 1)
-                {
-                    Status += ",";
+                    List<Student> students = StatusList[i].Students.ToList();
+                    double delay = 0;
+                    if (double.Parse(StatusList[i].Status_Icon) != 0)
+                        delay = double.Parse(StatusList[i].Status_Color) / double.Parse(StatusList[i].Status_Icon);
 
                     if (students.Count != 0)
                     {
-                        StatusPie += ",";
-                        Data += ",";
-                    }
+                        if (SessionWrapper.LoggedUser.Language_id == 1)
+                            StatusPie += "' " + StatusList[i].Status_Name_Ar + " '";
+                        else
+                            StatusPie += "'" + StatusList[i].Status_Name_En + "'";
 
-                    AvgDelay += ",";
+                        Data += students.Count.ToString();
+                    }
+                    DelayList.Add(delay.ToString());
+
+                    if (i < StatusList.Count - 1)
+                    {
+                        if (students.Count != 0)
+                        {
+                            StatusPie += ",";
+                            Data += ",";
+                        }
+                    }
                 }
+                catch { }
             }
-            Status += "]";
             StatusPie += "]";
             Data += "]";
-            AvgDelay += "]";
+            List<Status> statuslist = db.Status.ToList();
+            string DelayStatus = "[";
+            string DelayData = "[";
+            for (int i = 0; i < statuslist.Count; i++)
+            {
+                if (SessionWrapper.LoggedUser.Language_id == 1)
+                    DelayStatus += "' " + statuslist[i].Status_Name_Ar + " '";
+                else
+                    DelayStatus += "'" + statuslist[i].Status_Name_En + "'";
 
+                //if (DelayList[i].Length <= 3)
+                double dalay = double.Parse(DelayList[i]);
+                    DelayData += ((int)dalay).ToString();
+                /*else
+                    DelayData += (int.Parse(DelayList[i].Substring(0, 3))).ToString();*/
+
+                if (i < statuslist.Count - 1)
+                {
+                    DelayStatus += ",";
+                    DelayData += ",";
+                }
+            }
+            DelayStatus += "]";
+            DelayData += "]";
             string Pie_Function = "Pie_Chart(" + Data + "," + StatusPie + ");";
             /* Pie Chart */
-            string lineChartfun = "lineChart(" + AvgDelay + "," + Status + ");";
+            string lineChartfun = "lineChart(" + DelayData + "," + DelayStatus + ");";
 
               /******************************/
              /* Treatment Per mounth Chart */
@@ -135,7 +162,7 @@ namespace ElectronicSubmission
 
             DateTime date_today = DateTime.Now;
             int day = date_today.Day;
-            date_today = date_today.AddDays(-day + 1);
+            //date_today = date_today.AddDays(-day + 1);
             List<DateTime> DateList = new List<DateTime>();
             for (int i = 0; i < 15; i++)
             {
