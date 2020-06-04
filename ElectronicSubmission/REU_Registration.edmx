@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="REU_RegistrationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="REU_RegistrationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Collage">
           <Key>
             <PropertyRef Name="Collage_ID" />
@@ -717,7 +717,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="REU_RegistrationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="REU_RegistrationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Collage">
           <Key>
             <PropertyRef Name="Collage_ID" />
@@ -1337,22 +1337,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Student_Concat">
-          <Key>
-            <PropertyRef Name="Student_Concat_Id" />
-          </Key>
-          <Property Name="Student_Concat_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Student_Concat_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Student_Concat_Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Student_Concat_Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Student_Concat_Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Student_Concat_Status" Type="Int32" />
-          <NavigationProperty Name="Status" Relationship="REU_RegistrationModel.FK_Student_Concat_Status" FromRole="Student_Concat" ToRole="Status" />
-          <Property Name="Student_Concat_CreationDate" Type="DateTime" Precision="3" />
-        </EntityType>
-        <Association Name="FK_Student_Concat_Status">
-          <End Type="REU_RegistrationModel.Status" Role="Status" Multiplicity="0..1" />
-          <End Type="REU_RegistrationModel.Student_Concat" Role="Student_Concat" Multiplicity="*" />
         <Association Name="FK_Student_Status">
           <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
           <End Role="Student" Type="Self.Student" Multiplicity="*" />

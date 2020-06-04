@@ -9,14 +9,14 @@ namespace ElectronicSubmission.Pages.Contact
 {
     public partial class ListContact : System.Web.UI.Page
     {
-        List<Student_Concat> ListContact = new List<Student_Concat>();
+        List<Student_Concat> ListStudentContact = new List<Student_Concat>();
         REU_RegistrationEntities db = new REU_RegistrationEntities();
         string[] Color = { "green", "orange", "blue", "red", "maroon", "purple", "teal", "deepskyblue", "gray", "hotpink", "blueviolet", "violet", "deepskyblue", "cyan", "olivedrab", "coral", "salmon", "yellow" }; 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (SessionWrapper.LoggedUser == null)
                 Response.Redirect("~/Pages/Auth/Login.aspx");
-            ListContact = db.Student_Concat.ToList();
+            ListStudentContact = db.Student_Concat.ToList();
 
         }
 
@@ -30,10 +30,10 @@ namespace ElectronicSubmission.Pages.Contact
 
 
                 //Start Statistic
-                string total = txtFirst.Text = ListContact.Count().ToString();
-                string current = txtSecond.Text = ListContact.Count(x => x.Student_Concat_Status != 14 && x.Student_Concat_Status != 15).ToString();
-                string approved = txtThird.Text = ListContact.Where(x => x.Student_Concat_Status == 14).Count().ToString();
-                string rejected = txtFour.Text = ListContact.Where(x => x.Student_Concat_Status == 15).Count().ToString();
+                string total = txtFirst.Text = ListStudentContact.Count().ToString();
+                string current = txtSecond.Text = ListStudentContact.Count(x => x.Student_Concat_Status != 14 && x.Student_Concat_Status != 15).ToString();
+                string approved = txtThird.Text = ListStudentContact.Where(x => x.Student_Concat_Status == 14).Count().ToString();
+                string rejected = txtFour.Text = ListStudentContact.Where(x => x.Student_Concat_Status == 15).Count().ToString();
 
                 txtFirstPercentage.Text = CalcPercentage(double.Parse(total), double.Parse(total)) + "%";
                 txtSecondPercentage.Text = CalcPercentage(double.Parse(current), double.Parse(total)) + "%";
@@ -48,22 +48,22 @@ namespace ElectronicSubmission.Pages.Contact
                 //End Statistic
 
                 string str = string.Empty;
-                for (int i = 0; i < ListContact.Count; i++)
+                for (int i = 0; i < ListStudentContact.Count; i++)
                 {
                     // select the color based on status id
-                    index = (int)ListContact[i].Status.Status_Code - 1;
+                    index = (int)ListStudentContact[i].Status.Status_Code - 1;
                     if (index >= Color.Length)
                         index = 1;
 
                     str += "<tr>";
                     str += "<td class='txt-primary'>Expand</td>";
-                    str += "<td> <a href= '../../../../Pages/RegistrationProcess/view.aspx?StudentID=" + ListContact[i].Student_Concat_Id + "' style='color:#00c3da;'>&nbsp;&nbsp; <i class='icofont icofont-eye-alt h5'></i>&nbsp;&nbsp;</a>";
-                    str += "<td>" + ListContact[i].Status.Status_Name_En + "</td>";
-                    str += "<td>" + ListContact[i].Student_Concat_Name + "</td>";
-                    str += "<td>" + ListContact[i].Student_Concat_Phone + "</td>";
-                    str += "<td>" + ListContact[i].Student_Concat_Email + "</td>";
-                    str += "<td>" + ListContact[i].Student_Concat_CreationDate.ToString() + "</td>";
-                    str += "<td>" + ListContact[i].Student_Concat_Message + "</td>";
+                    str += "<td> <a href= '../../../../Pages/RegistrationProcess/view.aspx?StudentID=" + ListStudentContact[i].Student_Concat_Id + "' style='color:#00c3da;'>&nbsp;&nbsp; <i class='icofont icofont-eye-alt h5'></i>&nbsp;&nbsp;</a>";
+                    str += "<td>" + ListStudentContact[i].Status.Status_Name_En + "</td>";
+                    str += "<td>" + ListStudentContact[i].Student_Concat_Name + "</td>";
+                    str += "<td>" + ListStudentContact[i].Student_Concat_Phone + "</td>";
+                    str += "<td>" + ListStudentContact[i].Student_Concat_Email + "</td>";
+                    str += "<td>" + ListStudentContact[i].Student_Concat_CreationDate.ToString() + "</td>";
+                    str += "<td>" + ListStudentContact[i].Student_Concat_Message + "</td>";
                     str += "</tr>";
 
 
