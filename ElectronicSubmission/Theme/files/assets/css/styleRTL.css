@@ -106,3 +106,14 @@ html body h1 h2 h3 h4 h5 h6 p a li ul div {
 .pcoded-main-container{
     /*margin-top: -55px !important;*/
 }
+
+.invoice-contact {
+    margin-right:0%;
+}
+.view-table
+{
+    text-align:right;
+}
+.invoice-detail-table th:first-child, .invoice-detail-table td:first-child{
+    text-align:right;
+}

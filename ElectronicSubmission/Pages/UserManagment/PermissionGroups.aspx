@@ -39,7 +39,7 @@
                                                 <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("PermissionGroups-ArabicName", "Arabic Name") %></label>
                                                 <div class="input-group">
                                                     <span class="input-group-addon" id="basic-addon1"><i class="icofont icofont-underline"></i></span>
-                                                    <asp:TextBox ID="txtGroup_Name" runat="server" class="form-control" placeholder="Enter Name in Arabic" TextMode="SingleLine"></asp:TextBox>
+                                                    <asp:TextBox ID="txtGroup_Name" runat="server" class="form-control"  TextMode="SingleLine"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-12" style="">
                                                     <asp:RequiredFieldValidator ID="RFVtxtPermission_Name" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Arabic Name" ValidationGroup="Group" ControlToValidate="txtGroup_Name" Display="Dynamic"></asp:RequiredFieldValidator>
@@ -49,7 +49,7 @@
                                                 <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("PermissionGroups-EnglishName", "English Name") %></label>
                                                 <div class="input-group">
                                                     <span class="input-group-addon" id="basic-addon2"><i class="icofont icofont-underline"></i></span>
-                                                    <asp:TextBox ID="txtGroup_Name_En" runat="server" class="form-control" placeholder="Enter Name in English" TextMode="SingleLine"></asp:TextBox>
+                                                    <asp:TextBox ID="txtGroup_Name_En" runat="server" class="form-control" TextMode="SingleLine"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-12" style="">
                                                     <asp:RequiredFieldValidator ID="RFVtxtGroup_Name_En" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter English Name" ValidationGroup="Group" ControlToValidate="txtGroup_Name_En" Display="Dynamic"></asp:RequiredFieldValidator>

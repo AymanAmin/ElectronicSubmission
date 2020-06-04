@@ -29,7 +29,7 @@
         }
 
         function lineChart(Data, Status) {
-
+            //alert("Data:" + Data+"\n Status:"+Status);
             var options = {
                 series: [{
                     name: "<% = ElectronicSubmission.FieldNames.getFieldName("Default-Hour", "Hour") %>",
@@ -196,7 +196,7 @@
                             <div class="col-8">
                                 <h4 class="text-white">
                                     <asp:Literal ID="txtAllStudents" Text="0" runat="server"></asp:Literal></h4>
-                                <h6 class="text-white m-b-0"><% = ElectronicSubmission.FieldNames.getFieldName("Default-AllStudents", "All Student") %></h6>
+                                <h6 class="text-white m-b-0"><% = ElectronicSubmission.FieldNames.getFieldName("Default-AllStudents", "All Students") %></h6>
                             </div>
                             <div class="col-4 text-right">
                                 <canvas id="update-chart-1" height="50"></canvas>
@@ -274,7 +274,7 @@
                                 <h4 class="text-white">
                                     <asp:Literal ID="txtFailure" Text="0" runat="server"></asp:Literal>
                                 </h4>
-                                <h6 class="text-white m-b-0"><% = ElectronicSubmission.FieldNames.getFieldName("Default-txtFailure", "Failure") %></h6>
+                                <h6 class="text-white m-b-0"><% = ElectronicSubmission.FieldNames.getFieldName("Default-Failure", "Failure") %></h6>
                             </div>
                             <div class="col-4 text-right">
                                 <canvas id="update-chart-4" height="50"></canvas>

@@ -84,23 +84,23 @@
                                     <asp:Label ID="txtStudent_Email" runat="server" Text="Ayman@softwarecornerit.com"></asp:Label></a>
                             </p>
                         </div>
-                        <div class="col-md-4 col-sm-6">
+                        <div class="col-md-4 col-sm-6 ">
                             <h6><% = ElectronicSubmission.FieldNames.getFieldName("View-AdditionalInformation", "Additional Information") %></h6>
                             <table class="table table-responsive invoice-table invoice-order table-borderless">
                                 <tbody>
                                     <tr>
-                                        <th><% = ElectronicSubmission.FieldNames.getFieldName("View-IdTrack", "Id Track") %> : </th>
-                                        <td>#<asp:Label ID="txtStudent_Id" runat="server" Text="Pedding"></asp:Label>
+                                        <th class="view-table"><% = ElectronicSubmission.FieldNames.getFieldName("View-IdTrack", "Id Track") %> : </th>
+                                        <td class="view-table">#<asp:Label ID="txtStudent_Id" runat="server" Text="Pedding"></asp:Label>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th><% = ElectronicSubmission.FieldNames.getFieldName("View-Date", "Date") %> : </th>
-                                        <td>
+                                        <th class="view-table"><% = ElectronicSubmission.FieldNames.getFieldName("View-Date", "Date") %> : </th>
+                                        <td class="view-table">
                                             <asp:Label ID="txtStudent_CreationDate" runat="server" Text=""></asp:Label></td>
                                     </tr>
                                     <tr>
-                                        <th><% = ElectronicSubmission.FieldNames.getFieldName("View-Status", "Status") %> : </th>
-                                        <td>
+                                        <th class="view-table"><% = ElectronicSubmission.FieldNames.getFieldName("View-Status", "Status") %> : </th>
+                                        <td class="view-table">
                                             <asp:Label ID="txtStatus" runat="server" Text="Pedding"></asp:Label>
                                         </td>
                                     </tr>
@@ -113,25 +113,25 @@
                             <table class="table table-responsive invoice-table invoice-order table-borderless">
                                 <tbody>
                                     <tr>
-                                        <th><% = ElectronicSubmission.FieldNames.getFieldName("View-HighSchool", "High School") %> : </th>
-                                        <td>
+                                        <th class="view-table"><% = ElectronicSubmission.FieldNames.getFieldName("View-HighSchool", "High School") %> : </th>
+                                        <td class="view-table">
                                             <asp:Label ID="txtStudent_High_School_Degree" runat="server" Text="30%"></asp:Label></td>
                                     </tr>
                                     <tr>
-                                        <th><% = ElectronicSubmission.FieldNames.getFieldName("View-Capabilities", "Capabilities") %> : </th>
-                                        <td>
+                                        <th class="view-table"><% = ElectronicSubmission.FieldNames.getFieldName("View-Capabilities", "Capabilities") %> : </th>
+                                        <td class="view-table">
                                             <asp:Label ID="txtStudent_Capabilities_Degree" runat="server" Text="30%"></asp:Label>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th><% = ElectronicSubmission.FieldNames.getFieldName("View-Achievement", "Achievement") %> : </th>
-                                        <td>
+                                        <th class="view-table"><% = ElectronicSubmission.FieldNames.getFieldName("View-Achievement", "Achievement") %> : </th>
+                                        <td class="view-table">
                                             <asp:Label ID="txtStudent_My_Achievement_Degree" runat="server" Text="40%"></asp:Label>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th><% = ElectronicSubmission.FieldNames.getFieldName("View-Total", "Total") %> : </th>
-                                        <td>
+                                        <th class="view-table"><% = ElectronicSubmission.FieldNames.getFieldName("View-Total", "Total") %> : </th>
+                                        <td class="view-table">
                                             <asp:Label ID="txtStudent_Total" runat="server" Text="70%"></asp:Label>
                                         </td>
                                     </tr>
@@ -145,7 +145,7 @@
                                 <table class="table  invoice-detail-table">
                                     <thead>
                                         <tr class="thead-default">
-                                            <th><% = ElectronicSubmission.FieldNames.getFieldName("View-FileName", "File Name") %></th>
+                                            <th class="view-table"><% = ElectronicSubmission.FieldNames.getFieldName("View-FileName", "File Name") %></th>
                                             <th><% = ElectronicSubmission.FieldNames.getFieldName("View-Type", "Type") %></th>
                                             <th><% = ElectronicSubmission.FieldNames.getFieldName("View-Delete", "Delete") %></th>
                                             <th><% = ElectronicSubmission.FieldNames.getFieldName("View-View", "View") %></th>
@@ -188,7 +188,7 @@
             <!-- Sequence card -->
             <div class="card latest-update-card ScrollStyle">
                 <div class="card-header">
-                    <h5><% = ElectronicSubmission.FieldNames.getFieldName("MyNotifications-SequenceOfOperations", "Sequence Of Operations") %></h5>
+                    <h5><% = ElectronicSubmission.FieldNames.getFieldName("View-SequenceOfOperations", "Sequence Of Operations") %></h5>
                     <div class="card-header-right">
                         <ul class="list-unstyled card-option">
                             <!--<li><i class="fa fa fa-wrench open-card-option"></i></li>
