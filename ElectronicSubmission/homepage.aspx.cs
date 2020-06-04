@@ -306,7 +306,7 @@ namespace ElectronicSubmission
                 valStudentMessage.Text = "أدخل الرسالة";
                 SubmitMessage.Text = "إرسال";
 
-                AdmissionFormButton.Value = "الرجاء الضغط علي الزر لبدء عملية التقديم للقبول";
+                txtAdmissionFormButton.Value = "الرجاء الضغط علي الزر لبدء عملية التقديم للقبول";
 
                 txtEmail.Attributes["placeholder"] = "البريد الإلكتروني";
                 txtPassword.Attributes["placeholder"] = "كلمة المرور";
@@ -338,7 +338,7 @@ namespace ElectronicSubmission
                 valStudentMessage.Text = "Enter Message";
                 SubmitMessage.Text = "Send";
 
-                AdmissionFormButton.Value = "Please click on the button to start the application Form";
+                txtAdmissionFormButton.Value = "Please click on the button to start the application Form";
 
                 txtEmail.Attributes["placeholder"] = "Your E-mail";
                 txtPassword.Attributes["placeholder"] = "Password";

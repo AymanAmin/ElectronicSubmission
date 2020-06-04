@@ -18,7 +18,6 @@ namespace ElectronicSubmission
         int StudentID = 0;
         int StatusId = 0;
         float totalSum = 0;
-        int language_Id= 0;
         //LogFile Data
         LogFileModule logFileModule = new LogFileModule();
         String LogData = "";
@@ -56,7 +55,7 @@ namespace ElectronicSubmission
                 FillDropDownLists();
                  if (Session["Success"] != null)
                  {
-                     if (language_Id == 0)
+                     if (langId == 0)
                          Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "SuccessEn();", true);
                      else
                          Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "SuccessAr();", true);
@@ -96,7 +95,7 @@ namespace ElectronicSubmission
                 else
                 {
                     // Session["Warning"] = true; Response.Redirect("~/StudentSubmitting.aspx");
-                    if (language_Id == 0)
+                    if (langId == 0)
                         Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "WarningEn();", true);
                     else
                         Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "WarningAr();", true);
@@ -260,21 +259,21 @@ namespace ElectronicSubmission
             {
                 // Group dropdown
                 List<Resource> ResourceList = db.Resources.ToList();
-                if (language_Id == 1)
+                if (langId == 1)
                     ddlFiller.dropDDL(Resource_ID, "ResourceID", "Resource_Name_Ar", ResourceList, " - إختر المصدر -");
                 else
                     ddlFiller.dropDDL(Resource_ID, "ResourceID", "Resource_Name_En", ResourceList, " - Select Resource -");
 
                 // Group dropdown
                 List<Specialization> SpecializationList = db.Specializations.ToList();
-                if (language_Id == 1)
+                if (langId == 1)
                     ddlFiller.dropDDL(Specialization_ID, "Specialization_Id", "Specialization_Name_Ar", SpecializationList, " - إختر التخصص -");
                 else
                     ddlFiller.dropDDL(Specialization_ID, "Specialization_Id", "Specialization_Name_En", SpecializationList, " - Select Specialization -");
 
                 // Group dropdown
                 List<Nationality> NationalityList = db.Nationalities.ToList();
-                if (language_Id == 1)
+                if (langId == 1)
                     ddlFiller.dropDDL(Nationality_ID, "Nationality_Id", "Nationality_Name_Ar", NationalityList, " - إختر الجنسية -");
                 else
                     ddlFiller.dropDDL(Nationality_ID, "Nationality_Id", "Nationality_Name_En", NationalityList, " - Select Nationality -");

@@ -20,7 +20,6 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
         //LogFile Data
         LogFileModule logFileModule = new LogFileModule();
         String LogData = "";
-        List<Employee> ALLEmployees = new List<Employee>();
 
         float HighSchoolTotal = 150;
         float CapabilitiesTotal = 150;
@@ -45,6 +44,13 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 FillDropDownLists();
                 RegistrationDate.Text = DateTime.Now.Date.ToString();
                 if(StudentID !=0) ViewDataStudent(StudentID);
+            }
+
+            if(StudentID != 0) {
+                int emp_id = (int)SessionWrapper.LoggedUser.Employee_Id;
+                var StudentAssign = db.Students.FirstOrDefault(x => x.Student_Employee_Id == emp_id && x.Student_Id== StudentID);
+                 if(StudentAssign ==null) Response.Redirect("~/Pages/RegistrationProcess/ListView.aspx");
+
             }
 
         }
