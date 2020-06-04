@@ -181,6 +181,20 @@
     <Content Include="Pages\UserManagment\Permissions.aspx" />
     <Content Include="Pages\UserManagment\Profile.aspx" />
     <Content Include="PaymentProcess.aspx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="REU_Registration.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>REU_Registration.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="REU_Registration.edmx.diagram">
+      <DependentUpon>REU_Registration.edmx</DependentUpon>
+    </Content>
+    <None Include="Service References\ServiceReferencePayment\CheckPaymentService.disco" />
+    <None Include="Service References\ServiceReferencePayment\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReferencePayment\configuration.svcinfo" />
     <Content Include="REU_Registration.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>REU_Registration.edmx</DependentUpon>
@@ -191,13 +205,6 @@
       <DependentUpon>REU_Registration.edmx</DependentUpon>
       <LastGenOutput>REU_Registration.cs</LastGenOutput>
     </Content>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\ServiceReferencePayment\CheckPaymentService.disco" />
-    <None Include="Service References\ServiceReferencePayment\configuration91.svcinfo" />
-    <None Include="Service References\ServiceReferencePayment\configuration.svcinfo" />
     <Content Include="Service References\ServiceReferencePayment\ElectronicSubmission.ServiceReferencePayment.CheckPaymentResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -2619,7 +2626,9 @@
     <Content Include="Theme\files\extra-pages\landingpage\assets\logos\logo7.png" />
     <Content Include="Theme\files\extra-pages\landingpage\index.htm" />
     <None Include="Web References\CheckPaymentRef\CheckPaymentService.disco" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -2915,9 +2924,6 @@
     <Compile Include="StudentSubmitting.aspx.designer.cs">
       <DependentUpon>StudentSubmitting.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Student_Concat.cs">
-      <DependentUpon>REU_Registration.tt</DependentUpon>
-    </Compile>
     <Compile Include="Web References\CheckPaymentRef\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -3050,13 +3056,6 @@
     <Content Include="Pages\RegistrationProcess\DeleteFile.ashx" />
     <Content Include="Template\css\icofont\fonts\icofont.ttf" />
     <Content Include="Template\css\icofont\fonts\icofont.woff" />
-    <EntityDeploy Include="REU_Registration.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>REU_Registration.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="REU_Registration.edmx.diagram">
-      <DependentUpon>REU_Registration.edmx</DependentUpon>
-    </Content>
     <None Include="Service References\ServiceReferencePayment\CheckPaymentService.wsdl" />
     <None Include="Web References\CheckPaymentRef\CheckPaymentService.wsdl" />
     <Content Include="Web References\CheckPaymentRef\Reference.map">
