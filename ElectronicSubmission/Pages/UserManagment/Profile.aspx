@@ -7,6 +7,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Body_Holder" runat="server">
 
+
     <div class="page-body">
         <!-- Article Editor card start -->
         <%--<div class="card" runat="server">--%>
@@ -225,7 +226,7 @@
                                                 <!-- end of row -->
                                                 <div class="text-center">
                                                     <asp:Button  ID="EmpUpdate"  runat="server" Text="Save" class="btn btn-primary waves-effect waves-light m-r-20" ValidationGroup="Per" OnClick="EmpUpdate_Click"  />
-                                                    <a href="#!" id="edit-cancel" class="btn btn-default waves-effect btn-outline-danger"><% = ElectronicSubmission.FieldNames.getFieldName("Profile-cancel", "Cancel") %></a>
+                                                    <a href="#!" id="edit-cancel" class="btn btn-default waves-effect btn-outline-danger"><% = ElectronicSubmission.FieldNames.getFieldName("Profile-Cancel", "Cancel") %></a>
                                                 </div>
                                             </div>
                                             <!-- end of edit info -->

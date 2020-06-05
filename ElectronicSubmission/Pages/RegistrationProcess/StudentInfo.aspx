@@ -63,7 +63,7 @@
 
                 <div class="row">
                      <div class="form-group col-sm-6">
-                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentName", "Student Arabic Name") %></label><i class="icofont icofont-star-alt-1 text-danger"></i>
+                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentArabicName", "Student Arabic Name") %></label><i class="icofont icofont-star-alt-1 text-danger"></i>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
                             <asp:TextBox ID="StudentNameAr" runat="server" class="form-control" placeholder="Enter Student Name"></asp:TextBox>
@@ -72,7 +72,7 @@
                     </div>
 
                     <div class="form-group col-sm-6">
-                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentName", "Student English Name") %></label><i class="icofont icofont-star-alt-1 text-danger"></i>
+                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentEnglishName", "Student English Name") %></label><i class="icofont icofont-star-alt-1 text-danger"></i>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
                             <asp:TextBox ID="StudentNameEn" runat="server" class="form-control" placeholder="Enter Student Name"></asp:TextBox>
@@ -111,7 +111,7 @@
                     </div>
 
                        <div class="form-group col-sm-6">
-                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-AddAttachments", "Add Attachments") %></label>
+                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-AddStudentSSNAttachments", "Add Student SSN Attachments") %></label>
                         <asp:FileUpload ID="StudentSSNFile" runat="server" class="form-control" AllowMultiple="True" />
                     </div>
                   </div>
@@ -172,7 +172,7 @@
                     </div>
 
                      <div class="form-group col-sm-6">
-                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-AddAttachments", "Add Attachments") %></label>
+                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-AddHighSchoolDegreeAttachments", "Add High School Degree Attachments") %></label>
                         <asp:FileUpload ID="HighSchoolDegreeFile" runat="server" class="form-control" AllowMultiple="True" />
                     </div>
                 </div>
@@ -188,11 +188,12 @@
                     </div>
 
                      <div class="form-group col-sm-6">
-                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-AddAttachments", "Add Attachments") %></label>
+                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-AddCapabilitiesDegreeAttachments", "Add Capabilities Degree Attachments") %></label>
                         <asp:FileUpload ID="CapabilitiesDegreeFile" runat="server" class="form-control" AllowMultiple="True" />
                     </div>
                 </div> 
                 
+
                <div class="row">
                      <div class="form-group col-sm-6">
                         <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-MyAchievementDegree", "My Achievement Degree") %></label><i class="icofont icofont-star-alt-1 text-danger"></i>
@@ -204,7 +205,7 @@
                     </div>
 
                      <div class="form-group col-sm-6">
-                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-AddAttachments", "Add Attachments") %></label>
+                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-AddMyAchievementDegreeAttachments", "Add My Achievement Degree Attachments") %></label>
                         <asp:FileUpload ID="MyAchievementDegreeFile" runat="server" class="form-control" AllowMultiple="True" />
                     </div>
 
