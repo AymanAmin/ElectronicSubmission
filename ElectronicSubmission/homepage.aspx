@@ -1,13 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" EnableEventValidation="false" CodeBehind="homepage.aspx.cs" Inherits="ElectronicSubmission.homepage" %>
 
 <!DOCTYPE html>
-<% if(langId != 2) { %>
-<html lang="ar" dir="rtl">
-<% } %>
-<% else
-   { %>
-<html lang="en" dir="ltr">
-<% } %>
+<html lang="<%= ElectronicSubmission.FieldNames.getLangHome() %>" dir="<%= ElectronicSubmission.FieldNames.getDirRTLHome() %>">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,34 +18,12 @@
     <link href="Template/css/prettyphoto.css" rel="stylesheet">
     <link href="Template/build/mediaelementplayer.css" rel="stylesheet">
 
-    <% if(langId != 2) { %>
-    <!-- Arabic Right To Left Css-->
-    <link href="Template/css/slick-slider-rtl.css" rel="stylesheet">
-    <link href="Template/style-rtl.css" rel="stylesheet">
-    <link href="Template/css/bootstrap-rtl.min.css" rel="stylesheet">
-    <link href="Template/css/rtl.min.css" rel="stylesheet">
-    <link href="Template/css/font-awesome-rtl.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cairo:400,700" rel="stylesheet">
-    <style>
-        .nicescroll-rails-vr {right:100px;}
-        .modal-content{float:left;}
-        </style>
-    <% } %>
-    <% else { %>
-    <link href="Template/css/slick-slider.css" rel="stylesheet">
-    <link href="Template/style.css" rel="stylesheet">
-     <% } %>
+    <asp:Literal ID="StyleRTL" runat="server"></asp:Literal>
 
     <link href="Template/css/color.css" rel="stylesheet">
     <link href="Template/css/color-two.css" rel="stylesheet">
     <link href="Template/css/color-three.css" rel="stylesheet">
     <link href="Template/css/color-four.css" rel="stylesheet">
-    <% if(langId != 2) { %>
-    <link href="Template/css/responsive-rtl.css" rel="stylesheet">
-    <% } %>
-    <% else { %>
-    <link href="Template/css/responsive.css" rel="stylesheet">
-     <% } %>
 
     <link href="Template/css/icofont/css/icofont.css" rel="stylesheet">
     <!-- ico font -->
@@ -654,13 +626,7 @@
     <script type="text/javascript" src="Template/script/jquery.nicescroll.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 
-    <% if(langId != 2) { %>
-    <script type="text/javascript" src="Template/script/functions-rtl.js"></script>
-    <% } %>
-    <% else { %>
-    <script type="text/javascript" src="Template/script/functions.js"></script>
-     <% } %>
-
+    <asp:Literal ID="ScriptRTL" runat="server"></asp:Literal>
     <!-- sweet alert js -->
     <script type="text/javascript" src="Theme\files\bower_components\sweetalert\js\sweetalert.min.js"></script>
     <script type="text/javascript" src="Theme\files\assets\js\modal.js"></script>

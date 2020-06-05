@@ -50,6 +50,8 @@ namespace ElectronicSubmission
             }
             SessionWrapper.Language = db.Lanuage_Detials.Where(x => x.Language_Master_Id == langId).ToList();
             translateArabic();
+            SessionWrapper.LanguageHome = langId;
+            getStyleScript();
             if (!IsPostBack)
             {
                 FillDropDownLists();
@@ -63,6 +65,11 @@ namespace ElectronicSubmission
                      Session["Success"] = null;
                  }
             }
+        }
+        private void getStyleScript()
+        {
+            StyleRTL.Text = FieldNames.getSTyleRTLHome();
+            ScriptRTL.Text = FieldNames.getJavaScriptRTLHome();
         }
 
 

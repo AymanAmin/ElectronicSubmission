@@ -31,6 +31,9 @@ namespace ElectronicSubmission
                 }
             }
 
+            SessionWrapper.LanguageHome = langId;
+            getStyleScript();
+
             if (int.TryParse(Request["SpecializationId"], out SpecializationId) && SpecializationId > 0 || Session["SpecializationId"] != null)
             {
                 using (REU_RegistrationEntities db = new REU_RegistrationEntities())
@@ -72,6 +75,12 @@ namespace ElectronicSubmission
             {
                 Response.Redirect("~/homepage.aspx");
             }
+        }
+
+        private void getStyleScript()
+        {
+            StyleRTL.Text = FieldNames.getSTyleRTLHome();
+            ScriptRTL.Text = FieldNames.getJavaScriptRTLHome();
         }
 
         private void translateArabic()

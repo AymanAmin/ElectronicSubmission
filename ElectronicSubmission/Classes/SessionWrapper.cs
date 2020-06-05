@@ -65,6 +65,8 @@ namespace ElectronicSubmission
 
         #region EmpStructures
 
+        #region LanguageHome
+
 
         public static Employee LoggedUser
         {
@@ -146,6 +148,23 @@ namespace ElectronicSubmission
                 }
             }
         }
+
+        public static int LanguageHome
+        {
+            get { return GetFromSession<int>("LanguageHome"); }
+            set
+            {
+                if (value == null)
+                {
+                    HttpContext.Current.Session.Remove("LanguageHome");
+                }
+                else
+                {
+                    SetInSession<int>("LanguageHome", value);
+                }
+            }
+        }
+        #endregion
 
         #endregion
 

@@ -13,6 +13,15 @@ namespace ElectronicSubmission {
     public partial class Bachelors {
         
         /// <summary>
+        /// StyleRTL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal StyleRTL;
+        
+        /// <summary>
         /// headerBachelors control.
         /// </summary>
         /// <remarks>
@@ -74,5 +83,14 @@ namespace ElectronicSubmission {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText AdmissionFormButton;
+        
+        /// <summary>
+        /// ScriptRTL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ScriptRTL;
     }
 }

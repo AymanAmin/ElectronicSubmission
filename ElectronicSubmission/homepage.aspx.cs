@@ -41,6 +41,7 @@ namespace ElectronicSubmission
                     }
                 }
                 SessionWrapper.Language = db.Lanuage_Detials.Where(x => x.Language_Master_Id == langId).ToList();
+                
                 loadFillDrop();
                 loadSpecialization();
                 translateArabic();
@@ -57,8 +58,15 @@ namespace ElectronicSubmission
                     langId = int.Parse(Session["lang"].ToString());
                 }
             }
+            SessionWrapper.LanguageHome = langId;
+            getStyleScript();
         }
 
+        private void getStyleScript()
+        {
+            StyleRTL.Text = FieldNames.getSTyleRTLHome();
+            ScriptRTL.Text = FieldNames.getJavaScriptRTLHome();
+        }
         private void loadFillDrop()
         {
             try

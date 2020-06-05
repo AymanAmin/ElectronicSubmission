@@ -37,6 +37,14 @@ namespace ElectronicSubmission
                 return string.Empty;
         }
 
+        public static string getJavaScriptRTLHome()
+        {
+            if (SessionWrapper.LanguageHome != 2)
+                return "<script type='text/javascript' src='Template/script/functions-rtl.js'></script>";
+            else
+                return "<script type='text/javascript' src='Template/script/functions.js'></script>";
+        }
+
         public static string getDirRTL()
         {
             if (SessionWrapper.LoggedUser.Language_id == 1)
@@ -52,6 +60,43 @@ namespace ElectronicSubmission
             else
                 return string.Empty;
         }
+
+        public static string getSTyleRTLHome()
+        {
+            if (SessionWrapper.LanguageHome != 2)
+                return "<link href='Template/css/slick-slider-rtl.css' rel='stylesheet'>"+
+                        "<link href='Template/style-rtl.css' rel='stylesheet'>"+
+                        "<link href='Template/css/bootstrap-rtl.min.css' rel='stylesheet'>"+
+                        "<link href='Template/css/rtl.min.css' rel='stylesheet'>"+
+                        "<link href='Template/css/font-awesome-rtl.min.css' rel='stylesheet'>"+
+                        "<link href='https://fonts.googleapis.com/css?family=Cairo:400,700' rel='stylesheet'>"+
+                        "<link href='Template/css/responsive-rtl.css' rel='stylesheet'>"+
+                        "<style>"+
+                            ".nicescroll-rails-vr {right:100px;}"+
+                            ".modal-content{float:left;}"+
+                            "</style>";
+            else
+                return "<link href='Template/css/slick-slider.css' rel='stylesheet'>" +
+                         "<link href='Template/style.css' rel='stylesheet'>" +
+                         "<link href='Template/css/responsive.css' rel='stylesheet'>";
+        }
+
+        public static string getDirRTLHome()
+        {
+            if (SessionWrapper.LanguageHome != 2)
+                return "rtl";
+            else
+                return "ltr";
+        }
+
+        public static string getLangHome()
+        {
+            if (SessionWrapper.LanguageHome != 2)
+                return "ar";
+            else
+                return "en";
+        }
+        
 
     }
 }
