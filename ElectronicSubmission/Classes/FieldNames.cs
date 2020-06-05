@@ -56,7 +56,11 @@ namespace ElectronicSubmission
         public static string getSTyleRTL()
         {
             if (SessionWrapper.LoggedUser.Language_id == 1)
-                return " <link rel='stylesheet' type='text/css' href='../../../../Theme/files/assets/css/styleRTL.css' />";
+                return " <link rel='stylesheet' type='text/css' href='../../../../Theme/files/assets/css/styleRTL.css' />"+
+                    "<link rel='stylesheet' type='text/css' href='../../../../Theme/files/assets/css/bootstrap-rtl.min.css' />"+
+                        "<link href='Template/css/rtl.min.css' rel='stylesheet'>"+
+                        "<link href='Template/css/font-awesome-rtl.min.css' rel='stylesheet'>"+
+                        "<link href='https://fonts.googleapis.com/css?family=Cairo:400,700' rel='stylesheet'>";
             else
                 return string.Empty;
         }
