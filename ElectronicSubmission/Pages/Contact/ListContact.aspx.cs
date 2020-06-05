@@ -17,10 +17,10 @@ namespace ElectronicSubmission.Pages.Contact
             if (SessionWrapper.LoggedUser == null)
                 Response.Redirect("~/Pages/Auth/Login.aspx");
             ListStudentContact = db.Student_Concat.ToList();
-
+            LoadStudentContact();
         }
 
-        private void LoadStudent()
+        private void LoadStudentContact()
         {
             try
             {
@@ -57,8 +57,15 @@ namespace ElectronicSubmission.Pages.Contact
 
                     str += "<tr>";
                     str += "<td class='txt-primary'>Expand</td>";
-                    str += "<td> <a href= '../../../../Pages/RegistrationProcess/view.aspx?StudentID=" + ListStudentContact[i].Student_Concat_Id + "' style='color:#00c3da;'>&nbsp;&nbsp; <i class='icofont icofont-eye-alt h5'></i>&nbsp;&nbsp;</a>";
-                    str += "<td>" + ListStudentContact[i].Status.Status_Name_En + "</td>";
+                    str += "<td> <a href= '../../../../Pages/Contact/ViewContact.aspx?StudentID=" + ListStudentContact[i].Student_Concat_Id + "' style='color:#00c3da;'>&nbsp;&nbsp; <i class='icofont icofont-eye-alt h5'></i>&nbsp;&nbsp;</a>";
+                    if (SessionWrapper.LoggedUser.Language_id == 1)
+                    {
+                        str += "<td><label class='label label-success' style='background:" + Color[index] + " !important;'>" + ListStudentContact[i].Status.Status_Name_Ar + "</label></td>";
+                    }
+                    else
+                    {
+                        str += "<td><label class='label label-success' style='background:" + Color[index] + " !important;'>" + ListStudentContact[i].Status.Status_Name_En + "</label></td>";
+                    }
                     str += "<td>" + ListStudentContact[i].Student_Concat_Name + "</td>";
                     str += "<td>" + ListStudentContact[i].Student_Concat_Phone + "</td>";
                     str += "<td>" + ListStudentContact[i].Student_Concat_Email + "</td>";

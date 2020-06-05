@@ -163,6 +163,7 @@
     <Content Include="Pages\Admin\Language.aspx" />
     <Content Include="Pages\Admin\LogFile.aspx" />
     <Content Include="Pages\Contact\ListContact.aspx" />
+    <Content Include="Pages\Contact\ViewContact.aspx" />
     <Content Include="Pages\PaymentWebService\CheckPaymentService.asmx" />
     <Content Include="Pages\RegistrationProcess\AllRecords.aspx" />
     <Content Include="Pages\RegistrationProcess\ListView.aspx" />
@@ -2738,6 +2739,13 @@
     </Compile>
     <Compile Include="Pages\Contact\ListContact.aspx.designer.cs">
       <DependentUpon>ListContact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Contact\ViewContact.aspx.cs">
+      <DependentUpon>ViewContact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Contact\ViewContact.aspx.designer.cs">
+      <DependentUpon>ViewContact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\PaymentWebService\CheckPaymentService.asmx.cs">
       <DependentUpon>CheckPaymentService.asmx</DependentUpon>
