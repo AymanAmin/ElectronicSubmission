@@ -68,14 +68,14 @@ namespace ElectronicSubmission.Pages.Setting
                     RequiredFieldValidator4.Text = "أدخل إسم الأيقونة";
                     RequiredFieldValidator1.Text = "إختيار إسم الكلية";
 
-                    High_School_Percent.Attributes["placeholder"] = "الثانوية العامة";
-                    RequiredFieldValidator2.Text = "أدخل الثانوية العامة";
-                    Capabilities_Percent.Attributes["placeholder"] = "القدرات";
-                    RequiredFieldValidator3.Text = "أدخل القدرات";
-                    My_Achievement_Percent.Attributes["placeholder"] = "التحصيلي";
-                    RequiredFieldValidator5.Text = "أدخل التحصيلي";
-                    Weighted_Ratio_Percent.Attributes["placeholder"] = "المجموع الكلي";
-                    RequiredFieldValidator6.Text = "أدخل المجموع الكلي";
+                    High_School_Percent.Attributes["placeholder"] = "نسبة الثانوية العامة";
+                    RequiredFieldValidator2.Text = "أدخل نسبة الثانوية العامة";
+                    Capabilities_Percent.Attributes["placeholder"] = "نسبة القدرات";
+                    RequiredFieldValidator3.Text = "أدخل نسبة القدرات";
+                    My_Achievement_Percent.Attributes["placeholder"] = "نسبة التحصيلي";
+                    RequiredFieldValidator5.Text = "أدخل نسبة التحصيلي";
+                    Weighted_Ratio_Percent.Attributes["placeholder"] = "النسبة المئوية";
+                    RequiredFieldValidator6.Text = "أدخل النسبة المئوية";
 
                     Specialization_Description_Ar.Attributes["placeholder"] = "وصف التخصص عربي";
                     valSubjectTreatement.Text = "أدخل وصف التخصص عربي";
