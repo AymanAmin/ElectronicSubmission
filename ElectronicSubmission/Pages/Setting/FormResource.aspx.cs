@@ -18,6 +18,8 @@ namespace ElectronicSubmission.Pages.Setting
         {
             if (SessionWrapper.LoggedUser == null)
                 Response.Redirect("~/Pages/Auth/Login.aspx");
+
+            translateArabic();
         }
 
         protected void Save_Click(object sender, EventArgs e)
@@ -55,19 +57,38 @@ namespace ElectronicSubmission.Pages.Setting
             return true;
         }
 
-
-        private void Change_LablesName_BasedOn_Language()
+        private void translateArabic()
         {
-            try
+            if (SessionWrapper.LoggedUser.Language_id != null)
             {
-                ResourceGridView.Columns[0].Caption = FieldNames.getFieldName("FormResource-ID", "ID");
-                ResourceGridView.Columns[1].Caption = FieldNames.getFieldName("FormResource-ArabicName", "Arabic Name");
-                ResourceGridView.Columns[2].Caption = FieldNames.getFieldName("FormResource-Action", "Action");
-                ResourceGridView.Columns[3].Caption = FieldNames.getFieldName("FormResource-EnglishName", "English Name");
-            }
-            catch { }
-        }
+                if (SessionWrapper.LoggedUser.Language_id == 1)
+                {
+                    txtResource_Name.Attributes["placeholder"] = "الإسم عربي";
+                    RFVtxtResource_Name.Text = "أدخل الإسم العربي";
+                    txtResource_Name_En.Attributes["placeholder"] = "الإسم إنجليزي";
+                    RFVtxtResource_Name_En.Text = "أدخل الإسم بالإنجليزي";
+                    Save.Text = "حفظ";
 
+                    ResourceGridView.Columns[0].Caption = FieldNames.getFieldName("FormCollege-ID", "الرقم");
+                    ResourceGridView.Columns[1].Caption = FieldNames.getFieldName("FormCollege-ArabicName", "الإسم عربي");
+                    ResourceGridView.Columns[2].Caption = FieldNames.getFieldName("FormCollege-Action", "الاكشن");
+                    ResourceGridView.Columns[3].Caption = FieldNames.getFieldName("FormCollege-EnglishName", "الإسم إنجليزي");
+                }
+                else
+                {
+                    txtResource_Name.Attributes["placeholder"] = "Arabic Name";
+                    RFVtxtResource_Name.Text = "Enter Name Arabic";
+                    txtResource_Name_En.Attributes["placeholder"] = "English Name";
+                    RFVtxtResource_Name_En.Text = "Enter Name English";
+                    Save.Text = "Save";
+
+                    ResourceGridView.Columns[0].Caption = FieldNames.getFieldName("FormCollege-ID", "ID");
+                    ResourceGridView.Columns[1].Caption = FieldNames.getFieldName("FormCollege-ArabicName", "Arabic Name");
+                    ResourceGridView.Columns[2].Caption = FieldNames.getFieldName("FormCollege-Action", "Action");
+                    ResourceGridView.Columns[3].Caption = FieldNames.getFieldName("FormCollege-EnglishName", "English Name");
+                }
+            }
+        }
 
     }
 }

@@ -52,9 +52,74 @@ namespace ElectronicSubmission.Pages.Setting
 
         public void Emp_Language()
         {
-            if (SessionWrapper.LoggedUser.Language_id == 1)
+            if (SessionWrapper.LoggedUser.Language_id != null)
             {
-                Collage_Id.DataTextField = "Collage_Name_Ar";
+                if (SessionWrapper.LoggedUser.Language_id == 1)
+                {
+                    Collage_Id.DataTextField = "Collage_Name_Ar";
+                    CollegeF.DataTextField = "Collage_Name_Ar";
+                    Keyword.Attributes["placeholder"] = "بحث عن تخصص ...";
+
+                    Specialization_Name_Ar.Attributes["placeholder"] = "الإسم عربي";
+                    RFVtxtSpecialization_Name_Ar.Text = "أدخل الإسم العربي";
+                    Specialization_Name_En.Attributes["placeholder"] = "الإسم إنجليزي";
+                    RFVtxtSpecialization_Name_En.Text = "أدخل الإسم بالإنجليزي";
+                    Specialization_Icon.Attributes["placeholder"] = "إسم الأيقونة";
+                    RequiredFieldValidator4.Text = "أدخل إسم الأيقونة";
+                    RequiredFieldValidator1.Text = "إختيار إسم الكلية";
+
+                    High_School_Percent.Attributes["placeholder"] = "الثانوية العامة";
+                    RequiredFieldValidator2.Text = "أدخل الثانوية العامة";
+                    Capabilities_Percent.Attributes["placeholder"] = "القدرات";
+                    RequiredFieldValidator3.Text = "أدخل القدرات";
+                    My_Achievement_Percent.Attributes["placeholder"] = "التحصيلي";
+                    RequiredFieldValidator5.Text = "أدخل التحصيلي";
+                    Weighted_Ratio_Percent.Attributes["placeholder"] = "المجموع الكلي";
+                    RequiredFieldValidator6.Text = "أدخل المجموع الكلي";
+
+                    Specialization_Description_Ar.Attributes["placeholder"] = "وصف التخصص عربي";
+                    valSubjectTreatement.Text = "أدخل وصف التخصص عربي";
+                    Specialization_Description_En.Attributes["placeholder"] = "وصف التخصص إنجليزي";
+                    RequiredFieldValidator7.Text = "أدخل وصف التخصص إنجليزي";
+                    speech.Attributes["placeholder"] = "شروط القبول عربي";
+                    Minutes.Attributes["placeholder"] = "شروط القبول إنجليزي";
+
+                    Save.Text = "حفظ";
+                    btnSearch.Text = "بحث";
+                }
+                else
+                {
+                    Collage_Id.DataTextField = "Collage_Name_En";
+                    CollegeF.DataTextField = "Collage_Name_En";
+                    Keyword.Attributes["placeholder"] = "Search Specialization ...";
+
+                    Specialization_Name_Ar.Attributes["placeholder"] = "Arabic Name";
+                    RFVtxtSpecialization_Name_Ar.Text = "Enter Arabic Name";
+                    Specialization_Name_En.Attributes["placeholder"] = "English Name";
+                    RFVtxtSpecialization_Name_En.Text = "Enter English Name";
+                    Specialization_Icon.Attributes["placeholder"] = "Specialization Icon";
+                    RequiredFieldValidator4.Text = "Enter Specialization Icon";
+                    RequiredFieldValidator1.Text = "Select College Name";
+
+                    High_School_Percent.Attributes["placeholder"] = "High School Percent";
+                    RequiredFieldValidator2.Text = "Enter High School Percent";
+                    Capabilities_Percent.Attributes["placeholder"] = "Capabilities Percent";
+                    RequiredFieldValidator3.Text = "Enter Capabilities Percent";
+                    My_Achievement_Percent.Attributes["placeholder"] = "My Achievement Percent";
+                    RequiredFieldValidator5.Text = "Enter My Achievement Percent";
+                    Weighted_Ratio_Percent.Attributes["placeholder"] = "Weighted Ratio Percent";
+                    RequiredFieldValidator6.Text = "Enter Weighted Ratio Percent";
+
+                    Specialization_Description_Ar.Attributes["placeholder"] = "Specialization Description Arabic";
+                    valSubjectTreatement.Text = "Enter Specialization Description Arabic";
+                    Specialization_Description_En.Attributes["placeholder"] = "Specialization Description English";
+                    RequiredFieldValidator7.Text = "Enter Specialization Description English";
+                    speech.Attributes["placeholder"] = "Admission Requirements Arabic";
+                    Minutes.Attributes["placeholder"] = "Admission Requirements English";
+
+                    Save.Text = "حفظ";
+                    btnSearch.Text = "Search";
+                }
             }
         }
 

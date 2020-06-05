@@ -260,7 +260,7 @@
                                     <!-- File upload card end -->
                                     <div class="row">
                                         <div class="form-group col-sm-6">
-                                            <label><% = ElectronicSubmission.FieldNames.getFieldName("NewTreatment-SpecializationDescriptionArabic", "Specialization Description Arabic") %></label>
+                                            <label><% = ElectronicSubmission.FieldNames.getFieldName("FormSpecialization-SpecializationDescriptionArabic", "Specialization Description Arabic") %></label>
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="icofont icofont-ui-file"></i></span>
                                                 <asp:TextBox ID="Specialization_Description_Ar" runat="server" placeholder="Enter Specialization Description Arabic" TextMode="MultiLine" Rows="3" class="form-control"></asp:TextBox>
@@ -268,7 +268,7 @@
                                             <asp:RequiredFieldValidator ID="valSubjectTreatement" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Specialization Description Arabic" ValidationGroup="valFormGroup" ControlToValidate="Specialization_Description_Ar" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
                                         </div>
                                         <div class="form-group col-sm-6">
-                                            <label><% = ElectronicSubmission.FieldNames.getFieldName("NewTreatment-SpecializationDescriptionEnglish", "Specialization Description English") %></label>
+                                            <label><% = ElectronicSubmission.FieldNames.getFieldName("FormSpecialization-SpecializationDescriptionEnglish", "Specialization Description English") %></label>
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="icofont icofont-ui-file"></i></span>
                                                 <asp:TextBox ID="Specialization_Description_En" runat="server" placeholder="Enter Specialization Description English" TextMode="MultiLine" Rows="3" class="form-control"></asp:TextBox>
@@ -279,7 +279,7 @@
 
                                     <div class="row">
                                         <div class="form-group col-sm-12">
-                                            <label><% = ElectronicSubmission.FieldNames.getFieldName("NewTreatment-ConditionArabic", "Condition Arabic") %></label>
+                                            <label><% = ElectronicSubmission.FieldNames.getFieldName("FormSpecialization-ConditionArabic", "Condition Arabic") %></label>
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="icofont icofont-clip-board"></i></span>
                                                 <asp:TextBox ID="speech" runat="server" TextMode="MultiLine" Rows="3" class="form-control"></asp:TextBox>
@@ -289,7 +289,7 @@
 
                                     <div class="row">
                                         <div class="form-group col-sm-12">
-                                            <label><% = ElectronicSubmission.FieldNames.getFieldName("NewTreatment-ConditionEnglish", "Condition English") %></label>
+                                            <label><% = ElectronicSubmission.FieldNames.getFieldName("FormSpecialization-ConditionEnglish", "Condition English") %></label>
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="icofont icofont-clip-board"></i></span>
                                                 <asp:TextBox ID="Minutes" runat="server" TextMode="MultiLine" Rows="3" class="form-control"></asp:TextBox>

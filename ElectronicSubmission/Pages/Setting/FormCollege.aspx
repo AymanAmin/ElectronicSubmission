@@ -43,7 +43,7 @@
                                                     <asp:TextBox ID="txtCollege_Name" runat="server" class="form-control" placeholder="Enter Name in Arabic" TextMode="SingleLine"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-12" style="">
-                                                    <asp:RequiredFieldValidator ID="RFVtxtCollege_Name" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Arabic Name" ValidationGroup="College" ControlToValidate="txtCollege_Name" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                    <asp:RequiredFieldValidator ID="RFVtxtCollege_Name" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" ValidationGroup="College" ControlToValidate="txtCollege_Name" Display="Dynamic"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                             <div class="form-group col-sm-12 j-unit">
@@ -57,7 +57,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group col-sm-12" style="text-align: right; margin-top: -2%">
-                                                <asp:Button ID="Save" runat="server" Text="Save" class="btn btn-primary" ValidationGroup="College" OnClick="Save_Click" />
+                                                <asp:Button ID="Save" runat="server" class="btn btn-primary" ValidationGroup="College" OnClick="Save_Click" />
 
                                             </div>
                                         </div>
