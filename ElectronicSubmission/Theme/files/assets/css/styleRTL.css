@@ -174,3 +174,7 @@ table.dataTable>tbody>tr.child ul.dtr-details {
     float: right;
     text-align: right;
 }
+
+.text-right{
+    text-align:left !important;
+}

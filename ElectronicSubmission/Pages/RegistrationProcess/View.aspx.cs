@@ -438,12 +438,12 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
         {
             string sever_name = Request.Url.Authority.ToString();
             string URL = sever_name + "/PaymentProcess.aspx?Trackingkey=" + payment.Payment_Trackingkey;
-            string StudentEmail = "ayman@softwarecornerit.com";//std.Student_Email;
+            string StudentEmail = std.Student_Email; //"ayman@softwarecornerit.com";
             SendEmail send = new SendEmail();
             
-            string Text = " <Strong style='font-size:24px;'>Dear " + std.Student_Name_En + "</Strong><br /><Strong>You can start the payment process: </Strong> " + URL + " <br /> <Strong>Current Status:</Strong> " + std.Status.Status_Name_En + " <br /> <Strong>Date:</Strong> " + DateTime.Now.ToShortDateString();
+            string Text = " <Strong style='font-size:18px;'>Dear " + std.Student_Name_En + "</Strong><br /><Strong>You can start the payment process: </Strong> " + URL + " <br /> <Strong>Current Status:</Strong> " + std.Status.Status_Name_En + " <br /> <Strong>Date:</Strong> " + DateTime.Now.ToShortDateString();
             if (SessionWrapper.LoggedUser.Language_id == 1)
-                Text = " <Strong style='font-size:24px;'>Dear " + std.Student_Name_Ar + "</Strong><br /><Strong>You can start the payment process: </Strong> " + URL + " <br /> <Strong>Current Status:</Strong> " + std.Status.Status_Name_Ar + " <br /> <Strong>Date:</Strong> " + DateTime.Now.ToShortDateString();
+                Text = " <Strong style='font-size:18px;'>Dear " + std.Student_Name_Ar + "</Strong><br /><Strong>You can start the payment process: </Strong> " + URL + " <br /> <Strong>Current Status:</Strong> " + std.Status.Status_Name_Ar + " <br /> <Strong>Date:</Strong> " + DateTime.Now.ToShortDateString();
             bool result = send.TextEmail("Ready To Pay", StudentEmail, Text, sever_name);
             return result;
         }
