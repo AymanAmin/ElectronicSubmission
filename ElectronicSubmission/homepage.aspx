@@ -457,7 +457,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <i class="wmicon-pen"></i>
-                                <input type="text"  id="txtAdmissionFormButton" runat="server" readonly="readonly" style="width: 50%;" >
+                                <input type="text"  id="txtAdmissionFormButton" runat="server" readonly="readonly" style="width: 77%;" >
                                 <a href="StudentSubmitting.aspx"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-AdmissionFormRequest", "Admission Form Request") %></a>
                             </div>
                         </div>
