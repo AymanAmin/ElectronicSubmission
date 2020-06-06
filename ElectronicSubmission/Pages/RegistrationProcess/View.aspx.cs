@@ -146,8 +146,14 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                         seq.Student_Id = std.Student_Id;
                         seq.DateCreation = DateTime.Now;
 
+                        if (SessionWrapper.LoggedUser.Language_id == 1)
+                            txtStatus.Text = "<span class='label label-warning' style='background:" + Color[index] + " !important;'>" + std.Status.Status_Name_Ar + "</span>";
+                        else
+                            txtStatus.Text = "<span class='label label-warning' style='background:" + Color[index] + " !important;'>" + std.Status.Status_Name_En + "</span>";
+
                         db.Sequences.Add(seq);
                         db.SaveChanges();
+
 
                         db.Configuration.LazyLoadingEnabled = false;
                         /* Add it to log file */

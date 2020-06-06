@@ -62,7 +62,7 @@ namespace ElectronicSubmission
 
         private void LoadBreadcrumb(List<Permission> ListPermission)
         {
-            string str = "<li class='breadcrumb-item'><a href = '~/'><i class='feather icon-home'></i></a></li>";
+            string str = "<li class='breadcrumb-item'><a href = '../../../../default.aspx'><i class='feather icon-home'></i></a></li>";
 
             List<string> breadcrumbs = new List<string>();
 
