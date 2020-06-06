@@ -319,7 +319,7 @@
                 <div class="form-group col-sm-12" style="text-align: right;">
                     <button runat="server" id="AddEmp" type="button" class="btn btn-primary" data-toggle="modal" data-target="#sign-in-social" onclick="showmodel(this)"><% = ElectronicSubmission.FieldNames.getFieldName("FormSpecialization-AddSpecialization", "Add Specialization") %></button>
                 </div>
-                <div class="row users-card" runat="server" id="UCard">
+                <div class="users-card" runat="server" id="UCard">
                 </div>
 
             </div>
