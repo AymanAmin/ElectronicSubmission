@@ -21,6 +21,7 @@ jQuery(document).ready(function($) {
           slidesToScroll: 1,
           arrows: false,
           fade: true,
+          rtl: true,
           asNavFor: '.wm-banner-one-nav'
         });
         jQuery('.wm-banner-one-nav').slick({
@@ -41,7 +42,6 @@ jQuery(document).ready(function($) {
                     slidesToScroll: 1,
                     infinite: true,
                     vertical: true,
-                    rtl:true,
                   }
                 },
                 {
@@ -80,7 +80,7 @@ jQuery(document).ready(function($) {
                     
                   }
                 }
-              ],
+          ],
         });
     //***************************
     // LatestEvent Functions
@@ -94,6 +94,7 @@ jQuery(document).ready(function($) {
           dots: true,
           arrows: false,
           fade: true,
+          rtl: true,
           responsive: [
                 {
                   breakpoint: 1024,
@@ -132,6 +133,7 @@ jQuery(document).ready(function($) {
           autoplay: true,
           autoplaySpeed: 2000,
           infinite: true,
+          rtl: true,
           prevArrow: "<span class='slick-arrow slick-arrow-left'><i class='wmicon-arrows4'></i></span>",
           nextArrow: "<span class='slick-arrow slick-arrow-right'><i class='wmicon-arrows4'></i></span>",
           responsive: [
@@ -171,6 +173,7 @@ jQuery(document).ready(function($) {
           autoplay: true,
           autoplaySpeed: 5000,
           infinite: true,
+          rtl: true,
           prevArrow: "<span class='slick-arrow slick-arrow-left'><i class='wmicon-arrows4'></i></span>",
           nextArrow: "<span class='slick-arrow slick-arrow-right'><i class='wmicon-arrows4'></i></span>",
           responsive: [
@@ -210,6 +213,7 @@ jQuery(document).ready(function($) {
           autoplay: true,
           autoplaySpeed: 3000,
           infinite: true,
+          rtl: true,
           prevArrow: "<span class='slick-arrow slick-arrow-left'><i class='wmicon-arrows4'></i></span>",
           nextArrow: "<span class='slick-arrow slick-arrow-right'><i class='wmicon-arrows4'></i></span>",
           responsive: [
@@ -251,6 +255,7 @@ jQuery(document).ready(function($) {
           infinite: true,
           arrows: false,
           fade: true,
+          rtl: true,
           responsive: [
                 {
                   breakpoint: 1024,
@@ -287,6 +292,7 @@ jQuery(document).ready(function($) {
           infinite: true,
           arrows: false,
           fade: true,
+          rtl: true,
           responsive: [
                 {
                   breakpoint: 1024,
@@ -324,6 +330,7 @@ jQuery(document).ready(function($) {
           autoplay: true,
           autoplaySpeed: 2000,
           infinite: true,
+          rtl: true,
           prevArrow: "<span class='slick-arrow slick-arrow-left'><i class='wmicon-arrows3'></i></span>",
           nextArrow: "<span class='slick-arrow slick-arrow-right'><i class='wmicon-arrows3'></i></span>",
           fade: true,
@@ -364,6 +371,7 @@ jQuery(document).ready(function($) {
           autoplay: true,
           autoplaySpeed: 2000,
           infinite: true,
+          rtl: true,
           prevArrow: "<span class='slick-arrow slick-arrow-left'><i class='wmicon-arrows3'></i></span>",
           nextArrow: "<span class='slick-arrow slick-arrow-right'><i class='wmicon-arrows3'></i></span>",
           responsive: [
@@ -404,6 +412,7 @@ jQuery(document).ready(function($) {
           autoplay: true,
           autoplaySpeed: 2000,
           infinite: true,
+          rtl: true,
           prevArrow: "<span class='slick-arrow slick-arrow-left'><i class='wmicon-arrows3'></i></span>",
           nextArrow: "<span class='slick-arrow slick-arrow-right'><i class='wmicon-arrows3'></i></span>",
           responsive: [
@@ -445,6 +454,7 @@ jQuery(document).ready(function($) {
           infinite: true,
           vertical: true,
           centerMode: true,
+          rtl: true,
           prevArrow: "<span class='slick-arrow slick-arrow-left'><i class='wmicon-arrows2'></i></span>",
           nextArrow: "<span class='slick-arrow slick-arrow-right'><i class='wmicon-arrows2'></i></span>",
           responsive: [
@@ -484,6 +494,7 @@ jQuery(document).ready(function($) {
           autoplay: true,
           autoplaySpeed: 2000,
           infinite: true,
+          rtl: true,
           prevArrow: "<span class='slick-arrow slick-arrow-left'><i class='wmicon-arrows2'></i></span>",
           nextArrow: "<span class='slick-arrow slick-arrow-right'><i class='wmicon-arrows2'></i></span>",
           responsive: [
@@ -525,6 +536,7 @@ jQuery(document).ready(function($) {
           autoplay: true,
           autoplaySpeed: 2000,
           infinite: true,
+          rtl: true,
           prevArrow: "<span class='slick-arrow slick-arrow-left'><i class='wmicon-arrows2'></i></span>",
           nextArrow: "<span class='slick-arrow slick-arrow-right'><i class='wmicon-arrows2'></i></span>",
           responsive: [
@@ -561,6 +573,7 @@ jQuery(document).ready(function($) {
           autoplay: true,
           autoplaySpeed: 2000,
           infinite: true,
+          rtl: true,
           prevArrow: "<span class='slick-arrow slick-arrow-left'><i class='wmicon-arrows'></i></span>",
           nextArrow: "<span class='slick-arrow slick-arrow-right'><i class='wmicon-arrows'></i></span>",
           responsive: [
@@ -600,6 +613,7 @@ jQuery(document).ready(function($) {
           autoplay: true,
           autoplaySpeed: 2000,
           infinite: true,
+          rtl: true,
           prevArrow: "<span class='slick-arrow slick-arrow-left'><i class='wmicon-arrows'></i></span>",
           nextArrow: "<span class='slick-arrow slick-arrow-right'><i class='wmicon-arrows'></i></span>",
           responsive: [
@@ -639,6 +653,7 @@ jQuery(document).ready(function($) {
           autoplay: true,
           autoplaySpeed: 2000,
           infinite: true,
+          rtl: true,
           prevArrow: "<span class='slick-arrow slick-arrow-left'><i class='wmicon-arrows'></i></span>",
           nextArrow: "<span class='slick-arrow slick-arrow-right'><i class='wmicon-arrows'></i></span>",
           responsive: [
