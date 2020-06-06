@@ -172,4 +172,5 @@ div.dataTables_wrapper div.dataTables_filter {
 table.dataTable>tbody>tr.child ul.dtr-details {
     direction: rtl;
     float: right;
+    text-align: right;
 }
