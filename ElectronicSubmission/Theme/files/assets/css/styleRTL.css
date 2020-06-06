@@ -178,3 +178,7 @@ table.dataTable>tbody>tr.child ul.dtr-details {
 .text-right{
     text-align:left !important;
 }
+
+#Body_Holder_UCard{
+    display: inline-flex !important;
+}
