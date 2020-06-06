@@ -58,13 +58,13 @@ namespace ElectronicSubmission {
         protected global::System.Web.UI.WebControls.FileUpload stuProfile;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// Stu_ProfileValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Stu_ProfileValidator;
         
         /// <summary>
         /// StudentNameAr control.
@@ -76,13 +76,13 @@ namespace ElectronicSubmission {
         protected global::System.Web.UI.WebControls.TextBox StudentNameAr;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// StudentNameArValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator StudentNameArValidator;
         
         /// <summary>
         /// StudentNameEn control.
@@ -94,13 +94,13 @@ namespace ElectronicSubmission {
         protected global::System.Web.UI.WebControls.TextBox StudentNameEn;
         
         /// <summary>
-        /// RequiredFieldValidator9 control.
+        /// StudentNameEnValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator9;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator StudentNameEnValidator;
         
         /// <summary>
         /// StudentPhone control.
@@ -112,13 +112,13 @@ namespace ElectronicSubmission {
         protected global::System.Web.UI.WebControls.TextBox StudentPhone;
         
         /// <summary>
-        /// RequiredFieldValidator4 control.
+        /// StudentPhoneValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator StudentPhoneValidator;
         
         /// <summary>
         /// StudentEmail control.
@@ -130,13 +130,13 @@ namespace ElectronicSubmission {
         protected global::System.Web.UI.WebControls.TextBox StudentEmail;
         
         /// <summary>
-        /// RequiredFieldValidator5 control.
+        /// StudentEmailValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator StudentEmailValidator;
         
         /// <summary>
         /// Student_SSN control.
@@ -148,13 +148,13 @@ namespace ElectronicSubmission {
         protected global::System.Web.UI.WebControls.TextBox Student_SSN;
         
         /// <summary>
-        /// RequiredFieldValidator3 control.
+        /// Student_SSNValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Student_SSNValidator;
         
         /// <summary>
         /// StudentSSNFile control.
@@ -166,13 +166,13 @@ namespace ElectronicSubmission {
         protected global::System.Web.UI.WebControls.FileUpload StudentSSNFile;
         
         /// <summary>
-        /// RequiredFieldValidator11 control.
+        /// StudentSSNFileValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator11;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator StudentSSNFileValidator;
         
         /// <summary>
         /// Address control.
@@ -184,13 +184,13 @@ namespace ElectronicSubmission {
         protected global::System.Web.UI.WebControls.TextBox Address;
         
         /// <summary>
-        /// RequiredFieldValidator10 control.
+        /// AddressValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator10;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator AddressValidator;
         
         /// <summary>
         /// Specialization_ID control.
@@ -202,13 +202,13 @@ namespace ElectronicSubmission {
         protected global::System.Web.UI.WebControls.DropDownList Specialization_ID;
         
         /// <summary>
-        /// valSpecialization control.
+        /// Specialization_IDValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator valSpecialization;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Specialization_IDValidator;
         
         /// <summary>
         /// Resource_ID control.
@@ -220,13 +220,13 @@ namespace ElectronicSubmission {
         protected global::System.Web.UI.WebControls.DropDownList Resource_ID;
         
         /// <summary>
-        /// valResource control.
+        /// Resource_IDValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator valResource;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Resource_IDValidator;
         
         /// <summary>
         /// Nationality_ID control.
@@ -238,13 +238,13 @@ namespace ElectronicSubmission {
         protected global::System.Web.UI.WebControls.DropDownList Nationality_ID;
         
         /// <summary>
-        /// valNationalityID control.
+        /// Nationality_IDValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator valNationalityID;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Nationality_IDValidator;
         
         /// <summary>
         /// HighSchoolDegree control.
@@ -256,13 +256,13 @@ namespace ElectronicSubmission {
         protected global::System.Web.UI.WebControls.TextBox HighSchoolDegree;
         
         /// <summary>
-        /// RequiredFieldValidator6 control.
+        /// HighSchoolDegreeValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator HighSchoolDegreeValidator;
         
         /// <summary>
         /// HighSchoolDegreeFile control.
@@ -274,13 +274,13 @@ namespace ElectronicSubmission {
         protected global::System.Web.UI.WebControls.FileUpload HighSchoolDegreeFile;
         
         /// <summary>
-        /// RequiredFieldValidator12 control.
+        /// HighSchoolDegreeFileValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator12;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator HighSchoolDegreeFileValidator;
         
         /// <summary>
         /// CapabilitiesDegree control.
@@ -292,13 +292,13 @@ namespace ElectronicSubmission {
         protected global::System.Web.UI.WebControls.TextBox CapabilitiesDegree;
         
         /// <summary>
-        /// RequiredFieldValidator7 control.
+        /// CapabilitiesDegreeValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator CapabilitiesDegreeValidator;
         
         /// <summary>
         /// CapabilitiesDegreeFile control.
@@ -310,13 +310,13 @@ namespace ElectronicSubmission {
         protected global::System.Web.UI.WebControls.FileUpload CapabilitiesDegreeFile;
         
         /// <summary>
-        /// RequiredFieldValidator13 control.
+        /// CapabilitiesDegreeFileValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator13;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator CapabilitiesDegreeFileValidator;
         
         /// <summary>
         /// MyAchievementDegree control.
@@ -328,13 +328,13 @@ namespace ElectronicSubmission {
         protected global::System.Web.UI.WebControls.TextBox MyAchievementDegree;
         
         /// <summary>
-        /// RequiredFieldValidator8 control.
+        /// MyAchievementDegreeValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator MyAchievementDegreeValidator;
         
         /// <summary>
         /// MyAchievementDegreeFile control.
@@ -346,13 +346,13 @@ namespace ElectronicSubmission {
         protected global::System.Web.UI.WebControls.FileUpload MyAchievementDegreeFile;
         
         /// <summary>
-        /// RequiredFieldValidator14 control.
+        /// MyAchievementDegreeFileValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator14;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator MyAchievementDegreeFileValidator;
         
         /// <summary>
         /// Save control.
