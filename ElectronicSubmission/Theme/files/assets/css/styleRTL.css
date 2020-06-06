@@ -164,3 +164,12 @@ html body h1 h2 h3 h4 h5 h6 p a li ul div {
     color: #0a1350;
 }
 .dxgvHeader_Mulberry{text-align: center !important;}
+
+div.dataTables_wrapper div.dataTables_filter {
+    float: left !important;
+}
+
+table.dataTable>tbody>tr.child ul.dtr-details {
+    direction: rtl;
+    float: right;
+}
