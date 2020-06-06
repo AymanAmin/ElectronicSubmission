@@ -65,6 +65,7 @@ namespace ElectronicSubmission
                      Session["Success"] = null;
                  }
             }
+
         }
         private void getStyleScript()
         {
@@ -97,6 +98,12 @@ namespace ElectronicSubmission
 
                 if (result)
                 {
+                    string sever_name = Request.Url.Authority.ToString();
+                    string StuEmail = StudentEmail.Text;
+                    SendEmail send = new SendEmail();
+                    string Text = " <Strong style='font-size:24px;'>Dear " + StudentNameEn.Text + "</Strong><br /><Strong>You can start the payment process: </Strong> " + "mazin" + " <br /> <Strong>Current Status:</Strong> " + "awad" + " <br /> <Strong>Date:</Strong> " + DateTime.Now.ToShortDateString();
+                    bool R = send.TextEmail("Ready To Pay", StuEmail, Text, sever_name);
+
                     Session["Success"] = true;
                     if (StudentID == 0) Response.Redirect("~/StudentSubmitting.aspx");
                 }
@@ -288,6 +295,9 @@ namespace ElectronicSubmission
 
                 if (langId == 1)
                     Save.Text = "حفظ";
+
+                if (langId == 1)
+                    translateValidationArabic();
             }
             catch (Exception e) { }
 
@@ -332,6 +342,27 @@ namespace ElectronicSubmission
             {
                 AdmissionFormButton.Value = "Please fill the application Form";
             }
+        }
+        
+        public void translateValidationArabic()
+        {
+            Stu_ProfileValidator.Text = "إختر الصورة الشخصية";
+            StudentNameArValidator.Text = "الرجاء إدخال الإسم بالعربي";
+            StudentNameEnValidator.Text = "الرجاء إدخال الإسم بالانجليزي";
+            StudentEmailValidator.Text = "الرجاء إدخال البريد الإلكتروني";
+            StudentPhoneValidator.Text = "الرجاء إدخال رقم الهاتف";
+            AddressValidator.Text = "الرجاء إدخال العنوان";
+            StudentSSNFileValidator.Text = "الرجاء إرفاق الهوية";
+            Student_SSN.Text = "الرجاء إدخال رقم الهوية";
+            HighSchoolDegreeValidator.Text = "الرجاء إدخال درجات الشهادة الثانوية";
+            CapabilitiesDegreeValidator.Text = "الرجاء إدخال درجات القدرات";
+            MyAchievementDegreeValidator.Text = "الرجاء إدخال درجات التحصيلي";
+            HighSchoolDegreeFileValidator.Text = "الرجاء إرفق الشهادة الثانوية";
+            CapabilitiesDegreeFileValidator.Text = "الرجاء إرفاق شهادة القدرات";
+            MyAchievementDegreeFileValidator.Text = "الرجاء إرفاق شهادة التحصيلي";
+            Resource_IDValidator.Text = "إختر المصدر";
+            Nationality_IDValidator.Text = "إختر الجنسية";
+            Specialization_IDValidator.Text = "إختر التخصص";
         }
     }
 }

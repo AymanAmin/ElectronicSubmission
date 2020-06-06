@@ -306,8 +306,11 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 else
                     ddlFiller.dropDDL(Nationality_ID, "Nationality_Id", "Nationality_Name_En", NationalityList, " - Select Nationality -");
 
-                if (SessionWrapper.LoggedUser.Language_id == 1)
+                   if (SessionWrapper.LoggedUser.Language_id == 1)
                     Save.Text = "حفظ";
+
+                if (SessionWrapper.LoggedUser.Language_id == 1)
+                    translateValidationArabic();
             }
             catch (Exception e) { }
 
@@ -343,6 +346,22 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
 
             return true;
 
+        }
+
+        public void translateValidationArabic()
+        {
+            StudentNameArValidator.Text = "الرجاء إدخال الإسم بالعربي";
+            StudentNameEnValidator.Text = "الرجاء إدخال الإسم بالانجليزي";
+            StudentEmailValidator.Text = "الرجاء إدخال البريد الإلكتروني";
+            StudentPhoneValidator.Text = "الرجاء إدخال رقم الهاتف";
+            AddressValidator.Text = "الرجاء إدخال العنوان";
+            Student_SSN.Text = "الرجاء إدخال رقم الهوية";
+            HighSchoolDegreeValidator.Text = "الرجاء إدخال درجات الشهادة الثانوية";
+            CapabilitiesDegreeValidator.Text = "الرجاء إدخال درجات القدرات";
+            MyAchievementDegreeValidator.Text = "الرجاء إدخال درجات التحصيلي";
+            Resource_IDValidator.Text = "إختر المصدر";
+            Nationality_IDValidator.Text = "إختر الجنسية";
+            Specialization_IDValidator.Text = "إختر التخصص";
         }
     }
 }
