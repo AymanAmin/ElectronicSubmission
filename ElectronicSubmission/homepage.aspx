@@ -322,13 +322,22 @@
                                     <p><% = ElectronicSubmission.FieldNames.getFieldName("homepage-StillNotConvincedDetail", "Fill out the form below and we will contact you.") %></p>
                                     <div style="border: 2px solid #ffffff; padding: 12px 8px 25px 0px;">
                                         <asp:TextBox ID="StepStudentName" runat="server"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="valStepStudentName" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" ValidationGroup="valFormGroup1" ControlToValidate="StepStudentName" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
                                         <asp:TextBox ID="StepStudentPhone" runat="server"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="valStepStudentPhone" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" ValidationGroup="valFormGroup1" ControlToValidate="StepStudentPhone" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
                                         <asp:TextBox ID="StepStudentEmail" runat="server"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="valStepStudentEmail" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" ValidationGroup="valFormGroup1" ControlToValidate="StepStudentEmail" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
                                         <asp:Button ID="SubmitStep" runat="server" Text="Send" ValidationGroup="valFormGroup1" OnClick="SubmitStep_Click" />
+                                        <br>
                                     </div>
+                                    <ul>
+                                        <li style="color:#1e2860">
+                                            <asp:RequiredFieldValidator ID="valStepStudentName" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" ValidationGroup="valFormGroup1" ControlToValidate="StepStudentName" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
+                                        </li>
+                                        <li style="color:#1e2860">
+                                            <asp:RequiredFieldValidator ID="valStepStudentPhone" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" ValidationGroup="valFormGroup1" ControlToValidate="StepStudentPhone" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
+                                        </li>
+                                        <li style="color:#1e2860">
+                                            <asp:RequiredFieldValidator ID="valStepStudentEmail" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" ValidationGroup="valFormGroup1" ControlToValidate="StepStudentEmail" Display="Dynamic" CssClass="col-form-label"></asp:RequiredFieldValidator>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
 
@@ -358,7 +367,7 @@
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="wm-map">
-                                                        <div id="map"></div>
+                                                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d231875.01587813653!2d46.4668287!3d24.7595734!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2efc51ecffffff%3A0x654f534d5c948f2e!2sRiyadh%20Elm%20University!5e0!3m2!1sen!2s!4v1591457410444!5m2!1sen!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-8">
