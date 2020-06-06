@@ -944,7 +944,7 @@ function init() {
         zoom: 11,
 
         // The latitude and longitude to center the map (always required)
-        center: new google.maps.LatLng(40.6700, -73.9400), // New York
+        center: new google.maps.LatLng(24.669441, 46.729127), // New York
 
         // How you would like to style the map. 
         // This is where you would paste any style found on Snazzy Maps.
