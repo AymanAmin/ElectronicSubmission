@@ -76,15 +76,6 @@ namespace ElectronicSubmission {
         protected global::System.Web.UI.WebControls.TextBox StepStudentName;
         
         /// <summary>
-        /// valStepStudentName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator valStepStudentName;
-        
-        /// <summary>
         /// StepStudentPhone control.
         /// </summary>
         /// <remarks>
@@ -92,15 +83,6 @@ namespace ElectronicSubmission {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox StepStudentPhone;
-        
-        /// <summary>
-        /// valStepStudentPhone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator valStepStudentPhone;
         
         /// <summary>
         /// StepStudentEmail control.
@@ -112,15 +94,6 @@ namespace ElectronicSubmission {
         protected global::System.Web.UI.WebControls.TextBox StepStudentEmail;
         
         /// <summary>
-        /// valStepStudentEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator valStepStudentEmail;
-        
-        /// <summary>
         /// SubmitStep control.
         /// </summary>
         /// <remarks>
@@ -128,6 +101,33 @@ namespace ElectronicSubmission {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button SubmitStep;
+        
+        /// <summary>
+        /// valStepStudentName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valStepStudentName;
+        
+        /// <summary>
+        /// valStepStudentPhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valStepStudentPhone;
+        
+        /// <summary>
+        /// valStepStudentEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valStepStudentEmail;
         
         /// <summary>
         /// StudentName control.
