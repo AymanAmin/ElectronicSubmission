@@ -252,7 +252,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <i class="wmicon-pen"></i>
-                                <input type="text" readonly="readonly" style="width: 50%;" value="Please click on the button to start the application Form">
+                                <input type="text" readonly="readonly" style="width: 77%;" value="Please click on the button to start the application Form">
                                 <a href="StudentSubmitting.aspx">Submission Form Request</a>
                             </div>
                         </div>

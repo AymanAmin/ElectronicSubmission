@@ -18,7 +18,7 @@
                                 <asp:Literal ID="txtFirstPercentage" runat="server"></asp:Literal><i class="m-l-10 feather icon-arrow-up"></i>
                             </label>
                         </div>
-                        <div class="col text-right">
+                        <div class="col <%= ElectronicSubmission.FieldNames.getTextRTL() %>">
                             <h5 class=""><asp:Literal ID="txtFirst" runat="server"></asp:Literal></h5>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                                 <asp:Literal ID="txtSecondPercentage" runat="server"></asp:Literal> <i class="m-l-10 feather icon-arrow-up"></i>
                             </label>
                         </div>
-                        <div class="col text-right">
+                        <div class="col <%= ElectronicSubmission.FieldNames.getTextRTL() %>">
                             <h5 class=""><asp:Literal ID="txtSecond" runat="server"></asp:Literal></h5>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                                 <asp:Literal ID="txtThirdPercentage" runat="server"></asp:Literal> <i class="m-l-10 feather icon-arrow-up"></i>
                             </label>
                         </div>
-                        <div class="col text-right">
+                        <div class="col <%= ElectronicSubmission.FieldNames.getTextRTL() %>">
                             <h5 class=""><asp:Literal ID="txtThird" runat="server"></asp:Literal></h5>
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                                 <asp:Literal ID="txtFourPercentage" runat="server"></asp:Literal> <i class="m-l-10 feather icon-arrow-up"></i>
                             </label>
                         </div>
-                        <div class="col text-right">
+                        <div class="col <%= ElectronicSubmission.FieldNames.getTextRTL() %>">
                             <h5 class=""><asp:Literal ID="txtFour" runat="server"></asp:Literal></h5>
                         </div>
                     </div>

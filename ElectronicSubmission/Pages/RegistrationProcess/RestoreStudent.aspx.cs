@@ -54,7 +54,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                         index = 1;
 
                     str += "<tr>";
-                    str += "<td class='txt-primary'>Expand</td>";
+                    str += "<td class='txt-primary'>" + FieldNames.getFieldName("ListView-Expand", "Expand") + "</td>";
                     str += "<td>";
                     //str += "<a href= '../../../../Pages/RegistrationProcess/view.aspx?StudentID=" + ListAllStudent[i].Student_Id + "' style='color:#00c3da;'>&nbsp;&nbsp; <i class='icofont icofont-eye-alt h5'></i>&nbsp;&nbsp;</a>";
                     //str += "<a href= '../../../../Pages/RegistrationProcess/StudentInfo.aspx?StudentID=" + ListAllStudent[i].Student_Id + "' style='color:green;'>&nbsp;&nbsp; <i class='icofont icofont-ui-edit h5'></i>&nbsp;&nbsp;</a>";

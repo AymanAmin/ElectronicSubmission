@@ -133,16 +133,16 @@ namespace ElectronicSubmission
             string DelayData = "[";
             for (int i = 0; i < statuslist.Count; i++)
             {
+                if (statuslist[i].Status_Code == 14 || statuslist[i].Status_Code == 15)
+                    continue;
+
                 if (SessionWrapper.LoggedUser.Language_id == 1)
                     DelayStatus += "' " + statuslist[i].Status_Name_Ar + " '";
                 else
                     DelayStatus += "'" + statuslist[i].Status_Name_En + "'";
 
-                //if (DelayList[i].Length <= 3)
                 double dalay = double.Parse(DelayList[i]);
                     DelayData += ((int)dalay).ToString();
-                /*else
-                    DelayData += (int.Parse(DelayList[i].Substring(0, 3))).ToString();*/
 
                 if (i < statuslist.Count - 1)
                 {

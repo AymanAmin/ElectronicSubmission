@@ -100,7 +100,13 @@ namespace ElectronicSubmission
             else
                 return "en";
         }
-        
 
+        public static string getTextRTL()
+        {
+            if (SessionWrapper.LoggedUser.Language_id == 1)
+                return "text-left";
+            else
+                return "text-right";
+        }
     }
 }

@@ -1,9 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterEn.Master" AutoEventWireup="true" CodeBehind="StudentInfo.aspx.cs" Inherits="ElectronicSubmission.Pages.RegistrationProcess.StudentInfo" %>
 
 <%@ Register Assembly="DevExpress.Web.v17.2, Version=17.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="Body_Holder" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-Title", "ECMS -Student Info") %></title>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="Body_Holder" runat="server">
+    
     <!-- ckeditor.css-->
     <link rel="stylesheet" href="~/Theme\files\bower_components\ckeditor\samples\css\samples.css" />
     <link rel="stylesheet" href="~/Theme\files\bower_components\ckeditor\samples\toolbarconfigurator/lib/codemirror/neo.css" />

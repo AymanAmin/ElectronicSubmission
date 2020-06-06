@@ -57,7 +57,7 @@ namespace ElectronicSubmission
         /// <param name="NewPassword"></param>
         /// <param name="server_name"></param>
         /// <returns>return True if it sent the email - false if not senr</returns>
-        public bool ResetEmail(string SendTo, string NewPassword, string server_name)
+        public bool ResetEmail(string SendTo, string NewPassword, string server_name,string subject)
         {
             bool res = IsValidEmail(SendTo);
             if (!res)
@@ -65,7 +65,7 @@ namespace ElectronicSubmission
 
             string restEmail_Message = string.Empty;
             restEmail_Message += "<head>";
-            restEmail_Message += "<title> Rest Email</title>";
+            restEmail_Message += "<title> "+ subject + "</title>";
             restEmail_Message += "<meta content = 'text/html; charset=utf-8' http-equiv='Content-Type'> ";
             restEmail_Message += "<meta content = 'width=device-width' name='viewport'> ";
             restEmail_Message += "<style type = 'text/css'> ";
@@ -132,7 +132,7 @@ namespace ElectronicSubmission
             restEmail_Message += "</tr> ";
             restEmail_Message += "<tr> ";
             restEmail_Message += "<td style='-ms-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: 100%; color: #9095a2; font-family: 'Postmates Std', 'Helvetica', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif; font-size: 16px; font-smoothing: always; font-style: normal; font-weight: 400; letter-spacing: -0.18px; line-height: 24px; mso-line-height-rule: exactly; text-decoration: none; vertical-align: top; width: 100%;'>";
-            restEmail_Message += " You're receiving this e-mail because you requested a password reset for your Admission System account.";
+            restEmail_Message += " You're receiving this e-mail because you requested a "+ subject + " form Admission System.";
             restEmail_Message += "</td>";
             restEmail_Message += "</tr>";
             restEmail_Message += "<tr>";
@@ -152,7 +152,7 @@ namespace ElectronicSubmission
 
                 mail.From = new MailAddress(System_email, System_Name);
                 mail.To.Add(SendTo);
-                mail.Subject = "Admission - Reset Password";
+                mail.Subject = "Admission - "+subject;
                 mail.Body = restEmail_Message;
                 mail.Priority = MailPriority.High;
                 mail.IsBodyHtml = true;

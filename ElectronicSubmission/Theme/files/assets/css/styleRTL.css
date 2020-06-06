@@ -172,4 +172,13 @@ div.dataTables_wrapper div.dataTables_filter {
 table.dataTable>tbody>tr.child ul.dtr-details {
     direction: rtl;
     float: right;
+    text-align: right;
+}
+
+.text-right{
+    text-align:left !important;
+}
+
+#Body_Holder_UCard{
+    display: inline-flex !important;
 }

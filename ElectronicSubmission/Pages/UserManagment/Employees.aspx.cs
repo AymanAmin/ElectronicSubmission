@@ -101,7 +101,7 @@ namespace ElectronicSubmission.Pages.Treatment
 
                     string sever_name = Request.Url.Authority.ToString();
                     SendEmail send = new SendEmail();
-                    bool EmailResult = send.ResetEmail(Email, New_Password, sever_name);
+                    bool EmailResult = send.ResetEmail(Email, New_Password, sever_name,"New Account");
                     if (EmailResult)
                     {
                         Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "show_model_sucess();", true);

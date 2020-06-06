@@ -14,7 +14,7 @@
     <!-- Meta -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="#" />
     <meta name="keywords" content=" Flat ui, Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app" />
     <meta name="author" content="#" />
@@ -65,10 +65,10 @@
 
     <!-- Data Table Css -->
     <link rel="stylesheet" type="text/css" href="~\Theme\files\bower_components\datatables.net-bs4\css\dataTables.bootstrap4.min.css" />
-    <link rel="stylesheet" type="text/css" href="~\Theme\files\assets\pages\data-table\css\buttons.dataTables.min.css"/>
-    <link rel="stylesheet" type="text/css" href="~\Theme\files\bower_components\datatables.net-responsive-bs4\css\responsive.bootstrap4.min.css"/>
-   
-     <link rel="icon" href="~\Theme\files\assets\images\favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="~\Theme\files\assets\pages\data-table\css\buttons.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="~\Theme\files\bower_components\datatables.net-responsive-bs4\css\responsive.bootstrap4.min.css" />
+
+    <link rel="icon" href="~\Theme\files\assets\images\favicon.ico" type="image/x-icon" />
     <!-- Required Fremwork -->
     <link rel="stylesheet" type="text/css" href="~\Theme\files\bower_components\font-awesome\css\font-awesome.min.css" />
     <!-- Date-time picker css -->
@@ -94,7 +94,7 @@
     <asp:Literal ID="Style" runat="server"></asp:Literal>
 
     <!--Arabic Language-->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300&display=swap" rel="stylesheet" />
 
     <style>
         .select2-container--default .select2-selection--single .select2-selection__rendered {
@@ -103,9 +103,11 @@
             padding: 0px 0px 4px 14px;
             line-height: 30px;
         }
+
         .select2-container--default .select2-selection--single .select2-selection__arrow {
             top: 5px;
         }
+
         .select2-container--default .select2-selection--single {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
@@ -174,6 +176,7 @@
         .pcoded .pcoded-navbar[active-item-theme="theme1"] .pcoded-item li .pcoded-submenu li:hover > a {
             color: #0a1350 !important;
         }
+
         .hover-notification:hover {
             background-color: #f1f1f1 !important;
         }
@@ -182,8 +185,12 @@
             overflow-y: auto;
             overflow-x: hidden;
         }
- 
-       
+
+        @media screen and (max-width: 570px) {
+            .md-tabs .nav-item {
+                width: 100%;/*calc(100% / 4);*/
+            }
+        }
     </style>
 
     <script>
@@ -317,13 +324,13 @@
                             <div class="navbar-container container-fluid">
                                 <ul class="nav-left">
                                     <li>
-                                        <a href="#!" onclick="javascript:toggleFullScreen()"  style="color:#0a1350" >
+                                        <a href="#!" onclick="javascript:toggleFullScreen()" style="color: #0a1350">
                                             <i class="feather icon-maximize full-screen"></i>
                                         </a>
                                     </li>
                                 </ul>
                                 <ul class="nav-right">
-                                  
+
                                     <li class="header-notification">
                                         <div class="dropdown-primary dropdown" runat="server" id="panelNotification">
                                         </div>
@@ -352,7 +359,7 @@
                                                 <i class="feather icon-chevron-down"></i>
                                             </div>
                                             <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                                                
+
                                                 <li>
                                                     <a href="../../../../Pages/UserManagment/Profile.aspx">
                                                         <i class="feather icon-user"></i><% = ElectronicSubmission.FieldNames.getFieldName("Master-Profile", "Profile") %>
@@ -430,8 +437,8 @@
                                     </div>
                                     <!-- Main-body end -->
 
-                                    <div id="styleSelector">
-                                    </div>
+                                    <!--<div id="styleSelector">
+                                    </div>-->
                                 </div>
                             </div>
                         </div>
@@ -594,7 +601,7 @@
             <!-- Change To arabic 
             <script src="..\..\..\..\Theme\files\assets\js\menu\menu-rtl.js"></script> -->
             <asp:Literal ID="Script" runat="server"></asp:Literal>
-            
+
 
             <script>
 
@@ -646,33 +653,33 @@
 
                 gtag('config', 'UA-23581568-13');
             </script>
-<script>
-    initSample();
-</script>
+            <script>
+                initSample();
+            </script>
 
-<script type="text/javascript">
-$(document).ready(function () {
-    $('select:not(.normal)').each(function () {
-        $(this).select2({
-            dropdownParent: $(this).parent()
-        });
-    });
-});
-</script>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('select:not(.normal)').each(function () {
+                        $(this).select2({
+                            dropdownParent: $(this).parent()
+                        });
+                    });
+                });
+            </script>
 
 
-<script>
-$(function () {
-    $('#listViewId').on('click', function () {
-        $('#Body_Holder_gridViewTreatment').hide();
-        $('#listViewTreatment').show();
-    });
-    $('#gridViewId').on('click', function () {
-        $('#listViewTreatment').hide();
-        $('#Body_Holder_gridViewTreatment').show();
-    });
-});
-</script>
+            <script>
+                $(function () {
+                    $('#listViewId').on('click', function () {
+                        $('#Body_Holder_gridViewTreatment').hide();
+                        $('#listViewTreatment').show();
+                    });
+                    $('#gridViewId').on('click', function () {
+                        $('#listViewTreatment').hide();
+                        $('#Body_Holder_gridViewTreatment').show();
+                    });
+                });
+            </script>
 
             <script>
                 initSample();
@@ -690,24 +697,24 @@ $(function () {
                     });
                 });
 
-    $(document).ready(function () {
-        $('#add-model-assignment').prepend($('#dd-w-0'));
-    });
+                $(document).ready(function () {
+                    $('#add-model-assignment').prepend($('#dd-w-0'));
+                });
 
-</script>
-<script>
-    $(function () {
-        $('#listViewId').on('click', function () {
-            $('#Body_Holder_gridViewTreatment').hide();
-            $('#listViewTreatment').show();
-        });
-        $('#gridViewId').on('click', function () {
-            $('#listViewTreatment').hide();
-            $('#Body_Holder_gridViewTreatment').show();
-        });
-    });
-</script>
-            
+            </script>
+            <script>
+                $(function () {
+                    $('#listViewId').on('click', function () {
+                        $('#Body_Holder_gridViewTreatment').hide();
+                        $('#listViewTreatment').show();
+                    });
+                    $('#gridViewId').on('click', function () {
+                        $('#listViewTreatment').hide();
+                        $('#Body_Holder_gridViewTreatment').show();
+                    });
+                });
+            </script>
+
 
         </div>
     </form>

@@ -36,14 +36,14 @@ namespace ElectronicSubmission.Pages.Setting.Auth
             if (emp != null)
             {
                 string New_Password = StringCipher.RandomString(7);
-                string Encrypted_Password = StringCipher.Encrypt(New_Password, "Password"); // emp.Employee_Password.ToString();
+                string Encrypted_Password = StringCipher.Encrypt(New_Password, "Password"); // emp.Employee_Password.ToString(); 
                 emp.Employee_Password = Encrypted_Password;
                 db.Entry(emp).State = System.Data.EntityState.Modified;
                 db.SaveChanges();
 
                 string sever_name = Request.Url.Authority.ToString();
                 SendEmail send = new SendEmail();
-                bool result = send.ResetEmail(emp.Employee_Email, New_Password, sever_name);
+                bool result = send.ResetEmail(emp.Employee_Email, New_Password, sever_name,"Reset Password");
                 if (result)
                 {
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "show_model_sucess();", true);
