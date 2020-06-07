@@ -613,6 +613,7 @@
     <Content Include="Template\images\logo.ico" />
     <Content Include="Template\images\logo.png" />
     <Content Include="Template\images\notfound.png" />
+    <Content Include="Template\images\notfound2.jpg" />
     <Content Include="Template\images\paymentdone.png" />
     <Content Include="Template\images\prettyPhoto\dark_rounded\btnNext.png" />
     <Content Include="Template\images\prettyPhoto\dark_rounded\btnPrevious.png" />

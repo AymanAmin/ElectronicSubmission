@@ -143,7 +143,7 @@
 
                 <div class="container">
                     <hr>
-                    <div id="Div_payment" runat="server" class="row" >
+                    <div id="Div_payment" runat="server" class="row" visible="false">
                         <aside class="col-sm-3"></aside>
                         <aside class="col-sm-6">
                             <!--<p>Payment form1</p>-->
@@ -238,7 +238,7 @@
                             <!-- row.// -->
 
 
-                                    <asp:Button ID="Save" runat="server" Text="Save" CssClass="subscribe btn btn-primary btn-block" ValidationGroup="valFormGroup" />
+                                    <asp:Button ID="confirm" runat="server" Text="confirm" CssClass="subscribe btn btn-primary btn-block" ValidationGroup="valFormGroup" OnClick="confirm_Click" />
                             </div>
                                 <!-- card-body.// -->
                             </article>
@@ -254,6 +254,13 @@
                         <aside class="col-sm-3"></aside>
                         <aside class="col-sm-6">
                             <asp:Image ID="image" runat="server" style="width:100%" ImageUrl="~/Template/images/notfound.png" /></aside>
+                        <aside class="col-sm-3"></aside>
+                    </div>
+
+                       <div id="Div_NotFound" runat="server" class="row" visible="false">
+                        <aside class="col-sm-3"></aside>
+                        <aside class="col-sm-6">
+                            <asp:Image ID="image2" runat="server" style="width:100%" ImageUrl="~/Template/images/notfound2.jpg" /></aside>
                         <aside class="col-sm-3"></aside>
                     </div>
 

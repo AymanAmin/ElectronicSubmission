@@ -91,8 +91,7 @@ namespace ElectronicSubmission.Payment
         {
             //string Result = "{'result':{'code':'000.200.100','description':'successfully created checkout'},'buildNumber':'8157609e6e0eada1aa110d0a82ee3af66f6009d5@2020-05-29 07:32:36 +0000','timestamp':'2020-06-02 12:24:42+0000','ndc':'27E0DBE4D0D8465CC94B5862C4EE05D2.uat01-vm-tx02','id':'27E0DBE4D0D8465CC94B5862C4EE05D2.uat01-vm-tx02'}";
             Dictionary<string, dynamic> responseData;
-            try
-            {
+           
                 string data = "entityId="+ entityId;
                 string url = "https://test.oppwa.com/v1/checkouts/"+Id+"/payment?" + data;
                 HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
@@ -107,8 +106,8 @@ namespace ElectronicSubmission.Payment
                     reader.Close();
                     dataStream.Close();
                 }
-            }
-            catch { }
+            
+          
             //responseData = new JavaScriptSerializer().Deserialize<Dictionary<string, dynamic>>(Result);  
            
             return responseData;
