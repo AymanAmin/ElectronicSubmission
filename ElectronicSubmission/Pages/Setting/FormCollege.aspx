@@ -70,7 +70,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group col-sm-12" style="text-align: right; margin-top: -2%">
+                    <div class="form-group col-sm-12 <%= ElectronicSubmission.FieldNames.getTextRTL() %>" style="margin-top: -2%">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add-model"><% = ElectronicSubmission.FieldNames.getFieldName("FormCollege-AddCollege", "Add College") %></button>
                     </div>
                     <div class="form-group col-sm-12 blockquote">
