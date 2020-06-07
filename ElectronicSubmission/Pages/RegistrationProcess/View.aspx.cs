@@ -1,8 +1,12 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Text;
 using System.Web;
+using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using static ElectronicSubmission.Enums;
@@ -414,7 +418,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 db.SaveChanges();
 
                 //Ready to apay
-                if(std.Student_Status_Id == 6)
+                if(std.Student_Status_Id == 6 || std.Student_Status_Id == 11)
                     ReadyToPay(std);
 
                 db.Configuration.LazyLoadingEnabled = false;
@@ -565,10 +569,15 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
 
         private void ReadyToPay(Student std)
         {
+            string amount = string.Empty;
+            if (std.Student_Status_Id == 6)
+                amount = "100.00";
+            else
+                amount = "100.000.00";
+
             int student_id = std.Student_Id;
-            string entityId = "8a8294174d0595bb014d05d82e5b01d2";
-            string amount = "92.00";
-            string currency = "RS";
+            string entityId = "8ac7a4c87284f6c901728e6183ff150e";
+            string currency = "SAR";
             string paymentType = "DB";
 
             Payment_Process payment = db.Payment_Process.Create();
@@ -581,13 +590,57 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             payment.Payment_Type_Id = 1;
             payment.DateCreation = DateTime.Now;
             payment.Comment = "No Comment";
-            payment.Payment_Trackingkey = StringCipher.RandomString(5) + student_id + StringCipher.RandomString(3) + DateTime.Now.GetHashCode();
+            payment.Payment_Trackingkey = StringCipher.RandomString(5) + student_id + StringCipher.RandomString(3) + DateTime.Now.GetHashCode()+ StringCipher.RandomString(5);
             payment.Payment_URL_IsValid = true;
             db.Payment_Process.Add(payment);
             db.SaveChanges();
 
+            /*  Start Prepare the checkout  */
+            Payment_Process checkout_payment = db.Payment_Process.Where(x => x.Payment_Trackingkey == payment.Payment_Trackingkey && x.Payment_URL_IsValid == true && x.Payment_IsPaid == false).FirstOrDefault();
+            if (payment != null)
+            {
+                Dictionary<string, dynamic> responseData = Prepare_Check_Payment_Request(entityId, amount, currency, paymentType);
+                checkout_payment.Result_Code = responseData["result"]["code"];
+                checkout_payment.Result_Description = responseData["result"]["description"];
+                checkout_payment.Result_BuildNumber = responseData["buildNumber"];
+                checkout_payment.Result_Timestamp = responseData["timestamp"];
+                checkout_payment.Result_Ndc = responseData["ndc"];
+                checkout_payment.Result_Id = responseData["id"];
+
+                db.Entry(checkout_payment);
+                db.SaveChanges();
+            }
+            /* End Prepare the checkout */
             //Send Email
             sendEamil_ReadyToPay(std, payment);
+        }
+
+        public Dictionary<string, dynamic> Prepare_Check_Payment_Request(string entityId, string amount, string currency, string paymentType)
+        {
+            Dictionary<string, dynamic> responseData;
+            string data = "entityId="+entityId +
+                "&amount="+amount +
+                "&currency=" + currency +
+                "&paymentType="+ paymentType;
+            string url = "https://test.oppwa.com/v1/checkouts";
+            byte[] buffer = Encoding.ASCII.GetBytes(data);
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
+            request.Method = "POST";
+            request.Headers["Authorization"] = "Bearer OGE4Mjk0MTc0ZDA1OTViYjAxNGQwNWQ4MjllNzAxZDF8OVRuSlBjMm45aA==";
+            request.ContentType = "application/x-www-form-urlencoded";
+            Stream PostData = request.GetRequestStream();
+            PostData.Write(buffer, 0, buffer.Length);
+            PostData.Close();
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            {
+                Stream dataStream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(dataStream);
+                var s = new JavaScriptSerializer();
+                responseData = s.Deserialize<Dictionary<string, dynamic>>(reader.ReadToEnd());
+                reader.Close();
+                dataStream.Close();
+            }
+            return responseData;
         }
 
         private string GetRejectStatusName(int CurrentStatus_Id)

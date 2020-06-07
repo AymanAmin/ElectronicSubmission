@@ -182,7 +182,7 @@
     <Content Include="Pages\UserManagment\PermissionGroups.aspx" />
     <Content Include="Pages\UserManagment\Permissions.aspx" />
     <Content Include="Pages\UserManagment\Profile.aspx" />
-    <Content Include="PaymentProcess.aspx" />
+    <Content Include="Payment\PaymentProcess.aspx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -602,6 +602,7 @@
     <Content Include="Template\images\contact-bg.png" />
     <Content Include="Template\images\contact-service-bg.png" />
     <Content Include="Template\images\event-label-1.png" />
+    <Content Include="Template\images\Failed.png" />
     <Content Include="Template\images\featured-label.png" />
     <Content Include="Template\images\logo-1.png" />
     <Content Include="Template\images\logo-2.png" />
@@ -2879,11 +2880,11 @@
     <Compile Include="Pages\UserManagment\Profile.aspx.designer.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PaymentProcess.aspx.cs">
+    <Compile Include="Payment\PaymentProcess.aspx.cs">
       <DependentUpon>PaymentProcess.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PaymentProcess.aspx.designer.cs">
+    <Compile Include="Payment\PaymentProcess.aspx.designer.cs">
       <DependentUpon>PaymentProcess.aspx</DependentUpon>
     </Compile>
     <Compile Include="Payment_Process.cs">
