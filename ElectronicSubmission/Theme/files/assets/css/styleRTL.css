@@ -182,3 +182,7 @@ table.dataTable>tbody>tr.child ul.dtr-details {
 #Body_Holder_UCard{
     display: inline-flex !important;
 }
+
+div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+    float: left;
+}

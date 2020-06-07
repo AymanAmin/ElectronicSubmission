@@ -38,7 +38,7 @@ namespace ElectronicSubmission
                     Style.Text = FieldNames.getSTyleRTL();
                     Script.Text = FieldNames.getJavaScriptRTL();
                     //this.html.Attributes.Add("dir", "ltr");
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "RTL_Layout();", true);
+                    //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "RTL_Layout();", true);
                 }
             ListPermissions = SessionWrapper.Permssions;
 
