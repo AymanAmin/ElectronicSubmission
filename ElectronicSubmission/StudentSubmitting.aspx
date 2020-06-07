@@ -356,9 +356,7 @@
 
                                 </div>
 
-                                <div class="form-group col-sm-12 text-right">
-                                    <asp:Button ID="Save" runat="server" Text="Save" CssClass="btn btn-primary" ValidationGroup="valFormGroup" OnClick="Save_Click" />
-                                </div>
+                                    <asp:Button ID="Save" runat="server" Text="Save" CssClass="subscribe btn btn-primary btn-block" ValidationGroup="valFormGroup" OnClick="Save_Click" />
 
                                     <!--// FooterCopyRight \\-->
                                     <!-- Page body start -->

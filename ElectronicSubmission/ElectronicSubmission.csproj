@@ -191,6 +191,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>REU_Registration.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="PaymentProcessDetails.aspx" />
     <Content Include="REU_Registration.edmx.diagram">
       <DependentUpon>REU_Registration.edmx</DependentUpon>
     </Content>
@@ -2885,6 +2886,13 @@
     </Compile>
     <Compile Include="PaymentProcess.aspx.designer.cs">
       <DependentUpon>PaymentProcess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentProcessDetails.aspx.cs">
+      <DependentUpon>PaymentProcessDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaymentProcessDetails.aspx.designer.cs">
+      <DependentUpon>PaymentProcessDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Payment_Process.cs">
       <DependentUpon>REU_Registration.tt</DependentUpon>
