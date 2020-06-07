@@ -363,6 +363,16 @@ namespace ElectronicSubmission
             Resource_IDValidator.Text = "إختر المصدر";
             Nationality_IDValidator.Text = "إختر الجنسية";
             Specialization_IDValidator.Text = "إختر التخصص";
+
+            StudentNameAr.Attributes["placeholder"] = "أدخل الاسم بالعربي";
+            StudentNameEn.Attributes["placeholder"] = "أدخل الأسم بالانجليزي";
+            StudentEmail.Attributes["placeholder"] = "أدخل البريد الإلكتروني";
+            StudentPhone.Attributes["placeholder"] = "أدخل رقم الهاتف";
+            Address.Attributes["placeholder"] = "أدخل العنوان";
+            Student_SSN.Attributes["placeholder"] = "أدخل رقم الهوية";
+            HighSchoolDegree.Attributes["placeholder"] = "أدخل درجة الشهادة الثانوية";
+            CapabilitiesDegree.Attributes["placeholder"] = " أدخل درجة القدرات";
+            MyAchievementDegree.Attributes["placeholder"] = "أدخل درجة التحصيلي";
         }
     }
 }
