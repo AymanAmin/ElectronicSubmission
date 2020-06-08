@@ -24,6 +24,14 @@ namespace ElectronicSubmission
                 if (payment != null)
                 {
                     Div_payment.Visible = true;
+                    int student_Id = 0;
+                    int.TryParse(payment.Student_Id.ToString(),out student_Id);
+                    var student = db.Students.FirstOrDefault(x => x.Student_Id == student_Id);
+                    if (student != null)
+                    {
+                        StudentName.Text = student.Student_Name_En;
+                        StudentEmail.Text = student.Student_Email;
+                    }
                 }
                 else
                 {
@@ -38,13 +46,15 @@ namespace ElectronicSubmission
 
         public void confirm_To_Payment()
         {
+            string Entity_ID = "";
 
             /*  Start Prepare the checkout  */
             Payment_Process checkout_payment = db.Payment_Process.Where(x => x.Payment_Trackingkey == Trackingkey && x.Payment_URL_IsValid == true && x.Payment_IsPaid == false).FirstOrDefault();
             if (checkout_payment != null)
             {
+                if (PaymentType.SelectedValue == "1" || PaymentType.SelectedValue == "2") Entity_ID = "8ac7a4c87284f6c901728e6183ff150e"; else Entity_ID = "8ac7a4c87284f6c901728e633a371512";
                 Dictionary<string, dynamic> responseData = 
-                    Prepare_Check_Payment_Request(checkout_payment.Send_EntityId, checkout_payment.Send_Amount.ToString(), checkout_payment.Send_Currency, checkout_payment.Send_PaymentType,StudentName.Text,Studentsurname.Text,StudentEmail.Text,StudentCountry.Text, StudentState.Text, StudentCity.Text, StudentAddress.Text,StudentPostcode.Text);
+                    Prepare_Check_Payment_Request(Entity_ID, checkout_payment.Send_Amount.ToString(), checkout_payment.Send_Currency, checkout_payment.Send_PaymentType,StudentName.Text,Studentsurname.Text,StudentEmail.Text,StudentCountry.Text, StudentState.Text, StudentCity.Text, StudentAddress.Text,StudentPostcode.Text);
                 if (responseData["result"]["code"] == "000.200.100")
                 {
                     checkout_payment.Result_Code = responseData["result"]["code"];
@@ -53,6 +63,7 @@ namespace ElectronicSubmission
                     checkout_payment.Result_Timestamp = responseData["timestamp"];
                     checkout_payment.Result_Ndc = responseData["ndc"];
                     checkout_payment.Result_Id = responseData["id"];
+                    checkout_payment.Send_EntityId = Entity_ID;
                     db.Entry(checkout_payment);
                     db.SaveChanges();
                 }

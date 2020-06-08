@@ -160,6 +160,19 @@
                             
                                  <div class="row">
 
+                                       <div class="form-group col-sm-12">
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcessDetails-StudentName", "Student Name") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
+                                            <asp:DropDownList ID="PaymentType" class="form-control" runat="server">
+                                                <asp:ListItem Value="1">VISA</asp:ListItem>
+                                                <asp:ListItem Value="2">MASTER</asp:ListItem>
+                                                <asp:ListItem Value="3">MADA</asp:ListItem>
+                                            </asp:DropDownList> 
+                                        </div>
+                                        <asp:RequiredFieldValidator ID="PaymentTypeValidator1" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Select Payment Type" ValidationGroup="valFormGroup" ControlToValidate="PaymentType" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                    </div>
+
                                      <div class="form-group col-sm-12">
                                         <label><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcessDetails-StudentName", "Student Name") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
                                         <div class="input-group">
@@ -168,7 +181,7 @@
                                         </div>
                                         <asp:RequiredFieldValidator ID="StudentNameValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student Name" ValidationGroup="valFormGroup" ControlToValidate="StudentName" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                     </div>
-
+                                  
                                    <div class="form-group col-sm-12">
                                         <label><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcessDetails-Studentsurname", "Student surname") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
                                         <div class="input-group">
