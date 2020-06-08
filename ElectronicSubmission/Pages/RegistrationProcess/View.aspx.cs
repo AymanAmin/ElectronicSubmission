@@ -447,8 +447,8 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
         public bool sendEamil_ReadyToPay(Student std,Payment_Process payment)
         {
             string sever_name = Request.Url.Authority.ToString();
-            string URL = sever_name + "/PaymentProcess.aspx?Trackingkey=" + payment.Payment_Trackingkey;
-            string StudentEmail = std.Student_Email; //"ayman@softwarecornerit.com";
+            string URL = sever_name + "/PaymentProcessDetails.aspx?Trackingkey=" + payment.Payment_Trackingkey;
+            string StudentEmail = "ayman@softwarecornerit.com";//std.Student_Email;
             SendEmail send = new SendEmail();
             
             string Text = " <Strong style='font-size:18px;'>Dear " + std.Student_Name_En + "</Strong><br /><Strong>You can start the payment process: </Strong> " + URL + " <br /> <Strong>Current Status:</Strong> " + std.Status.Status_Name_En + " <br /> <Strong>Date:</Strong> " + DateTime.Now.ToShortDateString();

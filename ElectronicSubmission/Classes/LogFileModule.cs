@@ -35,7 +35,8 @@ namespace ElectronicSubmission
                         if (SessionWrapper.LoggedUser != null)
                             logFileInsert.Login_Id = SessionWrapper.LoggedUser.Employee_Id;
                         else
-                            logFileInsert.Login_Id = 1;
+                            logFileInsert.Login_Id = db.Employees.FirstOrDefault().Employee_Id;
+
                         logFileInsert.Form_Id = currentPage();
                     }
                     logFileInsert.Log_Name = logName;

@@ -38,7 +38,8 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script src="https://test.oppwa.com/v1/paymentWidgets.js?checkoutId=877369EF6E7370445B0247BF1D1E290F.uat01-vm-tx01"></script>
+    <!--<script src="https://test.oppwa.com/v1/paymentWidgets.js?checkoutId="></script>-->
+    <asp:Literal ID="render_Payment" runat="server"></asp:Literal>
 
     <script>
         function DisplayDiv(Id) {
@@ -142,9 +143,10 @@
                 <div class="row">
                     <aside class="col-sm-3"></aside>
                     <aside class="col-sm-6">
+                        
                         <!--<p>Payment form1</p>-->
-                        <article class="card" id="paymentWidgets" style="border: 1px solid gray; border-radius: 10px; padding: 5%;display:none;">
-                            <form action="http://registration.riyadh.edu.sa/homepage.aspx?Trackingkey=0&PaymentId=0"  style="display:none" runat="server" class="paymentWidgets" data-brands="VISA MASTER AMEX"></form>
+                        <article class="card" id="paymentWidgets" style="border: 1px solid gray; border-radius: 10px; padding: 5%;display:none;"> 
+                            <form ID="Payment_Form" class="paymentWidgets" runat="server" data-brands="VISA MASTER AMEX"></form>
                         </article>
 
                         <article class="card" id="Div_InValid" style="display:none;">

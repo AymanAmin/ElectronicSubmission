@@ -13,6 +13,24 @@ namespace ElectronicSubmission.Payment {
     public partial class PaymentProcess {
         
         /// <summary>
+        /// render_Payment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal render_Payment;
+        
+        /// <summary>
+        /// Payment_Form control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm Payment_Form;
+        
+        /// <summary>
         /// Valid control.
         /// </summary>
         /// <remarks>
