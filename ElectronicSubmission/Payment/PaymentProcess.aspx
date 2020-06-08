@@ -9,7 +9,7 @@
     <!-- Favicon icon -->
     <link rel="icon" href="Theme\files\assets\images\favicon.ico" type="image/x-icon" />
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title><% = ElectronicSubmission.FieldNames.getFieldName("homepage-title", "REU - Admission") %></title>
+    <title><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcess-title", "REU - Payment") %></title>
 
     <!-- Css Files -->
     <link href="../Template/css/bootstrap.css" rel="stylesheet">
@@ -147,7 +147,7 @@
                             <form action="http://registration.riyadh.edu.sa/homepage.aspx?Trackingkey=0&PaymentId=0"  style="display:none" runat="server" class="paymentWidgets" data-brands="VISA MASTER AMEX"></form>
                         </article>
 
-                        <article class="card" id="Div_Sucessful" style="display:none;">
+                        <article class="card" id="Div_InValid" style="display:none;">
                             <div class="row">
                                     <aside class="col-sm-12">
                                         <asp:Image ID="Valid" runat="server" Style="width: 100%" ImageUrl="~/Template/images/notfound.png" />
@@ -156,7 +156,7 @@
                             <!-- card-body.// -->
                         </article>
 
-                        <article class="card" id="Div_InValid" style="display:none;">
+                        <article class="card" id="Div_Sucessful" style="display:none;">
                             <div class="row">
                                 <aside class="col-sm-2"></aside>
                                     <aside class="col-sm-8">
