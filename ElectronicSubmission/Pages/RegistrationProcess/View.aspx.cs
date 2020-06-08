@@ -417,8 +417,12 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 db.Sequences.Add(seq);
                 db.SaveChanges();
 
+                
+
+                string reslt_message = SendMessage("riyadh.edu", "MYsms@dmin", ConvertToUnicode("Test Message Hi Ayman Amin"),"REU-AD", "966550932548");
+
                 //Ready to apay
-                if(std.Student_Status_Id == 6 || std.Student_Status_Id == 11)
+                if (std.Student_Status_Id == 6 || std.Student_Status_Id == 11)
                     ReadyToPay(std);
 
                 db.Configuration.LazyLoadingEnabled = false;
@@ -451,9 +455,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             string StudentEmail = "ayman@softwarecornerit.com";//std.Student_Email;
             SendEmail send = new SendEmail();
             
-            string Text = " <Strong style='font-size:18px;'>Dear " + std.Student_Name_En + "</Strong><br /><Strong>You can start the payment process: </Strong> " + URL + " <br /> <Strong>Current Status:</Strong> " + std.Status.Status_Name_En + " <br /> <Strong>Date:</Strong> " + DateTime.Now.ToShortDateString();
-            if (SessionWrapper.LoggedUser.Language_id == 1)
-                Text = " <Strong style='font-size:18px;'>Dear " + std.Student_Name_Ar + "</Strong><br /><Strong>You can start the payment process: </Strong> " + URL + " <br /> <Strong>Current Status:</Strong> " + std.Status.Status_Name_Ar + " <br /> <Strong>Date:</Strong> " + DateTime.Now.ToShortDateString();
+            string Text = " <Strong style='font-size:16;'>Dear " + std.Student_Name_En + "</Strong><br /><br /><Strong>You can start the payment process: </Strong> " + URL + " <br /> <Strong>Current Status:</Strong> " + std.Status.Status_Name_En + " <br /> <Strong>Date:</Strong> " + DateTime.Now.ToShortDateString();
             bool result = send.TextEmail("Ready To Pay", StudentEmail, Text, sever_name);
             return result;
         }
@@ -677,6 +679,40 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 Response.Redirect("~/Pages/RegistrationProcess/view.aspx?StudentID=" + (int)seq.Student_Id);
             }
 
+        }
+
+        private string ConvertToUnicode(string val)
+        {
+            string msg2 = string.Empty;
+            byte[] bytes = Encoding.Default.GetBytes(val);
+            msg2 = Encoding.UTF8.GetString(bytes);
+
+            return msg2;
+        }
+
+        public string SendMessage(string username,string passwor, string msg, string sender,string number)
+        {
+            /* Encoding msg */
+            
+
+            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("http://www.mobily.ws/api/msgSend.php");
+            req.Method = "POST";
+            req.ContentType = "application/x-www-form-urlencoded";
+            string postData = "mobile=" + username + "&password=" + passwor + "&numbers=" + number + "&sender=" + sender + "&msg=" + msg + "&applicationType=68";
+            StreamWriter stOut = new StreamWriter(req.GetRequestStream(), Encoding.UTF8);
+            stOut.Write(postData);
+            stOut.Close();
+            string strResponcse = "1";
+            using (HttpWebResponse response = (HttpWebResponse)req.GetResponse())
+            {
+                Stream dataStream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(dataStream);
+                var s = new JavaScriptSerializer();
+                strResponcse = reader.ReadToEnd();
+                reader.Close();
+                dataStream.Close();
+            }
+            return strResponcse;
         }
 
         public string Date_Different(DateTime ReveviedDate)

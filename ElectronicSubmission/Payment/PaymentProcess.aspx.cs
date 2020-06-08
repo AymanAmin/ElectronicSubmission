@@ -96,7 +96,7 @@ namespace ElectronicSubmission.Payment
                 db.Configuration.LazyLoadingEnabled = false;
                 /* Add it to log file */
 
-                LogData = "data:" + JsonConvert.SerializeObject(er.StackTrace, logFileModule.settings);
+                LogData = "data:" + JsonConvert.SerializeObject(er, logFileModule.settings);
                 logFileModule.logfile(10, "خطأ جديد التحقق من  للدفع", "New Exception in checkPayment Status", LogData);
             }
             return result;
