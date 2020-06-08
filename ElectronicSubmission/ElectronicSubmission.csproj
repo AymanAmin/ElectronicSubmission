@@ -187,11 +187,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="PaymentProcessDetails.aspx" />
     <EntityDeploy Include="REU_Registration.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>REU_Registration.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="PaymentProcessDetails.aspx" />
     <Content Include="REU_Registration.edmx.diagram">
       <DependentUpon>REU_Registration.edmx</DependentUpon>
     </Content>
