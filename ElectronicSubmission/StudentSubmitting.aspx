@@ -355,9 +355,9 @@
                                     </div>
 
                                 </div>
-
-                                    <asp:Button ID="Save" runat="server" Text="Save" CssClass="subscribe btn btn-primary btn-block" ValidationGroup="valFormGroup" OnClick="Save_Click" />
-
+                                   <div class="form-group col-sm-12 text-right">
+                                     <asp:Button ID="Save" runat="server" Text="Save" CssClass="btn btn-primary" ValidationGroup="valFormGroup" OnClick="Save_Click" />
+                                    </div>
                                     <!--// FooterCopyRight \\-->
                                     <!-- Page body start -->
                                     <button type="button" style="display:none;" id="Warning-btn-Ar" class="btn btn-primary Warning-Ar m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'Warning-Ar']);">Basic</button>

@@ -31,6 +31,7 @@ namespace ElectronicSubmission
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            try { 
             langId = 0;
             if (int.TryParse(Request["lang"], out langId) && langId > 0)
             {
@@ -57,13 +58,18 @@ namespace ElectronicSubmission
                 FillDropDownLists();
                  if (Session["Success"] != null)
                  {
-                     if (langId == 0)
-                         Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "SuccessEn();", true);
-                     else
-                         Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "SuccessAr();", true);
+                     if (langId == 1)
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "SuccessAr();", true);
+                        else
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "SuccessEn();", true);
+
 
                      Session["Success"] = null;
                  }
+            }
+            }catch(Exception s)
+            {
+
             }
 
         }
@@ -98,11 +104,14 @@ namespace ElectronicSubmission
 
                 if (result)
                 {
+                    string Text = "";
                     string sever_name = Request.Url.Authority.ToString();
                     string StuEmail = StudentEmail.Text;
                     SendEmail send = new SendEmail();
-                    string Text = " <Strong style='font-size:24px;'>Dear " + StudentNameEn.Text + "</Strong><br /><Strong>You can start the payment process: </Strong> " + "mazin" + " <br /> <Strong>Current Status:</Strong> " + "awad" + " <br /> <Strong>Date:</Strong> " + DateTime.Now.ToShortDateString();
-                    bool R = send.TextEmail("Ready To Pay", StuEmail, Text, sever_name);
+                    
+                        Text = " <Strong style='font-size:16px;'> Dear " + StudentNameEn.Text + "</Strong><br /><br /> " + "Thank you for completing the application process at Riyadh Elm University. We will contact you within 48 hours." + " <br /> <br />" + "Best Regard," + " <br />" + "Admission System" + " <br /> ";
+
+                    bool R = send.TextEmail("Riyadh Elm University", StuEmail, Text, sever_name);
 
                     Session["Success"] = true;
                     if (StudentID == 0) Response.Redirect("~/StudentSubmitting.aspx");
