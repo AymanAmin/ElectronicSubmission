@@ -2658,6 +2658,7 @@
     <Compile Include="Classes\LogFileModule.cs" />
     <Compile Include="Classes\Payment.cs" />
     <Compile Include="Classes\SendEmail.cs" />
+    <Compile Include="Classes\SendSMS.cs" />
     <Compile Include="Classes\SessionWrapper.cs" />
     <Compile Include="Classes\SpecializationDTO.cs" />
     <Compile Include="Classes\StringCipher.cs" />

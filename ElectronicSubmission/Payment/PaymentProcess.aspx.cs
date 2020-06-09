@@ -16,10 +16,8 @@ namespace ElectronicSubmission.Payment
     {
         REU_RegistrationEntities db = new REU_RegistrationEntities();
         string Trackingkey = "", PaymentId = "";
-        bool PageValid = false;
         LogFileModule logFileModule = new LogFileModule();
         String LogData = "";
-        //bool PaymentDone = false;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request["Trackingkey"] != null)
@@ -29,16 +27,21 @@ namespace ElectronicSubmission.Payment
                     Trackingkey = Request["Trackingkey"];
                     PaymentId = Request["id"];
                     
-                    Payment_Process payment = db.Payment_Process.Where(x => x.Payment_Trackingkey == Trackingkey && x.Payment_URL_IsValid == true && x.Payment_IsPaid == false).FirstOrDefault();
+                    Payment_Process payment = db.Payment_Process.Where(x => x.Payment_Trackingkey == Trackingkey).FirstOrDefault();
                     if (payment != null)
                     {
-                        bool payment_result = CheckPaymentStatus(Trackingkey,  payment.Send_EntityId, PaymentId);
-                        if (payment_result)
+                        if (payment.Payment_IsPaid == false && payment.Payment_URL_IsValid == true)
                         {
-                            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "DisplayDiv(2);", true);
+                            bool payment_result = CheckPaymentStatus(Trackingkey, payment.Send_EntityId, PaymentId);
+                            if (payment_result)
+                            {
+                                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "DisplayDiv(2);", true);
+                            }
+                            else
+                                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "DisplayDiv(3);", true);
                         }
                         else
-                            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "DisplayDiv(3);", true);
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "DisplayDiv(4);", true);
                     }
                     else
                     {
@@ -52,7 +55,12 @@ namespace ElectronicSubmission.Payment
                     Payment_Process payment = db.Payment_Process.Where(x => x.Payment_Trackingkey == Trackingkey && x.Payment_URL_IsValid == true && x.Payment_IsPaid == false).FirstOrDefault();
                     if (payment != null)
                     {
-                        Payment_Form.Action = "http://localhost:10600/Payment/PaymentProcess.aspx?Trackingkey="+Trackingkey+"&";
+                        string sever_name = Request.Url.Authority.ToString();
+                        string URL = sever_name + "/Payment/PaymentProcess.aspx?Trackingkey=" + Trackingkey + "&";
+                        if (URL.Substring(0, 4).ToLower() != "http".ToLower())
+                            URL = "http://" + URL;
+
+                        Payment_Form.Action = URL;
                         render_Payment.Text = "<script src='https://test.oppwa.com/v1/paymentWidgets.js?checkoutId="+ payment.Result_Id + "'></script>" ;
                         Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "DisplayDiv(1);", true);
                     }
@@ -75,21 +83,57 @@ namespace ElectronicSubmission.Payment
             try
             {
                 Dictionary<string, dynamic> responseData = CheckStatusPaymentRequest(PaymentId_local, entityId);
-                if (responseData["result"]["code"] == "000.200.100")
+                if (responseData["result"]["code"] == "000.100.110")
                 {
-                    Payment_Process PaymentProcess_update = db.Payment_Process.Find(Trackingkey_local);
+                    Payment_Process PaymentProcess_update = db.Payment_Process.FirstOrDefault(x => x.Payment_Trackingkey == Trackingkey_local);
                     PaymentProcess_update.Payment_IsPaid = true;
                     PaymentProcess_update.Payment_URL_IsValid = false;
-                    PaymentProcess_update.Result_Code = responseData["result"]["code"];
-                    PaymentProcess_update.Result_Description = responseData["result"]["description"];
-                    PaymentProcess_update.Result_BuildNumber = responseData["buildNumber"];
-                    PaymentProcess_update.Result_Timestamp = responseData["timestamp"];
-                    PaymentProcess_update.Result_Ndc = responseData["ndc"];
-                    PaymentProcess_update.Result_Id = responseData["id"];
+                    PaymentProcess_update.Payment_Result_Json = JsonConvert.SerializeObject(responseData, logFileModule.settings);
                     PaymentProcess_update.Payment_Date = DateTime.Now;
                     db.Entry(PaymentProcess_update).State = System.Data.EntityState.Modified;
                     db.SaveChanges();
+
+                    
+
+                    // Update student record to paid
+                    Student std = db.Students.Find(PaymentProcess_update.Student_Id);
+                    int new_Status_Id =(int) std.Student_Status_Id + 1;
+                    std.Student_Status_Id = new_Status_Id;
+                    db.Entry(std).State = System.Data.EntityState.Modified;
+                    db.SaveChanges();
+
+                    // isnert new Sequences record to paid
+                    Sequence seq = db.Sequences.Create();
+                    seq.Emp_Id = 1;
+                    seq.Status_Id = new_Status_Id;
+                    seq.Student_Id = std.Student_Id;
+                    seq.Note = "Auto payment";
+                    seq.DateCreation = DateTime.Now;
+                    db.Sequences.Add(seq);
+                    db.SaveChanges();
+
+
+                    db.Configuration.LazyLoadingEnabled = false;
+                    /* Add it to log file */
+                    Student stdLogFile = db.Students.Find(std.Student_Id);
+                    stdLogFile.Employee = db.Employees.Find(seq.Emp_Id);
+                    stdLogFile.Status = db.Status.Find(seq.Status_Id);
+
+                    LogData = "data:" + JsonConvert.SerializeObject(stdLogFile, logFileModule.settings);
+                    logFileModule.logfile(10, "تغير الحالة تلقائي", "Update Status Automatic", LogData);
+
+                    Payment_Process paymentLogFile = db.Payment_Process.Find(PaymentProcess_update.Payment_Id);
+                    LogData = "data:" + JsonConvert.SerializeObject(paymentLogFile, logFileModule.settings);
+                    logFileModule.logfile(10, "اضافة عملية دفع", "add payment process", LogData);
+
                     result = true;
+                }
+                else
+                {
+                    Payment_Process PaymentProcess_update = db.Payment_Process.FirstOrDefault(x => x.Payment_Trackingkey == Trackingkey_local);
+                    PaymentProcess_update.Payment_Result_Json = JsonConvert.SerializeObject(responseData, logFileModule.settings);
+                    db.Entry(PaymentProcess_update).State = System.Data.EntityState.Modified;
+                    db.SaveChanges();
                 }
             }
             catch (Exception er){
@@ -104,6 +148,9 @@ namespace ElectronicSubmission.Payment
 
         public Dictionary<string, dynamic> CheckStatusPaymentRequest(string PaymentId_local, string entityId)
         {
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
             //string Result = "{'result':{'code':'000.200.100','description':'successfully created checkout'},'buildNumber':'8157609e6e0eada1aa110d0a82ee3af66f6009d5@2020-05-29 07:32:36 +0000','timestamp':'2020-06-02 12:24:42+0000','ndc':'27E0DBE4D0D8465CC94B5862C4EE05D2.uat01-vm-tx02','id':'27E0DBE4D0D8465CC94B5862C4EE05D2.uat01-vm-tx02'}";
             Dictionary<string, dynamic> responseData;
 
@@ -127,10 +174,5 @@ namespace ElectronicSubmission.Payment
             return responseData;
         }
 
-        public void Run_Checkpayment()
-        {
-            CheckPaymentRef.CheckPaymentService payment = new CheckPaymentRef.CheckPaymentService();
-            string res = payment.CheckPayment();
-        }
     }
 }
