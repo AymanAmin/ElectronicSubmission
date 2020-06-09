@@ -578,7 +578,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             int payment_type_id = 1;
             if (std.Student_Status_Id == 6)
             {
-                amount = "100.00";
+                amount = "5000.00";
                 Payment_For = "Registration";
                 payment_type_id = 1;
             }
@@ -590,7 +590,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             }
 
             int student_id = std.Student_Id;
-            string entityId = "8ac7a4c87284f6c901728e6183ff150e";
+            string entityId = "";
             string currency = "SAR";
             string paymentType = "DB";
 
