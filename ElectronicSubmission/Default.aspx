@@ -7,7 +7,8 @@
             var options = {
                 series: Data,
                 chart: {
-                    width: 380,
+                    height: 300,
+                    width: 480,
                     type: 'pie',
                 },
                 labels: Names,
@@ -15,7 +16,9 @@
                     breakpoint: 480,
                     options: {
                         chart: {
-                            width: 200
+
+                            height: 310,
+                            width: 200,
                         },
                         legend: {
                             position: 'bottom'
@@ -159,7 +162,8 @@
             var options = {
                 series: Data,
                 chart: {
-                    width: 380,
+                    height: 300,
+                    width: 480,
                     type: 'pie',
                 },
                 labels: Label,
@@ -167,7 +171,8 @@
                     breakpoint: 480,
                     options: {
                         chart: {
-                            width: 200
+                            height: 310,
+                            width: 200,
                         },
                         legend: {
                             position: 'bottom'
@@ -338,7 +343,7 @@
                     </div>
                 </div>
                 <div class="card-block">
-                    <div id="chart-Pie2" style="width: 100%;"></div>
+                    <div id="chart-Pie2"></div>
                 </div>
 
             </div>
@@ -355,7 +360,7 @@
                     </div>
                 </div>
                 <div class="card-block">
-                    <div id="chart-Social" style="width: 100%;"></div>
+                    <div id="chart-Social"></div>
                 </div>
 
             </div>
