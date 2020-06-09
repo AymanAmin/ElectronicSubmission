@@ -367,7 +367,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             StudentNameAr.Attributes["placeholder"] = "أدخل الاسم بالعربي";
             StudentNameEn.Attributes["placeholder"] = "أدخل الأسم بالانجليزي";
             StudentEmail.Attributes["placeholder"] = "أدخل البريد الإلكتروني";
-            StudentPhone.Attributes["placeholder"] = "أدخل رقم الهاتف";
+            StudentPhone.Attributes["placeholder"] = "05xxxxxxxx";
             Address.Attributes["placeholder"] = "أدخل العنوان";
             Student_SSN.Attributes["placeholder"] = "أدخل رقم الهوية";
             HighSchoolDegree.Attributes["placeholder"] = "أدخل درجة الشهادة الثانوية";

@@ -178,6 +178,19 @@
                                                     <div class="col-lg-6">
                                                         <table class="table">
                                                             <tbody>
+                                                                    <tr>
+                                                                    <td>
+                                                                        <label ><% = ElectronicSubmission.FieldNames.getFieldName("Profile-Phone", "Phone") %></label>
+                                                                        <div class="input-group">
+                                                                            <span class="input-group-addon"><i class="icofont icofont-ui-call"></i></span>
+                                                                            <asp:TextBox ID="Employee_Phone" runat="server" class="form-control" placeholder="Enter Employee Phone" TextMode="SingleLine"></asp:TextBox>
+                                                                        </div>
+                                                                        <div class="col-sm-12">
+                                                                            <asp:RequiredFieldValidator ID="Employee_PhoneValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Employee Phone" ValidationGroup="Per" ControlToValidate="Employee_Phone" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+
                                                                 <tr>
                                                                     <td>
                                                                         <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("Profile-Email", "Email") %></label>
@@ -186,7 +199,7 @@
                                                                             <asp:TextBox ID="Employee_Email" runat="server" class="form-control" placeholder="Enter Employee Email" TextMode="SingleLine"></asp:TextBox>
                                                                         </div>
                                                                         <div class="col-sm-12">
-                                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Email" ValidationGroup="Per" ControlToValidate="Employee_Email" Display="Dynamic" SetFocusOnError="True">
+                                                                            <asp:RequiredFieldValidator ID="Employee_EmailValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Email" ValidationGroup="Per" ControlToValidate="Employee_Email" Display="Dynamic" SetFocusOnError="True">
                                                                             </asp:RequiredFieldValidator>
                                                                         </div>
                                                                     </td>
@@ -201,23 +214,10 @@
                                                                             </asp:EntityDataSource>
                                                                         </div>
                                                                          <div class="col-sm-12">
-                                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Select Language" ValidationGroup="Per" ControlToValidate="Language" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                                                            <asp:RequiredFieldValidator ID="LanguageValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Select Language" ValidationGroup="Per" ControlToValidate="Language" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                                                           </div>
                                                                     </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>
-                                                                        <label ><% = ElectronicSubmission.FieldNames.getFieldName("Profile-Phone", "Phone") %></label>
-                                                                        <div class="input-group">
-                                                                            <span class="input-group-addon"><i class="icofont icofont-ui-call"></i></span>
-                                                                            <asp:TextBox ID="Employee_Phone" runat="server" class="form-control" placeholder="Enter Employee Phone" TextMode="SingleLine"></asp:TextBox>
-                                                                        </div>
-                                                                        <div class="col-sm-12">
-                                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Employee Phone" ValidationGroup="Per" ControlToValidate="Employee_Phone" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                         
+                                                                </tr>                                                         
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -266,7 +266,7 @@
                                                                             <asp:TextBox ID="OldPassWord" runat="server" class="form-control" placeholder="Enter Old Password" TextMode="SingleLine" type="password"></asp:TextBox>
                                                                         </div>
                                                                         <div class="col-sm-12">
-                                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Old Password" ValidationGroup="Per2" ControlToValidate="OldPassWord" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                                                            <asp:RequiredFieldValidator ID="OldPassWordValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Old Password" ValidationGroup="Per2" ControlToValidate="OldPassWord" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                                                         </div>
                                                                     </td>
                                                                 </tr>
@@ -278,7 +278,7 @@
                                                                             <asp:TextBox ID="NewPassWord" runat="server" class="form-control" placeholder="Enter New Password" TextMode="SingleLine" type="password"></asp:TextBox>
                                                                         </div>
                                                                         <div class="col-sm-12">
-                                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter New Password" ValidationGroup="Per2" ControlToValidate="NewPassWord" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                                                            <asp:RequiredFieldValidator ID="NewPassWordValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter New Password" ValidationGroup="Per2" ControlToValidate="NewPassWord" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                                                         </div>
                                                                     </td>
                                                                 </tr>
@@ -290,7 +290,7 @@
                                                                             <asp:TextBox ID="TryNewPassWord" runat="server" class="form-control" placeholder="Try New Password" TextMode="SingleLine" type="password" ValidationGroup="Per2"></asp:TextBox>
                                                                         </div>
                                                                         <div class="col-sm-12">
-                                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Try New Password" ValidationGroup="Per2" ControlToValidate="TryNewPassWord" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                                                            <asp:RequiredFieldValidator ID="TryNewPassWordValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Try New Password" ValidationGroup="Per2" ControlToValidate="TryNewPassWord" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                                                         </div>
                                                                     </td>
                                                                 </tr>

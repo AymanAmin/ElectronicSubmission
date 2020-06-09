@@ -121,6 +121,24 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment {
         protected global::System.Web.UI.WebControls.FileUpload EmpProfile;
         
         /// <summary>
+        /// Employee_Phone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Employee_Phone;
+        
+        /// <summary>
+        /// Employee_PhoneValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Employee_PhoneValidator;
+        
+        /// <summary>
         /// Employee_Email control.
         /// </summary>
         /// <remarks>
@@ -130,13 +148,13 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment {
         protected global::System.Web.UI.WebControls.TextBox Employee_Email;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// Employee_EmailValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Employee_EmailValidator;
         
         /// <summary>
         /// Language control.
@@ -157,31 +175,13 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment {
         protected global::System.Web.UI.WebControls.EntityDataSource LangDataSource;
         
         /// <summary>
-        /// RequiredFieldValidator7 control.
+        /// LanguageValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
-        
-        /// <summary>
-        /// Employee_Phone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Employee_Phone;
-        
-        /// <summary>
-        /// RequiredFieldValidator4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator LanguageValidator;
         
         /// <summary>
         /// EmpUpdate control.
@@ -202,13 +202,13 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment {
         protected global::System.Web.UI.WebControls.TextBox OldPassWord;
         
         /// <summary>
-        /// RequiredFieldValidator3 control.
+        /// OldPassWordValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator OldPassWordValidator;
         
         /// <summary>
         /// NewPassWord control.
@@ -220,13 +220,13 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment {
         protected global::System.Web.UI.WebControls.TextBox NewPassWord;
         
         /// <summary>
-        /// RequiredFieldValidator5 control.
+        /// NewPassWordValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator NewPassWordValidator;
         
         /// <summary>
         /// TryNewPassWord control.
@@ -238,13 +238,13 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment {
         protected global::System.Web.UI.WebControls.TextBox TryNewPassWord;
         
         /// <summary>
-        /// RequiredFieldValidator6 control.
+        /// TryNewPassWordValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator TryNewPassWordValidator;
         
         /// <summary>
         /// ChangeButton control.
