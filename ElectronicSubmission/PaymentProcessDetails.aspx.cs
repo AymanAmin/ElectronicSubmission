@@ -90,6 +90,9 @@ namespace ElectronicSubmission
 
         public Dictionary<string, dynamic> Prepare_Check_Payment_Request(string entityId, string amount, string currency, string paymentType,string Name, string surname, string Email, string Country, string State, string City, string Address, string Postcode)
         {
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
             Dictionary<string, dynamic> responseData;
             string data = "entityId=" + entityId +
                 "&amount=" + amount +

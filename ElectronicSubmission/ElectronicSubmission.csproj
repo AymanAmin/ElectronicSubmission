@@ -153,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Bachelors.aspx" />
+    <Content Include="Database\Delete All Table.sql" />
     <Content Include="Database\LanguageData.sql" />
     <Content Include="Database\REU_Registration.sql" />
     <Content Include="Database\SpecializationData.sql" />
@@ -2658,6 +2659,7 @@
     <Compile Include="Classes\LogFileModule.cs" />
     <Compile Include="Classes\Payment.cs" />
     <Compile Include="Classes\SendEmail.cs" />
+    <Compile Include="Classes\SendSMS.cs" />
     <Compile Include="Classes\SessionWrapper.cs" />
     <Compile Include="Classes\SpecializationDTO.cs" />
     <Compile Include="Classes\StringCipher.cs" />

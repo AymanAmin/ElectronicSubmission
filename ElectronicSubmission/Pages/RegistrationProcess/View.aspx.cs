@@ -417,13 +417,13 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 db.Sequences.Add(seq);
                 db.SaveChanges();
 
-                
 
-                string reslt_message = SendMessage("riyadh.edu", "MYsms@dmin", ConvertToUnicode("Test Message Hi Ayman Amin"),"REU-AD", "966550932548");
 
                 //Ready to apay
                 if (std.Student_Status_Id == 6 || std.Student_Status_Id == 11)
-                    ReadyToPay(std);
+                {
+                    ReadyToPay(std); 
+                }
 
                 db.Configuration.LazyLoadingEnabled = false;
                 /* Add it to log file */
@@ -448,15 +448,18 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             return false;
         }
 
-        public bool sendEamil_ReadyToPay(Student std,Payment_Process payment)
+        public bool send_ReadyToPay(Student std, Payment_Process payment, string Payment_For)
         {
             string sever_name = Request.Url.Authority.ToString();
             string URL = sever_name + "/PaymentProcessDetails.aspx?Trackingkey=" + payment.Payment_Trackingkey;
-            string StudentEmail = "ayman@softwarecornerit.com";//std.Student_Email;
+            if (URL.Substring(0, 4).ToLower() != "http".ToLower())
+                URL = "http://" + URL;
+            string StudentEmail = std.Student_Email; // "ayman@softwarecornerit.com";//
             SendEmail send = new SendEmail();
-            
-            string Text = " <Strong style='font-size:16;'>Dear " + std.Student_Name_En + "</Strong><br /><br /><Strong>You can start the payment process: </Strong> " + URL + " <br /> <Strong>Current Status:</Strong> " + std.Status.Status_Name_En + " <br /> <Strong>Date:</Strong> " + DateTime.Now.ToShortDateString();
+
+            string Text = " <Strong style='font-size:18;'>Dear " + std.Student_Name_En + "</Strong><br /><br /><Strong>Now you can pay the fees of " + Payment_For + ": </Strong> " + URL + " <br /> <Strong>Current Status:</Strong> " + std.Status.Status_Name_En + " <br /> <Strong>Date:</Strong> " + DateTime.Now.ToShortDateString() + "<br /><br /><Strong>Elm University Riyadh<br />Admission System</Strong> ";
             bool result = send.TextEmail("Ready To Pay", StudentEmail, Text, sever_name);
+
             return result;
         }
 
@@ -571,14 +574,23 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
 
         private void ReadyToPay(Student std)
         {
-            string amount = string.Empty;
+            string amount = string.Empty, Payment_For = string.Empty;
+            int payment_type_id = 1;
             if (std.Student_Status_Id == 6)
-                amount = "100.00";
+            {
+                amount = "5000.00";
+                Payment_For = "Registration";
+                payment_type_id = 1;
+            }
             else
-                amount = "100.000.00";
+            {
+                amount = "100000.00";
+                Payment_For = "Study";
+                payment_type_id = 2;
+            }
 
             int student_id = std.Student_Id;
-            string entityId = "8ac7a4c87284f6c901728e6183ff150e";
+            string entityId = "";
             string currency = "SAR";
             string paymentType = "DB";
 
@@ -589,16 +601,24 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             payment.Send_EntityId = entityId;
             payment.Send_PaymentType = paymentType;
             payment.Payment_IsPaid = false;
-            payment.Payment_Type_Id = 1;
+            payment.Payment_Type_Id = payment_type_id;
             payment.DateCreation = DateTime.Now;
-            payment.Comment = "No Comment";
+            payment.Comment = Payment_For+ " Fees";
             payment.Payment_Trackingkey = StringCipher.RandomString(5) + student_id + StringCipher.RandomString(3) + DateTime.Now.GetHashCode()+ StringCipher.RandomString(5);
             payment.Payment_URL_IsValid = true;
             db.Payment_Process.Add(payment);
             db.SaveChanges();
 
-            //Send Email
-            sendEamil_ReadyToPay(std, payment);
+            //Send Email 
+            send_ReadyToPay(std, payment, Payment_For);
+
+            // Send SMS
+            SendSMS send_sms = new SendSMS();
+            string Text = "Dear " + std.Student_Name_En + "\nNow you can pay the fees of " + Payment_For + "\nPlease check your E-mail";
+            string number_Phone = std.Student_Phone;
+            string reslt_message = send_sms.SendMessage(Text, number_Phone);
+
+
         }
 
         private string GetRejectStatusName(int CurrentStatus_Id)
@@ -681,39 +701,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
 
         }
 
-        private string ConvertToUnicode(string val)
-        {
-            string msg2 = string.Empty;
-            byte[] bytes = Encoding.Default.GetBytes(val);
-            msg2 = Encoding.UTF8.GetString(bytes);
-
-            return msg2;
-        }
-
-        public string SendMessage(string username,string passwor, string msg, string sender,string number)
-        {
-            /* Encoding msg */
-            
-
-            HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create("http://www.mobily.ws/api/msgSend.php");
-            req.Method = "POST";
-            req.ContentType = "application/x-www-form-urlencoded";
-            string postData = "mobile=" + username + "&password=" + passwor + "&numbers=" + number + "&sender=" + sender + "&msg=" + msg + "&applicationType=68";
-            StreamWriter stOut = new StreamWriter(req.GetRequestStream(), Encoding.UTF8);
-            stOut.Write(postData);
-            stOut.Close();
-            string strResponcse = "1";
-            using (HttpWebResponse response = (HttpWebResponse)req.GetResponse())
-            {
-                Stream dataStream = response.GetResponseStream();
-                StreamReader reader = new StreamReader(dataStream);
-                var s = new JavaScriptSerializer();
-                strResponcse = reader.ReadToEnd();
-                reader.Close();
-                dataStream.Close();
-            }
-            return strResponcse;
-        }
+        
 
         public string Date_Different(DateTime ReveviedDate)
         {
