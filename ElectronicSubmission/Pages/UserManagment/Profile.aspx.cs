@@ -39,11 +39,11 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment
 
         private void LoggedUser()
         {
-
-            if (SessionWrapper.LoggedUser.Language_id == 1)
+            if (SessionWrapper.LoggedUser.Language_id == 1) {
                 EmpUpdate.Text = "حفظ";
-               ChangeButton.Text = "حفظ";
-
+                ChangeButton.Text = "حفظ";
+                translateValidationArabic();
+            }
 
         }
 
@@ -119,7 +119,7 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment
             if (result)
             {
                 if (SessionWrapper.LoggedUser.Language_id == 1)
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','  تم تحديث البيانات بنجاح ');", true);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  الحالة : ','  تم تحديث البيانات بنجاح ');", true);
                 else
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','  The Update Info was Sucessfully saved in system ! ');", true);
 
@@ -128,7 +128,7 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment
             else
             {
                 if (SessionWrapper.LoggedUser.Language_id == 1)
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','حدث خطأ');", true);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  الحالة : ','حدث خطأ');", true);
                 else
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','Error');", true);
 
@@ -202,7 +202,7 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment
                     LogData = "data:" + JsonConvert.SerializeObject(Emp, logFileModule.settings);
                     logFileModule.logfile(10, "تعديل كلمة المرور", "Change PassWord", LogData);
                     if (SessionWrapper.LoggedUser.Language_id == 1)
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight',' تم تعديل كلمة المرور بنجاح ');", true);
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Sالحاله :',' تم تعديل كلمة المرور بنجاح ');", true);
                     else
                         Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','  The Change PassWord was Sucessfully saved in system ! ');", true);
 
@@ -210,7 +210,7 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment
                 else
                 {
                     if (SessionWrapper.LoggedUser.Language_id == 1)
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','كلمة المرورة غير متطابقة');", true);
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  الحالة : ','كلمة المرورة غير متطابقة');", true);
                     else
                         Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','Try Agin New PassWord');", true);
                 }
@@ -218,10 +218,32 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment
             else
             {
                 if (SessionWrapper.LoggedUser.Language_id == 1)
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','كلمة المرور غير صحيحة');", true);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  الحاله : ','كلمة المرور غير صحيحة');", true);
                 else
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','The Old PassWord is rong');", true);
             }
+        }
+
+        public void translateValidationArabic()
+        {
+         
+            Employee_EmailValidator.Text = "أدخل البريد الإلكتروني";
+            Employee_PhoneValidator.Text = "أدخل الهاتف";
+            LanguageValidator.Text = "إختر اللغة";
+
+            OldPassWordValidator.Text = "أدخل كلمة المرور";
+            NewPassWordValidator.Text = "أدخل كلمة المرور الجديدة";
+            TryNewPassWordValidator.Text = "أعادة كلمة المرور الجديدة";
+
+
+            Employee_Email.Attributes["placeholder"] = "أدخل البريد الإلكتروني";
+            Employee_Phone.Attributes["placeholder"] = "أدخل الهاتف";
+
+            OldPassWord.Attributes["placeholder"] = "أدخل كلمة المرور";
+            NewPassWord.Attributes["placeholder"] = "أدخل كلمة المرور الجديدة";
+            TryNewPassWord.Attributes["placeholder"] = "أعادة كلمة المرور الجديدة";
+
+
         }
 
     }
