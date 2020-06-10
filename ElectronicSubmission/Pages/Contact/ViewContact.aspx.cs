@@ -107,8 +107,16 @@ namespace ElectronicSubmission.Pages.Contact
                 db.Entry(std).State = System.Data.EntityState.Modified;
                 db.SaveChanges();
                 LoadStudentInfo(std);
+                if (SessionWrapper.LoggedUser.Language_id == 1)
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'left', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','حالة الحفظ: ','تم حفظ القبول بنجاح في النظام  ');", true);
+                else Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','Save Status: ','Your Approve was Sucessfully saved in system');", true);           
             }
-            catch { Response.Redirect("~/Pages/Contact/ListContact.aspx"); }
+            catch {
+
+                if (SessionWrapper.LoggedUser.Language_id == 1)
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'left', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','حالة الحفظ: ','حدث خطأ  ');", true);
+                else Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status: ','Error');", true);
+            }
         }
 
         protected void btnReject_Click(object sender, EventArgs e)
@@ -120,8 +128,17 @@ namespace ElectronicSubmission.Pages.Contact
                 db.Entry(std).State = System.Data.EntityState.Modified;
                 db.SaveChanges();
                 LoadStudentInfo(std);
+                if (SessionWrapper.LoggedUser.Language_id == 1)
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'left', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','حالة الحفظ: ','تم حفظ الرفض بنجاح في النظام  ');", true);
+                else Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status: ','Your Reject was Sucessfully saved in system');", true);
             }
-            catch { Response.Redirect("~/Pages/Contact/ListContact.aspx"); }
+            catch
+            {
+
+                if (SessionWrapper.LoggedUser.Language_id == 1)
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'left', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','حالة الحفظ: ','حدث خطأ  ');", true);
+                else Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status: ','Error');", true);
+            }
         }
     }
 }

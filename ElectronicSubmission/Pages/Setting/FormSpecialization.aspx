@@ -27,16 +27,15 @@
                         $('#Body_Holder_Weighted_Ratio_Percent').val(Emp.Weighted_Ratio_Percent);
                         $('#Body_Holder_Specialization_Description_Ar').val(Emp.Specialization_Description_Ar);
                         $('#Body_Holder_Specialization_Description_En').val(Emp.Specialization_Description_En);
-                        //$('#Body_Holder_speech').setData(Emp.Condition_Ar);
-                        //$('#Body_Holder_Minutes').setData(Emp.Condition_En);
                         CKEDITOR.instances['Body_Holder_speech'].setData(Emp.Condition_Ar);
                         CKEDITOR.instances['Body_Holder_Minutes'].setData(Emp.Condition_En);
+                        $('#Body_Holder_Registeration_Payment').val(Emp.Specialization_Registeration_Payment);
+                        $('#Body_Holder_Study_Payment').val(Emp.Specialization_Study_Payment);
                         if (Emp.Specialization_Image == "" || Emp.Specialization_Image == null) {
                             var Profile = "..\/..\/..\/..\/Template\/extra-images\/blue-and-silver.jpg";
                         } else {
                             var Profile = "..\/..\/..\/..\/Template\/extra-images\/" + Emp.Employee_Profile;
                         }
-                        //$('#Body_Holder_addAttachments1').attr('src', Profile);
                     }
                 });
             } else {
@@ -54,11 +53,11 @@
                 $('#Body_Holder_Specialization_Description_En').val('');
                 $('#Body_Holder_speech').val('');
                 $('#Body_Holder_Minutes').val('');
-                // $('#Body_Holder_Emp_Profile').attr('src', "..\/..\/..\/..\/Template\/extra-images\/blue-and-silver.jpg");
+                $('#Body_Holder_Registeration_Payment').val('');
+                $('#Body_Holder_Study_Payment').val('');
             }
 
             document.getElementById("AddEmp_show").click();
-            // GetServiceInformation(x.id)
         }
 
         function DeleteEmplooye(x) {
@@ -73,8 +72,6 @@
                     window.location = window.location;
                 }
             });
-            //document.getElementById("AddEmp_show").click();
-            // GetServiceInformation(x.id)
         }
     </script>
 </asp:Content>
@@ -247,6 +244,33 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("FormSpecialization-RegisterationPayment", "Registeration Payment") %></label><i class="icofont icofont-star-alt-1 text-danger"></i>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="icofont icofont-square-root"></i></span>
+                                                <asp:TextBox ID="Registeration_Payment" runat="server" class="form-control" placeholder="Enter Registeration Payment" TextMode="SingleLine"></asp:TextBox>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Registeration Payment" ValidationGroup="Per" ControlToValidate="Registeration_Payment" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                                <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="CompareValidator" ForeColor="Red" Operator="DataTypeCheck" Type="Double" ControlToValidate="Registeration_Payment" ValidationGroup="Per" Text="Value must be a Number" Display="Dynamic" SetFocusOnError="True"></asp:CompareValidator>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <label class="j-label"><% = ElectronicSubmission.FieldNames.getFieldName("FormSpecialization-StudyPayment", "Study Payment") %></label><i class="icofont icofont-star-alt-1 text-danger"></i>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="icofont icofont-ruler-compass-alt"></i></span>
+                                                <asp:TextBox ID="Study_Payment" runat="server" class="form-control" placeholder="Enter Study Payment" TextMode="SingleLine"></asp:TextBox>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Study Payment" ValidationGroup="Per" ControlToValidate="Study_Payment" Display="Dynamic" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                                <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="CompareValidator" ForeColor="Red" Operator="DataTypeCheck" Type="Double" ControlToValidate="Study_Payment" ValidationGroup="Per" Text="Value must be a Number" Display="Dynamic" SetFocusOnError="True"></asp:CompareValidator>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <!-- File upload card start -->
                                     <div class="row">
                                         <div class="form-group col-sm-12">

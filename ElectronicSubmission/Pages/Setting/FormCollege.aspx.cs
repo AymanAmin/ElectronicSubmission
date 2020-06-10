@@ -28,7 +28,15 @@ namespace ElectronicSubmission.Pages.Setting
             if (result)
             {
                 clearform();
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','  Your Item was Sucessfully saved in system ! ');", true);
+                if (SessionWrapper.LoggedUser.Language_id == 1)
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'left', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','حالة الحفظ: ','تم حفظ الكلية بنجاح في النظام  ');", true);
+                else Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status: ','Your College was Sucessfully saved in system');", true);
+            }
+            else
+            {
+                if (SessionWrapper.LoggedUser.Language_id == 1)
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'left', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','حالة الحفظ: ','حدث خطأ  ');", true);
+                else Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status: ','Error');", true);
             }
         }
 
@@ -51,7 +59,6 @@ namespace ElectronicSubmission.Pages.Setting
                 /* Add it to log file */
                 LogData = "data:" + JsonConvert.SerializeObject(group, logFileModule.settings);
                 logFileModule.logfile(10, "إنشاء كلية جديدة", "create new Colleges", LogData);
-                //PriorityDataSource.DataBind();
             }
             catch { return false; }
             return true;
