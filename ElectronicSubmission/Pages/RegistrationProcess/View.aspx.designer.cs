@@ -202,6 +202,15 @@ namespace ElectronicSubmission.Pages.RegistrationProcess {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivAction;
         
         /// <summary>
+        /// txtURL_Video control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtURL_Video;
+        
+        /// <summary>
         /// txtNote control.
         /// </summary>
         /// <remarks>

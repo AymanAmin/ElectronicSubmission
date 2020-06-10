@@ -94,7 +94,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
 
                 //Start Statistic
                 string total = txtFirst.Text = ListAllStudentStatistic.Count().ToString();
-                string current = txtSecond.Text = ListAllStudentStatistic.Count(x => x.Student_Status_Id != 14 && x.Student_Status_Id != 15).ToString();
+                string current = txtSecond.Text = ListStudentCurrent.Count.ToString(); //ListAllStudentStatistic.Count(x => x.Student_Status_Id != 14 && x.Student_Status_Id != 15).ToString();
                 string approved = txtThird.Text = ListAllStudentStatistic.Where(x => x.Student_Status_Id == 14).Count().ToString();
                 string rejected = txtFour.Text = ListAllStudentStatistic.Where(x => x.Student_Status_Id == 15).Count().ToString();
 
