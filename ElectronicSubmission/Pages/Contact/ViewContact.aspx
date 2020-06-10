@@ -9,7 +9,7 @@
         <!-- left View cards start -->
         <div class="col-sm-8">
             <!-- Student Details card  -->
-            <div class="card">
+            <div class="card <%= ElectronicSubmission.FieldNames.getBoardColor() %>">
                 <div class="row invoice-contact" style="margin-bottom:2%">
                     <div class="col-md-12">
                         <div class="invoice-box row">

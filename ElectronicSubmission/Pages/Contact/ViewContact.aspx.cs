@@ -11,13 +11,14 @@ namespace ElectronicSubmission.Pages.Contact
     public partial class ViewContact : System.Web.UI.Page
     {
         REU_RegistrationEntities db = new REU_RegistrationEntities();
-        string[] Color = { "green", "orange", "blue", "red", "maroon", "purple", "teal", "deepskyblue", "gray", "hotpink", "blueviolet", "violet", "deepskyblue", "cyan", "olivedrab", "coral", "salmon", "yellow" };
+        string[] Color = { "#0a1350", "#fe9365", "blue", "#eb3422", "maroon", "purple", "teal", "deepskyblue", "gray", "hotpink", "blueviolet", "violet", "deepskyblue", "#0ac282", "#eb3422", "coral", "salmon", "#0ac282" };
         int student_record_id = 0;
         LogFileModule logFileModule = new LogFileModule();
         String LogData = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (SessionWrapper.LoggedUser == null)
                 Response.Redirect("~/Pages/Auth/Login.aspx");
 
@@ -26,6 +27,7 @@ namespace ElectronicSubmission.Pages.Contact
             else
                 student_record_id = int.Parse(Request["StudentID"].ToString());
 
+            SessionWrapper.BoardColor = 1;
             if (!IsPostBack)
             {
                 Student_Concat student = db.Student_Concat.Find(student_record_id);
@@ -59,7 +61,7 @@ namespace ElectronicSubmission.Pages.Contact
                 {
                     // select the color based on status id
                     int index = (int)std.Student_Concat_Status - 1;
-                    if (index > Color.Length) index = 1;
+                    if (index > Color.Length) index = 4;
 
                     txtStudent_SSN.Text = std.Student_Concat_Id.ToString();
                     txtStudent_Name.Text = std.Student_Concat_Name;
@@ -79,6 +81,8 @@ namespace ElectronicSubmission.Pages.Contact
                         std.Student_Concat_Status = 2;
                         db.Entry(std).State = System.Data.EntityState.Modified;
                         db.SaveChanges();
+                        index = (int)std.Student_Concat_Status - 1;
+                        if (index > Color.Length) index = 1;
                         if (SessionWrapper.LoggedUser.Language_id == 1)
                             txtStatus.Text = "<span class='label label-warning' style='background:" + Color[index] + " !important;'>" + std.Status.Status_Name_Ar + "</span>";
                         else
@@ -93,6 +97,7 @@ namespace ElectronicSubmission.Pages.Contact
 
                         DivAction.Visible = false;
                     }
+                    SessionWrapper.BoardColor = (int)std.Student_Concat_Status;
                 }
             }
             catch { Response.Redirect("~/Pages/Contact/ListContact.aspx"); }

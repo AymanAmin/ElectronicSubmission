@@ -66,6 +66,7 @@ namespace ElectronicSubmission
         #region EmpStructures
 
         #region LanguageHome
+        #region BoardColor
 
 
         public static Employee LoggedUser
@@ -164,6 +165,25 @@ namespace ElectronicSubmission
                 }
             }
         }
+
+        public static int BoardColor
+        {
+            get { return GetFromSession<int>("BoardColor"); }
+            set
+            {
+                if (value == null)
+                {
+                    HttpContext.Current.Session.Remove("BoardColor");
+                }
+                else
+                {
+                    SetInSession<int>("BoardColor", value);
+                }
+            }
+        }
+        
+        #endregion
+
         #endregion
 
         #endregion

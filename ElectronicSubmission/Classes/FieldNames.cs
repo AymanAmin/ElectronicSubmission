@@ -108,5 +108,17 @@ namespace ElectronicSubmission
             else
                 return "text-right";
         }
+
+        public static string getBoardColor()
+        {
+            if (SessionWrapper.BoardColor == 1)
+                return "card-border-primary";
+            else if (SessionWrapper.BoardColor == 2)
+                return "card-border-warning";
+            else if (SessionWrapper.BoardColor == 14)
+                return "card-border-success";
+            else return "card-border-danger";
+        }
+        
     }
 }
