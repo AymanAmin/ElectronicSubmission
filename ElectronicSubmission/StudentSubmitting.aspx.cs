@@ -119,10 +119,10 @@ namespace ElectronicSubmission
                 else
                 {
                     // Session["Warning"] = true; Response.Redirect("~/StudentSubmitting.aspx");
-                    if (langId == 0)
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "WarningEn();", true);
-                    else
+                    if (langId == 1)
                         Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "WarningAr();", true);
+                    else
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "WarningEn();", true);
 
                 }
             }
@@ -376,7 +376,7 @@ namespace ElectronicSubmission
             StudentNameAr.Attributes["placeholder"] = "أدخل الاسم بالعربي";
             StudentNameEn.Attributes["placeholder"] = "أدخل الأسم بالانجليزي";
             StudentEmail.Attributes["placeholder"] = "أدخل البريد الإلكتروني";
-            StudentPhone.Attributes["placeholder"] = "أدخل رقم الهاتف";
+            StudentPhone.Attributes["placeholder"] = "05xxxxxxxx";
             Address.Attributes["placeholder"] = "أدخل العنوان";
             Student_SSN.Attributes["placeholder"] = "أدخل رقم الهوية";
             HighSchoolDegree.Attributes["placeholder"] = "أدخل درجة الشهادة الثانوية";

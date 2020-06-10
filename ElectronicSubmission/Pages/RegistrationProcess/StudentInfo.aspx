@@ -5,10 +5,30 @@
     <title><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-Title", "ECMS -Student Info") %></title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Body_Holder" runat="server">
-    
     <!-- ckeditor.css-->
     <link rel="stylesheet" href="~/Theme\files\bower_components\ckeditor\samples\css\samples.css" />
     <link rel="stylesheet" href="~/Theme\files\bower_components\ckeditor\samples\toolbarconfigurator/lib/codemirror/neo.css" />
+
+    
+    <script type="text/javascript" language="javascript">
+
+        function validatelimit(obj, maxchar) {
+
+            if (this.id) obj = this;
+
+            var remaningChar = maxchar - obj.value.length;
+
+        if (remaningChar <= 0) {
+            obj.value = obj.value.substring(maxchar, 0);
+            return false;
+
+        }
+        else
+        { return true; }
+        }
+
+    </script>
+
     <!-- Page-body start -->
     <div class="page-body">
         <!-- Article Editor card start -->
@@ -88,7 +108,7 @@
                         <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentPhone", "Student Phone") %></label><i class="icofont icofont-star-alt-1 text-danger"></i>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="icofont icofont-ui-call"></i></span>
-                            <asp:TextBox ID="StudentPhone" runat="server" class="form-control" placeholder="Enter Student Phone" TextMode="Phone"></asp:TextBox>
+                             <asp:TextBox ID="StudentPhone" runat="server" class="form-control" placeholder="05xxxxxxxx" TextMode="Number"  onkeyup="validatelimit(this,10)"></asp:TextBox>
                         </div>
                           <asp:RequiredFieldValidator ID="StudentPhoneValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student Phone" ValidationGroup="valFormGroup" ControlToValidate="StudentPhone" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
                     </div>
