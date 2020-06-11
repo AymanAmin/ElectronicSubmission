@@ -100,21 +100,26 @@ namespace ElectronicSubmission
 
                 bool ToCheckPercent = SpecializationPercent(Spec_id, HighSchoolDeg, CapabilitiesDeg, MyAchievementDeg);
                 if (ToCheckPercent)
-                    result = IU_Student(StudentID, StudentNameAr.Text, StudentNameEn.Text, stuProfile, StudentEmail.Text, StudentPhone.Text, Address.Text, RegDate, Student_SSN.Text, HighSchoolDeg, CapabilitiesDeg, MyAchievementDeg, Res_id, Spec_id, Nat_id, totalSum);
-
-                if (result)
                 {
-                    string Text = "";
-                    string sever_name = Request.Url.Authority.ToString();
-                    string StuEmail = StudentEmail.Text;
-                    SendEmail send = new SendEmail();
-                    
+                    result = IU_Student(StudentID, StudentNameAr.Text, StudentNameEn.Text, stuProfile, StudentEmail.Text, StudentPhone.Text, Address.Text, RegDate, Student_SSN.Text, HighSchoolDeg, CapabilitiesDeg, MyAchievementDeg, Res_id, Spec_id, Nat_id, totalSum);
+                    if (result)
+                    {
+                        string Text = "";
+                        string sever_name = Request.Url.Authority.ToString();
+                        string StuEmail = StudentEmail.Text;
+                        SendEmail send = new SendEmail();
+
                         Text = " <Strong style='font-size:16px;'> Dear " + StudentNameEn.Text + "</Strong><br /><br /> " + "Thank you for completing the application process at Riyadh Elm University. We will contact you within 48 hours." + " <br /> <br />" + "Best Regard," + " <br />" + "Admission System" + " <br /> ";
 
-                    bool R = send.TextEmail("Riyadh Elm University", StuEmail, Text, sever_name);
+                        bool R = send.TextEmail("Riyadh Elm University", StuEmail, Text, sever_name);
 
-                    Session["Success"] = true;
-                    if (StudentID == 0) Response.Redirect("~/StudentSubmitting.aspx");
+                        Session["Success"] = true;
+                        if (StudentID == 0) Response.Redirect("~/StudentSubmitting.aspx");
+                    }
+                    else
+                    {
+
+                    }
                 }
                 else
                 {
@@ -126,7 +131,7 @@ namespace ElectronicSubmission
 
                 }
             }
-            catch(Exception x) { }
+            catch (Exception x) { }
         }
 
         public bool IU_Student(int StudentID, string ArabicName, string EnglishName, FileUpload StProfile, string Email, string Phone, string StuAddress, DateTime RegistrationDate, string StudentSSN, float HighSchoolDeg, float CapabilitiesDeg, float MyAchievementDeg, int ResourceID, int SpecializationID, int NationalityID, float StudentTotal)
