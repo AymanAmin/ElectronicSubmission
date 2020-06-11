@@ -115,7 +115,7 @@
                 <!-- start of table -->
                 <div class="table-responsive" style="padding: 2%;">
                     <table id="issue-list-table" class="table dt-responsive width-100">
-                        <thead class="text-left">
+                        <thead class="<%= ElectronicSubmission.FieldNames.getTextRTLReal() %>">
                             <tr>
                                 <th><% = ElectronicSubmission.FieldNames.getFieldName("ListContact-Expand", "Expand") %></th>
                                 <th><% = ElectronicSubmission.FieldNames.getFieldName("ListContact-Actions", "Actions") %></th>
@@ -127,7 +127,7 @@
                                 <th><% = ElectronicSubmission.FieldNames.getFieldName("ListContact-Message", "Message") %></th>
                             </tr>
                         </thead>
-                        <tbody class="text-left">
+                        <tbody class="<%= ElectronicSubmission.FieldNames.getTextRTLReal() %>">
                             <asp:Literal ID="txtStudentList" runat="server"></asp:Literal>
                         </tbody>
                     </table>

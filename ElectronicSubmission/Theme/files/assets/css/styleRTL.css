@@ -164,21 +164,14 @@ html body h1 h2 h3 h4 h5 h6 p a li ul div {
     color: #0a1350;
 }
 .dxgvHeader_Mulberry{text-align: center !important;}
-
 div.dataTables_wrapper div.dataTables_filter {
     float: left !important;
 }
-
 table.dataTable > tbody > tr.child ul.dtr-details {
     direction: rtl;
     float: right;
     text-align: right;
 }
-
-.text-right{
-    text-align:left !important;
-}
-
 #Body_Holder_UCard {
     display: inline-flex !important;
     width: 100%;
@@ -189,3 +182,12 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 .table-responsive {
     overflow-x: unset !important;
 }
+table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before, table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
+    left: 0px !important;
+    right: 4px;
+}
+table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child, table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child {
+    padding-left: 0px !important;
+    padding-right: 30px;
+}
+

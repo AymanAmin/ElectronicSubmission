@@ -60,6 +60,7 @@ namespace ElectronicSubmission.Pages.Contact
                 if (std != null)
                 {
                     // select the color based on status id
+                    db.Configuration.LazyLoadingEnabled = true;
                     int index = (int)std.Student_Concat_Status - 1;
                     if (index > Color.Length) index = 4;
 
@@ -68,11 +69,6 @@ namespace ElectronicSubmission.Pages.Contact
                     txtStudent_Phone.Text = std.Student_Concat_Phone;
                     txtStudent_Email.Text = std.Student_Concat_Email;
                     txtCreationDate.Text = std.Student_Concat_CreationDate.ToString();
-                    if (SessionWrapper.LoggedUser.Language_id == 1)
-                        txtStatus.Text = "<span class='label label-warning' style='background:" + Color[index] + " !important;'>" + std.Status.Status_Name_Ar + "</span>";
-                    else
-                        txtStatus.Text = "<span class='label label-warning' style='background:" + Color[index] + " !important;'>" + std.Status.Status_Name_En + "</span>";
-
                     txtMessage.Text = std.Student_Concat_Message;
 
                     // Change status to pendding if it's new
@@ -83,20 +79,17 @@ namespace ElectronicSubmission.Pages.Contact
                         db.SaveChanges();
                         index = (int)std.Student_Concat_Status - 1;
                         if (index > Color.Length) index = 1;
-                        if (SessionWrapper.LoggedUser.Language_id == 1)
-                            txtStatus.Text = "<span class='label label-warning' style='background:" + Color[index] + " !important;'>" + std.Status.Status_Name_Ar + "</span>";
-                        else
-                            txtStatus.Text = "<span class='label label-warning' style='background:" + Color[index] + " !important;'>" + std.Status.Status_Name_En + "</span>";
                     }
                     else if (std.Student_Concat_Status == 14 || std.Student_Concat_Status == 15)
                     {
-                        if (SessionWrapper.LoggedUser.Language_id == 1)
-                            txtStatus.Text = "<span class='label label-warning' style='background:" + Color[index] + " !important;'>" + std.Status.Status_Name_Ar.Replace("الملف ", "") + "</span>";
-                        else
-                            txtStatus.Text = "<span class='label label-warning' style='background:" + Color[index] + " !important;'>" + std.Status.Status_Name_En.Substring(5, std.Status.Status_Name_En.Length - 5) + "</span>";
-
                         DivAction.Visible = false;
                     }
+
+                    if (SessionWrapper.LoggedUser.Language_id == 1)
+                        txtStatus.Text = "<span class='label label-warning' style='background:" + Color[index] + " !important;'>" + std.Status.Status_Name_Ar + "</span>";
+                    else
+                        txtStatus.Text = "<span class='label label-warning' style='background:" + Color[index] + " !important;'>" + std.Status.Status_Name_En + "</span>";
+
                     SessionWrapper.BoardColor = (int)std.Student_Concat_Status;
                 }
             }
@@ -107,10 +100,13 @@ namespace ElectronicSubmission.Pages.Contact
         {
             try
             {
+                db.Configuration.LazyLoadingEnabled = false;
                 Student_Concat std = db.Student_Concat.Find(student_record_id);
                 std.Student_Concat_Status = 14;
                 db.Entry(std).State = System.Data.EntityState.Modified;
                 db.SaveChanges();
+                LogData = "data:" + JsonConvert.SerializeObject(std, logFileModule.settings);
+                logFileModule.logfile(10, "تغير حالة الإتصال", "Update Status Contact", LogData);
                 LoadStudentInfo(std);
                 if (SessionWrapper.LoggedUser.Language_id == 1)
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'left', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','حالة الحفظ: ','تم حفظ القبول بنجاح في النظام  ');", true);
@@ -128,10 +124,13 @@ namespace ElectronicSubmission.Pages.Contact
         {
             try
             {
+                db.Configuration.LazyLoadingEnabled = false;
                 Student_Concat std = db.Student_Concat.Find(student_record_id);
                 std.Student_Concat_Status = 15;
                 db.Entry(std).State = System.Data.EntityState.Modified;
                 db.SaveChanges();
+                LogData = "data:" + JsonConvert.SerializeObject(std, logFileModule.settings);
+                logFileModule.logfile(10, "تغير حالة الإتصال", "Update Status Contact", LogData);
                 LoadStudentInfo(std);
                 if (SessionWrapper.LoggedUser.Language_id == 1)
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'left', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','حالة الحفظ: ','تم حفظ الرفض بنجاح في النظام  ');", true);
