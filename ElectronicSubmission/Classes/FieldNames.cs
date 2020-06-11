@@ -119,6 +119,14 @@ namespace ElectronicSubmission
                 return "card-border-success";
             else return "card-border-danger";
         }
-        
+
+        public static string getTextRTLReal()
+        {
+            if (SessionWrapper.LoggedUser.Language_id == 1)
+                return "text-right";
+            else
+                return "text-left";
+        }
+
     }
 }

@@ -148,7 +148,10 @@ namespace ElectronicSubmission
                 Response.Redirect("~/default.aspx");
             else
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-check', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Validation : ','  " + Error_message + " ! ');", true);
+                if (langId == 2)
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "AlertNotify('Error Occurred', 'Email or Password not successfully. Please try again', 'error');", true);
+                else
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "AlertNotify('حدث خطأ', 'الإيميل او كلمة المرور غير صحيحة الرجاء المحاولة مرة اخري', 'error');", true);
             }
         }
 
