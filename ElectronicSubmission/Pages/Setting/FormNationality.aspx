@@ -56,7 +56,7 @@
                                                     <asp:RequiredFieldValidator ID="RFVtxtNationality_Name_En" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter English Name" ValidationGroup="Nationality" ControlToValidate="txtNationality_Name_En" Display="Dynamic"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
-                                            <div class="form-group col-sm-12" style="text-align: right; margin-top: -2%">
+                                            <div class="form-group col-sm-12" style="text-align: center; margin-top: -2%">
                                                 <asp:Button ID="Save" runat="server" Text="Save" class="btn btn-primary" ValidationGroup="Nationality" OnClick="Save_Click" />
 
                                             </div>

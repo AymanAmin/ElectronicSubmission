@@ -42,6 +42,7 @@ namespace ElectronicSubmission
         public string Student_Total { get; set; }
         public Nullable<int> Suspended { get; set; }
         public string Notes { get; set; }
+        public string Student_URL_Video { get; set; }
     
         public virtual Employee Employee { get; set; }
         public virtual ICollection<File> Files { get; set; }

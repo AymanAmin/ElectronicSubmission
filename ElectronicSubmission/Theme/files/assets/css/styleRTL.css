@@ -186,3 +186,6 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     float: left;
 }
+.table-responsive {
+    overflow-x: unset !important;
+}

@@ -137,6 +137,9 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                     DateTime date = DateTime.Parse(std.Student_CreationDate.ToString());
                     txtStudent_CreationDate.Text = date.ToShortDateString();
 
+                    if (std.Student_Status_Id == 7)
+                        txtURL_Video.Visible = true;
+
                     // Change status to pendding if it's new
                     if (std.Status.Status_Code == 1)
                     {
@@ -151,9 +154,9 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                         seq.DateCreation = DateTime.Now;
 
                         if (SessionWrapper.LoggedUser.Language_id == 1)
-                            txtStatus.Text = "<span class='label label-warning' style='background:" + Color[index] + " !important;'>" + std.Status.Status_Name_Ar + "</span>";
+                            txtStatus.Text = "<span class='label label-warning' style='background:" + Color[index + 1] + " !important;'>" + std.Status.Status_Name_Ar + "</span>";
                         else
-                            txtStatus.Text = "<span class='label label-warning' style='background:" + Color[index] + " !important;'>" + std.Status.Status_Name_En + "</span>";
+                            txtStatus.Text = "<span class='label label-warning' style='background:" + Color[index + 1] + " !important;'>" + std.Status.Status_Name_En + "</span>";
 
                         db.Sequences.Add(seq);
                         db.SaveChanges();
@@ -402,7 +405,11 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                     default: newStatus = 15; break; // Defalut Set To 15 File Complete with Failure
                 }
 
-                
+                if (std.Student_Status_Id == 7)
+                {
+                    std.Student_URL_Video = txtURL_Video.Text;
+                }
+
                 std.Student_Status_Id = newStatus;
                 db.Entry(std).State = System.Data.EntityState.Modified;
 

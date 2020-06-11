@@ -59,27 +59,11 @@
 
     <script>
 
-        /* Close Model */
-        function SuccessAr() {
-            setTimeout(function () { document.getElementById("Success-btn-Ar").click(); }, 1000);
+        function AlertNotify(messageHeader, messageBody, messageType) {
+            setTimeout(function () { swal(messageHeader, messageBody, messageType); }, 1000);
             // Click on the checkbox
         }
 
-        function SuccessEn() {
-            setTimeout(function () { document.getElementById("Success-btn-En").click(); }, 1000);
-            // Click on the checkbox
-        }
-
-        function WarningAr() {
-            setTimeout(function () { document.getElementById("Warning-btn-Ar").click(); }, 1000);
-            // Click on the checkbox
-        }
-
-        function WarningEn() {
-            setTimeout(function () { document.getElementById("Warning-btn-En").click(); }, 1000);
-            // Click on the checkbox
-        }
-        /*--------------------------------------*/
     </script>
 </head>
 <body>
@@ -400,14 +384,6 @@
                                                         </ul>
                                                     </div>
                                                 </div>
-
-                                                <!-- Start Show Alert -->
-                                                <button type="button" style="display: none;" id="Warning-btn-Ar" class="btn btn-primary Warning-Ar m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'Warning-Ar']);">Basic</button>
-                                                <button type="button" style="display: none;" id="Warning-btn-En" class="btn btn-primary Warning-En m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'Warning-En']);">Basic</button>
-
-                                                <button type="button" style="display: none;" id="Success-btn-Ar" class="btn btn-success success-Ar m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'success-Ar']);">Success</button>
-                                                <button type="button" style="display: none;" id="Success-btn-En" class="btn btn-success success-En m-b-10" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'success-En']);">Success</button>
-                                                <!-- End Show Alert -->
                                             </div>
 
                                         </div>

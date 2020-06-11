@@ -134,6 +134,12 @@ namespace ElectronicSubmission.Payment
                     PaymentProcess_update.Payment_Result_Json = JsonConvert.SerializeObject(responseData, logFileModule.settings);
                     db.Entry(PaymentProcess_update).State = System.Data.EntityState.Modified;
                     db.SaveChanges();
+
+                    /* Add it to log file */
+                    db.Configuration.LazyLoadingEnabled = false;
+                    Payment_Process paymentLogFile = db.Payment_Process.Find(PaymentProcess_update.Payment_Id);
+                    LogData = "data:" + JsonConvert.SerializeObject(paymentLogFile, logFileModule.settings);
+                    logFileModule.logfile(10, "اضافة عملية دفع", "add payment process", LogData);
                 }
             }
             catch (Exception er){

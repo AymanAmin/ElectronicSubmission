@@ -137,12 +137,15 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment
 
         public bool AU_Emplooyees(int EmployeeID, string Email,string Phone,int lang, int calander)
         {
+            bool refresh = false;
             try
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 Employee Emp = db.Employees.First(x => x.Employee_Id == EmployeeID);
                 Emp.Employee_Email = Email;
                 Emp.Employee_Phone = Phone;
+                if (lang != Emp.Language_id)
+                    refresh = true;
                 Emp.Language_id = lang;
                 //Emp.Calendar_id = calander;
                 string ImagepathProfile = UploadFile(1);
@@ -155,6 +158,8 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment
                 logFileModule.logfile(10, "تعديل بيانات الموظف", "Update Employee Info", LogData);
                 SessionWrapper.LoggedUser = Emp;
                 SessionWrapper.Language = db.Lanuage_Detials.Where(x => x.Language_Master_Id == lang).ToList();
+                if (refresh)
+                    Response.Redirect("~/Pages/UserManagment/Profile.aspx");
             }
             catch { return false; }
             return true;

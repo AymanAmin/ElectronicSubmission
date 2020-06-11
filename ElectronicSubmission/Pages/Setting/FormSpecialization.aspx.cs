@@ -4,23 +4,15 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Web;
-//using System.Web.Script.Serialization;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-//using Treatment.Classes;
-//using Treatment.Entity;
-//using Website.Classes;
-
 
 namespace ElectronicSubmission.Pages.Setting
 {
     public partial class FormSpecialization : System.Web.UI.Page
     {
         REU_RegistrationEntities db = new REU_RegistrationEntities();
-        int EmployeeId = 0;
-
         int SpecializationId = 0;
         //LogFile Data
         LogFileModule logFileModule = new LogFileModule();
@@ -84,6 +76,12 @@ namespace ElectronicSubmission.Pages.Setting
                     speech.Attributes["placeholder"] = "شروط القبول عربي";
                     Minutes.Attributes["placeholder"] = "شروط القبول إنجليزي";
 
+                    Registeration_Payment.Attributes["placeholder"] = "رسوم التسجيل";
+                    RequiredFieldValidator8.Text = "أدخل رسوم التسجيل";
+                    CompareValidator1.Text = "يجب أن تكون القيمة رقمًا";
+                    Study_Payment.Attributes["placeholder"] = "الرسوم الدراسية";
+                    RequiredFieldValidator9.Text = "أدخل الرسوم الدراسية";
+                    CompareValidator2.Text = "يجب أن تكون القيمة رقمًا";
                     Save.Text = "حفظ";
                     btnSearch.Text = "بحث";
                 }
@@ -117,6 +115,13 @@ namespace ElectronicSubmission.Pages.Setting
                     speech.Attributes["placeholder"] = "Admission Requirements Arabic";
                     Minutes.Attributes["placeholder"] = "Admission Requirements English";
 
+                    Registeration_Payment.Attributes["placeholder"] = "Registeration Payment";
+                    RequiredFieldValidator8.Text = "Enter Registeration Payment";
+                    CompareValidator1.Text = "Value must be a Number";
+                    Study_Payment.Attributes["placeholder"] = "Study Payment";
+                    RequiredFieldValidator9.Text = "Enter Study Payment";
+                    CompareValidator2.Text = "Value must be a Number";
+
                     Save.Text = "حفظ";
                     btnSearch.Text = "Search";
                 }
@@ -128,11 +133,26 @@ namespace ElectronicSubmission.Pages.Setting
             int collegeId = 0;
             int.TryParse(Collage_Id.SelectedValue, out collegeId);
             int.TryParse(SpecId.Value, out SpecializationId);
-            bool result = AU_Specialization(Specialization_Name_Ar.Text, Specialization_Name_En.Text, collegeId, Specialization_Icon.Text, High_School_Percent.Text, Capabilities_Percent.Text, My_Achievement_Percent.Text, Weighted_Ratio_Percent.Text, Specialization_Description_Ar.Text, Specialization_Description_En.Text, speech.Text, Minutes.Text);
+            float registerationPaymentVal = 0, studyPaymentVal = 0;
+
+            float.TryParse(Registeration_Payment.Text, out registerationPaymentVal);
+            float.TryParse(Study_Payment.Text, out studyPaymentVal);
+            ////////////////////////////////////////////
+            if (collegeId == 0 || registerationPaymentVal == 0 || studyPaymentVal == 0)
+            {
+                if (SessionWrapper.LoggedUser.Language_id == 1)
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'left', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','حالة الحفظ: ','حدث خطأ  ');", true);
+                else Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status: ','Error');", true);
+                return;
+            }
+            /////////////////////////////////////////
+            bool result = AU_Specialization(Specialization_Name_Ar.Text, Specialization_Name_En.Text, collegeId, Specialization_Icon.Text, High_School_Percent.Text, Capabilities_Percent.Text, My_Achievement_Percent.Text, Weighted_Ratio_Percent.Text, Specialization_Description_Ar.Text, Specialization_Description_En.Text, speech.Text, Minutes.Text, registerationPaymentVal, studyPaymentVal);
 
             if (result)
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','  The  Specialization was Sucessfully saved in system ! ');", true);
+                if (SessionWrapper.LoggedUser.Language_id == 1)
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'left', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','حال الحفظ: ','تم حفظ التخصص بنجاح في النظام  ');", true);
+                else Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status:',' The Specialization was Sucessfully saved in system');", true);
                 clearForm();
                 listSpecialization = new List<Specialization>();
                 listSpecialization = db.Specializations.ToList();
@@ -140,11 +160,13 @@ namespace ElectronicSubmission.Pages.Setting
             }
             else
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','Error');", true);
+                if (SessionWrapper.LoggedUser.Language_id == 1)
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'left', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','حالة الحفظ: ','حدث خطأ  ');", true);
+                else Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status: ','Error');", true);
             }
         }
 
-        public bool AU_Specialization(string SpecializationNameAr, string SpecializationNameEn, int collegeId, string SpecializationIcon, string HighSchoolPercent, string CapabilitiesPercent, string MyAchievementPercent, string WeightedRatioPercent, string SpecializationDescriptionAr, string SpecializationDescriptionEn, string Speech, string Minutes)
+        public bool AU_Specialization(string SpecializationNameAr, string SpecializationNameEn, int collegeId, string SpecializationIcon, string HighSchoolPercent, string CapabilitiesPercent, string MyAchievementPercent, string WeightedRatioPercent, string SpecializationDescriptionAr, string SpecializationDescriptionEn, string Speech, string Minutes, float registerationPaymentVal, float studyPaymentVal)
         {
             try
             {
@@ -163,6 +185,8 @@ namespace ElectronicSubmission.Pages.Setting
                 Specl.Specialization_Description_En = SpecializationDescriptionEn;
                 Specl.Condition_Ar = Speech;
                 Specl.Condition_En = Minutes;
+                Specl.Specialization_Registeration_Payment = registerationPaymentVal;
+                Specl.Specialization_Study_Payment = studyPaymentVal;
                 string ImagepathProfile = UploadFile(1);
                 if (ImagepathProfile != "")
                     Specl.Specialization_Image = ImagepathProfile;
@@ -329,6 +353,8 @@ namespace ElectronicSubmission.Pages.Setting
                     Specialization_Description_En = x.Specialization_Description_En,
                     Condition_Ar = x.Condition_Ar,
                     Condition_En = x.Condition_En,
+                    Specialization_Registeration_Payment = x.Specialization_Registeration_Payment,
+                    Specialization_Study_Payment = x.Specialization_Study_Payment
                 }).FirstOrDefault();
 
                 return JsonConvert.SerializeObject(Emplo);
