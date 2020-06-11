@@ -4,8 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="82b089ea22b9446abd621e3fa4530584" Name="Diagram1">
-        <EntityTypeShape EntityType="REU_RegistrationModel.Collage" Width="1.5" PointX="1.5" PointY="33.75" IsExpanded="true" />
+      <Diagram DiagramId="3b3fb678dd754f3aa5dafc8959fed028" Name="Diagram1">
+        <EntityTypeShape EntityType="REU_RegistrationModel.Collage" Width="1.5" PointX="1.5" PointY="33.875" IsExpanded="true" />
         <EntityTypeShape EntityType="REU_RegistrationModel.Employee" Width="1.5" PointX="0.75" PointY="13.875" IsExpanded="true" />
         <EntityTypeShape EntityType="REU_RegistrationModel.File" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="REU_RegistrationModel.Group" Width="1.5" PointX="1.5" PointY="19.625" IsExpanded="true" />
@@ -26,7 +26,7 @@
         <EntityTypeShape EntityType="REU_RegistrationModel.Sequence" Width="1.5" PointX="6" PointY="9.375" IsExpanded="true" />
         <EntityTypeShape EntityType="REU_RegistrationModel.Specialization" Width="1.5" PointX="0.75" PointY="28.5" IsExpanded="true" />
         <EntityTypeShape EntityType="REU_RegistrationModel.Status" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="REU_RegistrationModel.Student" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.Student" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="REU_RegistrationModel.Student_Concat" Width="1.5" PointX="3" PointY="15.75" IsExpanded="true" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Specialization_Collage" ManuallyRouted="false" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Employee_Group" ManuallyRouted="false" />

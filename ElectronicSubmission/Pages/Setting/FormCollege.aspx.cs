@@ -59,6 +59,8 @@ namespace ElectronicSubmission.Pages.Setting
                 /* Add it to log file */
                 LogData = "data:" + JsonConvert.SerializeObject(group, logFileModule.settings);
                 logFileModule.logfile(10, "إنشاء كلية جديدة", "create new Colleges", LogData);
+                db.Entry(group).Reload();
+                CollegeDataSource.DataBind();
             }
             catch { return false; }
             return true;
