@@ -11,7 +11,7 @@ $(document).ready(function () {
     };
     //success message
 
-    document.querySelector('.success-En').onclick = function () {
+    document.querySelector('.success-En').onclick = function (messageHeader, messageBody, messageType) {
         swal("Submitted successfully!", "You clicked the button!", "success");
     };
 

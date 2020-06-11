@@ -217,17 +217,16 @@ namespace ElectronicSubmission
             if (SaveStudentMessage(StudentName.Text, StudentPhone.Text, StudentEmail.Text, StudentMessage.Text))
             {
                 if (langId == 2)
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "SuccessEn();", true);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "AlertNotify('Sent Succesfully', 'The message has been sent successfully. You will be contacted soon', 'success');", true);
                 else
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "SuccessAr();", true);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "AlertNotify('تم الإرسال بنجاح', 'تم إرسال الرسالة بنجاح سيتم التواصل معك قريباَ', 'success');", true);
             }
             else
             {
                 if (langId == 2)
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "WarningEn();", true);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "AlertNotify('Error Occurred', 'An error occurred during transmission. Please try again', 'error');", true);
                 else
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "WarningAr();", true);
-
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "AlertNotify('حدث خطأ', 'حدث خطأ اثناء الإرسال الرجاء المحاولة مرة اخري', 'error');", true);
             }
         }
 
@@ -264,17 +263,16 @@ namespace ElectronicSubmission
             if (SaveStudentMessage(StepStudentName.Text, StepStudentPhone.Text, StepStudentEmail.Text, strMessage))
             {
                 if (langId == 2)
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "SuccessEn();", true);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "AlertNotify('Sent Succesfully', 'The message has been sent successfully. You will be contacted soon', 'success');", true);
                 else
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "SuccessAr();", true);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "AlertNotify('تم الإرسال بنجاح', 'تم إرسال الرسالة بنجاح سيتم التواصل معك قريباَ', 'success');", true);
             }
             else
             {
                 if (langId == 2)
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "WarningEn();", true);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "AlertNotify('Error Occurred', 'An error occurred during transmission. Please try again', 'error');", true);
                 else
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "WarningAr();", true);
-
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "AlertNotify('حدث خطأ', 'حدث خطأ اثناء الإرسال الرجاء المحاولة مرة اخري', 'error');", true);
             }
         }
 
