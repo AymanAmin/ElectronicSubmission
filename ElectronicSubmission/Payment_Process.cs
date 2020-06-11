@@ -33,8 +33,8 @@ namespace ElectronicSubmission
         public Nullable<int> Payment_Type_Id { get; set; }
         public string Payment_Trackingkey { get; set; }
         public Nullable<bool> Payment_URL_IsValid { get; set; }
-        public string Payment_SMS_Result { get; set; }
         public string Payment_Result_Json { get; set; }
+        public string Payment_SMS_Result { get; set; }
     
         public virtual Payment_Type Payment_Type { get; set; }
         public virtual Student Student { get; set; }
