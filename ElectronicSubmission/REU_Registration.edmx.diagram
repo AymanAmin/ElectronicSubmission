@@ -4,30 +4,30 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9770eeeff86e4f9d87c92d835dd9b20c" Name="Diagram1">
-        <EntityTypeShape EntityType="REU_RegistrationModel.Collage" Width="1.5" PointX="1.5" PointY="33.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="REU_RegistrationModel.Employee" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="REU_RegistrationModel.File" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="REU_RegistrationModel.Group" Width="1.5" PointX="1.5" PointY="19.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="REU_RegistrationModel.Group_Status" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="REU_RegistrationModel.LanguageMaster" Width="1.5" PointX="1.5" PointY="22.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="REU_RegistrationModel.Lanuage_Detials" Width="1.5" PointX="3.75" PointY="31.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="REU_RegistrationModel.LastUpdate" Width="1.5" PointX="8.75" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="REU_RegistrationModel.Log_File" Width="1.5" PointX="6" PointY="14.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="REU_RegistrationModel.Nationality" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="REU_RegistrationModel.Notification_Employee" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="REU_RegistrationModel.Notification_Master" Width="1.5" PointX="3" PointY="26" IsExpanded="true" />
-        <EntityTypeShape EntityType="REU_RegistrationModel.Notification_Show" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="REU_RegistrationModel.Payment_Process" Width="1.5" PointX="8.25" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="REU_RegistrationModel.Payment_Type" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="REU_RegistrationModel.Permission" Width="1.5" PointX="3.75" PointY="22.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="REU_RegistrationModel.Permission_Group" Width="1.5" PointX="3.75" PointY="19.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="REU_RegistrationModel.Resource" Width="1.5" PointX="0.75" PointY="25.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="REU_RegistrationModel.Sequence" Width="1.5" PointX="6" PointY="9.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="REU_RegistrationModel.Specialization" Width="1.5" PointX="0.75" PointY="28.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="REU_RegistrationModel.Status" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="REU_RegistrationModel.Student" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="REU_RegistrationModel.Student_Concat" Width="1.5" PointX="3" PointY="15.625" IsExpanded="true" />
+      <Diagram DiagramId="82b089ea22b9446abd621e3fa4530584" Name="Diagram1">
+        <EntityTypeShape EntityType="REU_RegistrationModel.Collage" Width="1.5" PointX="1.5" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.Employee" Width="1.5" PointX="0.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.File" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.Group" Width="1.5" PointX="1.5" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.Group_Status" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.LanguageMaster" Width="1.5" PointX="1.5" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.Lanuage_Detials" Width="1.5" PointX="3.75" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.LastUpdate" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.Log_File" Width="1.5" PointX="6" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.Nationality" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.Notification_Employee" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.Notification_Master" Width="1.5" PointX="3" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.Notification_Show" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.Payment_Process" Width="1.5" PointX="8.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.Payment_Type" Width="1.5" PointX="6" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.Permission" Width="1.5" PointX="3.75" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.Permission_Group" Width="1.5" PointX="3.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.Resource" Width="1.5" PointX="0.75" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.Sequence" Width="1.5" PointX="6" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.Specialization" Width="1.5" PointX="0.75" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.Status" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.Student" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.Student_Concat" Width="1.5" PointX="3" PointY="15.75" IsExpanded="true" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Specialization_Collage" ManuallyRouted="false" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Employee_Group" ManuallyRouted="false" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Employee_LanguageMaster" ManuallyRouted="false" />

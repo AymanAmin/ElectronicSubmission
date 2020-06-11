@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="REU_RegistrationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="REU_RegistrationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Collage">
           <Key>
             <PropertyRef Name="Collage_ID" />
@@ -156,8 +156,8 @@
           <Property Name="Payment_Type_Id" Type="int" />
           <Property Name="Payment_Trackingkey" Type="nvarchar(max)" />
           <Property Name="Payment_URL_IsValid" Type="bit" />
-          <Property Name="Payment_SMS_Result" Type="nvarchar" MaxLength="50" />
-          <Property Name="Payment_Result_Json" Type="nvarchar(max)" />
+          <Property Name="Payment_Result_Json" Type="varchar(max)" />
+          <Property Name="Payment_SMS_Result" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Payment_Type">
           <Key>
@@ -715,7 +715,8 @@
             <End Role="Student" EntitySet="Student" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="REU_RegistrationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -896,10 +897,10 @@
           <Property Name="Payment_Type_Id" Type="Int32" />
           <Property Name="Payment_Trackingkey" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Payment_URL_IsValid" Type="Boolean" />
+          <Property Name="Payment_Result_Json" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Payment_SMS_Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Payment_Type" Relationship="Self.FK_Payment_Process_Payment_Type" FromRole="Payment_Process" ToRole="Payment_Type" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Payment_Study_Student" FromRole="Payment_Process" ToRole="Student" />
-          <Property Name="Payment_SMS_Result" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Payment_Result_Json" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Payment_Type">
           <Key>
@@ -1631,8 +1632,6 @@
           <EntitySetMapping Name="Payment_Process">
             <EntityTypeMapping TypeName="REU_RegistrationModel.Payment_Process">
               <MappingFragment StoreEntitySet="Payment_Process">
-                <ScalarProperty Name="Payment_Result_Json" ColumnName="Payment_Result_Json" />
-                <ScalarProperty Name="Payment_SMS_Result" ColumnName="Payment_SMS_Result" />
                 <ScalarProperty Name="Payment_Id" ColumnName="Payment_Id" />
                 <ScalarProperty Name="Student_Id" ColumnName="Student_Id" />
                 <ScalarProperty Name="Payment_IsPaid" ColumnName="Payment_IsPaid" />
@@ -1652,6 +1651,8 @@
                 <ScalarProperty Name="Payment_Type_Id" ColumnName="Payment_Type_Id" />
                 <ScalarProperty Name="Payment_Trackingkey" ColumnName="Payment_Trackingkey" />
                 <ScalarProperty Name="Payment_URL_IsValid" ColumnName="Payment_URL_IsValid" />
+                <ScalarProperty Name="Payment_Result_Json" ColumnName="Payment_Result_Json" />
+                <ScalarProperty Name="Payment_SMS_Result" ColumnName="Payment_SMS_Result" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
