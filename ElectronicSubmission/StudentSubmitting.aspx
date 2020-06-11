@@ -220,7 +220,6 @@
                                     </div>
                                 </div>
                                 <!-- End Profile-->
-                                <asp:Label ID="Label1" runat="server" Text="0"></asp:Label>
                                 <div class="row">
                                     <div class="form-group col-sm-6">
                                         <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentArabicName", "Student Arabic Name") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>

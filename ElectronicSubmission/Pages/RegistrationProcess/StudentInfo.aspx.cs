@@ -77,16 +77,26 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
 
                 bool ToCheckPercent = SpecializationPercent(Spec_id, HighSchoolDeg, CapabilitiesDeg, MyAchievementDeg);
                 if (ToCheckPercent)
+                {
                     result = IU_Student(StudentID, StudentNameAr.Text, StudentNameEn.Text, stuProfile, StudentEmail.Text, StudentPhone.Text, Address.Text, RegDate, Student_SSN.Text, HighSchoolDeg, CapabilitiesDeg, MyAchievementDeg, Res_id, Spec_id, Nat_id, Note.InnerText, totalSum);
 
-                if (result)
-                {
-                    if (SessionWrapper.LoggedUser.Language_id == 1)
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','  تم الحفظ بيانات الموظف بنجاح ');", true);
-                    else
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','  The  Employee was Sucessfully saved in system ! ');", true);
+                    if (result)
+                    {
+                        if (SessionWrapper.LoggedUser.Language_id == 1)
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','  تم الحفظ بيانات الطالب بنجاح ');", true);
+                        else
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','  The  Student was Sucessfully saved in system ! ');", true);
 
-                    if (StudentID == 0) ClearForm();
+                        if (StudentID == 0) ClearForm();
+                    }
+                    else
+                    {
+                        if (SessionWrapper.LoggedUser.Language_id == 1)
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  الحالة: ','غير مستوفي النسبة المطلوبة !');", true);
+                        else
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','The required percentage is not met !');", true);
+
+                    }
                 }
                 else
                 {
@@ -94,7 +104,6 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                         Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','حدث خطأ');", true);
                     else
                         Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','Error');", true);
-
                 }
             }
             catch (Exception x) { }

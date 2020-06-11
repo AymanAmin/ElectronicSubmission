@@ -67,15 +67,6 @@ namespace ElectronicSubmission {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator Stu_ProfileValidator;
         
         /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
-        /// <summary>
         /// StudentNameAr control.
         /// </summary>
         /// <remarks>

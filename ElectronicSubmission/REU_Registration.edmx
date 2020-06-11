@@ -904,9 +904,6 @@
           <Property Name="Payment_SMS_Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Payment_Type" Relationship="Self.FK_Payment_Process_Payment_Type" FromRole="Payment_Process" ToRole="Payment_Type" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Payment_Study_Student" FromRole="Payment_Process" ToRole="Student" />
-
-          <Property Name="Payment_SMS_Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Payment_Result_Json" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Payment_Type">
           <Key>
@@ -982,10 +979,10 @@
           <Property Name="Condition_En" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Specialization_Description_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Specialization_Description_En" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Collage" Relationship="Self.FK_Specialization_Collage" FromRole="Specialization" ToRole="Collage" />
-          <NavigationProperty Name="Students" Relationship="Self.FK_Student_Specialization" FromRole="Specialization" ToRole="Student" />
           <Property Name="Specialization_Registeration_Payment" Type="Double" />
           <Property Name="Specialization_Study_Payment" Type="Double" />
+          <NavigationProperty Name="Collage" Relationship="Self.FK_Specialization_Collage" FromRole="Specialization" ToRole="Collage" />
+          <NavigationProperty Name="Students" Relationship="Self.FK_Student_Specialization" FromRole="Specialization" ToRole="Student" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
@@ -1027,6 +1024,7 @@
           <Property Name="Student_Total" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Suspended" Type="Int32" />
           <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Student_URL_Video" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Student_Employee" FromRole="Student" ToRole="Employee" />
           <NavigationProperty Name="Files" Relationship="Self.FK_Files_Student" FromRole="Student" ToRole="Files" />
           <NavigationProperty Name="Nationality" Relationship="Self.FK_Student_Nationality" FromRole="Student" ToRole="Nationality" />
@@ -1035,7 +1033,6 @@
           <NavigationProperty Name="Sequences" Relationship="Self.FK_Sequence_Student" FromRole="Student" ToRole="Sequence" />
           <NavigationProperty Name="Specialization" Relationship="Self.FK_Student_Specialization" FromRole="Student" ToRole="Specialization" />
           <NavigationProperty Name="Status" Relationship="Self.FK_Student_Status" FromRole="Student" ToRole="Status" />
-          <Property Name="Student_URL_Video" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Student_Concat">
           <Key>
@@ -1720,8 +1717,6 @@
           <EntitySetMapping Name="Specializations">
             <EntityTypeMapping TypeName="REU_RegistrationModel.Specialization">
               <MappingFragment StoreEntitySet="Specialization">
-                <ScalarProperty Name="Specialization_Study_Payment" ColumnName="Specialization_Study_Payment" />
-                <ScalarProperty Name="Specialization_Registeration_Payment" ColumnName="Specialization_Registeration_Payment" />
                 <ScalarProperty Name="Specialization_Id" ColumnName="Specialization_Id" />
                 <ScalarProperty Name="Specialization_Name_Ar" ColumnName="Specialization_Name_Ar" />
                 <ScalarProperty Name="Specialization_Name_En" ColumnName="Specialization_Name_En" />
@@ -1736,6 +1731,8 @@
                 <ScalarProperty Name="Condition_En" ColumnName="Condition_En" />
                 <ScalarProperty Name="Specialization_Description_Ar" ColumnName="Specialization_Description_Ar" />
                 <ScalarProperty Name="Specialization_Description_En" ColumnName="Specialization_Description_En" />
+                <ScalarProperty Name="Specialization_Registeration_Payment" ColumnName="Specialization_Registeration_Payment" />
+                <ScalarProperty Name="Specialization_Study_Payment" ColumnName="Specialization_Study_Payment" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1754,7 +1751,6 @@
           <EntitySetMapping Name="Students">
             <EntityTypeMapping TypeName="REU_RegistrationModel.Student">
               <MappingFragment StoreEntitySet="Student">
-                <ScalarProperty Name="Student_URL_Video" ColumnName="Student_URL_Video" />
                 <ScalarProperty Name="Student_Id" ColumnName="Student_Id" />
                 <ScalarProperty Name="Student_SSN" ColumnName="Student_SSN" />
                 <ScalarProperty Name="Student_Name_En" ColumnName="Student_Name_En" />
@@ -1776,6 +1772,7 @@
                 <ScalarProperty Name="Student_Total" ColumnName="Student_Total" />
                 <ScalarProperty Name="Suspended" ColumnName="Suspended" />
                 <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Student_URL_Video" ColumnName="Student_URL_Video" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
