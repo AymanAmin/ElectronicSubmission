@@ -83,7 +83,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                     if (result)
                     {
                         if (SessionWrapper.LoggedUser.Language_id == 1)
-                            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','  تم الحفظ بيانات الطالب بنجاح ');", true);
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  الحالة : ','  تم الحفظ بيانات الطالب بنجاح ');", true);
                         else
                             Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "HideTheModel(); notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','  The  Student was Sucessfully saved in system ! ');", true);
 
@@ -92,18 +92,18 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                     else
                     {
                         if (SessionWrapper.LoggedUser.Language_id == 1)
-                            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  الحالة: ','غير مستوفي النسبة المطلوبة !');", true);
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  الحالة: ','لقد قمت بالتقديم مسبقاً أو يوجد تقديم مسبق مطابقاً لرقم الهوية !');", true);
                         else
-                            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','The required percentage is not met !');", true);
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','You have already applied or There is a pre-submission matched to the SSN number');", true);
 
                     }
                 }
                 else
                 {
                     if (SessionWrapper.LoggedUser.Language_id == 1)
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','حدث خطأ');", true);
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  الحالة: ','غير مستوفي النسبة المطلوبة !');", true);
                     else
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','Error');", true);
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight','  Save Status : ','The required percentage is not met ! Choose the appropriate major, not this!');", true);
                 }
             }
             catch (Exception x) { }

@@ -265,6 +265,15 @@ namespace ElectronicSubmission {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator HighSchoolDegreeValidator;
         
         /// <summary>
+        /// CompareValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
+        
+        /// <summary>
         /// HighSchoolDegreeFile control.
         /// </summary>
         /// <remarks>
@@ -301,6 +310,15 @@ namespace ElectronicSubmission {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator CapabilitiesDegreeValidator;
         
         /// <summary>
+        /// CompareValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator2;
+        
+        /// <summary>
         /// CapabilitiesDegreeFile control.
         /// </summary>
         /// <remarks>
@@ -335,6 +353,15 @@ namespace ElectronicSubmission {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator MyAchievementDegreeValidator;
+        
+        /// <summary>
+        /// CompareValidator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator3;
         
         /// <summary>
         /// MyAchievementDegreeFile control.

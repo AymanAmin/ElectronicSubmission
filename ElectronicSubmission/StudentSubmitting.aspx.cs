@@ -58,13 +58,12 @@ namespace ElectronicSubmission
                 FillDropDownLists();
                  if (Session["Success"] != null)
                  {
-                     if (langId == 1)
-                            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "SuccessAr();", true);
+                        if (langId == 1)
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "AlertNotify('تم التقديم بنجاح', 'تم التقديم الرسالة بنجاح سيتم التواصل معك قريباَ', 'success');", true);
                         else
-                            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "SuccessEn();", true);
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "AlertNotify('Submitted successfully!', 'The message has been Submitted successfully. You will be contacted soon', 'success');", true);
 
-
-                     Session["Success"] = null;
+                        Session["Success"] = null;
                  }
             }
             }catch(Exception s)
@@ -108,16 +107,29 @@ namespace ElectronicSubmission
                         string sever_name = Request.Url.Authority.ToString();
                         string StuEmail = StudentEmail.Text;
                         SendEmail send = new SendEmail();
-
                         Text = " <Strong style='font-size:16px;'> Dear " + StudentNameEn.Text + "</Strong><br /><br /> " + "Thank you for completing the application process at Riyadh Elm University. We will contact you within 48 hours." + " <br /> <br />" + "Best Regard," + " <br />" + "Admission System" + " <br /> ";
-
                         bool R = send.TextEmail("Riyadh Elm University", StuEmail, Text, sever_name);
 
+                        // Send SMS
+                        SendSMS send_sms = new SendSMS();
+                        string smsText = "  Dear " + StudentNameEn.Text + "\n" + "Thank you for completing the application process at Riyadh Elm University. We will contact you within 48 hours." + " \n" + "Best Regard," + " \n" + "Admission System" ;
+                        string number_Phone = StudentPhone.Text;
+                        string reslt_message = send_sms.SendMessage(smsText, number_Phone);
+
                         Session["Success"] = true;
+                        /*if (langId == 1)
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "AlertNotify('تم التقديم بنجاح', 'تم التقديم الرسالة بنجاح سيتم التواصل معك قريباَ', 'success');", true);
+                        else
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "AlertNotify('Submitted successfully!', 'The message has been Submitted successfully. You will be contacted soon', 'success');", true);
+                            */
                         if (StudentID == 0) Response.Redirect("~/StudentSubmitting.aspx");
                     }
                     else
                     {
+                        if (langId == 1)
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "AlertNotify('لقد قمت بالتقديم مسبقاً', 'يوجد تقديم مسبق مطابقاً لرقم الهوية', 'error');", true);
+                        else
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "AlertNotify('You have already applied', 'There is a pre-submission matched to the SSN number', 'error');", true);
 
                     }
                 }
@@ -125,9 +137,9 @@ namespace ElectronicSubmission
                 {
                     // Session["Warning"] = true; Response.Redirect("~/StudentSubmitting.aspx");
                     if (langId == 1)
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "WarningAr();", true);
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "AlertNotify('غير مستوفي النسبة المطلوبة !', 'إختر التخصص المناسب', 'error');", true);
                     else
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "WarningEn();", true);
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "AlertNotify('The required percentage is not met !', 'Choose the appropriate major, not this!', 'error');", true);
 
                 }
             }
