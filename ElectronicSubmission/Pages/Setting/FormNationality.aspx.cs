@@ -58,7 +58,8 @@ namespace ElectronicSubmission.Pages.Setting
                 /* Add it to log file */
                 LogData = "data:" + JsonConvert.SerializeObject(group, logFileModule.settings);
                 logFileModule.logfile(10, "إنشاء جنسية جديدة", "create new Nationalitys", LogData);
-                //PriorityDataSource.DataBind();
+                db.Entry(group).Reload();
+                NationalityGridView.DataBind();
             }
             catch { return false; }
             return true;
