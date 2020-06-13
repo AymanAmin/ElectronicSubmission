@@ -103,16 +103,17 @@ namespace ElectronicSubmission
                     result = IU_Student(StudentID, StudentNameAr.Text, StudentNameEn.Text, stuProfile, StudentEmail.Text, StudentPhone.Text, Address.Text, RegDate, Student_SSN.Text, HighSchoolDeg, CapabilitiesDeg, MyAchievementDeg, Res_id, Spec_id, Nat_id, totalSum);
                     if (result)
                     {
+
                         string Text = "";
                         string sever_name = Request.Url.Authority.ToString();
                         string StuEmail = StudentEmail.Text;
                         SendEmail send = new SendEmail();
-                        Text = " <Strong style='font-size:16px;'> Dear " + StudentNameEn.Text + "</Strong><br /><br /> " + "Thank you for completing the application process at Riyadh Elm University. We will contact you within 48 hours." + " <br /> <br />" + "Best Regard," + " <br />" + "Admission System" + " <br /> ";
+                        Text = " <Strong style='font-size:16px;'> Dear " + StudentNameEn.Text + "</Strong><br /><br /> " + "Thank you for completed the application from at Riyadh Elm University. We will contact you within 48 hours." + " <br /> <br />" + "Best Regard," + " <br />" + "Admission System" + " <br /> ";
                         bool R = send.TextEmail("Riyadh Elm University", StuEmail, Text, sever_name);
 
                         // Send SMS
                         SendSMS send_sms = new SendSMS();
-                        string smsText = "  Dear " + StudentNameEn.Text + "\n" + "Thank you for completing the application process at Riyadh Elm University. We will contact you within 48 hours." + " \n" + "Best Regard," + " \n" + "Admission System" ;
+                        string smsText = "Dear " + StudentNameEn.Text + "\n" + "Thank you for completed the application form at Riyadh Elm University. We will contact you within 48 hours." + " \n" + "Best Regard," + " \n" + "Admission System" ;
                         string number_Phone = StudentPhone.Text;
                         string reslt_message = send_sms.SendMessage(smsText, number_Phone);
 
