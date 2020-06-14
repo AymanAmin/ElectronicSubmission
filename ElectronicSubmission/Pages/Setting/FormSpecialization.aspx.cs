@@ -133,10 +133,10 @@ namespace ElectronicSubmission.Pages.Setting
             int collegeId = 0;
             int.TryParse(Collage_Id.SelectedValue, out collegeId);
             int.TryParse(SpecId.Value, out SpecializationId);
-            float registerationPaymentVal = 0, studyPaymentVal = 0;
+            double registerationPaymentVal = 0, studyPaymentVal = 0;
 
-            float.TryParse(Registeration_Payment.Text, out registerationPaymentVal);
-            float.TryParse(Study_Payment.Text, out studyPaymentVal);
+            double.TryParse(Registeration_Payment.Text, out registerationPaymentVal);
+            double.TryParse(Study_Payment.Text, out studyPaymentVal);
             ////////////////////////////////////////////
             if (collegeId == 0 || registerationPaymentVal == 0 || studyPaymentVal == 0)
             {
@@ -166,7 +166,7 @@ namespace ElectronicSubmission.Pages.Setting
             }
         }
 
-        public bool AU_Specialization(string SpecializationNameAr, string SpecializationNameEn, int collegeId, string SpecializationIcon, string HighSchoolPercent, string CapabilitiesPercent, string MyAchievementPercent, string WeightedRatioPercent, string SpecializationDescriptionAr, string SpecializationDescriptionEn, string Speech, string Minutes, float registerationPaymentVal, float studyPaymentVal)
+        public bool AU_Specialization(string SpecializationNameAr, string SpecializationNameEn, int collegeId, string SpecializationIcon, string HighSchoolPercent, string CapabilitiesPercent, string MyAchievementPercent, string WeightedRatioPercent, string SpecializationDescriptionAr, string SpecializationDescriptionEn, string Speech, string Minutes, double registerationPaymentVal, double studyPaymentVal)
         {
             try
             {
