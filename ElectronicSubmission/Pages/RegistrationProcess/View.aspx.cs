@@ -586,15 +586,16 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
         {
             string amount = string.Empty, Payment_For = string.Empty;
             int payment_type_id = 1;
+            Specialization spec = db.Specializations.Find(std.Student_Specialization_Id);
             if (std.Student_Status_Id == 6)
             {
-                amount = "5000.00";
+                amount = spec.Specialization_Registeration_Payment.ToString();
                 Payment_For = "Registration";
                 payment_type_id = 1;
             }
             else
             {
-                amount = "100000.00";
+                amount = spec.Specialization_Study_Payment.ToString();
                 Payment_For = "Study";
                 payment_type_id = 2;
             }
