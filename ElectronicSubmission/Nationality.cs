@@ -20,8 +20,11 @@ namespace ElectronicSubmission
         }
     
         public int Nationality_Id { get; set; }
-        public string Nationality_Name_Ar { get; set; }
+        public string Country_code { get; set; }
+        public string Country_Name_En { get; set; }
+        public string Country_Name_Ar { get; set; }
         public string Nationality_Name_En { get; set; }
+        public string Nationality_Name_Ar { get; set; }
     
         public virtual Nationality Nationality1 { get; set; }
         public virtual Nationality Nationality2 { get; set; }

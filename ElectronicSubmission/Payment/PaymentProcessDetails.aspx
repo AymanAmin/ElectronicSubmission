@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PaymentProcessDetails.aspx.cs" Inherits="ElectronicSubmission.PaymentProcessDetails" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PaymentProcessDetails.aspx.cs" Inherits="ElectronicSubmission.Payment.PaymentProcessDetails" %>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -12,21 +12,21 @@
     <title><% = ElectronicSubmission.FieldNames.getFieldName("homepage-title", "REU - Admission") %></title>
 
     <!-- Css Files -->
-    <link href="Template/css/bootstrap.css" rel="stylesheet">
-    <link href="Template/css/font-awesome.css" rel="stylesheet">
-    <link href="Template/css/flaticon.css" rel="stylesheet">
-    <link href="Template/css/slick-slider.css" rel="stylesheet">
-    <link href="Template/css/prettyphoto.css" rel="stylesheet">
-    <link href="Template/build/mediaelementplayer.css" rel="stylesheet">
+    <link href="../../Template/css/bootstrap.css" rel="stylesheet">
+    <link href="../../Template/css/font-awesome.css" rel="stylesheet">
+    <link href="../../Template/css/flaticon.css" rel="stylesheet">
+    <link href="../../Template/css/slick-slider.css" rel="stylesheet">
+    <link href="../../Template/css/prettyphoto.css" rel="stylesheet">
+    <link href="../../Template/build/mediaelementplayer.css" rel="stylesheet">
 
-    <link href="Template/style.css" rel="stylesheet">
-    <link href="Template/css/color.css" rel="stylesheet">
-    <link href="Template/css/color-two.css" rel="stylesheet">
-    <link href="Template/css/color-three.css" rel="stylesheet">
-    <link href="Template/css/color-four.css" rel="stylesheet">
-    <link href="Template/css/responsive.css" rel="stylesheet">
+    <link href="../../Template/style.css" rel="stylesheet">
+    <link href="../../Template/css/color.css" rel="stylesheet">
+    <link href="../../Template/css/color-two.css" rel="stylesheet">
+    <link href="../../Template/css/color-three.css" rel="stylesheet">
+    <link href="../../Template/css/color-four.css" rel="stylesheet">
+    <link href="../../Template/css/responsive.css" rel="stylesheet">
 
-    <link href="Template/css/icofont/css/icofont.css" rel="stylesheet">
+    <link href="../../Template/css/icofont/css/icofont.css" rel="stylesheet">
     <!-- ico font -->
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -109,7 +109,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <a href="../../../homepage.aspx" class="wm-logo">
-                                    <img src="Template/images/logo-5.png" alt="" style="height: 62px;"></a>
+                                    <img src="../../Template/images/logo-5.png" alt="" style="height: 62px;"></a>
                             </div>
                             <div class="col-md-9">
                                 <!--// Navigation \\-->
@@ -204,9 +204,9 @@
                                         <label><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcessDetails-StudentCountry", "Student Country") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
-                                            <asp:TextBox ID="StudentCountry" runat="server" class="form-control" placeholder="Enter Student Country"></asp:TextBox>
+                                            <asp:DropDownList ID="StudentCountry" runat="server"></asp:DropDownList>
                                         </div>
-                                        <asp:RequiredFieldValidator ID="StudentCountryValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student Country" ValidationGroup="valFormGroup" ControlToValidate="StudentCountry" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ID="StudentCountryValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student Country" ValidationGroup="valFormGroup" ControlToValidate="StudentCountry" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True" InitialValue="0"></asp:RequiredFieldValidator>
                                     </div>
 
                                        <div class="form-group col-sm-12">
@@ -228,7 +228,7 @@
                                     </div>
 
                                      <div class="form-group col-sm-12">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcessDetails-StudentAddress ", "Student Address ") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcessDetails-StudentStreet", "Student Street") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
                                             <asp:TextBox ID="StudentAddress" runat="server" class="form-control" placeholder="Enter Student Address"></asp:TextBox>
@@ -239,6 +239,7 @@
                                      <div class="form-group col-sm-12">
                                         <label><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcessDetails-StudentPostcode", "Student Postcode") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
                                         <div class="input-group">
+                                            
                                             <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
                                             <asp:TextBox ID="StudentPostcode" runat="server" class="form-control" placeholder="Enter Student Postcode"></asp:TextBox>
                                         </div>
@@ -266,14 +267,14 @@
                     <div id="Div_invalid" runat="server" class="row" visible="false">
                         <aside class="col-sm-3"></aside>
                         <aside class="col-sm-6">
-                            <asp:Image ID="image" runat="server" style="width:100%" ImageUrl="~/Template/images/notfound.png" /></aside>
+                            <asp:Image ID="image" runat="server" style="width:100%" ImageUrl="~/../../Template/images/notfound.png" /></aside>
                         <aside class="col-sm-3"></aside>
                     </div>
 
                        <div id="Div_NotFound" runat="server" class="row" visible="false">
                         <aside class="col-sm-3"></aside>
                         <aside class="col-sm-6">
-                            <asp:Image ID="image2" runat="server" style="width:100%" ImageUrl="~/Template/images/notfound2.jpg" /></aside>
+                            <asp:Image ID="image2" runat="server" style="width:100%" ImageUrl="~/../../Template/images/notfound2.jpg" /></aside>
                         <aside class="col-sm-3"></aside>
                     </div>
 
@@ -281,7 +282,7 @@
                          
                         <aside class="col-sm-4"></aside>
                         <aside class="col-sm-4" style="text-align:center">
-                            <asp:Image ID="image1" runat="server" style="width:70%" ImageUrl="~/Template/images/paymentdone.png" /></aside>
+                            <asp:Image ID="image1" runat="server" style="width:70%" ImageUrl="~/../../Template/images/paymentdone.png" /></aside>
                         <aside class="col-sm-4"></aside>
                          <aside class="col-sm-12" style="text-align:center;color:#4fa7a0"><h1>The Process was Successfully</h1></aside>
                     </div>
@@ -318,7 +319,7 @@
                         <div class="row">
                             <aside class="widget widget_contact_info col-md-3">
                                 <a href="../../../homepage.aspx" class="wm-footer-logo">
-                                    <img src="Template/images/logo-5.png" alt="" style="height: 77px;"></a>
+                                    <img src="../../Template/images/logo-5.png" alt="" style="height: 77px;"></a>
                                 <ul>
                                     <li><i class="wm-color wmicon-pin"></i><a href="https://www.google.com.sa/maps/place/Riyadh+Elm+University/@24.7595734,46.4668287,11z/data=!4m8!1m2!2m1!1sriyadh+colleges+of+dentistry+and+pharmacy!3m4!1s0x3e2efc51ecffffff:0x654f534d5c948f2e!8m2!3d24.6580528!4d46.7005641">
                                         <p><% = ElectronicSubmission.FieldNames.getFieldName("homepage-Address", "King Fahd Branch Road, An Namudhajiyah, Riyadh 12734, Saudi Arabia") %></p>
@@ -461,20 +462,20 @@
     </form>
 
     <!-- jQuery (necessary for JavaScript plugins) -->
-    <script type="text/javascript" src="Template/script/jquery.js"></script>
-    <script type="text/javascript" src="Template/script/modernizr.js"></script>
-    <script type="text/javascript" src="Template/script/bootstrap.min.js"></script>
-    <script type="text/javascript" src="Template/script/jquery.prettyphoto.js"></script>
-    <script type="text/javascript" src="Template/script/jquery.countdown.min.js"></script>
-    <script type="text/javascript" src="Template/script/fitvideo.js"></script>
-    <script type="text/javascript" src="Template/script/skills.js"></script>
-    <script type="text/javascript" src="Template/script/slick.slider.min.js"></script>
-    <script type="text/javascript" src="Template/script/waypoints-min.js"></script>
-    <script type="text/javascript" src="Template/build/mediaelement-and-player.min.js"></script>
-    <script type="text/javascript" src="Template/script/isotope.min.js"></script>
-    <script type="text/javascript" src="Template/script/jquery.nicescroll.min.js"></script>
+    <script type="text/javascript" src="../../Template/script/jquery.js"></script>
+    <script type="text/javascript" src="../../Template/script/modernizr.js"></script>
+    <script type="text/javascript" src="../../Template/script/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../Template/script/jquery.prettyphoto.js"></script>
+    <script type="text/javascript" src="../../Template/script/jquery.countdown.min.js"></script>
+    <script type="text/javascript" src="../../Template/script/fitvideo.js"></script>
+    <script type="text/javascript" src="../../Template/script/skills.js"></script>
+    <script type="text/javascript" src="../../Template/script/slick.slider.min.js"></script>
+    <script type="text/javascript" src="../../Template/script/waypoints-min.js"></script>
+    <script type="text/javascript" src="../../Template/build/mediaelement-and-player.min.js"></script>
+    <script type="text/javascript" src="../../Template/script/isotope.min.js"></script>
+    <script type="text/javascript" src="../../Template/script/jquery.nicescroll.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-    <script type="text/javascript" src="Template/script/functions.js"></script>
+    <script type="text/javascript" src="../../Template/script/functions.js"></script>
 
 </body>
 

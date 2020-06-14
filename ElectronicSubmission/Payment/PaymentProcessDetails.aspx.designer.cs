@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ElectronicSubmission {
+namespace ElectronicSubmission.Payment {
     
     
     public partial class PaymentProcessDetails {
@@ -100,7 +100,7 @@ namespace ElectronicSubmission {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox StudentCountry;
+        protected global::System.Web.UI.WebControls.DropDownList StudentCountry;
         
         /// <summary>
         /// StudentCountryValidator control.

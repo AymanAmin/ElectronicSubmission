@@ -10,17 +10,20 @@ using System.Web.Script.Serialization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace ElectronicSubmission
+namespace ElectronicSubmission.Payment
 {
     public partial class PaymentProcessDetails : System.Web.UI.Page
     {
         REU_RegistrationEntities db = new REU_RegistrationEntities();
         string Trackingkey = "";
-        bool PageValid = false;
         LogFileModule logFileModule = new LogFileModule();
         String LogData = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+           
+            if(!IsPostBack)
+                FillNationality();
+
             if (Request["Trackingkey"] != null)
             {
                 Trackingkey = Request["Trackingkey"];
@@ -58,7 +61,7 @@ namespace ElectronicSubmission
                 {
                     if (PaymentType.SelectedValue == "1" || PaymentType.SelectedValue == "2") Entity_ID = "8ac7a4c87284f6c901728e6183ff150e"; else Entity_ID = "8ac7a4c87284f6c901728e633a371512";
                     Dictionary<string, dynamic> responseData =
-                        Prepare_Check_Payment_Request(Entity_ID, checkout_payment.Send_Amount.ToString(), checkout_payment.Send_Currency, checkout_payment.Send_PaymentType, StudentName.Text, Studentsurname.Text, StudentEmail.Text, StudentCountry.Text, StudentState.Text, StudentCity.Text, StudentAddress.Text, StudentPostcode.Text);
+                        Prepare_Check_Payment_Request(Entity_ID, checkout_payment.Send_Amount.ToString(), checkout_payment.Send_Currency, checkout_payment.Send_PaymentType, StudentName.Text, Studentsurname.Text, StudentEmail.Text, StudentCountry.SelectedValue, StudentState.Text, StudentCity.Text, StudentAddress.Text, StudentPostcode.Text);
                     if (responseData["result"]["code"] == "000.200.100")
                     {
                         checkout_payment.Result_Code = responseData["result"]["code"];
@@ -98,7 +101,20 @@ namespace ElectronicSubmission
                 "&amount=" + amount +
                 "&currency=" + currency +
                 "&paymentType=" + paymentType+
-                "customer.email="+"Ayman Amin";
+
+                "&testMode=EXTERNAL"+
+                "&merchantTransactionId=" + Trackingkey +
+                "&customer.email=" + Email +
+
+                "&billing.street1=" + Address +
+                "&billing.city=" + City +
+                "&billing.state=" + State +
+
+                "&billing.country=" + Country +
+                "&billing.postcode=" + Postcode +
+                "&customer.givenName=" + Name +
+
+                "customer.surname=" + surname;
             string url = "https://test.oppwa.com/v1/checkouts";
             byte[] buffer = Encoding.ASCII.GetBytes(data);
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
@@ -123,6 +139,15 @@ namespace ElectronicSubmission
         protected void confirm_Click(object sender, EventArgs e)
         {
             confirm_To_Payment();
+        }
+
+        private void FillNationality()
+        {
+            List<Nationality> NationalityList = db.Nationalities.ToList();
+
+            ddlFiller.dropDDL(StudentCountry, "Country_code", "Country_Name_En", NationalityList, "Select Country");
+            //if (GroupList.Count > 0)
+            //ddlGroups.SelectedIndex = 1;
         }
     }
 

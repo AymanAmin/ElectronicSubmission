@@ -461,7 +461,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
         public bool send_ReadyToPay(Student std, Payment_Process payment, string Payment_For)
         {
             string sever_name = Request.Url.Authority.ToString();
-            string URL = sever_name + "/PaymentProcessDetails.aspx?Trackingkey=" + payment.Payment_Trackingkey;
+            string URL = sever_name + "/Payment/PaymentProcessDetails.aspx?Trackingkey=" + payment.Payment_Trackingkey;
             if (URL.Substring(0, 4).ToLower() != "http".ToLower())
                 URL = "http://" + URL;
             string StudentEmail = std.Student_Email; // "ayman@softwarecornerit.com";//
@@ -625,7 +625,12 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
 
             // Send SMS
             SendSMS send_sms = new SendSMS();
-            string Text = "Dear " + std.Student_Name_En + "\nNow you can pay the fees of " + Payment_For + "\nPlease check your E-mail";
+            string sever_name = Request.Url.Authority.ToString();
+            string URL = sever_name + "/Payment/PaymentProcessDetails.aspx?Trackingkey=" + payment.Payment_Trackingkey;
+            if (URL.Substring(0, 4).ToLower() != "http".ToLower())
+                URL = "http://" + URL;
+
+            string Text = "Dear " + std.Student_Name_En + "\nNow you can pay the fees of " + Payment_For + "\nPlease use this link: "+ URL;
             string number_Phone = std.Student_Phone;
             string reslt_message = send_sms.SendMessage(Text, number_Phone);
 

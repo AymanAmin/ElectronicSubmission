@@ -21,9 +21,9 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
         LogFileModule logFileModule = new LogFileModule();
         String LogData = "";
 
-        float HighSchoolTotal = 150;
-        float CapabilitiesTotal = 150;
-        float MyAchievementTotal = 150;
+        float HighSchoolTotal = 100;
+        float CapabilitiesTotal = 100;
+        float MyAchievementTotal = 100;
 
         protected void Page_Load(object sender, EventArgs e)
         {
