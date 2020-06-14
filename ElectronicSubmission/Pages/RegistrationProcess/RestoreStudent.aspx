@@ -18,7 +18,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal"><% = ElectronicSubmission.FieldNames.getFieldName("RestoreStudent-Cancel", "Cancel") %></button>
-                    <a class="btn btn-danger btn-ok" style="color:white;"><% = ElectronicSubmission.FieldNames.getFieldName("RestoreStudent-Delete", "Delete") %></a>
+                    <a class="btn btn-success btn-ok" style="color:white;"><% = ElectronicSubmission.FieldNames.getFieldName("RestoreStudent-Restore", "Restore") %></a>
                 </div>
             </div>
         </div>

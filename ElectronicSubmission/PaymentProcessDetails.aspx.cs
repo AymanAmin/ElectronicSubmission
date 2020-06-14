@@ -98,8 +98,7 @@ namespace ElectronicSubmission
                 "&amount=" + amount +
                 "&currency=" + currency +
                 "&paymentType=" + paymentType+
-                "customer.email"
-                ;
+                "customer.email="+"Ayman Amin";
             string url = "https://test.oppwa.com/v1/checkouts";
             byte[] buffer = Encoding.ASCII.GetBytes(data);
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);

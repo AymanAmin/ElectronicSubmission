@@ -137,7 +137,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                     DateTime date = DateTime.Parse(std.Student_CreationDate.ToString());
                     txtStudent_CreationDate.Text = date.ToShortDateString();
 
-                    if (std.Student_Status_Id == 7)
+                    if (std.Student_Status_Id == 7 || std.Student_Status_Id == 9)
                     {
                         txtURL_Video.Visible = true;
                         txtURL_Video_Label.Visible = true;
