@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="REU_RegistrationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="REU_RegistrationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Collage">
           <Key>
             <PropertyRef Name="Collage_ID" />
@@ -95,9 +95,12 @@
           <Key>
             <PropertyRef Name="Nationality_Id" />
           </Key>
+          <Property Name="country_code" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="country_enName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="country_arName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Nationality_Name_En" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Nationality_Name_Ar" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Nationality_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nationality_Name_Ar" Type="nvarchar" MaxLength="100" />
-          <Property Name="Nationality_Name_En" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Notification_Employee">
           <Key>
@@ -373,18 +376,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Nationality_Nationality">
-          <End Role="Nationality" Type="Self.Nationality" Multiplicity="1" />
-          <End Role="Nationality1" Type="Self.Nationality" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Nationality">
-              <PropertyRef Name="Nationality_Id" />
-            </Principal>
-            <Dependent Role="Nationality1">
-              <PropertyRef Name="Nationality_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Notification_Employee_Employee">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="Notification_Employee" Type="Self.Notification_Employee" Multiplicity="*" />
@@ -645,10 +636,6 @@
             <End Role="Permission" EntitySet="Permission" />
             <End Role="Log_File" EntitySet="Log_File" />
           </AssociationSet>
-          <AssociationSet Name="FK_Nationality_Nationality" Association="Self.FK_Nationality_Nationality">
-            <End Role="Nationality" EntitySet="Nationality" />
-            <End Role="Nationality1" EntitySet="Nationality" />
-          </AssociationSet>
           <AssociationSet Name="FK_Notification_Employee_Employee" Association="Self.FK_Notification_Employee_Employee">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Notification_Employee" EntitySet="Notification_Employee" />
@@ -722,7 +709,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="REU_RegistrationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="REU_RegistrationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Collage">
           <Key>
             <PropertyRef Name="Collage_ID" />
@@ -831,11 +818,12 @@
           <Key>
             <PropertyRef Name="Nationality_Id" />
           </Key>
+          <Property Name="country_code" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="country_enName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="country_arName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nationality_Name_En" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nationality_Name_Ar" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Nationality_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nationality_Name_Ar" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Nationality_Name_En" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Nationality1" Relationship="Self.FK_Nationality_Nationality" FromRole="Nationality" ToRole="Nationality1" />
-          <NavigationProperty Name="Nationality2" Relationship="Self.FK_Nationality_Nationality" FromRole="Nationality1" ToRole="Nationality" />
           <NavigationProperty Name="Students" Relationship="Self.FK_Student_Nationality" FromRole="Nationality" ToRole="Student" />
         </EntityType>
         <EntityType Name="Notification_Employee">
@@ -1203,18 +1191,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Nationality_Nationality">
-          <End Role="Nationality" Type="Self.Nationality" Multiplicity="1" />
-          <End Role="Nationality1" Type="Self.Nationality" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Nationality">
-              <PropertyRef Name="Nationality_Id" />
-            </Principal>
-            <Dependent Role="Nationality1">
-              <PropertyRef Name="Nationality_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Student_Nationality">
           <End Role="Nationality" Type="Self.Nationality" Multiplicity="0..1" />
           <End Role="Student" Type="Self.Student" Multiplicity="*" />
@@ -1435,10 +1411,6 @@
             <End Role="Permission" EntitySet="Permissions" />
             <End Role="Log_File" EntitySet="Log_File" />
           </AssociationSet>
-          <AssociationSet Name="FK_Nationality_Nationality" Association="Self.FK_Nationality_Nationality">
-            <End Role="Nationality" EntitySet="Nationalities" />
-            <End Role="Nationality1" EntitySet="Nationalities" />
-          </AssociationSet>
           <AssociationSet Name="FK_Student_Nationality" Association="Self.FK_Student_Nationality">
             <End Role="Nationality" EntitySet="Nationalities" />
             <End Role="Student" EntitySet="Students" />
@@ -1592,9 +1564,12 @@
           <EntitySetMapping Name="Nationalities">
             <EntityTypeMapping TypeName="REU_RegistrationModel.Nationality">
               <MappingFragment StoreEntitySet="Nationality">
-                <ScalarProperty Name="Nationality_Id" ColumnName="Nationality_Id" />
-                <ScalarProperty Name="Nationality_Name_Ar" ColumnName="Nationality_Name_Ar" />
+                <ScalarProperty Name="country_code" ColumnName="country_code" />
+                <ScalarProperty Name="country_enName" ColumnName="country_enName" />
+                <ScalarProperty Name="country_arName" ColumnName="country_arName" />
                 <ScalarProperty Name="Nationality_Name_En" ColumnName="Nationality_Name_En" />
+                <ScalarProperty Name="Nationality_Name_Ar" ColumnName="Nationality_Name_Ar" />
+                <ScalarProperty Name="Nationality_Id" ColumnName="Nationality_Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
