@@ -12,21 +12,21 @@
     <title><% = ElectronicSubmission.FieldNames.getFieldName("homepage-title", "REU - Admission") %></title>
 
     <!-- Css Files -->
-    <link href="../../Template/css/bootstrap.css" rel="stylesheet">
-    <link href="../../Template/css/font-awesome.css" rel="stylesheet">
-    <link href="../../Template/css/flaticon.css" rel="stylesheet">
-    <link href="../../Template/css/slick-slider.css" rel="stylesheet">
-    <link href="../../Template/css/prettyphoto.css" rel="stylesheet">
-    <link href="../../Template/build/mediaelementplayer.css" rel="stylesheet">
+    <link href="../Template/css/bootstrap.css" rel="stylesheet">
+    <link href="../Template/css/font-awesome.css" rel="stylesheet">
+    <link href="../Template/css/flaticon.css" rel="stylesheet">
+    <link href="../Template/css/slick-slider.css" rel="stylesheet">
+    <link href="../Template/css/prettyphoto.css" rel="stylesheet">
+    <link href="../Template/build/mediaelementplayer.css" rel="stylesheet">
 
-    <link href="../../Template/style.css" rel="stylesheet">
-    <link href="../../Template/css/color.css" rel="stylesheet">
-    <link href="../../Template/css/color-two.css" rel="stylesheet">
-    <link href="../../Template/css/color-three.css" rel="stylesheet">
-    <link href="../../Template/css/color-four.css" rel="stylesheet">
-    <link href="../../Template/css/responsive.css" rel="stylesheet">
+    <link href="../Template/style.css" rel="stylesheet">
+    <link href="../Template/css/color.css" rel="stylesheet">
+    <link href="../Template/css/color-two.css" rel="stylesheet">
+    <link href="../Template/css/color-three.css" rel="stylesheet">
+    <link href="../Template/css/color-four.css" rel="stylesheet">
+    <link href="../Template/css/responsive.css" rel="stylesheet">
 
-    <link href="../../Template/css/icofont/css/icofont.css" rel="stylesheet">
+    <link href="../Template/css/icofont/css/icofont.css" rel="stylesheet">
     <!-- ico font -->
 
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -80,8 +80,8 @@
                             <div class="col-md-12">
                                 <div class="wm-language">
                                     <ul>
-                                        <li><a href="PaymentProcess.aspx?lang=2">English</a></li>
-                                        <li><a href="PaymentProcess.aspx?lang=1" style="font-size: 130%; font-weight: bold;">عربي</a></li>
+                                        <li><a href="../PaymentProcess.aspx?lang=2">English</a></li>
+                                        <li><a href="../PaymentProcess.aspx?lang=1" style="font-size: 130%; font-weight: bold;">عربي</a></li>
                                     </ul>
                                 </div>
                                 <ul class="wm-stripinfo">
@@ -108,8 +108,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-3">
-                                <a href="../../../homepage.aspx" class="wm-logo">
-                                    <img src="../../Template/images/logo-5.png" alt="" style="height: 62px;"></a>
+                                <a href="../../homepage.aspx" class="wm-logo">
+                                    <img src="../Template/images/logo-5.png" alt="" style="height: 62px;"></a>
                             </div>
                             <div class="col-md-9">
                                 <!--// Navigation \\-->
@@ -127,7 +127,7 @@
                                     </div>
                                 </nav>
                                 <!--// Navigation \\-->
-                                <a href="StudentSubmitting.aspx" class="wm-header-btn"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-Admission", "Admission") %></a>
+                                <a href="../StudentSubmitting.aspx" class="wm-header-btn"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-Admission", "Admission") %></a>
                             </div>
                         </div>
                     </div>
@@ -267,14 +267,14 @@
                     <div id="Div_invalid" runat="server" class="row" visible="false">
                         <aside class="col-sm-3"></aside>
                         <aside class="col-sm-6">
-                            <asp:Image ID="image" runat="server" style="width:100%" ImageUrl="~/../../Template/images/notfound.png" /></aside>
+                            <asp:Image ID="image" runat="server" style="width:100%" ImageUrl="~/../Template/images/notfound.png" /></aside>
                         <aside class="col-sm-3"></aside>
                     </div>
 
                        <div id="Div_NotFound" runat="server" class="row" visible="false">
                         <aside class="col-sm-3"></aside>
                         <aside class="col-sm-6">
-                            <asp:Image ID="image2" runat="server" style="width:100%" ImageUrl="~/../../Template/images/notfound2.jpg" /></aside>
+                            <asp:Image ID="image2" runat="server" style="width:100%" ImageUrl="~/../Template/images/notfound2.jpg" /></aside>
                         <aside class="col-sm-3"></aside>
                     </div>
 
@@ -282,7 +282,7 @@
                          
                         <aside class="col-sm-4"></aside>
                         <aside class="col-sm-4" style="text-align:center">
-                            <asp:Image ID="image1" runat="server" style="width:70%" ImageUrl="~/../../Template/images/paymentdone.png" /></aside>
+                            <asp:Image ID="image1" runat="server" style="width:70%" ImageUrl="~/../Template/images/paymentdone.png" /></aside>
                         <aside class="col-sm-4"></aside>
                          <aside class="col-sm-12" style="text-align:center;color:#4fa7a0"><h1>The Process was Successfully</h1></aside>
                     </div>
@@ -306,7 +306,7 @@
                             <div class="col-md-12">
                                 <i class="wmicon-pen"></i>
                                 <input type="text" readonly="readonly" style="width: 77%;" value="Please click on the button to start the application Form">
-                                <a href="StudentSubmitting.aspx">Submission Form Request</a>
+                                <a href="../StudentSubmitting.aspx">Submission Form Request</a>
                             </div>
                         </div>
                     </div>
@@ -318,8 +318,8 @@
                     <div class="container">
                         <div class="row">
                             <aside class="widget widget_contact_info col-md-3">
-                                <a href="../../../homepage.aspx" class="wm-footer-logo">
-                                    <img src="../../Template/images/logo-5.png" alt="" style="height: 77px;"></a>
+                                <a href="../../homepage.aspx" class="wm-footer-logo">
+                                    <img src="../Template/images/logo-5.png" alt="" style="height: 77px;"></a>
                                 <ul>
                                     <li><i class="wm-color wmicon-pin"></i><a href="https://www.google.com.sa/maps/place/Riyadh+Elm+University/@24.7595734,46.4668287,11z/data=!4m8!1m2!2m1!1sriyadh+colleges+of+dentistry+and+pharmacy!3m4!1s0x3e2efc51ecffffff:0x654f534d5c948f2e!8m2!3d24.6580528!4d46.7005641">
                                         <p><% = ElectronicSubmission.FieldNames.getFieldName("homepage-Address", "King Fahd Branch Road, An Namudhajiyah, Riyadh 12734, Saudi Arabia") %></p>
@@ -346,7 +346,7 @@
                                     <li><a href="#steps"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-Steps", "Steps") %></a></li>
                                     <li><a href="#contactas"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-Contact", "Contact") %></a></li>
                                     <li><a href="#aboutas"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-About", "About") %></a></li>
-                                    <li><a href="StudentSubmitting.aspx"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-Admission", "Admission") %></a></li>
+                                    <li><a href="../StudentSubmitting.aspx"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-Admission", "Admission") %></a></li>
                                 </ul>
                             </aside>
                             <aside class="widget widget_twitter col-md-3">
@@ -462,20 +462,20 @@
     </form>
 
     <!-- jQuery (necessary for JavaScript plugins) -->
-    <script type="text/javascript" src="../../Template/script/jquery.js"></script>
-    <script type="text/javascript" src="../../Template/script/modernizr.js"></script>
-    <script type="text/javascript" src="../../Template/script/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../../Template/script/jquery.prettyphoto.js"></script>
-    <script type="text/javascript" src="../../Template/script/jquery.countdown.min.js"></script>
-    <script type="text/javascript" src="../../Template/script/fitvideo.js"></script>
-    <script type="text/javascript" src="../../Template/script/skills.js"></script>
-    <script type="text/javascript" src="../../Template/script/slick.slider.min.js"></script>
-    <script type="text/javascript" src="../../Template/script/waypoints-min.js"></script>
-    <script type="text/javascript" src="../../Template/build/mediaelement-and-player.min.js"></script>
-    <script type="text/javascript" src="../../Template/script/isotope.min.js"></script>
-    <script type="text/javascript" src="../../Template/script/jquery.nicescroll.min.js"></script>
+    <script type="text/javascript" src="../Template/script/jquery.js"></script>
+    <script type="text/javascript" src="../Template/script/modernizr.js"></script>
+    <script type="text/javascript" src="../Template/script/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../Template/script/jquery.prettyphoto.js"></script>
+    <script type="text/javascript" src="../Template/script/jquery.countdown.min.js"></script>
+    <script type="text/javascript" src="../Template/script/fitvideo.js"></script>
+    <script type="text/javascript" src="../Template/script/skills.js"></script>
+    <script type="text/javascript" src="../Template/script/slick.slider.min.js"></script>
+    <script type="text/javascript" src="../Template/script/waypoints-min.js"></script>
+    <script type="text/javascript" src="../Template/build/mediaelement-and-player.min.js"></script>
+    <script type="text/javascript" src="../Template/script/isotope.min.js"></script>
+    <script type="text/javascript" src="../Template/script/jquery.nicescroll.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-    <script type="text/javascript" src="../../Template/script/functions.js"></script>
+    <script type="text/javascript" src="../Template/script/functions.js"></script>
 
 </body>
 

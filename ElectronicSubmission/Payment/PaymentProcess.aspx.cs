@@ -83,7 +83,7 @@ namespace ElectronicSubmission.Payment
             try
             {
                 Dictionary<string, dynamic> responseData = CheckStatusPaymentRequest(PaymentId_local, entityId);
-                if (responseData["result"]["code"] == "000.100.110")
+                if (responseData["result"]["code"] == "000.100.110" || responseData["result"]["code"] == "000.100.112")
                 {
                     Payment_Process PaymentProcess_update = db.Payment_Process.FirstOrDefault(x => x.Payment_Trackingkey == Trackingkey_local);
                     PaymentProcess_update.Payment_IsPaid = true;

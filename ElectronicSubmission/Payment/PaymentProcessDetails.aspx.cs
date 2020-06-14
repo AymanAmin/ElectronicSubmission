@@ -21,12 +21,15 @@ namespace ElectronicSubmission.Payment
         protected void Page_Load(object sender, EventArgs e)
         {
            
-            if(!IsPostBack)
-                FillNationality();
+           
 
             if (Request["Trackingkey"] != null)
             {
                 Trackingkey = Request["Trackingkey"];
+
+                if (!IsPostBack)
+                    FillNationality();
+
                 Payment_Process payment = db.Payment_Process.Where(x => x.Payment_Trackingkey == Trackingkey && x.Payment_URL_IsValid == true && x.Payment_IsPaid == false).FirstOrDefault();
                 if (payment != null)
                 {
@@ -51,7 +54,7 @@ namespace ElectronicSubmission.Payment
             }
         }
 
-        public void confirm_To_Payment()
+        public bool confirm_To_Payment()
         {
             string Entity_ID = "";
             try { 
@@ -73,20 +76,24 @@ namespace ElectronicSubmission.Payment
                         checkout_payment.Send_EntityId = Entity_ID;
                         db.Entry(checkout_payment);
                         db.SaveChanges();
-                        Response.Redirect("~/Payment/PaymentProcess.aspx?Trackingkey=" + Trackingkey);
+                        return true;
                     }
                     else
                     {
-
+                        return false;
                     }
                 }
-            }catch (Exception er)
+                else
+                    return false;
+            }
+            catch (Exception er)
             {
                 db.Configuration.LazyLoadingEnabled = false;
                 /* Add it to log file */
 
                 LogData = "data:" + JsonConvert.SerializeObject(er, logFileModule.settings);
                 logFileModule.logfile(10, "خطأ جديد التجهيز للدفع", "New Exception in Checkout", LogData);
+                return false;
             }
             /* End Prepare the checkout */
         }
@@ -100,20 +107,16 @@ namespace ElectronicSubmission.Payment
             string data = "entityId=" + entityId +
                 "&amount=" + amount +
                 "&currency=" + currency +
-                "&paymentType=" + paymentType+
-
+                "&paymentType=" + paymentType +
                 "&testMode=EXTERNAL"+
                 "&merchantTransactionId=" + Trackingkey +
                 "&customer.email=" + Email +
-
                 "&billing.street1=" + Address +
                 "&billing.city=" + City +
                 "&billing.state=" + State +
-
                 "&billing.country=" + Country +
                 "&billing.postcode=" + Postcode +
                 "&customer.givenName=" + Name +
-
                 "customer.surname=" + surname;
             string url = "https://test.oppwa.com/v1/checkouts";
             byte[] buffer = Encoding.ASCII.GetBytes(data);
@@ -138,7 +141,9 @@ namespace ElectronicSubmission.Payment
 
         protected void confirm_Click(object sender, EventArgs e)
         {
-            confirm_To_Payment();
+           bool redirect = confirm_To_Payment();
+            if(redirect)
+                Response.Redirect("~/Payment/PaymentProcess.aspx?Trackingkey=" + Trackingkey, true);
         }
 
         private void FillNationality()
