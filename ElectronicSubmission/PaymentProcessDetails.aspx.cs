@@ -97,7 +97,9 @@ namespace ElectronicSubmission
             string data = "entityId=" + entityId +
                 "&amount=" + amount +
                 "&currency=" + currency +
-                "&paymentType=" + paymentType;
+                "&paymentType=" + paymentType+
+                "customer.email"
+                ;
             string url = "https://test.oppwa.com/v1/checkouts";
             byte[] buffer = Encoding.ASCII.GetBytes(data);
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);

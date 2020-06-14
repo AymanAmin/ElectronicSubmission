@@ -24,16 +24,16 @@
                     <table id="issue-list-table" class="table dt-responsive width-100">
                         <thead class="text-left">
                             <tr>
-                                <th style="text-align:center"><% = ElectronicSubmission.FieldNames.getFieldName("ListView-Expand", "Expand") %></th>
-                                <th style="text-align:center"><% = ElectronicSubmission.FieldNames.getFieldName("ListView-Actions", "Actions") %></th>
-                                <th style="text-align:center"><% = ElectronicSubmission.FieldNames.getFieldName("ListView-Status", "Status") %></th>
-                                <th style="text-align:center"><% = ElectronicSubmission.FieldNames.getFieldName("ListView-AssignTo", "Assign To") %></th>
-                                <th style="text-align:center"><% = ElectronicSubmission.FieldNames.getFieldName("ListView-EnglishName", "English Name") %></th>
-                                <th style="text-align:center"><% = ElectronicSubmission.FieldNames.getFieldName("ListView-ArabicName", "Arabic Name") %></th>
-                                <th style="text-align:center"><% = ElectronicSubmission.FieldNames.getFieldName("ListView-Phone", "Phone") %></th>
-                                <th style="text-align:center"><% = ElectronicSubmission.FieldNames.getFieldName("ListView-Email", "Email") %></th>
-                                <th style="text-align:center"><% = ElectronicSubmission.FieldNames.getFieldName("ListView-Address", "Address") %></th>
-                                <th style="text-align:center"><% = ElectronicSubmission.FieldNames.getFieldName("ListView-CreationDate", "Creation Date") %></th>
+                                <th ><% = ElectronicSubmission.FieldNames.getFieldName("ListView-Expand", "Expand") %></th>
+                                <th ><% = ElectronicSubmission.FieldNames.getFieldName("ListView-Actions", "Actions") %></th>
+                                <th ><% = ElectronicSubmission.FieldNames.getFieldName("ListView-Status", "Status") %></th>
+                                <th ><% = ElectronicSubmission.FieldNames.getFieldName("ListView-AssignTo", "Assign To") %></th>
+                                <th ><% = ElectronicSubmission.FieldNames.getFieldName("ListView-EnglishName", "English Name") %></th>
+                                <th ><% = ElectronicSubmission.FieldNames.getFieldName("ListView-ArabicName", "Arabic Name") %></th>
+                                <th ><% = ElectronicSubmission.FieldNames.getFieldName("ListView-Phone", "Phone") %></th>
+                                <th ><% = ElectronicSubmission.FieldNames.getFieldName("ListView-Email", "Email") %></th>
+                                <th ><% = ElectronicSubmission.FieldNames.getFieldName("ListView-Address", "Address") %></th>
+                                <th ><% = ElectronicSubmission.FieldNames.getFieldName("ListView-CreationDate", "Creation Date") %></th>
                             </tr>
                         </thead>
                         <tbody class="text-left">

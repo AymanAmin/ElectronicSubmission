@@ -2,8 +2,28 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title><% = ElectronicSubmission.FieldNames.getFieldName("View-Title", "View Student File") %></title>
+    <script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script data-require="bootstrap@*" data-semver="3.1.1" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Body_Holder" runat="server">
+
+     <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <% = ElectronicSubmission.FieldNames.getFieldName("View-DeleteHeader", "Delete File") %>
+                </div>
+                <div class="modal-body">
+                    <% = ElectronicSubmission.FieldNames.getFieldName("View-DeleteMessage", "Are you sure you want to delete this File?") %>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><% = ElectronicSubmission.FieldNames.getFieldName("View-Cancel", "Cancel") %></button>
+                    <a class="btn btn-danger btn-ok" style="color:white;"><% = ElectronicSubmission.FieldNames.getFieldName("View-Delete", "Delete") %></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- All View cards start -->
     <div class="row">
         <!-- left View cards start -->
@@ -28,11 +48,11 @@
 
             <!-- Student Details card  -->
             <div class="card">
-                <div class="row invoice-contact" style="margin-bottom:2%">
+                <div class="row invoice-contact" style="margin-bottom: 2%;overflow-y: hidden;">
                     <div class="col-md-12">
                         <div class="invoice-box row">
                             <div class="col-sm-12">
-                                <table class="table table-responsive invoice-table table-borderless">
+                                <table class="table table-responsive invoice-table table-borderless" style="overflow-y: hidden;">
                                     <tbody>
                                         <tr>
                                             <td>
@@ -86,7 +106,7 @@
                         </div>
                         <div class="col-md-4 col-sm-6 ">
                             <h6><% = ElectronicSubmission.FieldNames.getFieldName("View-AdditionalInformation", "Additional Information") %></h6>
-                            <table class="table table-responsive invoice-table invoice-order table-borderless">
+                            <table class="table table-responsive invoice-table invoice-order table-borderless" style="overflow-y: hidden;">
                                 <tbody>
                                     <tr>
                                         <th class="view-table"><% = ElectronicSubmission.FieldNames.getFieldName("View-IdTrack", "Id Track") %> : </th>
@@ -166,14 +186,16 @@
                 <div class="col-sm-12">
                     <div class="card">
                         <div class="card-block">
-                            <div class="row text-center">
+                            <div class="row text-left">
+                                <div class="col-sm-12" id="txtURL_Video_Label" runat="server" Visible="false"><% = ElectronicSubmission.FieldNames.getFieldName("View-URLVideoLink", "URL Video Link") %></div>
                                 <div class="col-sm-12">
-                                    <asp:TextBox ID="txtURL_Video" runat="server" class="form-control" TextMode="SingleLine" style="width:100%" Visible="false"></asp:TextBox>
+                                    <asp:TextBox ID="txtURL_Video" runat="server" class="form-control" TextMode="SingleLine" Style="width: 100%" Visible="false"></asp:TextBox>
+                                    <br />
                                 </div>
                                 <div class="col-sm-12">
-                                    <asp:TextBox ID="txtNote" runat="server" class="form-control" TextMode="MultiLine" style="width:100%"></asp:TextBox>
+                                    <asp:TextBox ID="txtNote" runat="server" class="form-control" TextMode="MultiLine" Style="width: 100%"></asp:TextBox>
                                 </div>
-                                
+
                                 <div class="col-sm-12 invoice-btn-group text-center">
                                     <br />
                                     <asp:Button ID="btnApprove" class="btn btn-success btn-print-invoice m-b-10 btn-sm waves-effect waves-light m-r-20" runat="server" Text="Approve" OnClick="btnApprove_Click" />
@@ -211,7 +233,14 @@
         </div>
     </div>
 
-    <!-- End View cards start -->
+    <script>
+        $('#confirm-delete').on('show.bs.modal', function(e) {
+            $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+            
+            $('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
+        });
+    </script>
 
+    <!-- End View cards start -->
 
 </asp:Content>

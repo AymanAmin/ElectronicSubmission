@@ -2,8 +2,28 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title><% = ElectronicSubmission.FieldNames.getFieldName("ListView-Title", "Student List") %></title>
+    <script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script data-require="bootstrap@*" data-semver="3.1.1" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Body_Holder" runat="server">
+
+    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                   <% = ElectronicSubmission.FieldNames.getFieldName("ListView-DeleteHeader", "Delete Student") %>
+                </div>
+                <div class="modal-body">
+                    <% = ElectronicSubmission.FieldNames.getFieldName("ListView-DeleteMessage", "Are you sure you want to delete this Student?") %>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><% = ElectronicSubmission.FieldNames.getFieldName("ListView-Cancel", "Cancel") %></button>
+                    <a class="btn btn-danger btn-ok" style="color:white;"><% = ElectronicSubmission.FieldNames.getFieldName("ListView-Delete", "Delete") %></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <!-- statustic with progressbar  start -->
         <div class="col-xl-3 col-md-6">
@@ -139,4 +159,13 @@
         </div>
 
     </div>
+
+    <!-- Delete file -->
+    <script>
+        $('#confirm-delete').on('show.bs.modal', function(e) {
+            $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+            
+            $('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
+        });
+    </script>
 </asp:Content>

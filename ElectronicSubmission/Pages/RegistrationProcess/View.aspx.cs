@@ -138,7 +138,10 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                     txtStudent_CreationDate.Text = date.ToShortDateString();
 
                     if (std.Student_Status_Id == 7)
+                    {
                         txtURL_Video.Visible = true;
+                        txtURL_Video_Label.Visible = true;
+                    }
 
                     // Change status to pendding if it's new
                     if (std.Status.Status_Code == 1)
@@ -251,7 +254,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                            "</td>" +
                            "<td>" + fileType + " </td>";
                     if (EnableEditActions)
-                        str += "<td><a href = '../../../Pages/RegistrationProcess/DeleteFile.ashx?FileID=" + List_File[i].File_Id + "&StudentID=" + List_File[i].Student_Id + "' style ='font-size: x-large; color: red;' ><i class='icofont icofont-ui-delete'></i></a></td>";
+                        str += "<td><a href='#' data-href='../../../Pages/RegistrationProcess/DeleteFile.ashx?FileID=" + List_File[i].File_Id + "&StudentID=" + List_File[i].Student_Id + "' data-toggle='modal' data-target='#confirm-delete' style ='font-size: x-large; color: red;' ><i class='icofont icofont-ui-delete'></i></a></td>";
                     else
                         str += "<td><a href = '#' disabled='disabled' style ='font-size: x-large; color: red;' ><i class='icofont icofont-ui-delete'></i></a></td>";
                     str += "<td><a href = '../../../../media/StudentAttachments/" + List_File[i].File_Path + "' target='_blank' style='font-size: x-large; color: blue;'><i class='icofont icofont-eye-alt'></i></a></td>" +
@@ -512,7 +515,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                     case 12: return db.Status.Find(13).Status_Name_Ar;// 12- Tuition Fees Paid
                     case 13: return db.Status.Find(14).Status_Name_Ar;// 13- Issuance University ID
                     case 14: return db.Status.Find(15).Status_Name_Ar;// 14- File Completed Successfully
-                    case 15: return "Restore the last Status";// 15- File Complete with Failure
+                    case 15: return "الرجوع للحالة السابقة";// 15- File Complete with Failure
                     default: return db.Status.Find(4).Status_Name_Ar;// Defalut Set To 4 Not Complate
                 }
             }

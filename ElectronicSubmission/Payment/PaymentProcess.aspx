@@ -42,6 +42,8 @@
     <asp:Literal ID="render_Payment" runat="server"></asp:Literal>
 
     <script>
+        var wpwlOptions = { style: "card", paymentTarget: "_top" }
+
         function DisplayDiv(Id) {
             setTimeout(function(){ 
             if (Id == 1) {
@@ -89,7 +91,7 @@
                             </ul>
                             <ul class="wm-adminuser-section">
                                 <li>
-                                    <a href="#" data-toggle="modal" data-target="#ModalLogin"><% = ElectronicSubmission.FieldNames.getFieldName("homepage-login", "Login") %></a>
+                                    <a href="#" data-toggle="modal" data-target="#ModalLogin"></a>
                                 </li>
                                 <li>
                                     <a href="#" class="wm-search-btn" data-toggle="modal" data-target="#ModalSearch"><i class="wmicon-search"></i></a>
