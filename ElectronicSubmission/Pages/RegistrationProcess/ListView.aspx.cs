@@ -118,36 +118,36 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                     if (index >= Color.Length)
                         index = 1;
 
-                    str += "<tr>";
-                    str += "<td class='txt-primary'>" + FieldNames.getFieldName("ListView-Expand", "Expand") + "</td>";
-                    str += "<td> <a href= '../../../../Pages/RegistrationProcess/view.aspx?StudentID=" + ListAllStudent[i].Student_Id + "' style='color:#00c3da;'>&nbsp;&nbsp; <i class='icofont icofont-eye-alt h5'></i>&nbsp;&nbsp;</a>";
+                    str += "<tr class = 'text-left'>";
+                    str += "<td class='txt-primary text-left'>" + FieldNames.getFieldName("ListView-Expand", "Expand") + "</td>";
+                    str += "<td class = 'text-left'> <a href= '../../../../Pages/RegistrationProcess/view.aspx?StudentID=" + ListAllStudent[i].Student_Id + "' style='color:#00c3da;'>&nbsp;&nbsp; <i class='icofont icofont-eye-alt h5'></i>&nbsp;&nbsp;</a>";
 
                     if (ListAllStudent[i].Status.Status_Code == 4)
                     {
-                        str += "<a href= '../../../../Pages/RegistrationProcess/StudentInfo.aspx?StudentID=" + ListAllStudent[i].Student_Id + "' style='color:green;'>&nbsp;&nbsp; <i class='icofont icofont-ui-edit h5'></i>&nbsp;&nbsp;</a>";
+                        str += "<a href='#' data-href= '../../../../Pages/RegistrationProcess/StudentInfo.aspx?StudentID=" + ListAllStudent[i].Student_Id + "'  data-toggle='modal' data-target='#confirm-delete'  style='color:green;'>&nbsp;&nbsp; <i class='icofont icofont-ui-edit h5'></i>&nbsp;&nbsp;</a>";
 
                     }
 
-                    str += "<a href= '../../../../Pages/RegistrationProcess/DeleteStudent.ashx?StudentID=" + ListAllStudent[i].Student_Id + "' style='color:red;'>&nbsp;&nbsp; <i class='icofont icofont-ui-delete h5'></i>&nbsp;&nbsp;</a></td>";
+                    str += "<a href='#' data-href= '../../../../Pages/RegistrationProcess/DeleteStudent.ashx?StudentID=" + ListAllStudent[i].Student_Id + "' data-toggle='modal' data-target='#confirm-delete' style='color:red;'>&nbsp;&nbsp; <i class='icofont icofont-ui-delete h5'></i>&nbsp;&nbsp;</a></td>";
 
                     if (SessionWrapper.LoggedUser.Language_id == 1)
                     {
-                        str += "<td><label class='label label-success' style='background:" + Color[index] + " !important;'>" + ListAllStudent[i].Status.Status_Name_Ar + "</label></td>";
+                        str += "<td class = 'text-left'><label class='label label-success' style='background:" + Color[index] + " !important;'>" + ListAllStudent[i].Status.Status_Name_Ar + "</label></td>";
                         if (ListAllStudent[i].Student_Employee_Id != null) str += "<td>" + ListAllStudent[i].Employee.Employee_Name_Ar + "</td>"; else str += "<td> - </td>";
                     }
                     else
                     {
-                        str += "<td><label class='label label-success' style='background:" + Color[index] + " !important;'>" + ListAllStudent[i].Status.Status_Name_En + "</label></td>";
+                        str += "<td class = 'text-left'><label class='label label-success' style='background:" + Color[index] + " !important;'>" + ListAllStudent[i].Status.Status_Name_En + "</label></td>";
                         if (ListAllStudent[i].Student_Employee_Id != null) str += "<td>" + ListAllStudent[i].Employee.Employee_Name_En + "</td>"; else str += "<td> - </td>";
                     }
 
 
-                    str += "<td>" + ListAllStudent[i].Student_Name_En + "</td>";
-                    str += "<td>" + ListAllStudent[i].Student_Name_Ar + "</td>";
-                    str += "<td>" + ListAllStudent[i].Student_Phone + "</td>";
-                    str += "<td>" + ListAllStudent[i].Student_Email + "</td>";
-                    str += "<td>" + ListAllStudent[i].Student_Address + "</td>";
-                    str += "<td>" + ListAllStudent[i].Student_CreationDate.ToString() + "</td>";
+                    str += "<td class = 'text-left'>" + ListAllStudent[i].Student_Name_En + "</td>";
+                    str += "<td class = 'text-left'>" + ListAllStudent[i].Student_Name_Ar + "</td>";
+                    str += "<td class = 'text-left'>" + ListAllStudent[i].Student_Phone + "</td>";
+                    str += "<td class = 'text-left'>" + ListAllStudent[i].Student_Email + "</td>";
+                    str += "<td class = 'text-left'>" + ListAllStudent[i].Student_Address + "</td>";
+                    str += "<td class = 'text-left'>" + ListAllStudent[i].Student_CreationDate.ToString() + "</td>";
                     str += "</tr>";
 
 

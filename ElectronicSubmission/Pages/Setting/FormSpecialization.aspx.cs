@@ -133,10 +133,10 @@ namespace ElectronicSubmission.Pages.Setting
             int collegeId = 0;
             int.TryParse(Collage_Id.SelectedValue, out collegeId);
             int.TryParse(SpecId.Value, out SpecializationId);
-            float registerationPaymentVal = 0, studyPaymentVal = 0;
+            double registerationPaymentVal = 0, studyPaymentVal = 0;
 
-            float.TryParse(Registeration_Payment.Text, out registerationPaymentVal);
-            float.TryParse(Study_Payment.Text, out studyPaymentVal);
+            double.TryParse(Registeration_Payment.Text, out registerationPaymentVal);
+            double.TryParse(Study_Payment.Text, out studyPaymentVal);
             ////////////////////////////////////////////
             if (collegeId == 0 || registerationPaymentVal == 0 || studyPaymentVal == 0)
             {
@@ -166,7 +166,7 @@ namespace ElectronicSubmission.Pages.Setting
             }
         }
 
-        public bool AU_Specialization(string SpecializationNameAr, string SpecializationNameEn, int collegeId, string SpecializationIcon, string HighSchoolPercent, string CapabilitiesPercent, string MyAchievementPercent, string WeightedRatioPercent, string SpecializationDescriptionAr, string SpecializationDescriptionEn, string Speech, string Minutes, float registerationPaymentVal, float studyPaymentVal)
+        public bool AU_Specialization(string SpecializationNameAr, string SpecializationNameEn, int collegeId, string SpecializationIcon, string HighSchoolPercent, string CapabilitiesPercent, string MyAchievementPercent, string WeightedRatioPercent, string SpecializationDescriptionAr, string SpecializationDescriptionEn, string Speech, string Minutes, double registerationPaymentVal, double studyPaymentVal)
         {
             try
             {
@@ -316,7 +316,7 @@ namespace ElectronicSubmission.Pages.Setting
                                                                "<div class='img-overlay img-radius'>" +
                                                                 "   <span>" +
                                                                       " <a class='btn btn-primary btn-outline-primary btn-icon'  id='" + listSpecialization[i].Specialization_Id.ToString() + "'OnClick='showmodel(this)'><i class='icofont icofont-ui-edit text-info h5'></i></a> " +
-                                                                      " <a class='btn btn-danger btn-outline-danger btn-icon'  id='" + listSpecialization[i].Specialization_Id.ToString() + "'OnClick='DeleteEmplooye(this)'><i class='icofont icofont-ui-delete text-danger h5'></i></a> " +
+                                                                      " <a class='btn btn-danger btn-outline-danger btn-icon'  id='" + listSpecialization[i].Specialization_Id.ToString() + "' data-href = '" + listSpecialization[i].Specialization_Id.ToString() + "' data-toggle='modal' data-target='#confirm-delete'><i class='icofont icofont-ui-delete text-danger h5'></i></a> " +
                                                                    "</span>" +
                                                                "</div>" +
                                                            "</div>" +
@@ -362,8 +362,9 @@ namespace ElectronicSubmission.Pages.Setting
         }
 
         [WebMethod]
-        public static void DeleteEmplooye(int AjaxSpecialization_Id)
+        public static string DeleteEmplooye(int AjaxSpecialization_Id)
         {
+            string returnDeleteEmp = "0";
             LogFileModule logFileModule = new LogFileModule();
             String LogData = "";
             try
@@ -373,6 +374,7 @@ namespace ElectronicSubmission.Pages.Setting
                 var DelSep = db.Specializations.First(x => x.Specialization_Id == AjaxSpecialization_Id);
                 db.Specializations.Remove(DelSep);
                 db.SaveChanges();
+                returnDeleteEmp = "1";
                 /* Add it to log file */
                 LogData = "data:" + JsonConvert.SerializeObject(DelSep, logFileModule.settings);
                 logFileModule.logfile(10, "حذف التخصص", "Delete Specialization", LogData);
@@ -380,7 +382,9 @@ namespace ElectronicSubmission.Pages.Setting
             }
             catch (Exception e)
             {
+
             }
+            return JsonConvert.SerializeObject(returnDeleteEmp); 
 
         }
 

@@ -189,7 +189,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="PaymentProcessDetails.aspx" />
+    <Content Include="Payment\PaymentProcessDetails.aspx" />
     <EntityDeploy Include="REU_Registration.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>REU_Registration.Designer.cs</LastGenOutput>
@@ -2892,11 +2892,11 @@
     <Compile Include="Payment\PaymentProcess.aspx.designer.cs">
       <DependentUpon>PaymentProcess.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PaymentProcessDetails.aspx.cs">
+    <Compile Include="Payment\PaymentProcessDetails.aspx.cs">
       <DependentUpon>PaymentProcessDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PaymentProcessDetails.aspx.designer.cs">
+    <Compile Include="Payment\PaymentProcessDetails.aspx.designer.cs">
       <DependentUpon>PaymentProcessDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Payment_Process.cs">

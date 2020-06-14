@@ -23,9 +23,9 @@ namespace ElectronicSubmission
         String LogData = "";
         List<Employee> ALLEmployees = new List<Employee>();
 
-        float HighSchoolTotal = 150;
-        float CapabilitiesTotal = 150;
-        float MyAchievementTotal = 150;
+        float HighSchoolTotal = 100;
+        float CapabilitiesTotal = 100;
+        float MyAchievementTotal = 100;
         public int langId = 0;
 
 

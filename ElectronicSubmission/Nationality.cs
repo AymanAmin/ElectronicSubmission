@@ -19,12 +19,13 @@ namespace ElectronicSubmission
             this.Students = new HashSet<Student>();
         }
     
-        public string country_code { get; set; }
-        public string country_enName { get; set; }
-        public string country_arName { get; set; }
+
+        public int Nationality_Id { get; set; }
+        public string Country_code { get; set; }
+        public string Country_Name_En { get; set; }
+        public string Country_Name_Ar { get; set; }
         public string Nationality_Name_En { get; set; }
         public string Nationality_Name_Ar { get; set; }
-        public int Nationality_Id { get; set; }
     
         public virtual ICollection<Student> Students { get; set; }
     }

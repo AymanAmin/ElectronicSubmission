@@ -2,8 +2,29 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title><% = ElectronicSubmission.FieldNames.getFieldName("RestoreStudent-Title", "Restore Student") %></title>
+    <script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script data-require="bootstrap@*" data-semver="3.1.1" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Body_Holder" runat="server">
+
+    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                     <% = ElectronicSubmission.FieldNames.getFieldName("RestoreStudent-DeleteHeader", "Restore Student") %>
+                </div>
+                <div class="modal-body">
+                    <% = ElectronicSubmission.FieldNames.getFieldName("RestoreStudent-DeleteMessage", "Are you sure you want to restore this student?") %>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><% = ElectronicSubmission.FieldNames.getFieldName("RestoreStudent-Cancel", "Cancel") %></button>
+                    <a class="btn btn-success btn-ok" style="color:white;"><% = ElectronicSubmission.FieldNames.getFieldName("RestoreStudent-Restore", "Restore") %></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="row">
         <div class="col-md-12">
             <div class="card user-activity-card feed-card">
@@ -46,4 +67,13 @@
         </div>
 
     </div>
+
+    <!-- Delete file -->
+    <script>
+        $('#confirm-delete').on('show.bs.modal', function(e) {
+            $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+            
+            $('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
+        });
+    </script>
 </asp:Content>
