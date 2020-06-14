@@ -4,7 +4,8 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="REU_RegistrationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="REU_RegistrationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+
         <EntityType Name="Collage">
           <Key>
             <PropertyRef Name="Collage_ID" />
@@ -95,12 +96,13 @@
           <Key>
             <PropertyRef Name="Nationality_Id" />
           </Key>
-          <Property Name="Nationality_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Country_code" Type="varchar" MaxLength="2" Nullable="false" />
-          <Property Name="Country_Name_En" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="Country_Name_Ar" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="country_code" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="country_enName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="country_arName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Nationality_Name_En" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Nationality_Name_Ar" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Nationality_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+
         </EntityType>
         <EntityType Name="Notification_Employee">
           <Key>
@@ -376,18 +378,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Nationality_Nationality">
-          <End Role="Nationality" Type="Self.Nationality" Multiplicity="1" />
-          <End Role="Nationality1" Type="Self.Nationality" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Nationality">
-              <PropertyRef Name="Nationality_Id" />
-            </Principal>
-            <Dependent Role="Nationality1">
-              <PropertyRef Name="Nationality_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Notification_Employee_Employee">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="Notification_Employee" Type="Self.Notification_Employee" Multiplicity="*" />
@@ -647,10 +637,6 @@
           <AssociationSet Name="FK_Log_File_Permission" Association="Self.FK_Log_File_Permission">
             <End Role="Permission" EntitySet="Permission" />
             <End Role="Log_File" EntitySet="Log_File" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Nationality_Nationality" Association="Self.FK_Nationality_Nationality">
-            <End Role="Nationality" EntitySet="Nationality" />
-            <End Role="Nationality1" EntitySet="Nationality" />
           </AssociationSet>
           <AssociationSet Name="FK_Notification_Employee_Employee" Association="Self.FK_Notification_Employee_Employee">
             <End Role="Employee" EntitySet="Employee" />
@@ -962,7 +948,13 @@
           <Key>
             <PropertyRef Name="Nationality_Id" />
           </Key>
+          <Property Name="country_code" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="country_enName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="country_arName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nationality_Name_En" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nationality_Name_Ar" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Nationality_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+
           <Property Name="Country_code" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
           <Property Name="Country_Name_En" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Country_Name_Ar" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
@@ -1337,6 +1329,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+
         <Association Name="FK_Nationality_Nationality">
           <End Type="REU_RegistrationModel.Nationality" Role="Nationality" Multiplicity="1" />
           <End Type="REU_RegistrationModel.Nationality" Role="Nationality1" Multiplicity="0..1" />
@@ -1493,6 +1486,132 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityContainer Name="REU_RegistrationEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Collages" EntityType="Self.Collage" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Files" EntityType="Self.File" />
+          <EntitySet Name="Groups" EntityType="Self.Group" />
+          <EntitySet Name="Group_Status" EntityType="Self.Group_Status" />
+          <EntitySet Name="LanguageMasters" EntityType="Self.LanguageMaster" />
+          <EntitySet Name="Lanuage_Detials" EntityType="Self.Lanuage_Detials" />
+          <EntitySet Name="LastUpdates" EntityType="Self.LastUpdate" />
+          <EntitySet Name="Log_File" EntityType="Self.Log_File" />
+          <EntitySet Name="Nationalities" EntityType="Self.Nationality" />
+          <EntitySet Name="Notification_Employee" EntityType="Self.Notification_Employee" />
+          <EntitySet Name="Notification_Master" EntityType="Self.Notification_Master" />
+          <EntitySet Name="Notification_Show" EntityType="Self.Notification_Show" />
+          <EntitySet Name="Payment_Process" EntityType="Self.Payment_Process" />
+          <EntitySet Name="Payment_Type" EntityType="Self.Payment_Type" />
+          <EntitySet Name="Permissions" EntityType="Self.Permission" />
+          <EntitySet Name="Permission_Group" EntityType="Self.Permission_Group" />
+          <EntitySet Name="Resources" EntityType="Self.Resource" />
+          <EntitySet Name="Sequences" EntityType="Self.Sequence" />
+          <EntitySet Name="Specializations" EntityType="Self.Specialization" />
+          <EntitySet Name="Status" EntityType="Self.Status" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="Student_Concat" EntityType="Self.Student_Concat" />
+          <AssociationSet Name="FK_Specialization_Collage" Association="Self.FK_Specialization_Collage">
+            <End Role="Collage" EntitySet="Collages" />
+            <End Role="Specialization" EntitySet="Specializations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Group" Association="Self.FK_Employee_Group">
+            <End Role="Group" EntitySet="Groups" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_LanguageMaster" Association="Self.FK_Employee_LanguageMaster">
+            <End Role="LanguageMaster" EntitySet="LanguageMasters" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Log_File_Employee" Association="Self.FK_Log_File_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Log_File" EntitySet="Log_File" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Notification_Employee_Employee" Association="Self.FK_Notification_Employee_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Notification_Employee" EntitySet="Notification_Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sequence_Employee" Association="Self.FK_Sequence_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Sequence" EntitySet="Sequences" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Employee" Association="Self.FK_Student_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Files_Student" Association="Self.FK_Files_Student">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Files" EntitySet="Files" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_Status_Group" Association="Self.FK_Group_Status_Group">
+            <End Role="Group" EntitySet="Groups" />
+            <End Role="Group_Status" EntitySet="Group_Status" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permission_Group_Group" Association="Self.FK_Permission_Group_Group">
+            <End Role="Group" EntitySet="Groups" />
+            <End Role="Permission_Group" EntitySet="Permission_Group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_Status_Status" Association="Self.FK_Group_Status_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Group_Status" EntitySet="Group_Status" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lanuage_Detials_LanguageMaster" Association="Self.FK_Lanuage_Detials_LanguageMaster">
+            <End Role="LanguageMaster" EntitySet="LanguageMasters" />
+            <End Role="Lanuage_Detials" EntitySet="Lanuage_Detials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Log_File_Permission" Association="Self.FK_Log_File_Permission">
+            <End Role="Permission" EntitySet="Permissions" />
+            <End Role="Log_File" EntitySet="Log_File" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Nationality" Association="Self.FK_Student_Nationality">
+            <End Role="Nationality" EntitySet="Nationalities" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Notification_Employee_Notification_Show" Association="Self.FK_Notification_Employee_Notification_Show">
+            <End Role="Notification_Show" EntitySet="Notification_Show" />
+            <End Role="Notification_Employee" EntitySet="Notification_Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Notification_Master_Notification_Show" Association="Self.FK_Notification_Master_Notification_Show">
+            <End Role="Notification_Show" EntitySet="Notification_Show" />
+            <End Role="Notification_Master" EntitySet="Notification_Master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payment_Process_Payment_Type" Association="Self.FK_Payment_Process_Payment_Type">
+            <End Role="Payment_Type" EntitySet="Payment_Type" />
+            <End Role="Payment_Process" EntitySet="Payment_Process" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payment_Study_Student" Association="Self.FK_Payment_Study_Student">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Payment_Process" EntitySet="Payment_Process" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permission_Group_Permission" Association="Self.FK_Permission_Group_Permission">
+            <End Role="Permission" EntitySet="Permissions" />
+            <End Role="Permission_Group" EntitySet="Permission_Group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Resource" Association="Self.FK_Student_Resource">
+            <End Role="Resource" EntitySet="Resources" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sequence_Status" Association="Self.FK_Sequence_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Sequence" EntitySet="Sequences" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sequence_Student" Association="Self.FK_Sequence_Student">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Sequence" EntitySet="Sequences" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Specialization" Association="Self.FK_Student_Specialization">
+            <End Role="Specialization" EntitySet="Specializations" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Concat_Status" Association="Self.FK_Student_Concat_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Student_Concat" EntitySet="Student_Concat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Status" Association="Self.FK_Student_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+        </EntityContainer>
+
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1597,6 +1716,7 @@
           <EntitySetMapping Name="Nationalities">
             <EntityTypeMapping TypeName="REU_RegistrationModel.Nationality">
               <MappingFragment StoreEntitySet="Nationality">
+
                 <ScalarProperty Name="Nationality_Name_Ar" ColumnName="Nationality_Name_Ar" />
                 <ScalarProperty Name="Nationality_Name_En" ColumnName="Nationality_Name_En" />
                 <ScalarProperty Name="Country_Name_Ar" ColumnName="Country_Name_Ar" />
