@@ -20,9 +20,6 @@ namespace ElectronicSubmission.Payment
         String LogData = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-           
-
             if (Request["Trackingkey"] != null)
             {
                 Trackingkey = Request["Trackingkey"];
