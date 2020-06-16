@@ -267,14 +267,14 @@
                     <div id="Div_invalid" runat="server" class="row" visible="false">
                         <aside class="col-sm-3"></aside>
                         <aside class="col-sm-6">
-                            <asp:Image ID="image" runat="server" style="width:100%" ImageUrl="~/../Template/images/notfound.png" /></aside>
+                            <asp:Image ID="image" runat="server" style="width:100%" ImageUrl="~/Template/images/notfound.png" /></aside>
                         <aside class="col-sm-3"></aside>
                     </div>
 
                        <div id="Div_NotFound" runat="server" class="row" visible="false">
                         <aside class="col-sm-3"></aside>
                         <aside class="col-sm-6">
-                            <asp:Image ID="image2" runat="server" style="width:100%" ImageUrl="~/../Template/images/notfound2.jpg" /></aside>
+                            <asp:Image ID="image2" runat="server" style="width:100%" ImageUrl="~/Template/images/notfound2.jpg" /></aside>
                         <aside class="col-sm-3"></aside>
                     </div>
 
@@ -282,7 +282,7 @@
                          
                         <aside class="col-sm-4"></aside>
                         <aside class="col-sm-4" style="text-align:center">
-                            <asp:Image ID="image1" runat="server" style="width:70%" ImageUrl="~/../Template/images/paymentdone.png" /></aside>
+                            <asp:Image ID="image1" runat="server" style="width:70%" ImageUrl="~/Template/images/paymentdone.png" /></aside>
                         <aside class="col-sm-4"></aside>
                          <aside class="col-sm-12" style="text-align:center;color:#4fa7a0"><h1>The Process was Successfully</h1></aside>
                     </div>
