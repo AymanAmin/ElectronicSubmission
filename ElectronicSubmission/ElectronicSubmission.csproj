@@ -194,22 +194,22 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>REU_Registration.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="REU_Registration.edmx.diagram">
+      <DependentUpon>REU_Registration.edmx</DependentUpon>
+    </Content>
+    <None Include="Service References\ServiceReferencePayment\CheckPaymentService.disco" />
+    <None Include="Service References\ServiceReferencePayment\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReferencePayment\configuration.svcinfo" />
     <Content Include="REU_Registration.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>REU_Registration.edmx</DependentUpon>
       <LastGenOutput>REU_Registration.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="REU_Registration.edmx.diagram">
-      <DependentUpon>REU_Registration.edmx</DependentUpon>
     </Content>
     <Content Include="REU_Registration.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>REU_Registration.edmx</DependentUpon>
       <LastGenOutput>REU_Registration.cs</LastGenOutput>
     </Content>
-    <None Include="Service References\ServiceReferencePayment\CheckPaymentService.disco" />
-    <None Include="Service References\ServiceReferencePayment\configuration91.svcinfo" />
-    <None Include="Service References\ServiceReferencePayment\configuration.svcinfo" />
     <Content Include="Service References\ServiceReferencePayment\ElectronicSubmission.ServiceReferencePayment.CheckPaymentResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
