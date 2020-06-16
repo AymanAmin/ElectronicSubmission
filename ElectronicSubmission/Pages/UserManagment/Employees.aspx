@@ -4,9 +4,12 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title><% = ElectronicSubmission.FieldNames.getFieldName("Employees-Title", "User Management - Employee") %></title>
+
+    <script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script data-require="bootstrap@*" data-semver="3.1.1" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
     <script type="text/javascript">
-
-
+        var deleteEmp = 0;
         function showmodel(x) {
            // debugger;
             if (!isNaN(x.id)){
@@ -60,7 +63,17 @@
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (resultData) {
-                    notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight', '  Save Status : ', '  The new Employee was Sucessfully saved in system ! ');
+                    var Emp = JSON.parse(resultData.d);
+                    if (Emp == "1") {
+                        if ($("html").attr("dir") == "rtl")
+                            notify('top', 'left', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight', 'حالة الحفظ : ', '  تم حذف الموظف بنجاح في النظام ');
+                        else notify('top', 'right', 'fa fa-check', 'success', 'animated fadeInRight', 'animated fadeOutRight', '  Save Status : ', '  The Employee was Sucessfully Deleted in system ! ');
+                    }
+                    else {
+                        if ($("html").attr("dir") == "rtl")
+                            notify('top', 'left', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight', 'حالة الحفظ: ', 'حدث خطأ  ');
+                        else notify('top', 'right', 'fa fa-delete', 'danger', 'animated fadeInRight', 'animated fadeOutRight', 'Save Status: ', 'Error  ');
+                    }
                     window.location = window.location;
                 }
             });
@@ -70,6 +83,24 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Body_Holder" runat="server">
+
+     <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <% = ElectronicSubmission.FieldNames.getFieldName("Employees-DeleteHeader", "Delete Specialization") %>
+                </div>
+                <div class="modal-body">
+                    <% = ElectronicSubmission.FieldNames.getFieldName("Employees-DeleteMessage", "Are you sure you want to delete this Specialization?") %>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><% = ElectronicSubmission.FieldNames.getFieldName("View-Cancel", "Cancel") %></button>
+                    <a class="btn btn-danger btn-ok"  style="color:white;"><% = ElectronicSubmission.FieldNames.getFieldName("View-Delete", "Delete") %></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <input id="AddEmp_show" type="hidden" class="btn btn-primary" data-toggle="modal" data-target="#sign-in-social" />
     <div class="page-body">
           <!-- Article Editor card start -->
@@ -300,4 +331,13 @@
         </div>
         <!-- Page-body end -->
     </div>
+
+      <script>
+          $('#confirm-delete').on('show.bs.modal', function (e) {
+              deleteEmp = $(e.relatedTarget).data('href');
+          });
+          $('.btn-ok').on('click', function (event) {
+              DeleteEmplooye(deleteEmp);
+          });
+    </script>
 </asp:Content>

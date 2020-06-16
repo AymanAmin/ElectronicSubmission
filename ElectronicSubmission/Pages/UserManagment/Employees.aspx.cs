@@ -241,7 +241,8 @@ namespace ElectronicSubmission.Pages.Treatment
                                                                "<div class='img-overlay img-radius'>" +
                                                                 "   <span>" +
                                                                       " <a class='btn btn-primary btn-outline-primary btn-icon'  id='" + ALLEmployees[i].Employee_Id.ToString() + "'OnClick='showmodel(this)'><i class='icofont icofont-ui-edit text-info h5'></i></a> " +
-                                                                      " <a class='btn btn-danger btn-outline-danger btn-icon'  id='" + ALLEmployees[i].Employee_Id.ToString() + "'OnClick='DeleteEmplooye(this)'><i class='icofont icofont-ui-delete text-danger h5'></i></a> " +
+                                                                     // " <a class='btn btn-danger btn-outline-danger btn-icon'  id='" + ALLEmployees[i].Employee_Id.ToString() + "'OnClick='DeleteEmplooye(this)'><i class='icofont icofont-ui-delete text-danger h5'></i></a> " +
+                                                                      " <a class='btn btn-danger btn-outline-danger btn-icon'  id='" + ALLEmployees[i].Employee_Id.ToString() + "' data-href = '" + ALLEmployees[i].Employee_Id.ToString() + "' data-toggle='modal' data-target='#confirm-delete'><i class='icofont icofont-ui-delete text-danger h5'></i></a> " +
                                                                    "</span>" +
                                                                "</div>" +
                                                            "</div>" +
@@ -282,8 +283,9 @@ namespace ElectronicSubmission.Pages.Treatment
         }
 
         [WebMethod]
-        public static void DeleteEmplooye(int Employee_Id)
+        public static string DeleteEmplooye(int Employee_Id)
         {
+            string returnDeleteEmp = "0";
             LogFileModule logFileModule = new LogFileModule();
             String LogData = "";
             try
@@ -292,6 +294,7 @@ namespace ElectronicSubmission.Pages.Treatment
                 var DelEmp = db.Employees.First(x => x.Employee_Id == Employee_Id);
                 db.Employees.Remove(DelEmp);
                 db.SaveChanges();
+                returnDeleteEmp = "1";
                 //  Add it to log file 
                 LogData = "data:" + JsonConvert.SerializeObject(DelEmp, logFileModule.settings);
                 logFileModule.logfile(10, "حذف الموظف", "Delete Employee", LogData);
@@ -300,7 +303,7 @@ namespace ElectronicSubmission.Pages.Treatment
             catch (Exception e)
             {
             }
-
+            return JsonConvert.SerializeObject(returnDeleteEmp);
         }
 
         public void ViewDataEmp()
