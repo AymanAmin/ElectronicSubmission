@@ -15,7 +15,7 @@ namespace ElectronicSubmission.Payment
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
-    // [System.Web.Script.Services.ScriptService]
+     [System.Web.Script.Services.ScriptService]
     public class RosomResponse : System.Web.Services.WebService
     {
 
@@ -49,5 +49,19 @@ namespace ElectronicSubmission.Payment
 
             return "{'Status': {'Code': 0,'Description': 'Success','Severity': 'Info'}}";
         }
+
+        [WebMethod]
+        public string OrderstatusUpdate(OrderStatus orderStatus)
+        {
+            //do what ever
+            return "Success";
+        }
+    }
+
+    [Serializable]
+    public class OrderStatus
+    {
+        public int Id { get; set; }
+        public string Reference { get; set; }
     }
 }
