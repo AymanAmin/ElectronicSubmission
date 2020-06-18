@@ -57,7 +57,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                     str_En = "Restore Student";
                     str_Ar = "استعادة طالب";
                 }
-                db.Entry(Stu).State = System.Data.EntityState.Modified;
+                db.Entry(Stu).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
 
                 /* Add it to log file */

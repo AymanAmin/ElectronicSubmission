@@ -177,7 +177,7 @@ namespace ElectronicSubmission
 
                 if (StudentID != 0)
                 {
-                    db.Entry(Stu).State = System.Data.EntityState.Modified;
+                    db.Entry(Stu).State = System.Data.Entity.EntityState.Modified;
                 }
                 else
                 {

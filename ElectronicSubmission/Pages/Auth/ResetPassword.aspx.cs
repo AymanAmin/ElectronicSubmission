@@ -38,7 +38,7 @@ namespace ElectronicSubmission.Pages.Setting.Auth
                 string New_Password = StringCipher.RandomString(7);
                 string Encrypted_Password = StringCipher.Encrypt(New_Password, "Password"); // emp.Employee_Password.ToString(); 
                 emp.Employee_Password = Encrypted_Password;
-                db.Entry(emp).State = System.Data.EntityState.Modified;
+                db.Entry(emp).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
 
                 string sever_name = Request.Url.Authority.ToString();

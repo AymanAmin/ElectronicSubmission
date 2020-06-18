@@ -120,7 +120,7 @@ namespace ElectronicSubmission.Pages.Treatment
                 string ImagepathSignature = UploadFile(2);
                 if (ImagepathProfile != "") Emp.Employee_Profile = ImagepathProfile; else if (EmployeeID == 0) ImagepathProfile = "Profile.JPG";
                 if (EmployeeID != 0) {
-                    db.Entry(Emp).State = System.Data.EntityState.Modified;
+                    db.Entry(Emp).State = System.Data.Entity.EntityState.Modified;
                 }
                 else {
                     db.Employees.Add(Emp);

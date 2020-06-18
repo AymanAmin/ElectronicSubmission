@@ -90,7 +90,7 @@ namespace ElectronicSubmission.Payment
                     PaymentProcess_update.Payment_URL_IsValid = false;
                     PaymentProcess_update.Payment_Result_Json = JsonConvert.SerializeObject(responseData, logFileModule.settings);
                     PaymentProcess_update.Payment_Date = DateTime.Now;
-                    db.Entry(PaymentProcess_update).State = System.Data.EntityState.Modified;
+                    db.Entry(PaymentProcess_update).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
 
                     
@@ -99,7 +99,7 @@ namespace ElectronicSubmission.Payment
                     Student std = db.Students.Find(PaymentProcess_update.Student_Id);
                     int new_Status_Id =(int) std.Student_Status_Id + 1;
                     std.Student_Status_Id = new_Status_Id;
-                    db.Entry(std).State = System.Data.EntityState.Modified;
+                    db.Entry(std).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
 
                     // isnert new Sequences record to paid
@@ -132,7 +132,7 @@ namespace ElectronicSubmission.Payment
                 {
                     Payment_Process PaymentProcess_update = db.Payment_Process.FirstOrDefault(x => x.Payment_Trackingkey == Trackingkey_local);
                     PaymentProcess_update.Payment_Result_Json = JsonConvert.SerializeObject(responseData, logFileModule.settings);
-                    db.Entry(PaymentProcess_update).State = System.Data.EntityState.Modified;
+                    db.Entry(PaymentProcess_update).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
 
                     /* Add it to log file */

@@ -63,7 +63,7 @@ namespace ElectronicSubmission.Pages.PaymentWebService
                         PaymentProcess_update.Result_Ndc = responseData["ndc"];
                         PaymentProcess_update.Result_Id = responseData["id"];
                         PaymentProcess_update.Payment_Date = DateTime.Now;
-                        db.Entry(PaymentProcess_update).State = System.Data.EntityState.Modified;
+                        db.Entry(PaymentProcess_update).State = System.Data.Entity.EntityState.Modified;
                         db.SaveChanges();
                         counter++;
 
@@ -75,7 +75,7 @@ namespace ElectronicSubmission.Pages.PaymentWebService
                             newStatus = 10;
 
                         std.Student_Status_Id = newStatus;
-                        db.Entry(std).State = System.Data.EntityState.Modified;
+                        db.Entry(std).State = System.Data.Entity.EntityState.Modified;
                         db.SaveChanges();
 
                         Sequence seq = db.Sequences.Create();
@@ -112,7 +112,7 @@ namespace ElectronicSubmission.Pages.PaymentWebService
                 {
                     lastupdate_exist.CreationDate = DateTime.Now;
                     lastupdate_exist.Counter = lastupdate_exist.Counter + counter;
-                    db.Entry(lastupdate_exist).State = System.Data.EntityState.Modified;
+                    db.Entry(lastupdate_exist).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                 }
                 else

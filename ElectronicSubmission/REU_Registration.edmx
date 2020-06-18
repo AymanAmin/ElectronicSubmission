@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="REU_RegistrationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="REU_RegistrationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Collage">
           <Key>
             <PropertyRef Name="Collage_ID" />
@@ -197,6 +197,63 @@
           <Property Name="ResourceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Resource_Name_Ar" Type="nchar" MaxLength="100" />
           <Property Name="Resource_Name_En" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Rosom_Request">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Trackingkey" Type="nvarchar" MaxLength="100" />
+          <Property Name="Payment_Process_Id" Type="int" />
+          <Property Name="PaymentType" Type="int" />
+          <Property Name="DateCreation" Type="datetime" />
+          <Property Name="UUID" Type="nvarchar" MaxLength="200" />
+          <Property Name="Timestamp" Type="nvarchar" MaxLength="50" />
+          <Property Name="MerchantId" Type="nchar" MaxLength="10" />
+          <Property Name="Invoice_Students_Id" Type="nvarchar" MaxLength="200" />
+          <Property Name="Invoice_Students_FirstName" Type="nvarchar" MaxLength="200" />
+          <Property Name="Invoice_Students_LastName" Type="nvarchar" MaxLength="200" />
+          <Property Name="InvoiceId" Type="nvarchar" MaxLength="200" />
+          <Property Name="PayeeId" Type="nvarchar" MaxLength="200" />
+          <Property Name="InvoiceStatus" Type="nvarchar" MaxLength="200" />
+          <Property Name="BillType" Type="nvarchar" MaxLength="200" />
+          <Property Name="DisplayInfo" Type="nvarchar(max)" />
+          <Property Name="AmountDue" Type="nvarchar" MaxLength="200" />
+          <Property Name="CreateDate" Type="nvarchar" MaxLength="200" />
+          <Property Name="ExpiryDate" Type="nvarchar" MaxLength="200" />
+          <Property Name="PaymentRange_MinPartialAmount" Type="nvarchar" MaxLength="200" />
+          <Property Name="PaymentRange_MinAdvanceAmount" Type="nvarchar" MaxLength="200" />
+          <Property Name="PaymentRange_MaxAdvanceAmount" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsPaid" Type="bit" />
+          <Property Name="Result_JSON" Type="nvarchar(max)" />
+          <Property Name="Response_InvoiceId" Type="nvarchar" MaxLength="200" />
+          <Property Name="Response_SADADNumber" Type="nvarchar" MaxLength="200" />
+          <Property Name="Response_Status_Code" Type="nvarchar" MaxLength="200" />
+          <Property Name="Response_Status_Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Rosom_Response">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Payment_Process_Id" Type="int" />
+          <Property Name="Rosom_Request_Id" Type="int" />
+          <Property Name="Trackingkey" Type="nvarchar(max)" />
+          <Property Name="InvoiceId" Type="nvarchar" MaxLength="250" />
+          <Property Name="PaymentId" Type="nvarchar" MaxLength="250" />
+          <Property Name="SADADTransactionId" Type="nvarchar(max)" />
+          <Property Name="BankTransactionId" Type="nvarchar(max)" />
+          <Property Name="PaidAmount" Type="nvarchar" MaxLength="250" />
+          <Property Name="PaymentDate" Type="nvarchar" MaxLength="250" />
+          <Property Name="SADADNumber" Type="nvarchar" MaxLength="250" />
+          <Property Name="MerchantId" Type="nvarchar(max)" />
+          <Property Name="BankName" Type="nvarchar" MaxLength="250" />
+          <Property Name="DistrictCode" Type="nvarchar(max)" />
+          <Property Name="BranchCode" Type="nvarchar(max)" />
+          <Property Name="AccessChannel" Type="nvarchar(max)" />
+          <Property Name="PmtMethod" Type="nvarchar" MaxLength="250" />
+          <Property Name="PmtType" Type="nvarchar" MaxLength="250" />
+          <Property Name="ServiceType" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="Sequence">
           <Key>
@@ -472,6 +529,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Rosom_Request_Payment_Process">
+          <End Role="Payment_Process" Type="Self.Payment_Process" Multiplicity="0..1" />
+          <End Role="Rosom_Request" Type="Self.Rosom_Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment_Process">
+              <PropertyRef Name="Payment_Id" />
+            </Principal>
+            <Dependent Role="Rosom_Request">
+              <PropertyRef Name="Payment_Process_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rosom_Response_Payment_Process">
+          <End Role="Payment_Process" Type="Self.Payment_Process" Multiplicity="0..1" />
+          <End Role="Rosom_Response" Type="Self.Rosom_Response" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment_Process">
+              <PropertyRef Name="Payment_Id" />
+            </Principal>
+            <Dependent Role="Rosom_Response">
+              <PropertyRef Name="Payment_Process_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rosom_Response_Rosom_Request">
+          <End Role="Rosom_Request" Type="Self.Rosom_Request" Multiplicity="0..1" />
+          <End Role="Rosom_Response" Type="Self.Rosom_Response" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rosom_Request">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rosom_Response">
+              <PropertyRef Name="Rosom_Request_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Sequence_Employee">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="Sequence" Type="Self.Sequence" Multiplicity="*" />
@@ -611,6 +704,8 @@
           <EntitySet Name="Permission" EntityType="Self.Permission" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Permission_Group" EntityType="Self.Permission_Group" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Resource" EntityType="Self.Resource" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rosom_Request" EntityType="Self.Rosom_Request" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rosom_Response" EntityType="Self.Rosom_Response" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sequence" EntityType="Self.Sequence" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Specialization" EntityType="Self.Specialization" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
@@ -679,6 +774,18 @@
           <AssociationSet Name="FK_Permission_Group_Permission" Association="Self.FK_Permission_Group_Permission">
             <End Role="Permission" EntitySet="Permission" />
             <End Role="Permission_Group" EntitySet="Permission_Group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rosom_Request_Payment_Process" Association="Self.FK_Rosom_Request_Payment_Process">
+            <End Role="Payment_Process" EntitySet="Payment_Process" />
+            <End Role="Rosom_Request" EntitySet="Rosom_Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rosom_Response_Payment_Process" Association="Self.FK_Rosom_Response_Payment_Process">
+            <End Role="Payment_Process" EntitySet="Payment_Process" />
+            <End Role="Rosom_Response" EntitySet="Rosom_Response" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rosom_Response_Rosom_Request" Association="Self.FK_Rosom_Response_Rosom_Request">
+            <End Role="Rosom_Request" EntitySet="Rosom_Request" />
+            <End Role="Rosom_Response" EntitySet="Rosom_Response" />
           </AssociationSet>
           <AssociationSet Name="FK_Sequence_Employee" Association="Self.FK_Sequence_Employee">
             <End Role="Employee" EntitySet="Employee" />
@@ -910,6 +1017,8 @@
           <Property Name="Payment_SMS_Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Payment_Type" Relationship="Self.FK_Payment_Process_Payment_Type" FromRole="Payment_Process" ToRole="Payment_Type" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Payment_Study_Student" FromRole="Payment_Process" ToRole="Student" />
+          <NavigationProperty Name="Rosom_Request" Relationship="Self.FK_Rosom_Request_Payment_Process" FromRole="Payment_Process" ToRole="Rosom_Request" />
+          <NavigationProperty Name="Rosom_Response" Relationship="Self.FK_Rosom_Response_Payment_Process" FromRole="Payment_Process" ToRole="Rosom_Response" />
         </EntityType>
         <EntityType Name="Payment_Type">
           <Key>
@@ -952,6 +1061,67 @@
           <Property Name="Resource_Name_Ar" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
           <Property Name="Resource_Name_En" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Students" Relationship="Self.FK_Student_Resource" FromRole="Resource" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Rosom_Request">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Trackingkey" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Payment_Process_Id" Type="Int32" />
+          <Property Name="PaymentType" Type="Int32" />
+          <Property Name="DateCreation" Type="DateTime" Precision="3" />
+          <Property Name="UUID" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Timestamp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MerchantId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Invoice_Students_Id" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Invoice_Students_FirstName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Invoice_Students_LastName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="InvoiceId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PayeeId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="InvoiceStatus" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="BillType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AmountDue" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ExpiryDate" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentRange_MinPartialAmount" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentRange_MinAdvanceAmount" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentRange_MaxAdvanceAmount" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsPaid" Type="Boolean" />
+          <Property Name="Result_JSON" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Response_InvoiceId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Response_SADADNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Response_Status_Code" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Response_Status_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Payment_Process" Relationship="Self.FK_Rosom_Request_Payment_Process" FromRole="Rosom_Request" ToRole="Payment_Process" />
+          <NavigationProperty Name="Rosom_Response" Relationship="Self.FK_Rosom_Response_Rosom_Request" FromRole="Rosom_Request" ToRole="Rosom_Response" />
+        </EntityType>
+        <EntityType Name="Rosom_Response">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Payment_Process_Id" Type="Int32" />
+          <Property Name="Rosom_Request_Id" Type="Int32" />
+          <Property Name="Trackingkey" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InvoiceId" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentId" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SADADTransactionId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BankTransactionId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PaidAmount" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentDate" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SADADNumber" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="MerchantId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BankName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DistrictCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BranchCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AccessChannel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PmtMethod" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PmtType" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ServiceType" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Payment_Process" Relationship="Self.FK_Rosom_Response_Payment_Process" FromRole="Rosom_Response" ToRole="Payment_Process" />
+          <NavigationProperty Name="Rosom_Request" Relationship="Self.FK_Rosom_Response_Rosom_Request" FromRole="Rosom_Response" ToRole="Rosom_Request" />
         </EntityType>
         <EntityType Name="Sequence">
           <Key>
@@ -1281,6 +1451,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Rosom_Request_Payment_Process">
+          <End Role="Payment_Process" Type="Self.Payment_Process" Multiplicity="0..1" />
+          <End Role="Rosom_Request" Type="Self.Rosom_Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment_Process">
+              <PropertyRef Name="Payment_Id" />
+            </Principal>
+            <Dependent Role="Rosom_Request">
+              <PropertyRef Name="Payment_Process_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rosom_Response_Payment_Process">
+          <End Role="Payment_Process" Type="Self.Payment_Process" Multiplicity="0..1" />
+          <End Role="Rosom_Response" Type="Self.Rosom_Response" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment_Process">
+              <PropertyRef Name="Payment_Id" />
+            </Principal>
+            <Dependent Role="Rosom_Response">
+              <PropertyRef Name="Payment_Process_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Permission_Group_Permission">
           <End Role="Permission" Type="Self.Permission" Multiplicity="0..1" />
           <End Role="Permission_Group" Type="Self.Permission_Group" Multiplicity="*" />
@@ -1302,6 +1496,18 @@
             </Principal>
             <Dependent Role="Student">
               <PropertyRef Name="Student_Resource_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rosom_Response_Rosom_Request">
+          <End Role="Rosom_Request" Type="Self.Rosom_Request" Multiplicity="0..1" />
+          <End Role="Rosom_Response" Type="Self.Rosom_Response" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rosom_Request">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rosom_Response">
+              <PropertyRef Name="Rosom_Request_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1384,6 +1590,8 @@
           <EntitySet Name="Permissions" EntityType="Self.Permission" />
           <EntitySet Name="Permission_Group" EntityType="Self.Permission_Group" />
           <EntitySet Name="Resources" EntityType="Self.Resource" />
+          <EntitySet Name="Rosom_Request" EntityType="Self.Rosom_Request" />
+          <EntitySet Name="Rosom_Response" EntityType="Self.Rosom_Response" />
           <EntitySet Name="Sequences" EntityType="Self.Sequence" />
           <EntitySet Name="Specializations" EntityType="Self.Specialization" />
           <EntitySet Name="Status" EntityType="Self.Status" />
@@ -1465,6 +1673,14 @@
             <End Role="Student" EntitySet="Students" />
             <End Role="Payment_Process" EntitySet="Payment_Process" />
           </AssociationSet>
+          <AssociationSet Name="FK_Rosom_Request_Payment_Process" Association="Self.FK_Rosom_Request_Payment_Process">
+            <End Role="Payment_Process" EntitySet="Payment_Process" />
+            <End Role="Rosom_Request" EntitySet="Rosom_Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rosom_Response_Payment_Process" Association="Self.FK_Rosom_Response_Payment_Process">
+            <End Role="Payment_Process" EntitySet="Payment_Process" />
+            <End Role="Rosom_Response" EntitySet="Rosom_Response" />
+          </AssociationSet>
           <AssociationSet Name="FK_Permission_Group_Permission" Association="Self.FK_Permission_Group_Permission">
             <End Role="Permission" EntitySet="Permissions" />
             <End Role="Permission_Group" EntitySet="Permission_Group" />
@@ -1472,6 +1688,10 @@
           <AssociationSet Name="FK_Student_Resource" Association="Self.FK_Student_Resource">
             <End Role="Resource" EntitySet="Resources" />
             <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rosom_Response_Rosom_Request" Association="Self.FK_Rosom_Response_Rosom_Request">
+            <End Role="Rosom_Request" EntitySet="Rosom_Request" />
+            <End Role="Rosom_Response" EntitySet="Rosom_Response" />
           </AssociationSet>
           <AssociationSet Name="FK_Sequence_Status" Association="Self.FK_Sequence_Status">
             <End Role="Status" EntitySet="Status" />
@@ -1711,6 +1931,65 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Rosom_Request">
+            <EntityTypeMapping TypeName="REU_RegistrationModel.Rosom_Request">
+              <MappingFragment StoreEntitySet="Rosom_Request">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Trackingkey" ColumnName="Trackingkey" />
+                <ScalarProperty Name="Payment_Process_Id" ColumnName="Payment_Process_Id" />
+                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+                <ScalarProperty Name="DateCreation" ColumnName="DateCreation" />
+                <ScalarProperty Name="UUID" ColumnName="UUID" />
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+                <ScalarProperty Name="Invoice_Students_Id" ColumnName="Invoice_Students_Id" />
+                <ScalarProperty Name="Invoice_Students_FirstName" ColumnName="Invoice_Students_FirstName" />
+                <ScalarProperty Name="Invoice_Students_LastName" ColumnName="Invoice_Students_LastName" />
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="PayeeId" ColumnName="PayeeId" />
+                <ScalarProperty Name="InvoiceStatus" ColumnName="InvoiceStatus" />
+                <ScalarProperty Name="BillType" ColumnName="BillType" />
+                <ScalarProperty Name="DisplayInfo" ColumnName="DisplayInfo" />
+                <ScalarProperty Name="AmountDue" ColumnName="AmountDue" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="PaymentRange_MinPartialAmount" ColumnName="PaymentRange_MinPartialAmount" />
+                <ScalarProperty Name="PaymentRange_MinAdvanceAmount" ColumnName="PaymentRange_MinAdvanceAmount" />
+                <ScalarProperty Name="PaymentRange_MaxAdvanceAmount" ColumnName="PaymentRange_MaxAdvanceAmount" />
+                <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
+                <ScalarProperty Name="Result_JSON" ColumnName="Result_JSON" />
+                <ScalarProperty Name="Response_InvoiceId" ColumnName="Response_InvoiceId" />
+                <ScalarProperty Name="Response_SADADNumber" ColumnName="Response_SADADNumber" />
+                <ScalarProperty Name="Response_Status_Code" ColumnName="Response_Status_Code" />
+                <ScalarProperty Name="Response_Status_Description" ColumnName="Response_Status_Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rosom_Response">
+            <EntityTypeMapping TypeName="REU_RegistrationModel.Rosom_Response">
+              <MappingFragment StoreEntitySet="Rosom_Response">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Payment_Process_Id" ColumnName="Payment_Process_Id" />
+                <ScalarProperty Name="Rosom_Request_Id" ColumnName="Rosom_Request_Id" />
+                <ScalarProperty Name="Trackingkey" ColumnName="Trackingkey" />
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
+                <ScalarProperty Name="SADADTransactionId" ColumnName="SADADTransactionId" />
+                <ScalarProperty Name="BankTransactionId" ColumnName="BankTransactionId" />
+                <ScalarProperty Name="PaidAmount" ColumnName="PaidAmount" />
+                <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+                <ScalarProperty Name="SADADNumber" ColumnName="SADADNumber" />
+                <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+                <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+                <ScalarProperty Name="AccessChannel" ColumnName="AccessChannel" />
+                <ScalarProperty Name="PmtMethod" ColumnName="PmtMethod" />
+                <ScalarProperty Name="PmtType" ColumnName="PmtType" />
+                <ScalarProperty Name="ServiceType" ColumnName="ServiceType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Sequences">
             <EntityTypeMapping TypeName="REU_RegistrationModel.Sequence">
               <MappingFragment StoreEntitySet="Sequence">
@@ -1814,7 +2093,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

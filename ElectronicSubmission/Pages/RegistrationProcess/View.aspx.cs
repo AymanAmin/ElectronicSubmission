@@ -147,7 +147,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                     if (std.Status.Status_Code == 1)
                     {
                         std.Student_Status_Id = 2;
-                        db.Entry(std).State = System.Data.EntityState.Modified;
+                        db.Entry(std).State = System.Data.Entity.EntityState.Modified;
 
                         Sequence seq = db.Sequences.Create();
 
@@ -414,7 +414,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 }
 
                 std.Student_Status_Id = newStatus;
-                db.Entry(std).State = System.Data.EntityState.Modified;
+                db.Entry(std).State = System.Data.Entity.EntityState.Modified;
 
                 Sequence seq = db.Sequences.Create();
 
@@ -553,7 +553,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
 
 
                 std.Student_Status_Id = newStatus;
-                db.Entry(std).State = System.Data.EntityState.Modified;
+                db.Entry(std).State = System.Data.Entity.EntityState.Modified;
 
                 Sequence seq = db.Sequences.Create();
 
@@ -691,7 +691,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
             {
                 std.Student_Employee_Id = int.Parse(txtEmployees.SelectedValue);
                 std.Student_Status_Id = 3; // Assigned
-                db.Entry(std).State = System.Data.EntityState.Modified;
+                db.Entry(std).State = System.Data.Entity.EntityState.Modified;
 
                 Sequence seq = db.Sequences.Create();
 

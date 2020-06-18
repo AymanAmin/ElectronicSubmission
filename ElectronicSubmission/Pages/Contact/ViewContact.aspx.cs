@@ -75,7 +75,7 @@ namespace ElectronicSubmission.Pages.Contact
                     if (std.Student_Concat_Status == 1)
                     {
                         std.Student_Concat_Status = 2;
-                        db.Entry(std).State = System.Data.EntityState.Modified;
+                        db.Entry(std).State = System.Data.Entity.EntityState.Modified;
                         db.SaveChanges();
                         index = (int)std.Student_Concat_Status - 1;
                         if (index > Color.Length) index = 1;
@@ -103,7 +103,7 @@ namespace ElectronicSubmission.Pages.Contact
                 db.Configuration.LazyLoadingEnabled = false;
                 Student_Concat std = db.Student_Concat.Find(student_record_id);
                 std.Student_Concat_Status = 14;
-                db.Entry(std).State = System.Data.EntityState.Modified;
+                db.Entry(std).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 LogData = "data:" + JsonConvert.SerializeObject(std, logFileModule.settings);
                 logFileModule.logfile(10, "تغير حالة الإتصال", "Update Status Contact", LogData);
@@ -127,7 +127,7 @@ namespace ElectronicSubmission.Pages.Contact
                 db.Configuration.LazyLoadingEnabled = false;
                 Student_Concat std = db.Student_Concat.Find(student_record_id);
                 std.Student_Concat_Status = 15;
-                db.Entry(std).State = System.Data.EntityState.Modified;
+                db.Entry(std).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 LogData = "data:" + JsonConvert.SerializeObject(std, logFileModule.settings);
                 logFileModule.logfile(10, "تغير حالة الإتصال", "Update Status Contact", LogData);

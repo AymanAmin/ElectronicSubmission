@@ -151,7 +151,7 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment
                 string ImagepathProfile = UploadFile(1);
                 string ImagepathSignature = UploadFile(2);
                 if (ImagepathProfile != "") Emp.Employee_Profile = ImagepathProfile;
-                db.Entry(Emp).State = System.Data.EntityState.Modified;
+                db.Entry(Emp).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 /* Add it to log file */
                 LogData = "data:" + JsonConvert.SerializeObject(Emp, logFileModule.settings);
@@ -201,7 +201,7 @@ namespace ElectronicSubmission.Pages.Setting.UserManagment
                     Employee Emp = db.Employees.First(x => x.Employee_Id == EmployeeId);
                     string EncryptedPassword = StringCipher.Encrypt(NewPassWord.Text, "Password");
                     Emp.Employee_Password = EncryptedPassword;
-                    db.Entry(Emp).State = System.Data.EntityState.Modified;
+                    db.Entry(Emp).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                     /* Add it to log file */
                     LogData = "data:" + JsonConvert.SerializeObject(Emp, logFileModule.settings);

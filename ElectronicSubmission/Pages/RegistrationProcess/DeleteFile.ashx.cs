@@ -46,7 +46,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 str_En = "Delete File";
                 str_Ar = "حذف ملف";
 
-                db.Entry(file).State = System.Data.EntityState.Deleted;
+                db.Entry(file).State = System.Data.Entity.EntityState.Deleted;
                 db.SaveChanges();
 
                 file.Student_Id = studentID;

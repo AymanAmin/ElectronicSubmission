@@ -195,7 +195,7 @@ namespace ElectronicSubmission.Pages.Setting
 
                 if (SpecializationId != 0)
                 {
-                    db.Entry(Specl).State = System.Data.EntityState.Modified;
+                    db.Entry(Specl).State = System.Data.Entity.EntityState.Modified;
                 }
                 else
                 {
