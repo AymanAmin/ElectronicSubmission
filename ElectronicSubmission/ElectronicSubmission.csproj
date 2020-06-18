@@ -162,6 +162,7 @@
     <Content Include="Database\SpecializationData.sql" />
     <Content Include="Database\Student_SSN.txt" />
     <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="homepage.aspx" />
     <Content Include="media\Profile\Profile.jpg" />
     <Content Include="media\StudentProfile\Profile.jpg" />
@@ -197,7 +198,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>REU_Registration.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Payment\RosomResponse.asmx" />
     <Content Include="REU_Registration.edmx.diagram">
       <DependentUpon>REU_Registration.edmx</DependentUpon>
     </Content>
@@ -2686,6 +2686,9 @@
     <Compile Include="File.cs">
       <DependentUpon>REU_Registration.tt</DependentUpon>
     </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Group.cs">
       <DependentUpon>REU_Registration.tt</DependentUpon>
     </Compile>
@@ -2903,10 +2906,6 @@
     </Compile>
     <Compile Include="Payment\PaymentProcessDetails.aspx.designer.cs">
       <DependentUpon>PaymentProcessDetails.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Payment\RosomResponse.asmx.cs">
-      <DependentUpon>RosomResponse.asmx</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Payment_Process.cs">
       <DependentUpon>REU_Registration.tt</DependentUpon>
