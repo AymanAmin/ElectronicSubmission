@@ -65,6 +65,7 @@ namespace ElectronicSubmission
 
                         Session["Success"] = null;
                  }
+                    if (StatusId == 0) Nationality_ID.SelectedValue = "191";
             }
             }catch(Exception s)
             {
@@ -373,7 +374,7 @@ namespace ElectronicSubmission
         
         public void translateValidationArabic()
         {
-            Stu_ProfileValidator.Text = "إختر الصورة الشخصية";
+            //Stu_ProfileValidator.Text = "إختر الصورة الشخصية";
             StudentNameArValidator.Text = "الرجاء إدخال الإسم بالعربي";
             StudentNameEnValidator.Text = "الرجاء إدخال الإسم بالانجليزي";
             StudentEmailValidator.Text = "الرجاء إدخال البريد الإلكتروني";

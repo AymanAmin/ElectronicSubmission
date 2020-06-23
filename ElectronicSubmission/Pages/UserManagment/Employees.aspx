@@ -55,11 +55,12 @@
            // GetServiceInformation(x.id)
         }
 
+
         function DeleteEmplooye(x) {
             $.ajax({
                 url: "Employees.aspx/DeleteEmplooye",
                 type: "POST",
-                data: "{ Employee_Id:" + x.id + "}",
+                data: "{ Employee_Id:" + x + "}",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (resultData) {

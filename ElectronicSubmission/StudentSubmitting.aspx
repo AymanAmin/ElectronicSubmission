@@ -220,7 +220,6 @@
                                                             <asp:FileUpload ID="stuProfile" runat="server" class="form-control" />
                                                         </span>
                                                     </div>
-                                                    <asp:RequiredFieldValidator ID="Stu_ProfileValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Select Profile image" ValidationGroup="valFormGroup" ControlToValidate="stuProfile" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                         </div>
@@ -234,7 +233,7 @@
                                         <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentArabicName", "Student Arabic Name") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
-                                            <asp:TextBox ID="StudentNameAr" runat="server" class="form-control" placeholder="Enter Student Name"></asp:TextBox>
+                                            <asp:TextBox ID="StudentNameAr" runat="server" class="form-control" placeholder="Enter Student Arabic Name"></asp:TextBox>
                                         </div>
                                         <asp:RequiredFieldValidator ID="StudentNameArValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student Arabic Name" ValidationGroup="valFormGroup" ControlToValidate="StudentNameAr" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                     </div>
@@ -243,7 +242,7 @@
                                         <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentEnglishName", "Student English Name") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
-                                            <asp:TextBox ID="StudentNameEn" runat="server" class="form-control" placeholder="Enter Student Name"></asp:TextBox>
+                                            <asp:TextBox ID="StudentNameEn" runat="server" class="form-control" placeholder="Enter Student English Name"></asp:TextBox>
                                         </div>
                                         <asp:RequiredFieldValidator ID="StudentNameEnValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student English Name" ValidationGroup="valFormGroup" ControlToValidate="StudentNameEn" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                     </div>
@@ -270,18 +269,18 @@
 
                                 <div class="row">
                                     <div class="form-group col-sm-4">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentSSN", "Student SSN") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-NationalityID", "Nationality ID") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="icofont icofont-stamp"></i></span>
-                                            <asp:TextBox ID="Student_SSN" runat="server" class="form-control" placeholder="Enter Student SSN"></asp:TextBox>
+                                            <asp:TextBox ID="Student_SSN" runat="server" class="form-control" placeholder="Enter Nationality ID"></asp:TextBox>
                                         </div>
-                                        <asp:RequiredFieldValidator ID="Student_SSNValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student SSN" ValidationGroup="valFormGroup" ControlToValidate="Student_SSN" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ID="Student_SSNValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Nationality ID" ValidationGroup="valFormGroup" ControlToValidate="Student_SSN" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                     </div>
 
                                     <div class="form-group col-sm-6">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-AddStudentSSNAttachments", "Add Student SSN Attachments") %></label>
+                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-AddStudentSSNAttachments", "Add Nationality ID Attachments") %></label>
                                         <asp:FileUpload ID="StudentSSNFile" runat="server" class="form-control" AllowMultiple="True" />
-                                        <asp:RequiredFieldValidator ID="StudentSSNFileValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Add Student SSN Attachments" ValidationGroup="valFormGroup" ControlToValidate="StudentSSNFile" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ID="StudentSSNFileValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Add Nationality ID Attachments" ValidationGroup="valFormGroup" ControlToValidate="StudentSSNFile" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                     </div>
                                 </div>
 

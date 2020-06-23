@@ -124,16 +124,16 @@
 
                   <div class="row">
                      <div class="form-group col-sm-6">
-                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-StudentSSN", "Student SSN") %></label><i class="icofont icofont-star-alt-1 text-danger"></i>
+                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-NationalityID", "Nationality ID") %></label><i class="icofont icofont-star-alt-1 text-danger"></i>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="icofont icofont-stamp"></i></span>
-                            <asp:TextBox ID="Student_SSN" runat="server" class="form-control" placeholder="Enter Student SSN"></asp:TextBox>
+                            <asp:TextBox ID="Student_SSN" runat="server" class="form-control" placeholder="Enter Nationality ID"></asp:TextBox>
                         </div>
-                         <asp:RequiredFieldValidator ID="Student_SSNValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student SSN" ValidationGroup="valFormGroup" ControlToValidate="Student_SSN" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                         <asp:RequiredFieldValidator ID="Student_SSNValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Nationality ID" ValidationGroup="valFormGroup" ControlToValidate="Student_SSN" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
                     </div>
 
                        <div class="form-group col-sm-6">
-                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-AddStudentSSNAttachments", "Add Student SSN Attachments") %></label>
+                        <label><% = ElectronicSubmission.FieldNames.getFieldName("StudentInfo-AddNationalityIDAttachments", "Add Nationality ID Attachments") %></label>
                         <asp:FileUpload ID="StudentSSNFile" runat="server" class="form-control" AllowMultiple="True" />
                     </div>
                   </div>

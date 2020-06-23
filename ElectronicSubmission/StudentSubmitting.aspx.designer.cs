@@ -58,15 +58,6 @@ namespace ElectronicSubmission {
         protected global::System.Web.UI.WebControls.FileUpload stuProfile;
         
         /// <summary>
-        /// Stu_ProfileValidator control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator Stu_ProfileValidator;
-        
-        /// <summary>
         /// StudentNameAr control.
         /// </summary>
         /// <remarks>

@@ -44,6 +44,7 @@ namespace ElectronicSubmission.Pages.RegistrationProcess
                 FillDropDownLists();
                 RegistrationDate.Text = DateTime.Now.Date.ToString();
                 if(StudentID !=0) ViewDataStudent(StudentID);
+                if(StudentID == 0) Nationality_ID.SelectedValue = "191";
             }
 
             if(StudentID != 0) {
