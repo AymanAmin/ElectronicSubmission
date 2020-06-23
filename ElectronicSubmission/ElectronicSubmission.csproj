@@ -2961,6 +2961,12 @@
     <Compile Include="Specialization.cs">
       <DependentUpon>REU_Registration.tt</DependentUpon>
     </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>REU_Registration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>REU_Registration.tt</DependentUpon>
+    </Compile>
     <Compile Include="Status.cs">
       <DependentUpon>REU_Registration.tt</DependentUpon>
     </Compile>
@@ -2975,6 +2981,9 @@
       <DependentUpon>StudentSubmitting.aspx</DependentUpon>
     </Compile>
     <Compile Include="Student_Concat.cs">
+      <DependentUpon>REU_Registration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
       <DependentUpon>REU_Registration.tt</DependentUpon>
     </Compile>
     <Compile Include="Web References\CheckPaymentRef\Reference.cs">

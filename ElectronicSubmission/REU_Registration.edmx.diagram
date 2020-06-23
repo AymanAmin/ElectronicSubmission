@@ -59,6 +59,7 @@
         <AssociationConnector Association="REU_RegistrationModel.FK_Student_Specialization" ManuallyRouted="false" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Student_Concat_Status" ManuallyRouted="false" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Student_Status" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.sysdiagram" Width="1.5" PointX="11.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
