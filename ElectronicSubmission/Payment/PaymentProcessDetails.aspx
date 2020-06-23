@@ -159,94 +159,115 @@
 
                             
                                  <div class="row">
-
-                                       <div class="form-group col-sm-12">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcessDetails-StudentName", "Student Name") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
-                                            <asp:DropDownList ID="PaymentType" class="form-control" runat="server">
-                                                <asp:ListItem Value="1">VISA</asp:ListItem>
-                                                <asp:ListItem Value="2">MASTER</asp:ListItem>
-                                                <asp:ListItem Value="3">MADA</asp:ListItem>
-                                            </asp:DropDownList> 
+                                      
+                                           <div class="form-group col-sm-12">
+                                            <label><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcessDetails-PaymentType", "Payment Type") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
+                                                <asp:DropDownList ID="PaymentType" class="form-control" runat="server" OnSelectedIndexChanged="PaymentType_SelectedIndexChanged" AutoPostBack="True">
+                                                    <asp:ListItem Value="1">VISA</asp:ListItem>
+                                                    <asp:ListItem Value="2">MASTER</asp:ListItem>
+                                                    <asp:ListItem Value="3">MADA</asp:ListItem>
+                                                    <asp:ListItem Value="4">SADAD</asp:ListItem>
+                                                </asp:DropDownList> 
+                                            </div>
+                                            <asp:RequiredFieldValidator ID="PaymentTypeValidator1" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Select Payment Type" ValidationGroup="valFormGroup" ControlToValidate="PaymentType" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                         </div>
-                                        <asp:RequiredFieldValidator ID="PaymentTypeValidator1" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Select Payment Type" ValidationGroup="valFormGroup" ControlToValidate="PaymentType" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                    </div>
-
-                                     <div class="form-group col-sm-12">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcessDetails-StudentName", "Student Name") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
-                                            <asp:TextBox ID="StudentName" runat="server" class="form-control" placeholder="Enter Student Name"></asp:TextBox>
+                                    <div runat="server" id="Visa">
+                                         <div class="form-group col-sm-12">
+                                            <label><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcessDetails-StudentName", "Student Name") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
+                                                <asp:TextBox ID="StudentName" runat="server" class="form-control" placeholder="Enter Student Name"></asp:TextBox>
+                                            </div>
+                                            <asp:RequiredFieldValidator ID="StudentNameValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student Name" ValidationGroup="valFormGroup" ControlToValidate="StudentName" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                         </div>
-                                        <asp:RequiredFieldValidator ID="StudentNameValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student Name" ValidationGroup="valFormGroup" ControlToValidate="StudentName" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                    </div>
                                   
-                                   <div class="form-group col-sm-12">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcessDetails-Studentsurname", "Student surname") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
-                                            <asp:TextBox ID="Studentsurname" runat="server" class="form-control" placeholder="Enter surname"></asp:TextBox>
-                                        </div>
-                                        <asp:RequiredFieldValidator ID="StudentsurnameValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student surname" ValidationGroup="valFormGroup" ControlToValidate="Studentsurname" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                    </div>
-
-                                     <div class="form-group col-sm-12">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcessDetails-StudentEmail", "Student Email") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
-                                            <asp:TextBox ID="StudentEmail" runat="server" class="form-control" placeholder="Enter Student Email"></asp:TextBox>
-                                        </div>
-                                        <asp:RequiredFieldValidator ID="StudentEmailValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student Email" ValidationGroup="valFormGroup" ControlToValidate="StudentEmail" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                    </div>
-
-                                      <div class="form-group col-sm-12">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcessDetails-StudentCountry", "Student Country") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
-                                            <asp:DropDownList ID="StudentCountry" runat="server"></asp:DropDownList>
-                                        </div>
-                                        <asp:RequiredFieldValidator ID="StudentCountryValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student Country" ValidationGroup="valFormGroup" ControlToValidate="StudentCountry" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True" InitialValue="0"></asp:RequiredFieldValidator>
-                                    </div>
-
                                        <div class="form-group col-sm-12">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcessDetails-StudentState ", "Student State ") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
-                                            <asp:TextBox ID="StudentState" runat="server" class="form-control" placeholder="Enter Student State"></asp:TextBox>
+                                            <label><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcessDetails-Studentsurname", "Student surname") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
+                                                <asp:TextBox ID="Studentsurname" runat="server" class="form-control" placeholder="Enter surname"></asp:TextBox>
+                                            </div>
+                                            <asp:RequiredFieldValidator ID="StudentsurnameValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student surname" ValidationGroup="valFormGroup" ControlToValidate="Studentsurname" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                         </div>
-                                        <asp:RequiredFieldValidator ID="StudentStateValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student State" ValidationGroup="valFormGroup" ControlToValidate="StudentState" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                    </div>
 
-                                       <div class="form-group col-sm-12">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcessDetails-StudentCity", "Student City") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
-                                            <asp:TextBox ID="StudentCity" runat="server" class="form-control" placeholder="Enter Student City"></asp:TextBox>
+                                         <div class="form-group col-sm-12">
+                                            <label><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcessDetails-StudentEmail", "Student Email") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
+                                                <asp:TextBox ID="StudentEmail" runat="server" class="form-control" placeholder="Enter Student Email"></asp:TextBox>
+                                            </div>
+                                            <asp:RequiredFieldValidator ID="StudentEmailValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student Email" ValidationGroup="valFormGroup" ControlToValidate="StudentEmail" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                         </div>
-                                        <asp:RequiredFieldValidator ID="StudentCityValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student City " ValidationGroup="valFormGroup" ControlToValidate="StudentCity" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                    </div>
 
-                                     <div class="form-group col-sm-12">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcessDetails-StudentStreet", "Student Street") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
-                                            <asp:TextBox ID="StudentAddress" runat="server" class="form-control" placeholder="Enter Student Address"></asp:TextBox>
+                                          <div class="form-group col-sm-12">
+                                            <label><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcessDetails-StudentCountry", "Student Country") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
+                                                <asp:DropDownList ID="StudentCountry" runat="server" ></asp:DropDownList>
+                                            </div>
+                                            <asp:RequiredFieldValidator ID="StudentCountryValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student Country" ValidationGroup="valFormGroup" ControlToValidate="StudentCountry" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True" InitialValue="0"></asp:RequiredFieldValidator>
                                         </div>
-                                        <asp:RequiredFieldValidator ID="StudentAddressValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student Address" ValidationGroup="valFormGroup" ControlToValidate="StudentAddress" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                                    </div>
 
-                                     <div class="form-group col-sm-12">
-                                        <label><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcessDetails-StudentPostcode", "Student Postcode") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
-                                        <div class="input-group">
+                                           <div class="form-group col-sm-12">
+                                            <label><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcessDetails-StudentState ", "Student State ") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
+                                                <asp:TextBox ID="StudentState" runat="server" class="form-control" placeholder="Enter Student State"></asp:TextBox>
+                                            </div>
+                                            <asp:RequiredFieldValidator ID="StudentStateValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student State" ValidationGroup="valFormGroup" ControlToValidate="StudentState" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                        </div>
+
+                                           <div class="form-group col-sm-12">
+                                            <label><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcessDetails-StudentCity", "Student City") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
+                                                <asp:TextBox ID="StudentCity" runat="server" class="form-control" placeholder="Enter Student City"></asp:TextBox>
+                                            </div>
+                                            <asp:RequiredFieldValidator ID="StudentCityValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student City " ValidationGroup="valFormGroup" ControlToValidate="StudentCity" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                        </div>
+
+                                         <div class="form-group col-sm-12">
+                                            <label><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcessDetails-StudentStreet", "Student Street") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
+                                                <asp:TextBox ID="StudentAddress" runat="server" class="form-control" placeholder="Enter Student Address"></asp:TextBox>
+                                            </div>
+                                            <asp:RequiredFieldValidator ID="StudentAddressValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student Address" ValidationGroup="valFormGroup" ControlToValidate="StudentAddress" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                        </div>
+
+                                         <div class="form-group col-sm-12">
+                                            <label><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcessDetails-StudentPostcode", "Student Postcode") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                            <div class="input-group">
                                             
-                                            <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
-                                            <asp:TextBox ID="StudentPostcode" runat="server" class="form-control" placeholder="Enter Student Postcode"></asp:TextBox>
+                                                <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
+                                                <asp:TextBox ID="StudentPostcode" runat="server" class="form-control" placeholder="Enter Student Postcode"></asp:TextBox>
+                                            </div>
+                                            <asp:RequiredFieldValidator ID="StudentPostcodeValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student Postcode" ValidationGroup="valFormGroup" ControlToValidate="StudentPostcode" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                         </div>
-                                        <asp:RequiredFieldValidator ID="StudentPostcodeValidator" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student Postcode" ValidationGroup="valFormGroup" ControlToValidate="StudentPostcode" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
                                     </div>
 
-                                   
+                                     <div runat="server" id="SADAD" visible="false">
+                                         <div class="form-group col-sm-12">
+                                            <label><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcessDetails-StudentFirstName", "Student FirstName") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
+                                                <asp:TextBox ID="StudentFirstName" runat="server" class="form-control" placeholder="Enter Student FirstName"></asp:TextBox>
+                                            </div>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student FirstName" ValidationGroup="valFormGroup" ControlToValidate="StudentFirstName" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                        </div>
+
+                                         <div class="form-group col-sm-12">
+                                            <label><% = ElectronicSubmission.FieldNames.getFieldName("PaymentProcessDetails-StudentLastName", "Student LastName") %><i class="icofont icofont-star-alt-1 text-danger"></i></label>
+                                            <div class="input-group">
+                                            
+                                                <span class="input-group-addon"><i class="icofont icofont-underline"></i></span>
+                                                <asp:TextBox ID="StudentLastName" runat="server" class="form-control" placeholder="Enter Student LastName"></asp:TextBox>
+                                            </div>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ForeColor="Red" ErrorMessage="RequiredFieldValidator" Text="Enter Student LastName" ValidationGroup="valFormGroup" ControlToValidate="StudentLastName" Display="Dynamic" CssClass="col-form-label" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                                        </div>
+                                   </div>
 
                                 </div>
                             <!-- row.// -->
@@ -282,9 +303,9 @@
                          
                         <aside class="col-sm-4"></aside>
                         <aside class="col-sm-4" style="text-align:center">
-                            <asp:Image ID="image1" runat="server" style="width:70%" ImageUrl="~/Template/images/paymentdone.png" /></aside>
+                            <asp:Image ID="image1" runat="server" style="width:70%" ImageUrl="~/Template/images/success.png" /></aside>
                         <aside class="col-sm-4"></aside>
-                         <aside class="col-sm-12" style="text-align:center;color:#4fa7a0"><h1>The Process was Successfully</h1></aside>
+                         <aside class="col-sm-12" style="text-align:center;color:#4fa7a0"><h1 runat="server" id="SDADNumber"></h1></aside>
                     </div>
                     <!-- row.// -->
 
