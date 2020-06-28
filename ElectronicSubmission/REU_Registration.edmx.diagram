@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5a6f7d5d23304e4aa0972aea05fe5c2f" Name="Diagram1">
+      <Diagram DiagramId="be2e023dcc3c47e19529092181d56d31" Name="Diagram1">
         <EntityTypeShape EntityType="REU_RegistrationModel.Collage" Width="1.5" PointX="1.5" PointY="34.25" IsExpanded="true" />
         <EntityTypeShape EntityType="REU_RegistrationModel.Employee" Width="1.5" PointX="0.75" PointY="14.625" IsExpanded="true" />
         <EntityTypeShape EntityType="REU_RegistrationModel.File" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
@@ -30,6 +30,7 @@
         <EntityTypeShape EntityType="REU_RegistrationModel.Status" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
         <EntityTypeShape EntityType="REU_RegistrationModel.Student" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="REU_RegistrationModel.Student_Concat" Width="1.5" PointX="3" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="REU_RegistrationModel.sysdiagram" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Specialization_Collage" ManuallyRouted="false" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Employee_Group" ManuallyRouted="false" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Employee_LanguageMaster" ManuallyRouted="false" />
@@ -59,7 +60,6 @@
         <AssociationConnector Association="REU_RegistrationModel.FK_Student_Specialization" ManuallyRouted="false" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Student_Concat_Status" ManuallyRouted="false" />
         <AssociationConnector Association="REU_RegistrationModel.FK_Student_Status" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="REU_RegistrationModel.sysdiagram" Width="1.5" PointX="11.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
