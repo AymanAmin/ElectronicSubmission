@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="REU_RegistrationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="REU_RegistrationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Collage">
           <Key>
             <PropertyRef Name="Collage_ID" />
@@ -871,7 +871,8 @@
             <End Role="Student" EntitySet="Student" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="REU_RegistrationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1199,9 +1200,9 @@
           <Property Name="Specialization_Description_En" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Specialization_Registeration_Payment" Type="Double" />
           <Property Name="Specialization_Study_Payment" Type="Double" />
+          <Property Name="Specialization_Suspend" Type="Boolean" />
           <NavigationProperty Name="Collage" Relationship="Self.FK_Specialization_Collage" FromRole="Specialization" ToRole="Collage" />
           <NavigationProperty Name="Students" Relationship="Self.FK_Student_Specialization" FromRole="Specialization" ToRole="Student" />
-          <Property Name="Specialization_Suspend" Type="Boolean" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
@@ -1265,6 +1266,16 @@
           <Property Name="Student_Concat_Status" Type="Int32" />
           <Property Name="Student_Concat_CreationDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Status" Relationship="Self.FK_Student_Concat_Status" FromRole="Student_Concat" ToRole="Status" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK_Specialization_Collage">
           <End Role="Collage" Type="Self.Collage" Multiplicity="0..1" />
@@ -1640,6 +1651,7 @@
           <EntitySet Name="Status" EntityType="Self.Status" />
           <EntitySet Name="Students" EntityType="Self.Student" />
           <EntitySet Name="Student_Concat" EntityType="Self.Student_Concat" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <AssociationSet Name="FK_Specialization_Collage" Association="Self.FK_Specialization_Collage">
             <End Role="Collage" EntitySet="Collages" />
             <End Role="Specialization" EntitySet="Specializations" />
@@ -1756,7 +1768,6 @@
             <End Role="Status" EntitySet="Status" />
             <End Role="Student" EntitySet="Students" />
           </AssociationSet>
-          <EntitySet Name="sysdiagrams" EntityType="REU_RegistrationModel.sysdiagram" />
           <FunctionImport Name="sp_alterdiagram">
             <Parameter Name="diagramname" Mode="In" Type="String" />
             <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -1788,16 +1799,6 @@
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
         </EntityContainer>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
           <Property Type="Binary" Name="definition" Nullable="true" />
@@ -2100,7 +2101,6 @@
           <EntitySetMapping Name="Specializations">
             <EntityTypeMapping TypeName="REU_RegistrationModel.Specialization">
               <MappingFragment StoreEntitySet="Specialization">
-                <ScalarProperty Name="Specialization_Suspend" ColumnName="Specialization_Suspend" />
                 <ScalarProperty Name="Specialization_Id" ColumnName="Specialization_Id" />
                 <ScalarProperty Name="Specialization_Name_Ar" ColumnName="Specialization_Name_Ar" />
                 <ScalarProperty Name="Specialization_Name_En" ColumnName="Specialization_Name_En" />
@@ -2117,6 +2117,7 @@
                 <ScalarProperty Name="Specialization_Description_En" ColumnName="Specialization_Description_En" />
                 <ScalarProperty Name="Specialization_Registeration_Payment" ColumnName="Specialization_Registeration_Payment" />
                 <ScalarProperty Name="Specialization_Study_Payment" ColumnName="Specialization_Study_Payment" />
+                <ScalarProperty Name="Specialization_Suspend" ColumnName="Specialization_Suspend" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2176,11 +2177,11 @@
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="REU_RegistrationModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
